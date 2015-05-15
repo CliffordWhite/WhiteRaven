@@ -146,7 +146,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!1 &1517421176
 GameObject:
   m_ObjectHideFlags: 0
@@ -268,7 +268,27 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 448204, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11477824, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
+      propertyPath: hardModeOn
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11477824, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
+      propertyPath: gameTime
+      value: 1.44000006
+      objectReference: {fileID: 0}
+    - target: {fileID: 11477824, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
+      propertyPath: timeAttackOn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11477824, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
+      propertyPath: treasureCollected.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11477824, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
+      propertyPath: treasureCollected.Array.data[3]
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
