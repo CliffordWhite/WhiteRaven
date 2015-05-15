@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour {
     public float maxSpeed;
     bool grounded;
     bool FacingRight;
-    float HeMoved = Input.GetAxis ("Horizontal");
+    float HeMoved;
 	// Use this for initialization
 	void Start () {
         if (maxSpeed == 0)
@@ -25,19 +25,13 @@ public class PlayerController : MonoBehaviour {
         {
             grounded = false;
         }
+        HeMoved = Input.GetAxis("Horizontal");
 	}
     void FixedUpdate() 
     {
-        if (Input.GetKey(KeyCode.D) && grounded)
-        {
-            GetComponent<Rigidbody>().AddForce(15.0f, 0.0f, 0.0f);
-            HeMoved = 1;
-        }
-        else if (Input.GetKey(KeyCode.A) && grounded)
-        {
-            GetComponent<Rigidbody>().AddForce(-15.0f, 0.0f, 0.0f);
-            HeMoved = -1;
-        }
+        if(grounded)
+        GetComponent<Rigidbody>().velocity = new Vector3(HeMoved * maxSpeed, GetComponent<Rigidbody>().velocity.y, 0.0f);
+       
         if (Input.GetKey(KeyCode.Space) && grounded || Input.GetKey(KeyCode.W) && grounded)
         {
             GetComponent<Rigidbody>().AddForce(0.0f, 250.0f, 0.0f);
