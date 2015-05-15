@@ -6,11 +6,14 @@ public class MainMenu : MonoBehaviour {
 
 	int selected;
 	public GameObject[] _button;
+	public AudioSource _source;
+	public AudioClip _accept;
+	public AudioClip _changeSelection;
 	// Use this for initialization
 	void Start () {
 		selected = 1;
 		_button [0].GetComponent<Image> ().color = Color.yellow;
-	
+
 	}
 	
 	// Update is called once per frame
@@ -18,14 +21,17 @@ public class MainMenu : MonoBehaviour {
 	
 		if (Input.anyKeyDown) {
 			if (Input.GetKeyDown(KeyCode.Return)) {
-				Application.LoadLevel (selected);
+				_source.PlayOneShot(_accept, 1.0f);
+				Invoke("PauseLoad",.8f);
 			}
 			if (Input.GetKeyDown (KeyCode.W) || Input.GetKeyDown (KeyCode.UpArrow)) {
+				_source.PlayOneShot(_changeSelection,1.0f);
 				selected--;
 				if (selected <= 0)
 					selected = _button.Length;
 			}
 			if (Input.GetKeyDown (KeyCode.S) || Input.GetKeyDown (KeyCode.DownArrow)) {
+				_source.PlayOneShot(_changeSelection);
 				selected++;
 				if (selected > _button.Length)
 					selected = 1;
@@ -50,4 +56,10 @@ public class MainMenu : MonoBehaviour {
 		}
 		_obj.GetComponent<Image> ().color = Color.yellow;
 	}
+
+	void PauseLoad()
+	{
+		Application.LoadLevel (selected);
+	}
+
 }
