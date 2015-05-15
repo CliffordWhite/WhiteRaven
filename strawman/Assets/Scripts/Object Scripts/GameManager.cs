@@ -72,15 +72,34 @@ public class GameManager : MonoBehaviour
 			if (Application.loadedLevel == 14) // only works with just the levels in the scene
 				return;
 			else
-				Application.LoadLevel(Application.loadedLevel + 1);
+			{
+				float fadeTime = manager.GetComponent<Fade>().BeginFade(1);
+				Invoke("NextLevel", fadeTime);
+				//Application.LoadLevel(Application.loadedLevel + 1);
+			}
 		}		
 		if (GUI.Button(new Rect(10,50,100,20), "Last Level"))
 		{
 			if (Application.loadedLevel == 0) // only works with just the levels in the scene
 				return;
 			else
-				Application.LoadLevel(Application.loadedLevel - 1);
+			{
+				float fadeTime = manager.GetComponent<Fade>().BeginFade(1);
+				Invoke("PrevLevel", fadeTime);
+				//float fadeTime = manager.GetComponent<Fade>().BeginFade(1);
+			}		
 		}
+	}
+
+	
+	void NextLevel()
+	{
+		//float fadeTime = manager.GetComponent<Fade>().BeginFade(1);
+		Application.LoadLevel(Application.loadedLevel + 1);
+	}
+	void PrevLevel()
+	{
+		Application.LoadLevel(Application.loadedLevel - 1);
 	}
 }
 

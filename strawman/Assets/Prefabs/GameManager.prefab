@@ -9,6 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 448204}
   - 114: {fileID: 11477824}
+  - 114: {fileID: 11452152}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -28,6 +29,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &11452152
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 114462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83665e5b2b1d28248afcf3358b00b179, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeOutTexture: {fileID: 2800000, guid: b2280f8360b70eb468db394647f41a9a, type: 3}
+  fadeSpeed: .800000012
 --- !u!114 &11477824
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -45,6 +59,8 @@ MonoBehaviour:
   hardModeOn: 0
   timeAttackOn: 0
   treasureCollected: 0000000000
+  save: 0
+  saveName: 
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
