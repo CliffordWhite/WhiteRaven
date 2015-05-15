@@ -13,7 +13,8 @@ public class GameManager : MonoBehaviour
 	public float gameTime; // elapsed time for time attack
 	public bool hardModeOn, timeAttackOn; // flags for game modes
 	public bool[] treasureCollected; // flags for collected treasures
-	public int save; // which save file is this?
+	public int save; // which save slot
+	public string saveName; // the name of the save
 
 	void Awake () 
 	{
@@ -32,14 +33,33 @@ public class GameManager : MonoBehaviour
 	public void Save()
 	{
 		BinaryFormatter bf = new BinaryFormatter ();
-		FileStream file = File.Open (Application.persistentDataPath + "/playerInfo.dat");
+
+		string saveDestination; // seperate save file for each slot
+		if (save == 1)
+			saveDestination = Application.persistentDataPath + "/saveOne.dat";
+		else if (save == 2)
+			saveDestination = Application.persistentDataPath + "/saveTwo.dat";
+		else if (save == 3)
+			saveDestination = Application.persistentDataPath + "/saveThree.dat";
+		else
+			return;
+		FileStream file = File.Create (saveDestination);
 		
 		GameInfo info = new GameInfo();
+		info.Keys = keys;
+		info.Lives = lives;
+		info.GameTime = gameTime;
+		info.HardModeOn = hardModeOn;
+		info.TimeAttackOn = timeAttackOn;
+		info.Save = save;
+		info.TreasureCollected = treasureCollected;
 
+		bf.Serialize (file, info);
+		file.Close ();
 	}
 
-	// public function to load the passed in level from anywhere with this object
-	public void Load()
+	// public function to load the passed in save from anywhere with this object
+	public void Load(int saveToOpen)
 	{
 
 	}
