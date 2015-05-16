@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Fatal
   - Shield
+  - ShieldAnchor
   layers:
   - Default
   - TransparentFX

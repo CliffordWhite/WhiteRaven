@@ -20,8 +20,9 @@ public class PlayerController : MonoBehaviour {
         FacingRight = true;
         //Shield Anchor
         if (shieldAnchor == null)
-            shieldAnchor = GameObject.FindWithTag("Shield");
+            shieldAnchor = GameObject.FindWithTag("ShieldAnchor");
         shieldAnchor.SetActive(false);
+
 
 	}
 	
@@ -36,10 +37,15 @@ public class PlayerController : MonoBehaviour {
             grounded = false;
         }
         HeMoved = Input.GetAxis("Horizontal");
+
         //for shield to be active/inactive
+        mousePos = Input.mousePosition;
+        screenPos = Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, transform.position.z - Camera.main.transform.position.z));
+
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
             shieldAnchor.SetActive(true);
+      
         }
         else if (Input.GetKeyUp(KeyCode.Mouse1))
         {
