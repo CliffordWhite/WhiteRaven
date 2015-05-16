@@ -20,9 +20,10 @@ public class MainMenu : MonoBehaviour {
 	void Update () {
 	
 		if (Input.anyKeyDown) {
-			if (Input.GetKeyDown(KeyCode.Return)) {
+			if (Input.GetKeyDown(KeyCode.Return) || Input.GetMouseButtonDown(0)) {
 				_source.PlayOneShot(_accept, 1.0f);
-				Invoke("PauseLoad",.8f);
+				float fadetime = GameManager.manager.GetComponent<Fade>().BeginFade(1);
+				Invoke("PauseLoad",fadetime);
 			}
 			if (Input.GetKeyDown (KeyCode.W) || Input.GetKeyDown (KeyCode.UpArrow)) {
 				_source.PlayOneShot(_changeSelection,1.0f);
@@ -48,6 +49,7 @@ public class MainMenu : MonoBehaviour {
 
 	public void MouseOver(GameObject _obj)
 	{
+		_source.PlayOneShot(_changeSelection,1.0f);
 		for (int i = 1; i <= _button.Length; i++) {
 			if (_obj == _button[i-1]) {
 				selected = i;
