@@ -37,7 +37,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &129822
 GameObject:
   m_ObjectHideFlags: 0
@@ -412,7 +412,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpeed: 6
   shieldAnchor: {fileID: 193664}
-  shield: {fileID: 0}
 --- !u!124 &12424152
 Behaviour:
   m_ObjectHideFlags: 1
