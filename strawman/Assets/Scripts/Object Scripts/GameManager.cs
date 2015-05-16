@@ -43,8 +43,10 @@ public class GameManager : MonoBehaviour
 			saveDestination = Application.persistentDataPath + "/saveThree.dat";
 		else
 			return;
+		Debug.Log (saveDestination);
 		FileStream file = File.Create (saveDestination);
-		
+
+		// store all the game information into our container class
 		GameInfo info = new GameInfo();
 		info.Keys = keys;
 		info.Lives = lives;
@@ -61,7 +63,33 @@ public class GameManager : MonoBehaviour
 	// public function to load the passed in save from anywhere with this object
 	public void Load(int saveToOpen)
 	{
+		string loadFile; // file to load
+		if (saveToOpen == 1)
+			loadFile = Application.persistentDataPath + "/saveOne.dat";
+		else if (saveToOpen == 2)
+			loadFile = Application.persistentDataPath + "/saveTwo.dat";
+		else if (saveToOpen == 3)
+			loadFile = Application.persistentDataPath + "/saveThree.dat";
+		else
+			return;
 
+		if(File.Exists(loadFile))
+		{
+			BinaryFormatter bf = new BinaryFormatter();
+			FileStream file = File.Open(loadFile, FileMode.Open);
+			GameInfo info = (GameInfo)bf.Deserialize(file);
+			file.Close();
+
+			// set values of our manager to those loaded from save
+			keys = info.Keys;
+			lives = info.Lives;
+			gameTime = info.GameTime;
+			hardModeOn = info.HardModeOn;
+			timeAttackOn = info.TimeAttackOn;
+			save = info.Save;
+			treasureCollected = info.TreasureCollected;
+
+		}
 	}
 	// All of this is for testing
 	void OnGUI()
@@ -69,24 +97,22 @@ public class GameManager : MonoBehaviour
 		GUI.TextField (new Rect (100, 300, 150, 20), "Current Level: " + Application.loadedLevel);
 		if (GUI.Button(new Rect(10,10,100,20), "Next Level"))
 		{
-			if (Application.loadedLevel == 14) // only works with just the levels in the scene
+			if (Application.loadedLevel == 20) // total count of menus and levels
 				return;
 			else
 			{
 				float fadeTime = manager.GetComponent<Fade>().BeginFade(1);
 				Invoke("NextLevel", fadeTime);
-				//Application.LoadLevel(Application.loadedLevel + 1);
 			}
 		}		
 		if (GUI.Button(new Rect(10,50,100,20), "Last Level"))
 		{
-			if (Application.loadedLevel == 0) // only works with just the levels in the scene
+			if (Application.loadedLevel == 0) // there is no negetive scene
 				return;
 			else
 			{
 				float fadeTime = manager.GetComponent<Fade>().BeginFade(1);
 				Invoke("PrevLevel", fadeTime);
-				//float fadeTime = manager.GetComponent<Fade>().BeginFade(1);
 			}		
 		}
 	}
@@ -94,7 +120,6 @@ public class GameManager : MonoBehaviour
 	
 	void NextLevel()
 	{
-		//float fadeTime = manager.GetComponent<Fade>().BeginFade(1);
 		Application.LoadLevel(Application.loadedLevel + 1);
 	}
 	void PrevLevel()
