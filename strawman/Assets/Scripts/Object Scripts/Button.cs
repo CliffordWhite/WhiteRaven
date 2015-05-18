@@ -9,8 +9,15 @@ public class Button : MonoBehaviour {
 		if (other.tag == "Player") {
 			if (Input.GetKeyDown(KeyCode.E)) {
 				pressed = !pressed;
+				toEffect.SetActive(!toEffect.activeSelf);
+				if (pressed) 
+					GetComponent<SpriteRenderer>().color = Color.blue;
+				else
+					GetComponent<SpriteRenderer>().color = Color.white;
 			}
 		}
 	}
+
+
 
 }
