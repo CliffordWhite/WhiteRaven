@@ -2,14 +2,15 @@
 using System.Collections;
 
 public class Button : MonoBehaviour {
+	public GameObject toEffect;
+	public bool pressed;
 
-	// Use this for initialization
-	void Start () {
-	
+	void OnTriggerStay(Collider other) {
+		if (other.tag == "Player") {
+			if (Input.GetKeyDown(KeyCode.E)) {
+				pressed = !pressed;
+			}
+		}
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
 }
