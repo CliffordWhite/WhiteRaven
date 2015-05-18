@@ -62,6 +62,37 @@ public class GameManager : MonoBehaviour
 		file.Close ();
 	}
 
+	// used to clear a save file
+	public void EraseFile()
+	{
+		BinaryFormatter bf = new BinaryFormatter ();
+		
+		string saveDestination; // seperate save file for each slot
+		if (save == 1)
+			saveDestination = Application.persistentDataPath + "/saveOne.dat";
+		else if (save == 2)
+			saveDestination = Application.persistentDataPath + "/saveTwo.dat";
+		else if (save == 3)
+			saveDestination = Application.persistentDataPath + "/saveThree.dat";
+		else
+			return;
+		Debug.Log (saveDestination);
+		FileStream file = File.Create (saveDestination);
+		
+		// store all the game information into our container class
+		GameInfo info = new GameInfo();
+		info.Keys = 0;
+		info.Lives = 0;
+		info.GameTime = 0;
+		info.HardModeOn = false;
+		info.TimeAttackOn = false;
+		info.Save = save;
+		info.TreasureCollected = treasureCollected;
+		
+		bf.Serialize (file, info);
+		file.Close ();
+	}
+
 	// public function to load the passed in save from anywhere with this object
 	public void Load(int saveToOpen)
 	{
