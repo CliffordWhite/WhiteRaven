@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
 	public bool[] treasureCollected; // flags for collected treasures
 	public int save; // which save slot
 	public string saveName; // the name of the save
+	public float MusicVolume;
+	public float SFXVolume;
 
 	void Awake () 
 	{
@@ -91,31 +93,31 @@ public class GameManager : MonoBehaviour
 
 		}
 	}
-	// All of this is for testing
-	void OnGUI()
-	{
-		GUI.TextField (new Rect (100, 300, 150, 20), "Current Level: " + Application.loadedLevel);
-		if (GUI.Button(new Rect(10,10,100,20), "Next Level"))
-		{
-			if (Application.loadedLevel == 20) // total count of menus and levels
-				return;
-			else
-			{
-				float fadeTime = manager.GetComponent<Fade>().BeginFade(1);
-				Invoke("NextLevel", fadeTime);
-			}
-		}		
-		if (GUI.Button(new Rect(10,50,100,20), "Last Level"))
-		{
-			if (Application.loadedLevel == 0) // there is no negetive scene
-				return;
-			else
-			{
-				float fadeTime = manager.GetComponent<Fade>().BeginFade(1);
-				Invoke("PrevLevel", fadeTime);
-			}		
-		}
-	}
+	// All of this is for testing, preserved for testing
+	//void OnGUI()
+	//{
+	//	GUI.TextField (new Rect (100, 300, 150, 20), "Current Level: " + Application.loadedLevel);
+	//	if (GUI.Button(new Rect(10,10,100,20), "Next Level"))
+	//	{
+	//		if (Application.loadedLevel == 20) // total count of menus and levels
+	//			return;
+	//		else
+	//		{
+	//			float fadeTime = manager.GetComponent<Fade>().BeginFade(1);
+	//			Invoke("NextLevel", fadeTime);
+	//		}
+	//	}		
+	//	if (GUI.Button(new Rect(10,50,100,20), "Last Level"))
+	//	{
+	//		if (Application.loadedLevel == 0) // there is no negetive scene
+	//			return;
+	//		else
+	//		{
+	//			float fadeTime = manager.GetComponent<Fade>().BeginFade(1);
+	//			Invoke("PrevLevel", fadeTime);
+	//		}		
+	//	}
+	//}
 
 	
 	void NextLevel()
