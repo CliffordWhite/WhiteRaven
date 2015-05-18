@@ -15,8 +15,15 @@ public class PlayerController : MonoBehaviour {
     public float distance;
     public float distancecheck = 7.0f;
     public float MinDistance = 1.0f;
+    public float HookDistanceMin = 3.0f;
+    public float HookDistanceMax = 7.0f;
     public bool isGrappled;
     Vector3 _dir;
+    RaycastHit Connected;
+    GameObject Hookable;
+    // Player Rotation after whip
+    Quaternion Origrotation;
+    Transform NewTransform;
     //Audio
     public AudioSource FXSource;
     public AudioClip DeathSound;
@@ -35,12 +42,16 @@ public class PlayerController : MonoBehaviour {
 	void Start () {
         if (maxSpeed == 0)
             maxSpeed = 6.0f;
+
         grounded = true;
         FacingRight = true;
         //Shield Anchor
         if (shieldAnchor == null)
             shieldAnchor = GameObject.FindWithTag("ShieldAnchor");
         shieldAnchor.SetActive(false);
+        //Whip swing rotation fix
+        NewTransform = transform;
+        Origrotation = NewTransform.rotation;
         //Line drawing settings
         line = gameObject.AddComponent<LineRenderer>();
         line.SetWidth(startWidth, endWidth);
@@ -83,35 +94,52 @@ public class PlayerController : MonoBehaviour {
         }
         if (Input.GetKeyDown(KeyCode.Mouse0) && !isGrappled)
         {
-            RaycastHit Connected;
+            
             Ray WhipThrown;
             _dir = (screenPos - transform.position).normalized;
             WhipThrown = new Ray(transform.position, _dir);
             Debug.DrawRay(transform.position, _dir * distancecheck);
-
-            WhipMissed();
+            
             if (Physics.Raycast(WhipThrown, out Connected, distancecheck))
             {
-                
                 if (Connected.collider.tag == "Hookable")
                 {
+                    Hookable = Connected.collider.gameObject;
                     WhipConnect();
                 }
-               
-                
             }
+            if(!isGrappled)
+                WhipMissed();
         }
+        if (Input.GetKeyUp(KeyCode.Mouse0))
+        {
+            isGrappled = false;
+            NewTransform.rotation = Origrotation;
+            GetComponent<Rigidbody>().freezeRotation = true;
+        }
+        if (isGrappled)
+            HookOnAdjust();
 	}
     void FixedUpdate() 
     {
-        if (line.enabled)
+        if (line.enabled && !isGrappled)
             line.enabled = false;
+        else if (line.enabled && isGrappled)
+        {
+            DrawLine();
+        }
         mousePos = Input.mousePosition;
         screenPos = Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, transform.position.z - Camera.main.transform.position.z));
         _dir = (screenPos - transform.position).normalized;
-        if(!grounded)
+        if(!grounded && !isGrappled)
         { return; }
-        GetComponent<Rigidbody>().velocity = new Vector3(HeMoved * maxSpeed, GetComponent<Rigidbody>().velocity.y, 0.0f);
+        else if(grounded && !isGrappled)
+            GetComponent<Rigidbody>().velocity = new Vector3(HeMoved * maxSpeed, GetComponent<Rigidbody>().velocity.y, 0.0f);
+        else if (!grounded && isGrappled)
+        {
+            HookedOn();
+            return;
+        }
 
         if (HeMoved > 0 && !FacingRight)
             Flip();
@@ -127,13 +155,12 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetKeyUp(KeyCode.Mouse0))
         {
             isGrappled = false;
+            GetComponent<Rigidbody>().freezeRotation = true;
+            NewTransform.rotation = Origrotation;
         }
-
-       
     }
     void Flip()
     {
-
         Quaternion Scale = transform.localRotation;
         if (FacingRight)
         {
@@ -148,8 +175,6 @@ public class PlayerController : MonoBehaviour {
         transform.localRotation = Scale;
         HeMoved = 0;
     }
-
-
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Fatal")
@@ -157,7 +182,6 @@ public class PlayerController : MonoBehaviour {
             FXSource.PlayOneShot(DeathSound, 1.0f);
         }
     }
-
     void OnCollisionEnter(Collision other)
     {
         if(other.collider.tag == "Projectile")
@@ -165,30 +189,77 @@ public class PlayerController : MonoBehaviour {
             FXSource.PlayOneShot(DeathSound, 1.0f);
         }
     }
-
     void WhipConnect()
     {
+        DrawLine();
         isGrappled = true;
+        Hookable.GetComponent<HingeJoint>().connectedBody = GetComponent<Rigidbody>();
+        GetComponent<Rigidbody>().freezeRotation = false;
         FXSource.PlayOneShot(WhipConnectSound, 1.0f);
     }
-
     void WhipMissed()
+    {
+        DrawLine();
+        FXSource.PlayOneShot(WhipMissSound, 1.0f);
+    }
+    void DrawLine()
     {
         distance = Vector3.Distance(screenPos, transform.position);
         _dir = (screenPos - transform.position).normalized;
-
         //sets the line positions start and end points
         //and enables the line to be drawn
-
-            line.enabled = true;
-            line.SetPosition(0, GetComponent<Rigidbody>().transform.position);
-            if(distance < distancecheck)
+        line.enabled = true;
+        line.SetPosition(0, GetComponent<Rigidbody>().transform.position);
+        if (isGrappled)
+        {
+            line.SetPosition(1, Connected.transform.position);
+        }
+        else if (distance < distancecheck)
             line.SetPosition(1, screenPos);
-            else
-            {
-                line.SetPosition(1, _dir * distancecheck + transform.position);
-            }
-        FXSource.PlayOneShot(WhipMissSound, 1.0f);
-    }
+        else
+        {
+            line.SetPosition(1, _dir * distancecheck + transform.position);
+        }
 
+    }
+    void HookedOn() 
+    {
+        if (Input.GetKey(KeyCode.W) && isGrappled && GetComponent<Rigidbody>().velocity.magnitude < 5.0f
+                && GetComponent<Rigidbody>().position.y < Hookable.GetComponent<Rigidbody>().position.y
+                && distance > HookDistanceMin && distance <= HookDistanceMax)
+        {
+            Hookable.GetComponent<HingeJoint>().connectedBody = null;
+            GetComponent<Rigidbody>().transform.position += new Vector3(0.0f, 0.2f, 0.0f);
+            Hookable.GetComponent<HingeJoint>().connectedBody = GetComponent<Rigidbody>();
+
+        }
+        else if (Input.GetKey(KeyCode.S) && isGrappled && GetComponent<Rigidbody>().velocity.magnitude < 5.0f
+                 && GetComponent<Rigidbody>().position.y < Hookable.GetComponent<Rigidbody>().position.y
+                 && distance > HookDistanceMin && distance <= HookDistanceMax)
+        {
+            Hookable.GetComponent<HingeJoint>().connectedBody = null;
+            GetComponent<Rigidbody>().transform.position += new Vector3(0.0f, -0.2f, 0.0f);
+            Hookable.GetComponent<HingeJoint>().connectedBody = GetComponent<Rigidbody>();
+        }
+        else if (Input.GetKey(KeyCode.A)  && isGrappled && GetComponent<Rigidbody>().position.y < Hookable.GetComponent<Rigidbody>().position.y
+                 && distance > HookDistanceMin && distance <= HookDistanceMax)
+        {
+            GetComponent<Rigidbody>().velocity = new Vector3(HeMoved * maxSpeed, GetComponent<Rigidbody>().velocity.y, 0.0f);
+        }
+    }
+    void HookOnAdjust()
+    {
+        if (isGrappled && distance > HookDistanceMin && distance >= HookDistanceMax)
+        {
+            Hookable.GetComponent<HingeJoint>().connectedBody = null;
+            GetComponent<Rigidbody>().transform.position += new Vector3(0.0f, 0.1f, 0.0f);
+            Hookable.GetComponent<HingeJoint>().connectedBody = GetComponent<Rigidbody>();
+        }
+        else if (isGrappled && distance < HookDistanceMin && distance <= HookDistanceMax)
+        {
+            Hookable.GetComponent<HingeJoint>().connectedBody = null;
+            GetComponent<Rigidbody>().transform.position -= new Vector3(0.0f, 0.1f, 0.0f);
+            Hookable.GetComponent<HingeJoint>().connectedBody = GetComponent<Rigidbody>();
+        }
+    }
 }

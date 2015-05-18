@@ -9,6 +9,7 @@ TagManager:
   - ShieldAnchor
   - Wall
   - Projectile
+  - Hookable
   layers:
   - Default
   - TransparentFX
