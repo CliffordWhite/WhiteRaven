@@ -13,19 +13,22 @@ public class PlayerController : MonoBehaviour {
     private Vector3 screenPos;
     //Whip
     public float distance;
-    public float distancecheck;
+    public float distancecheck = 7.0f;
     public float MinDistance = 1.0f;
     public bool isGrappled;
-    //draw line
-    public float startWidth = 0.05f;
-    public float endWidth = 0.05f;
-    LineRenderer line;
+    Vector3 _dir;
     //Audio
     public AudioSource FXSource;
     public AudioClip DeathSound;
     public AudioClip WhipMissSound;
     public AudioClip WhipConnectSound;
     public AudioClip ShieldDeflect;
+    //DrawLine (Placeholder for animation)
+    // Line start width
+    public float startWidth = 0.05f;
+    // Line end width
+    public float endWidth = 0.05f;
+    LineRenderer line;
 
 
     // Use this for initialization
@@ -38,16 +41,12 @@ public class PlayerController : MonoBehaviour {
         if (shieldAnchor == null)
             shieldAnchor = GameObject.FindWithTag("ShieldAnchor");
         shieldAnchor.SetActive(false);
-        //line drawing settings
+        //Line drawing settings
         line = gameObject.AddComponent<LineRenderer>();
         line.SetWidth(startWidth, endWidth);
         line.SetVertexCount(2);
         line.material.color = Color.red;
         line.enabled = false;
-        //Audio Settings
-
-        
-
 	}
 	
 	// Update is called once per frame
@@ -69,7 +68,6 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
             shieldAnchor.SetActive(true);
-      
         }
         else if (Input.GetKeyUp(KeyCode.Mouse1))
         {
@@ -85,35 +83,32 @@ public class PlayerController : MonoBehaviour {
         }
         if (Input.GetKeyDown(KeyCode.Mouse0) && !isGrappled)
         {
-
-
-
             RaycastHit Connected;
             Ray WhipThrown;
-            WhipThrown = new Ray(new Vector3(transform.position.x, transform.position.y, transform.position.z), screenPos);
-            
+            _dir = (screenPos - transform.position).normalized;
+            WhipThrown = new Ray(transform.position, _dir);
+            Debug.DrawRay(transform.position, _dir * distancecheck);
+
+            WhipMissed();
             if (Physics.Raycast(WhipThrown, out Connected, distancecheck))
             {
+                
                 if (Connected.collider.tag == "Hookable")
                 {
                     WhipConnect();
                 }
-                else
-                {
-                    WhipMissed();
-                }
+               
+                
             }
         }
 	}
     void FixedUpdate() 
     {
         if (line.enabled)
-        {
             line.enabled = false;
-        }
         mousePos = Input.mousePosition;
         screenPos = Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, transform.position.z - Camera.main.transform.position.z));
-
+        _dir = (screenPos - transform.position).normalized;
         if(!grounded)
         { return; }
         GetComponent<Rigidbody>().velocity = new Vector3(HeMoved * maxSpeed, GetComponent<Rigidbody>().velocity.y, 0.0f);
@@ -132,14 +127,13 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetKeyUp(KeyCode.Mouse0))
         {
             isGrappled = false;
-            line.enabled = false;
         }
 
        
     }
     void Flip()
     {
-        
+
         Quaternion Scale = transform.localRotation;
         if (FacingRight)
         {
@@ -164,29 +158,37 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
+    void OnCollisionEnter(Collision other)
+    {
+        if(other.collider.tag == "Projectile")
+        {
+            FXSource.PlayOneShot(DeathSound, 1.0f);
+        }
+    }
 
     void WhipConnect()
     {
         isGrappled = true;
         FXSource.PlayOneShot(WhipConnectSound, 1.0f);
-
     }
 
     void WhipMissed()
     {
         distance = Vector3.Distance(screenPos, transform.position);
+        _dir = (screenPos - transform.position).normalized;
 
         //sets the line positions start and end points
         //and enables the line to be drawn
-        if (distance < distancecheck)
-        {
+
             line.enabled = true;
             line.SetPosition(0, GetComponent<Rigidbody>().transform.position);
+            if(distance < distancecheck)
             line.SetPosition(1, screenPos);
-        }
-
+            else
+            {
+                line.SetPosition(1, _dir * distancecheck + transform.position);
+            }
         FXSource.PlayOneShot(WhipMissSound, 1.0f);
-
     }
 
 }
