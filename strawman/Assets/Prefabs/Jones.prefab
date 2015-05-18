@@ -338,13 +338,13 @@ MonoBehaviour:
   distancecheck: 10
   MinDistance: 2
   isGrappled: 0
-  startWidth: .0500000007
-  endWidth: .0500000007
-  FXSource: {fileID: 0}
+  FXSource: {fileID: 8222844, guid: 75a471fc19f2eda49a7f7426d66a025a, type: 2}
   DeathSound: {fileID: 8300000, guid: fd94af3dedccb4a48a277ff9046da79d, type: 3}
   WhipMissSound: {fileID: 8300000, guid: 9fe497804111beb42a4e8c06a7f6994e, type: 3}
   WhipConnectSound: {fileID: 8300000, guid: 15ae33176f2762e4db126bb46ba81327, type: 3}
   ShieldDeflect: {fileID: 8300000, guid: 15ae33176f2762e4db126bb46ba81327, type: 3}
+  startWidth: .0500000007
+  endWidth: .0500000007
 --- !u!212 &21231538
 SpriteRenderer:
   m_ObjectHideFlags: 1
