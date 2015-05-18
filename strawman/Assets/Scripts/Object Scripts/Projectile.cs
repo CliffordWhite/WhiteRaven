@@ -4,22 +4,17 @@ using System.Collections;
 public class Projectile : MonoBehaviour 
 {
 	public float speed;			// speed of projectile
-	public Vector3 velocity;	// values determine direction
 	public GameObject explode;	// particle system for explosion
-
-	//void Start () 
-	//{
-	//	gameObject.GetComponent<Rigidbody> ().velocity = new Vector3 (velocity.x, velocity.y, 0.0f);
-	//}
+	private Vector3 direction;	// defaults to the right
 
 	void Start () 
 	{
-		velocity = transform.right;
+		direction = transform.right; 
 	}
 	
 	void Update () 
 	{
-		transform.position += velocity * speed * Time.deltaTime;
+		transform.position += direction * speed * Time.deltaTime;
 	}
 
 	void OnCollisionEnter(Collision other)
@@ -30,5 +25,17 @@ public class Projectile : MonoBehaviour
 			Instantiate(explode, transform.position, transform.rotation);
 			Destroy (gameObject);
 		}
+		// deflect from all of these tags
+		else if (other.collider.tag == "Shield")
+		{
+			foreach(ContactPoint contact in other.contacts)
+			{
+				// making Bahin proud
+				direction = 2 * (Vector3.Dot (direction, Vector3.Normalize (contact.normal)))*Vector3.Normalize(contact.normal) - direction;
+				direction *= -1;
+				direction.z = 0.0f;
+			}
+		}
+
 	}
 }

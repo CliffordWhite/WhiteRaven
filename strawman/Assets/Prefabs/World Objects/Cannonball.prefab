@@ -14,7 +14,7 @@ GameObject:
   - 54: {fileID: 5446400}
   m_Layer: 0
   m_Name: Cannonball
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58,7 +58,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  velocity: {x: 0, y: 0, z: 0}
   explode: {fileID: 138370, guid: 3d66b23118a9a3644a9923b6acc1a0cd, type: 2}
 --- !u!135 &13579622
 SphereCollider:
