@@ -12,7 +12,9 @@ public class PlayerController : MonoBehaviour {
     private Vector2 mousePos;
     private Vector3 screenPos;
     //Whip
+    public float distanceFromHook;
     public float distance;
+    //     distanceFromHook= Vector3.Distance(object1.transform.position, object2.transform.position);
     public float distancecheck = 7.0f;
     public float MinDistance = 1.0f;
     public float HookDistanceMin = 3.0f;
@@ -94,7 +96,6 @@ public class PlayerController : MonoBehaviour {
         }
         if (Input.GetKeyDown(KeyCode.Mouse0) && !isGrappled)
         {
-            
             Ray WhipThrown;
             _dir = (screenPos - transform.position).normalized;
             WhipThrown = new Ray(transform.position, _dir);
@@ -104,6 +105,8 @@ public class PlayerController : MonoBehaviour {
             {
                 if (Connected.collider.tag == "Hookable")
                 {
+                    grounded = false;
+                    isGrappled = true;
                     Hookable = Connected.collider.gameObject;
                     WhipConnect();
                 }
@@ -131,8 +134,11 @@ public class PlayerController : MonoBehaviour {
         mousePos = Input.mousePosition;
         screenPos = Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, transform.position.z - Camera.main.transform.position.z));
         _dir = (screenPos - transform.position).normalized;
+       
+        
         if(!grounded && !isGrappled)
         { return; }
+
         else if(grounded && !isGrappled)
             GetComponent<Rigidbody>().velocity = new Vector3(HeMoved * maxSpeed, GetComponent<Rigidbody>().velocity.y, 0.0f);
         else if (!grounded && isGrappled)
@@ -140,6 +146,7 @@ public class PlayerController : MonoBehaviour {
             HookedOn();
             return;
         }
+
 
         if (HeMoved > 0 && !FacingRight)
             Flip();
@@ -249,13 +256,14 @@ public class PlayerController : MonoBehaviour {
     }
     void HookOnAdjust()
     {
-        if (isGrappled && distance > HookDistanceMin && distance >= HookDistanceMax)
+        distanceFromHook = Vector3.Distance(transform.position, Hookable.transform.position);
+        if (isGrappled && distanceFromHook > HookDistanceMin && distanceFromHook >= HookDistanceMax)
         {
             Hookable.GetComponent<HingeJoint>().connectedBody = null;
             GetComponent<Rigidbody>().transform.position += new Vector3(0.0f, 0.1f, 0.0f);
             Hookable.GetComponent<HingeJoint>().connectedBody = GetComponent<Rigidbody>();
         }
-        else if (isGrappled && distance < HookDistanceMin && distance <= HookDistanceMax)
+        else if (isGrappled && distanceFromHook < HookDistanceMin && distanceFromHook <= HookDistanceMax)
         {
             Hookable.GetComponent<HingeJoint>().connectedBody = null;
             GetComponent<Rigidbody>().transform.position -= new Vector3(0.0f, 0.1f, 0.0f);
