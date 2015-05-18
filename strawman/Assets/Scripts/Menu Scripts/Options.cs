@@ -12,6 +12,7 @@ public class Options : MonoBehaviour {
 	public AudioClip _changeSelection;
 	public GameObject MusicSelector;
 	public GameObject SFXSelector;
+	public GameObject fullscreenCheck;
 	bool MusicSel;
 	bool SFXSel;
 	// Use this for initialization
@@ -28,6 +29,7 @@ public class Options : MonoBehaviour {
 		SFXSel = false;
 		_SFXsource.volume = GameManager.manager.SFXVolume * .1f;
 		_Musicsource.volume = GameManager.manager.MusicVolume * .1f;
+		fullscreenCheck.SetActive (GameManager.manager.isFullscreen);
 		
 	}
 	
@@ -49,6 +51,12 @@ public class Options : MonoBehaviour {
 				else if (selected == 2) {
 					_SFXsource.PlayOneShot(_changeSelection,1.0f);
 					SFXSel = true;
+				}
+				else if (selected == 3) {
+					_SFXsource.PlayOneShot(_changeSelection,1.0f);
+					GameManager.manager.isFullscreen = !GameManager.manager.isFullscreen;
+					fullscreenCheck.SetActive(GameManager.manager.isFullscreen);
+					Screen.fullScreen = GameManager.manager.isFullscreen;
 				}
 			}
 

@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
 	public string saveName; // the name of the save
 	public float MusicVolume;
 	public float SFXVolume;
+	public bool isFullscreen;
 
 	void Awake () 
 	{
