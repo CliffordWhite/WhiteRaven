@@ -6,7 +6,8 @@ public class MainMenu : MonoBehaviour {
 
 	int selected;
 	public GameObject[] _button;
-	public AudioSource _source;
+	public AudioSource _SFXsource;
+	public AudioSource _Musicsource;
 	public AudioClip _accept;
 	public AudioClip _changeSelection;
 	// Use this for initialization
@@ -14,6 +15,8 @@ public class MainMenu : MonoBehaviour {
 		selected = 1;
 		_button [0].GetComponent<Image> ().color = Color.yellow;
 
+		_SFXsource.volume = GameManager.manager.SFXVolume * .1f;
+		_Musicsource.volume = GameManager.manager.MusicVolume * .1f;
 	}
 	
 	// Update is called once per frame
@@ -21,18 +24,18 @@ public class MainMenu : MonoBehaviour {
 	
 		if (Input.anyKeyDown) {
 			if (Input.GetKeyDown(KeyCode.Return) || Input.GetMouseButtonDown(0)) {
-				_source.PlayOneShot(_accept, 1.0f);
+				_SFXsource.PlayOneShot(_accept, 1.0f);
 				float fadetime = GameManager.manager.GetComponent<Fade>().BeginFade(1);
 				Invoke("PauseLoad",fadetime);
 			}
 			if (Input.GetKeyDown (KeyCode.W) || Input.GetKeyDown (KeyCode.UpArrow)) {
-				_source.PlayOneShot(_changeSelection,1.0f);
+				_SFXsource.PlayOneShot(_changeSelection,1.0f);
 				selected--;
 				if (selected <= 0)
 					selected = _button.Length;
 			}
 			if (Input.GetKeyDown (KeyCode.S) || Input.GetKeyDown (KeyCode.DownArrow)) {
-				_source.PlayOneShot(_changeSelection);
+				_SFXsource.PlayOneShot(_changeSelection);
 				selected++;
 				if (selected > _button.Length)
 					selected = 1;
@@ -49,7 +52,7 @@ public class MainMenu : MonoBehaviour {
 
 	public void MouseOver(GameObject _obj)
 	{
-		_source.PlayOneShot(_changeSelection,1.0f);
+		_SFXsource.PlayOneShot(_changeSelection,1.0f);
 		for (int i = 1; i <= _button.Length; i++) {
 			if (_obj == _button[i-1]) {
 				selected = i;
