@@ -12,6 +12,7 @@ GameObject:
   - 65: {fileID: 6584376}
   - 23: {fileID: 2354048}
   - 54: {fileID: 5486940}
+  - 82: {fileID: 8266904}
   m_Layer: 0
   m_Name: Shield
   m_TagString: Shield
@@ -19,25 +20,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &108236
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 486128}
-  - 20: {fileID: 2038588}
-  - 92: {fileID: 9289672}
-  - 124: {fileID: 12424152}
-  - 81: {fileID: 8137788}
-  m_Layer: 0
-  m_Name: Player Camera
-  m_TagString: MainCamera
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
 --- !u!1 &129822
 GameObject:
   m_ObjectHideFlags: 0
@@ -47,7 +29,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 485846}
   - 65: {fileID: 6591256}
-  - 82: {fileID: 8270418}
   - 114: {fileID: 11482098}
   - 54: {fileID: 5459546}
   - 212: {fileID: 21299556}
@@ -87,7 +68,7 @@ GameObject:
   - 23: {fileID: 2352194}
   m_Layer: 0
   m_Name: Shield Anchor
-  m_TagString: Shield
+  m_TagString: ShieldAnchor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -104,7 +85,7 @@ Transform:
   m_Children:
   - {fileID: 492264}
   m_Father: {fileID: 485846}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!4 &485846
 Transform:
   m_ObjectHideFlags: 1
@@ -116,22 +97,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 489562}
-  - {fileID: 486128}
   - {fileID: 462448}
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!4 &486128
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 108236}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: .0599999987, z: -10.2399998}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 485846}
-  m_RootOrder: 1
 --- !u!4 &489562
 Transform:
   m_ObjectHideFlags: 1
@@ -156,38 +124,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 462448}
   m_RootOrder: 0
---- !u!20 &2038588
-Camera:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 108236}
-  m_Enabled: 1
-  serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: .192156866, g: .301960796, b: .474509805, a: .0196078438}
-  m_NormalizedViewPortRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
-  near clip plane: .300000012
-  far clip plane: 1000
-  field of view: 60
-  orthographic: 0
-  orthographic size: 5
-  m_Depth: -1
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingPath: -1
-  m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 0
-  m_HDR: 0
-  m_OcclusionCulling: 1
-  m_StereoConvergence: 10
-  m_StereoSeparation: .0219999999
 --- !u!23 &2352194
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -316,24 +252,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.79999995, z: 1}
   m_Center: {x: 0, y: -.100000001, z: 0}
---- !u!81 &8137788
-AudioListener:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 108236}
-  m_Enabled: 1
---- !u!82 &8270418
+--- !u!82 &8266904
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 129822}
+  m_GameObject: {fileID: 102136}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: fd94af3dedccb4a48a277ff9046da79d, type: 3}
-  m_PlayOnAwake: 0
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -392,13 +321,6 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
---- !u!92 &9289672
-Behaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 108236}
-  m_Enabled: 1
 --- !u!114 &11482098
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -412,13 +334,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpeed: 6
   shieldAnchor: {fileID: 193664}
---- !u!124 &12424152
-Behaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 108236}
-  m_Enabled: 1
+  distance: 0
+  distancecheck: 10
+  MinDistance: 2
+  isGrappled: 0
+  startWidth: .0500000007
+  endWidth: .0500000007
+  FXSource: {fileID: 0}
+  DeathSound: {fileID: 8300000, guid: fd94af3dedccb4a48a277ff9046da79d, type: 3}
+  WhipMissSound: {fileID: 8300000, guid: 9fe497804111beb42a4e8c06a7f6994e, type: 3}
+  WhipConnectSound: {fileID: 8300000, guid: 15ae33176f2762e4db126bb46ba81327, type: 3}
+  ShieldDeflect: {fileID: 8300000, guid: 15ae33176f2762e4db126bb46ba81327, type: 3}
 --- !u!212 &21231538
 SpriteRenderer:
   m_ObjectHideFlags: 1
