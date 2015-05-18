@@ -7,6 +7,8 @@ TagManager:
   - Fatal
   - Shield
   - ShieldAnchor
+  - Wall
+  - Projectile
   layers:
   - Default
   - TransparentFX
