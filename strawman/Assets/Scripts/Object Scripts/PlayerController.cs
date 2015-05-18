@@ -241,7 +241,7 @@ public class PlayerController : MonoBehaviour {
             GetComponent<Rigidbody>().transform.position += new Vector3(0.0f, -0.2f, 0.0f);
             Hookable.GetComponent<HingeJoint>().connectedBody = GetComponent<Rigidbody>();
         }
-        else if (Input.GetKey(KeyCode.A)  && isGrappled && GetComponent<Rigidbody>().position.y < Hookable.GetComponent<Rigidbody>().position.y
+        else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)  && isGrappled && GetComponent<Rigidbody>().position.y < Hookable.GetComponent<Rigidbody>().position.y
                  && distance > HookDistanceMin && distance <= HookDistanceMax)
         {
             GetComponent<Rigidbody>().velocity = new Vector3(HeMoved * maxSpeed, GetComponent<Rigidbody>().velocity.y, 0.0f);
