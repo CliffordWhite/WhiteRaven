@@ -14,7 +14,6 @@ public class PlayerController : MonoBehaviour {
     //Whip
     public float distanceFromHook;
     public float distance;
-    //     distanceFromHook= Vector3.Distance(object1.transform.position, object2.transform.position);
     public float distancecheck = 7.0f;
     public float MinDistance = 1.0f;
     public float HookDistanceMin = 3.0f;
@@ -26,12 +25,14 @@ public class PlayerController : MonoBehaviour {
     // Player Rotation after whip
     Quaternion Origrotation;
     Transform NewTransform;
+
     //Audio
     public AudioSource FXSource;
     public AudioClip DeathSound;
     public AudioClip WhipMissSound;
     public AudioClip WhipConnectSound;
     public AudioClip ShieldDeflect;
+
     //DrawLine (Placeholder for animation)
     // Line start width
     public float startWidth = 0.05f;
@@ -195,6 +196,7 @@ public class PlayerController : MonoBehaviour {
         {
             FXSource.PlayOneShot(DeathSound, 1.0f);
         }
+
     }
     void WhipConnect()
     {
