@@ -1,7 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerShield : MonoBehaviour {
+public class PlayerShield : MonoBehaviour
+{
+
+    //Audio
+    public AudioSource FXSource;
+    public AudioClip ShieldDeflect;
+
 
     public GameObject shield;
 
@@ -27,6 +33,13 @@ public class PlayerShield : MonoBehaviour {
         else if (Input.GetKeyUp(KeyCode.Mouse1))
         {
             shield.SetActive(false);
+        }
+    }
+    void OnCollisionEnter(Collision other)
+    {
+        if (other.collider.tag == "Projectile")
+        {
+            FXSource.PlayOneShot(ShieldDeflect, 1.0f);
         }
     }
 }
