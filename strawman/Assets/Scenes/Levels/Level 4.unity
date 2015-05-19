@@ -447,7 +447,7 @@ Prefab:
     - target: {fileID: 11448888, guid: 2eae27017149fd64391491a7d60bc6d7, type: 2}
       propertyPath: itemToFire
       value: 
-      objectReference: {fileID: 102958, guid: 7a2242c293e94ef46bebbe5b391b696d, type: 2}
+      objectReference: {fileID: 164040, guid: a3761f62b58285b479f7d5df480f759b, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2eae27017149fd64391491a7d60bc6d7, type: 2}
   m_IsPrefabParent: 0
