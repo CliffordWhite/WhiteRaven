@@ -53,6 +53,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 334159495c645d448a079d75df80d885, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _SFXsource: {fileID: 0}
+  doorSound: {fileID: 8300000, guid: f72f14cbf24017543a6ee7e352d9a811, type: 3}
 --- !u!212 &21272164
 SpriteRenderer:
   m_ObjectHideFlags: 1

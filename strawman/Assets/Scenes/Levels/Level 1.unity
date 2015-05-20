@@ -324,6 +324,10 @@ Prefab:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11422060, guid: 43af35218c32fe74bb0799dc54c6eb3b, type: 2}
+      propertyPath: _SFXsource
+      value: 
+      objectReference: {fileID: 1956103053}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 43af35218c32fe74bb0799dc54c6eb3b, type: 2}
   m_IsPrefabParent: 0
