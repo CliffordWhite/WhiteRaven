@@ -3,13 +3,30 @@ using System.Collections;
 
 public class PressurePlate : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
+	public GameObject toEffect;
+	public Vector3 tarPosition;
+	bool isTriggered;
+	bool isPressured;
+
+	void start()
+	{
+		isTriggered = false;
+		isPressured = false;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+
+	void OnTriggerEnter(Collider other)
+	{
+		if (!isTriggered) 
+			toEffect.transform.position = tarPosition;
+		if (!isPressured)
+			transform.position.Set (transform.position.x, transform.position.y - .5f, transform.position.z);
+		isPressured = true;
+		isTriggered = false;
+	}
+
+	void OnTriggerExit(Collider other)
+	{
+		isPressured = false;
+		transform.position.Set (transform.position.x, transform.position.y + .5f, transform.position.z);
 	}
 }
