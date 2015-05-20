@@ -11,6 +11,7 @@ TagManager:
   - Projectile
   - Hookable
   - Lever
+  - ReflectiveWall
   layers:
   - Default
   - TransparentFX
