@@ -28,6 +28,9 @@ public class BatController : MonoBehaviour {
         GetComponent<SpriteRenderer>().sprite = WingsOutSprite;
         WingsAreIn = false;
         FlapWings = 0.0f;
+        WingsOut.GetComponent<BoxCollider>().enabled = true;
+        WingsIn.GetComponent<BoxCollider>().enabled = false;
+
 	}
 	
 	// Update is called once per frame
@@ -63,11 +66,16 @@ public class BatController : MonoBehaviour {
         if (WingsAreIn)
         {
             WingsAreIn = false;
+            WingsOut.GetComponent<BoxCollider>().enabled = true;
+            WingsIn.GetComponent<BoxCollider>().enabled = false;
             GetComponent<SpriteRenderer>().sprite = WingsOutSprite;
+
         }
         else
         {
             WingsAreIn = true;
+            WingsOut.GetComponent<BoxCollider>().enabled = false;
+            WingsIn.GetComponent<BoxCollider>().enabled = true;
             GetComponent<SpriteRenderer>().sprite = WingsInSprite;
 
         }
