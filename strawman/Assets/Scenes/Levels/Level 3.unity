@@ -87,6 +87,48 @@ NavMeshSettings:
     cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &28450416
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 475872, guid: a8fef2040bca7524bbb97d888c6a25ec, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -7.05881357
+      objectReference: {fileID: 0}
+    - target: {fileID: 475872, guid: a8fef2040bca7524bbb97d888c6a25ec, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1.92005205
+      objectReference: {fileID: 0}
+    - target: {fileID: 475872, guid: a8fef2040bca7524bbb97d888c6a25ec, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 475872, guid: a8fef2040bca7524bbb97d888c6a25ec, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 475872, guid: a8fef2040bca7524bbb97d888c6a25ec, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 475872, guid: a8fef2040bca7524bbb97d888c6a25ec, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 475872, guid: a8fef2040bca7524bbb97d888c6a25ec, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 475872, guid: a8fef2040bca7524bbb97d888c6a25ec, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: a8fef2040bca7524bbb97d888c6a25ec, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &292012076
 Prefab:
   m_ObjectHideFlags: 0
@@ -100,7 +142,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 485846, guid: 7ee9316a0972db545953d0eda858c446, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.824
+      value: 1.95000005
       objectReference: {fileID: 0}
     - target: {fileID: 485846, guid: 7ee9316a0972db545953d0eda858c446, type: 2}
       propertyPath: m_LocalPosition.z
@@ -124,7 +166,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 485846, guid: 7ee9316a0972db545953d0eda858c446, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 11482098, guid: 7ee9316a0972db545953d0eda858c446, type: 2}
       propertyPath: FXSource
@@ -500,7 +542,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
 --- !u!1001 &691817185
 Prefab:
   m_ObjectHideFlags: 0

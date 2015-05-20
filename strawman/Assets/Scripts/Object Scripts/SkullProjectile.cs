@@ -30,8 +30,7 @@ public class SkullProjectile : MonoBehaviour
             {
                 other.gameObject.GetComponent<PlayerController>().HitWithArmor();
             }
-            else
-                Destroy (gameObject);
+            Destroy (gameObject);
 		}
 	}
 }

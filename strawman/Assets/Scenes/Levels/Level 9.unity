@@ -428,6 +428,10 @@ Prefab:
       propertyPath: SFXSource
       value: 
       objectReference: {fileID: 1988547112}
+    - target: {fileID: 11404286, guid: ba1e192a09ac7d24da25c7051e6c09a1, type: 2}
+      propertyPath: toEffect
+      value: 
+      objectReference: {fileID: 1965658501}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ba1e192a09ac7d24da25c7051e6c09a1, type: 2}
   m_IsPrefabParent: 0
