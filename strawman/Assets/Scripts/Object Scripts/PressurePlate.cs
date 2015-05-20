@@ -6,6 +6,8 @@ public class PressurePlate : MonoBehaviour {
 	public GameObject toEffect;
 	public Vector3 tarPosition;
 	public float speed;
+	public AudioClip clickSound;
+	public AudioSource SFXSource;
 	bool isTriggered;
 	bool isPressured;
 	bool objectMoving;
@@ -19,6 +21,7 @@ public class PressurePlate : MonoBehaviour {
 
 	void OnTriggerEnter()
 	{
+		SFXSource.PlayOneShot (clickSound, 1.0f);
 		//if not triggered yet the start moving object
 		if (!isTriggered) 
 			objectMoving = true;
