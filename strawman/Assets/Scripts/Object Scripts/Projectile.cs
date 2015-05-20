@@ -6,10 +6,12 @@ public class Projectile : MonoBehaviour
 	public float speed;			// speed of projectile
 	public GameObject explode;	// particle system for explosion
 	private Vector3 direction;	// defaults to the right
+	private bool deflected;		// only allows one bounce from shield
 
 	void Start () 
 	{
 		direction = transform.right; 
+		deflected = false;
 	}
 	
 	void Update () 
@@ -25,9 +27,10 @@ public class Projectile : MonoBehaviour
 			Instantiate(explode, transform.position, transform.rotation);
 			Destroy (gameObject);
 		}
-		// deflect from all of these tags
-		else if (other.collider.tag == "Shield")
+		// deflect from shield once
+		else if (other.collider.tag == "Shield" && !deflected)
 		{
+			deflected = true;	// flag this true
 			foreach(ContactPoint contact in other.contacts)
 			{
 				// making Bahin proud

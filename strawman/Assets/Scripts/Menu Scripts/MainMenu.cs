@@ -64,7 +64,12 @@ public class MainMenu : MonoBehaviour {
 
 	void PauseLoad()
 	{
-		Application.LoadLevel (selected);
+		// Start level 1 if play is selected
+		// once levelSelect is created, remove if statement
+		if (selected == 1)
+			Application.LoadLevel (6);
+		else
+			Application.LoadLevel (selected);
 	}
 
 }
