@@ -202,7 +202,7 @@ public class PlayerController : MonoBehaviour {
 		}
 
     }
-	void RestertLevel()
+	void RestartLevel()
 	{
 		// reloads the current level from the start
 		Application.LoadLevel (Application.loadedLevel);
