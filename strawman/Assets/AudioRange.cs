@@ -4,6 +4,7 @@ using System.Collections;
 public class AudioRange : MonoBehaviour {
 	public AudioClip sound;
 	public AudioSource SFXSource;
+	public GameObject soundObj;
 	float loopTime;
 
 	void Start()
@@ -13,11 +14,16 @@ public class AudioRange : MonoBehaviour {
 
 	void OnTriggerStay()
 	{
-		if (loopTime <= 0.0f) {
-			loopTime = sound.length;
-			SFXSource.PlayOneShot (sound, 0.25f);
+		if (soundObj.activeSelf) {
+			if (loopTime <= 0.0f) {
+				loopTime = sound.length;
+				SFXSource.PlayOneShot (sound, 0.25f);
+			}
+			loopTime -= Time.deltaTime;
+		} else {
+			SFXSource.Stop ();
+			loopTime = 0.0f;
 		}
-		loopTime -= Time.deltaTime;
 	}
 
 	void OnTriggerExit()

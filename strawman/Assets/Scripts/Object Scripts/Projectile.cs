@@ -29,7 +29,6 @@ public class Projectile : MonoBehaviour
             {
                 other.gameObject.GetComponent<PlayerController>().HitWithArmor();
             }
-            else
 			Destroy (gameObject);
 		}
 		// deflect from shield once
