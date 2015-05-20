@@ -22,6 +22,9 @@ public class PlayerController : MonoBehaviour {
     Vector3 _dir;
     RaycastHit Connected;
     GameObject Hookable;
+    //Lever
+    GameObject Lever;
+    public bool LeverFacingRight;
     // Player Rotation after whip
     Quaternion Origrotation;
     Transform NewTransform;
@@ -55,6 +58,10 @@ public class PlayerController : MonoBehaviour {
         //Whip swing rotation fix
         NewTransform = transform;
         Origrotation = NewTransform.rotation;
+        //Lever
+        LeverFacingRight = true;
+        if (Lever == null)
+            Lever = GameObject.FindWithTag("Lever");
         //Line drawing settings
         line = gameObject.AddComponent<LineRenderer>();
         line.SetWidth(startWidth, endWidth);
@@ -110,6 +117,12 @@ public class PlayerController : MonoBehaviour {
                     isGrappled = true;
                     Hookable = Connected.collider.gameObject;
                     WhipConnect();
+                }
+
+                if(Connected.collider.tag == "Lever")
+                {
+                    Lever = Connected.collider.gameObject;
+                    LeverConnect();
                 }
             }
             if(!isGrappled)
@@ -280,5 +293,22 @@ public class PlayerController : MonoBehaviour {
             GetComponent<Rigidbody>().transform.position -= new Vector3(0.0f, 0.1f, 0.0f);
             Hookable.GetComponent<HingeJoint>().connectedBody = GetComponent<Rigidbody>();
         }
+    }
+    void LeverConnect()
+    {
+        Vector3 Scale = Lever.transform.localScale;
+        if (LeverFacingRight)
+        {
+            Scale.x = -1;
+            LeverFacingRight = !LeverFacingRight;
+        }
+        else
+        {
+            Scale.x = 1;
+            LeverFacingRight = !LeverFacingRight;
+        }
+        Lever.transform.localScale = Scale;
+        FXSource.PlayOneShot(WhipConnectSound, 1.0f);
+        Lever.GetComponent<Lever>().HasMoved();
     }
 }

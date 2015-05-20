@@ -3,13 +3,14 @@ using System.Collections;
 
 public class ReflectWall : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    public AudioSource FXSource;
+    public AudioClip ReflectSound;
+
+    void OnCollisionEnter(Collision other)
+    {
+        if (other.collider.tag == "Projectile")
+        {
+            FXSource.PlayOneShot(ReflectSound, 1.0f);
+        }
+    }
 }
