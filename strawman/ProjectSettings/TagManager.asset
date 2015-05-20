@@ -12,6 +12,8 @@ TagManager:
   - Hookable
   - Lever
   - ReflectiveWall
+  - ArmorUp
+  - Sprite
   layers:
   - Default
   - TransparentFX

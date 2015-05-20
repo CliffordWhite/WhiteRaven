@@ -25,6 +25,12 @@ public class PlayerController : MonoBehaviour {
     //Lever
     GameObject Lever;
     public bool LeverFacingRight;
+    //Armor
+    GameObject Armor;
+    public Sprite NormalSprite;
+    public Sprite ArmorSprite;
+    GameObject SpriteSwitch;
+    public bool HasArmor;
     // Player Rotation after whip
     Quaternion Origrotation;
     Transform NewTransform;
@@ -34,7 +40,8 @@ public class PlayerController : MonoBehaviour {
     public AudioClip DeathSound;
     public AudioClip WhipMissSound;
     public AudioClip WhipConnectSound;
-    public AudioClip ShieldDeflect;
+    public AudioClip ShieldDeflectSound;
+    public AudioClip ArmorPickUpSound;
 
     //DrawLine (Placeholder for animation)
     // Line start width
@@ -62,12 +69,17 @@ public class PlayerController : MonoBehaviour {
         LeverFacingRight = true;
         if (Lever == null)
             Lever = GameObject.FindWithTag("Lever");
+        //Armor
+        HasArmor = false;
+        if (SpriteSwitch == null)
+            SpriteSwitch = GameObject.FindWithTag("Sprite");
         //Line drawing settings
         line = gameObject.AddComponent<LineRenderer>();
         line.SetWidth(startWidth, endWidth);
         line.SetVertexCount(2);
         line.material.color = Color.red;
         line.enabled = false;
+        SpriteSwitch.GetComponent<SpriteRenderer>().sprite = NormalSprite;
 	}
 	
 	// Update is called once per frame
@@ -204,15 +216,24 @@ public class PlayerController : MonoBehaviour {
 			float fadetime = GameManager.manager.GetComponent<Fade>().BeginFade(1);
 			Invoke ("RestartLevel", fadetime);
         }
+        else if (other.tag == "ArmorUp")
+        {
+            Armor = other.gameObject;
+            Armor.SetActive(false);
+            FXSource.PlayOneShot(ArmorPickUpSound, 1.0f);         
+            SpriteSwitch.GetComponent<SpriteRenderer>().sprite = ArmorSprite;
+            HasArmor = true;
+        }
     }
     void OnCollisionEnter(Collision other)
     {
-        if(other.collider.tag == "Projectile")
+        if(other.collider.tag == "Projectile" && !HasArmor)
         {
             FXSource.PlayOneShot(DeathSound, 1.0f);
 			float fadetime = GameManager.manager.GetComponent<Fade>().BeginFade(1);
 			Invoke ("RestartLevel", fadetime);
 		}
+        
 
     }
 	void RestartLevel()
@@ -310,5 +331,10 @@ public class PlayerController : MonoBehaviour {
         Lever.transform.localScale = Scale;
         FXSource.PlayOneShot(WhipConnectSound, 1.0f);
         Lever.GetComponent<Lever>().HasMoved();
+    }
+    public void HitWithArmor()
+    {
+        SpriteSwitch.GetComponent<SpriteRenderer>().sprite = NormalSprite;
+        HasArmor = false;
     }
 }

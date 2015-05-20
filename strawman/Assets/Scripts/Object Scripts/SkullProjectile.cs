@@ -22,10 +22,16 @@ public class SkullProjectile : MonoBehaviour
 	void OnCollisionEnter(Collision other)
 	{
 		// list all possible items with which this can collide
-		if (other.collider.tag == "Wall" || other.collider.tag == "Shield" || other.collider.tag == "Player")
+		if (other.collider.tag == "Wall" || other.collider.tag == "Shield" || other.collider.tag == "Player" ||
+		    other.collider.tag == "ReflectiveWall")
 		{
 			Instantiate(explode, transform.position, transform.rotation);
-			Destroy (gameObject);
+            if (other.collider.tag == "Player" && other.gameObject.GetComponent<PlayerController>().HasArmor)
+            {
+                other.gameObject.GetComponent<PlayerController>().HitWithArmor();
+            }
+            else
+                Destroy (gameObject);
 		}
 	}
 }
