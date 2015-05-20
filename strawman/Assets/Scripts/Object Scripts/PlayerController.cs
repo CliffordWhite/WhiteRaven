@@ -201,6 +201,8 @@ public class PlayerController : MonoBehaviour {
         if (other.tag == "Fatal")
         {
             FXSource.PlayOneShot(DeathSound, 1.0f);
+			float fadetime = GameManager.manager.GetComponent<Fade>().BeginFade(1);
+			Invoke ("RestartLevel", fadetime);
         }
     }
     void OnCollisionEnter(Collision other)
@@ -208,9 +210,16 @@ public class PlayerController : MonoBehaviour {
         if(other.collider.tag == "Projectile")
         {
             FXSource.PlayOneShot(DeathSound, 1.0f);
-        }
+			float fadetime = GameManager.manager.GetComponent<Fade>().BeginFade(1);
+			Invoke ("RestartLevel", fadetime);
+		}
 
     }
+	void RestartLevel()
+	{
+		// reloads the current level from the start
+		Application.LoadLevel (Application.loadedLevel);
+	}
     void WhipConnect()
     {
         DrawLine();

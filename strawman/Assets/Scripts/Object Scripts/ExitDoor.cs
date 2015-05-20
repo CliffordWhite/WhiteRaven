@@ -3,12 +3,16 @@ using System.Collections;
 
 public class ExitDoor : MonoBehaviour 
 {
+	public AudioSource _SFXsource;
+	public AudioClip doorSound;
+
 	void OnTriggerEnter(Collider other)
 	{
 		// Load the next level when player runs into door
 		if (other.tag == "Player")
 		{
 			float fadetime = GameManager.manager.GetComponent<Fade>().BeginFade(1);
+			_SFXsource.PlayOneShot(doorSound, 1.0f);
 			Invoke("NextLevel",fadetime);
 		}
 	}
