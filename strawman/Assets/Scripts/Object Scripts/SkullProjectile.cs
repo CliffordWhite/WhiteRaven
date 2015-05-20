@@ -25,7 +25,12 @@ public class SkullProjectile : MonoBehaviour
 		if (other.collider.tag == "Wall" || other.collider.tag == "Shield" || other.collider.tag == "Player")
 		{
 			Instantiate(explode, transform.position, transform.rotation);
-			Destroy (gameObject);
+            if (other.collider.tag == "Player" && other.gameObject.GetComponent<PlayerController>().HasArmor)
+            {
+                other.gameObject.GetComponent<PlayerController>().HitWithArmor();
+            }
+            else
+                Destroy (gameObject);
 		}
 	}
 }

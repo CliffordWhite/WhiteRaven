@@ -5,10 +5,10 @@ public class ShieldHitSound : MonoBehaviour {
 
     //Audio
     public AudioSource FXSource;
-    public AudioClip ShieldDeflect;
+    public AudioClip ShieldDeflectSound;
     void OnCollisionEnter(Collision other)
     {
         if (other.collider.tag == "Projectile")
-            FXSource.PlayOneShot(ShieldDeflect, 1.0f);
+            FXSource.PlayOneShot(ShieldDeflectSound, 1.0f);
     }
 }

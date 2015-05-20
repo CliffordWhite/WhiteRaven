@@ -6,7 +6,7 @@ public class PlayerShield : MonoBehaviour
 
     //Audio
     public AudioSource FXSource;
-    public AudioClip ShieldDeflect;
+    public AudioClip ShieldDeflectSound;
 
 
     public GameObject shield;
@@ -39,7 +39,7 @@ public class PlayerShield : MonoBehaviour
     {
         if (other.collider.tag == "Projectile")
         {
-            FXSource.PlayOneShot(ShieldDeflect, 1.0f);
+            FXSource.PlayOneShot(ShieldDeflectSound, 1.0f);
         }
     }
 }

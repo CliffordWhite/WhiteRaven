@@ -25,6 +25,11 @@ public class Projectile : MonoBehaviour
 		if (other.collider.tag == "Wall" || other.collider.tag == "Player")
 		{
 			Instantiate(explode, transform.position, transform.rotation);
+            if (other.collider.tag == "Player" && other.gameObject.GetComponent<PlayerController>().HasArmor)
+            {
+                other.gameObject.GetComponent<PlayerController>().HitWithArmor();
+            }
+            else
 			Destroy (gameObject);
 		}
 		// deflect from shield once
