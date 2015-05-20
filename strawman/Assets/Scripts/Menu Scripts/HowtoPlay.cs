@@ -22,6 +22,7 @@ public class HowtoPlay : MonoBehaviour {
 	void Update () {
 		
 		if (Input.anyKeyDown) {
+			//if back is pressed return to main
 			if ((Input.GetKeyDown (KeyCode.Return)|| Input.GetMouseButtonDown(0)) && selected == _button.Length) {
 				_SFXsource.PlayOneShot (_accept, 1.0f);
 				float fadetime = GameManager.manager.GetComponent<Fade>().BeginFade(1);

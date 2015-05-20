@@ -19,6 +19,7 @@ public class Options : MonoBehaviour {
 	void Start () {
 		selected = 1;
 		_button [0].GetComponent<Image> ().color = Color.yellow;
+		//position selectors to volumes currently selected
 		MusicSelector.GetComponent<RectTransform>().position = new Vector3(MusicSelector.GetComponent<RectTransform>().position.x +(10*(GameManager.manager.MusicVolume-5)),
 		                                                                   MusicSelector.GetComponent<RectTransform>().position.y,
 		                                                                   MusicSelector.GetComponent<RectTransform>().position.z);
@@ -35,7 +36,7 @@ public class Options : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		//if not changing volumes allow moving through menu
 		if (Input.anyKeyDown && !MusicSel && !SFXSel) {
 			if ((Input.GetKeyDown(KeyCode.Return)|| Input.GetMouseButtonDown(0))) {
 				if (selected == _button.Length){
@@ -80,6 +81,7 @@ public class Options : MonoBehaviour {
 				
 			}
 		}
+		//if in volume change disable movement through menu and allow change of selected volume
 		else if (Input.anyKeyDown && MusicSel) {
 			if (Input.GetKeyDown(KeyCode.Return)||Input.GetKeyDown(KeyCode.Escape)) {
 				_SFXsource.PlayOneShot(_changeSelection,1.0f);
@@ -125,7 +127,7 @@ public class Options : MonoBehaviour {
 			}
 		}
 	}
-	
+	//move selection based on mouse position and disable highlight from keyboard traversal
 	public void MouseOver(GameObject _obj)
 	{
 		if (!MusicSel && !SFXSel) {
