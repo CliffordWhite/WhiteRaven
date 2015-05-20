@@ -10,6 +10,7 @@ TagManager:
   - Wall
   - Projectile
   - Hookable
+  - Lever
   layers:
   - Default
   - TransparentFX
