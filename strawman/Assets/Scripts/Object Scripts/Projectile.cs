@@ -39,6 +39,15 @@ public class Projectile : MonoBehaviour
 				direction.z = 0.0f;
 			}
 		}
-
+        else if (other.collider.tag == "ReflectiveWall")
+        {
+            foreach (ContactPoint contact in other.contacts)
+            {
+                // making Bahin proud
+                direction = 2 * (Vector3.Dot(direction, Vector3.Normalize(contact.normal))) * Vector3.Normalize(contact.normal) - direction;
+                direction *= -1;
+                direction.z = 0.0f;
+            }
+        }
 	}
 }
