@@ -6,12 +6,16 @@ public class TreasureTrigger : MonoBehaviour
 	public AudioSource sfxManager;	// attach the scenes SXF manager
 	public AudioClip pickupSfx;		// sound clip to play when treasure is collected
 	public GameObject deathWall;	// deathwall to activate
-	private bool collected;			// flag on when treasure collected
+	bool collected;					// flag on when treasure collected
+	public bool Collected {
+		get {
+			return collected;
+		}
+	}
 
 	void Start () 
 	{
 		collected = false;			// initialize bool to false
-		deathWall.SetActive (false);// set activate wall to false
 	}
 	
 	void OnTriggerEnter(Collider other)
@@ -22,9 +26,10 @@ public class TreasureTrigger : MonoBehaviour
 			collected = true;
 			sfxManager.PlayOneShot(pickupSfx, 1.0f);
 			deathWall.SetActive(true);
+			deathWall.GetComponent<FireDeathWall>().BringThePain();
 			GetComponent<SpriteRenderer>().enabled = false;
 			GetComponent<ParticleSystem>().Stop();
-			Invoke ("DestroyAfterWait", 1.0f);
+			Invoke ("DestroyAfterWait", 0.5f);
 		}
 	}
 	void DestroyAfterWait()
