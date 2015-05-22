@@ -6,6 +6,8 @@ public class TreasureTrigger : MonoBehaviour
 	public AudioSource sfxManager;	// attach the scenes SXF manager
 	public AudioClip pickupSfx;		// sound clip to play when treasure is collected
 	public GameObject deathWall;	// deathwall to activate
+	public GameObject musicSource;	// access music change script on pickup
+
 	bool collected;					// flag on when treasure collected
 	public bool Collected {
 		get {
@@ -29,6 +31,7 @@ public class TreasureTrigger : MonoBehaviour
 			deathWall.GetComponent<FireDeathWall>().BringThePain();
 			GetComponent<SpriteRenderer>().enabled = false;
 			GetComponent<ParticleSystem>().Stop();
+			musicSource.GetComponent<MusicChange>().PlayHasteMusic();
 			Invoke ("DestroyAfterWait", 0.5f);
 		}
 	}
