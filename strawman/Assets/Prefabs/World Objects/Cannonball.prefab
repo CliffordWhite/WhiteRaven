@@ -12,7 +12,7 @@ GameObject:
   - 212: {fileID: 21267680}
   - 114: {fileID: 11434026}
   - 54: {fileID: 5446400}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Cannonball
   m_TagString: Projectile
   m_Icon: {fileID: 0}
