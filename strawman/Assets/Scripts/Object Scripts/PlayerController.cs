@@ -66,7 +66,7 @@ public class PlayerController : MonoBehaviour {
         NewTransform = transform;
         Origrotation = NewTransform.rotation;
         //Lever
-        LeverFacingRight = true;
+        LeverFacingRight = false;
         if (Lever == null)
             Lever = GameObject.FindWithTag("Lever");
         //Armor

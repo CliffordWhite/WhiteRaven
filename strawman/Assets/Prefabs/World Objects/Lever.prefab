@@ -37,7 +37,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 135490}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.54999995, y: 1.47000003, z: 1}
@@ -53,11 +53,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a295eba4d85f25418c75154e0ffbd37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Xposition: 0
-  YPosition: 0
-  Zposition: 0
+  tarPosition: {x: 0, y: 0, z: 0}
   Hasmoved: 0
   LeverObject: {fileID: 0}
+  speed: 0
 --- !u!212 &21273256
 SpriteRenderer:
   m_ObjectHideFlags: 1
