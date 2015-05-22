@@ -403,6 +403,34 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ba1e192a09ac7d24da25c7051e6c09a1, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &552043082
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 1570303417}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 552043083}
+  m_Layer: 0
+  m_Name: Missing Prefab
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &552043083
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 1570303417}
+  m_GameObject: {fileID: 552043082}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 676475477}
+  m_Father: {fileID: 0}
+  m_RootOrder: 24
 --- !u!1001 &596087017
 Prefab:
   m_ObjectHideFlags: 0
@@ -555,10 +583,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 25
---- !u!1 &676475476 stripped
+--- !u!1 &676475476
 GameObject:
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 174324, guid: 6628d94d3ef76b24a98d53287ccf30de, type: 2}
   m_PrefabInternal: {fileID: 1570303417}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 676475477}
+  m_Layer: 0
+  m_Name: Missing Prefab (Dummy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &676475477
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 1570303417}
+  m_GameObject: {fileID: 676475476}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 552043083}
+  m_RootOrder: 0
 --- !u!1 &743393809 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 156952, guid: ebe8e03c2d5705446b7b7898a1fe9058, type: 2}
@@ -625,6 +676,14 @@ Prefab:
     - target: {fileID: 170036, guid: 2eae27017149fd64391491a7d60bc6d7, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 145154, guid: 2eae27017149fd64391491a7d60bc6d7, type: 2}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 170036, guid: 2eae27017149fd64391491a7d60bc6d7, type: 2}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2eae27017149fd64391491a7d60bc6d7, type: 2}
