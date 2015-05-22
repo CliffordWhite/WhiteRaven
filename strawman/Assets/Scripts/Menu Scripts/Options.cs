@@ -28,8 +28,8 @@ public class Options : MonoBehaviour {
 		                                                                   SFXSelector.GetComponent<RectTransform>().position.z);
 		MusicSel = false;
 		SFXSel = false;
-		_SFXsource.volume = GameManager.manager.SFXVolume * .1f;
-		_Musicsource.volume = GameManager.manager.MusicVolume * .1f;
+		_SFXsource.volume = GameManager.manager.SFXVolume * 0.1f;
+		_Musicsource.volume = GameManager.manager.MusicVolume * 0.1f;
 		fullscreenCheck.SetActive (GameManager.manager.isFullscreen);
 		
 	}
@@ -88,20 +88,20 @@ public class Options : MonoBehaviour {
 				MusicSel = false;
 				_Musicsource.Stop();
 			}
-			if (Input.GetKeyDown(KeyCode.D)||Input.GetKeyDown(KeyCode.RightArrow)) {
+			if ((Input.GetKeyDown(KeyCode.D)||Input.GetKeyDown(KeyCode.RightArrow)) && _Musicsource.volume < 1.0f) {
 				MusicSelector.GetComponent<RectTransform>().position = new Vector3(MusicSelector.GetComponent<RectTransform>().position.x+10,
 				                                                                   MusicSelector.GetComponent<RectTransform>().position.y,
 				                                                                   MusicSelector.GetComponent<RectTransform>().position.z);
 				GameManager.manager.MusicVolume +=1;
-				_Musicsource.volume += .1f;
+				_Musicsource.volume =GameManager.manager.MusicVolume*0.1f;
 
 			}
-			if (Input.GetKeyDown(KeyCode.A)||Input.GetKeyDown(KeyCode.LeftArrow)) {
+			if ((Input.GetKeyDown(KeyCode.A)||Input.GetKeyDown(KeyCode.LeftArrow)) &&_Musicsource.volume > 0.0f) {
 				MusicSelector.GetComponent<RectTransform>().position = new Vector3(MusicSelector.GetComponent<RectTransform>().position.x-10,
 				                                                                   MusicSelector.GetComponent<RectTransform>().position.y,
 				                                                                   MusicSelector.GetComponent<RectTransform>().position.z);
 				GameManager.manager.MusicVolume -=1;
-				_Musicsource.volume -= .1f;
+				_Musicsource.volume =GameManager.manager.MusicVolume*0.1f;
 			}
 		}
 		else if (Input.anyKeyDown && SFXSel) {
@@ -114,15 +114,15 @@ public class Options : MonoBehaviour {
 				                                                                   SFXSelector.GetComponent<RectTransform>().position.y,
 				                                                                   SFXSelector.GetComponent<RectTransform>().position.z);
 				GameManager.manager.SFXVolume +=1;
-				_SFXsource.volume += .1f;
+				_SFXsource.volume =GameManager.manager.SFXVolume*0.1f;
 				_SFXsource.PlayOneShot(_changeSelection,1.0f);
 			}
-			if ((Input.GetKeyDown(KeyCode.A)||Input.GetKeyDown(KeyCode.LeftArrow))&&_SFXsource.volume > .0f) {
+			if ((Input.GetKeyDown(KeyCode.A)||Input.GetKeyDown(KeyCode.LeftArrow))&&_SFXsource.volume > 0.0f) {
 				SFXSelector.GetComponent<RectTransform>().position = new Vector3(SFXSelector.GetComponent<RectTransform>().position.x-10,
 				                                                                 SFXSelector.GetComponent<RectTransform>().position.y,
 				                                                                 SFXSelector.GetComponent<RectTransform>().position.z);
 				GameManager.manager.SFXVolume -=1;
-				_SFXsource.volume -= .1f;
+				_SFXsource.volume =GameManager.manager.SFXVolume*0.1f;
 				_SFXsource.PlayOneShot(_changeSelection,1.0f);
 			}
 		}

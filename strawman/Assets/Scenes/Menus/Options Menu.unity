@@ -365,7 +365,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11477824, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
       propertyPath: MusicVolume
-      value: 8
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11477824, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
       propertyPath: SFXVolume
@@ -549,6 +549,10 @@ Prefab:
       objectReference: {fileID: 8300000, guid: d8f80f9a25e621e46b61529489c680a2, type: 3}
     - target: {fileID: 8262418, guid: 409754371062dad44b9b6fd72e8f9f85, type: 2}
       propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8262418, guid: 409754371062dad44b9b6fd72e8f9f85, type: 2}
+      propertyPath: m_Volume
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
