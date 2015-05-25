@@ -34,5 +34,6 @@ public class FireDeathWall : MonoBehaviour
 		startTime = musicTime = Time.time;
 		transform.position = fireStart;
 		sfxSource.PlayOneShot(fireSound, 0.5f);
+
 	}
 }
