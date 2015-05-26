@@ -2,9 +2,10 @@
 using System.Collections;
 
 public class PlayerController : MonoBehaviour {
+	public Vector3 testvelo;
 
     public float maxSpeed;
-    bool grounded;
+    public bool grounded;
     bool FacingRight;
     float HeMoved;
     //shield anchor
@@ -84,14 +85,15 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		testvelo = GetComponent<Rigidbody> ().velocity;
         if (GetComponent<Rigidbody>().velocity.y == 0.0f)
         {
             grounded = true;
         }
-        else
-        {
-            grounded = false;
-        }
+       // else
+       // {
+       //     grounded = false;
+       // }
         HeMoved = Input.GetAxis("Horizontal");
 
         //for shield to be active/inactive
@@ -179,7 +181,7 @@ public class PlayerController : MonoBehaviour {
         else if (HeMoved < 0 && FacingRight)
             Flip();
 
-        if (Input.GetKey(KeyCode.Space) && grounded || Input.GetKey(KeyCode.W) && grounded)
+        if ((Input.GetKey(KeyCode.Space) && grounded) || (Input.GetKey(KeyCode.W) && grounded))
         {
             GetComponent<Rigidbody>().AddForce(0.0f, 250.0f, 0.0f);
             grounded = false;
