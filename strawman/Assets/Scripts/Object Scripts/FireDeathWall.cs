@@ -7,15 +7,16 @@ public class FireDeathWall : MonoBehaviour
 	public AudioClip fireSound;		// fire crackle
 	public Transform exitDoor;		// used to calculate where the fire will move towards
 	public float speed;				// how long in seconds it will take to get to the exit
+	// currently public for debuging
+	public Vector3 fireStart;		// keep track of origin point
 
 	private float startTime;		// used to reference when the wall starts moving
 	private float musicTime;		// used to loop the fire sound if necessary
-	private Vector3 fireStart;		// keep track of origin point
 	private Vector3 fireEnd;		// keep track of end point
 
 	void Start()
 	{
-		fireStart = transform.position;
+		//fireStart = transform.position;
 		fireEnd = new Vector3 (fireStart.x, exitDoor.position.y, 0.0f);
 	}
 	void Update () 
