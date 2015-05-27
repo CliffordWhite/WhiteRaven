@@ -88,7 +88,7 @@ public class PlayerController : MonoBehaviour {
 		// ignore this entire call if game is paused
 		if (GameManager.paused)
 			return;
-		
+
         if (GetComponent<Rigidbody>().velocity.y == 0.0f)
         {
             grounded = true;
