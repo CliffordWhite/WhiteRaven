@@ -4,7 +4,7 @@ using System.Collections;
 public class PlayerController : MonoBehaviour {
 
     public float maxSpeed;
-    public bool grounded;
+    bool grounded;
     bool FacingRight;
     float HeMoved;
     //shield anchor
@@ -93,6 +93,7 @@ public class PlayerController : MonoBehaviour {
         {
             grounded = true;
         }
+		//removed this because it was causing player movement issues
        // else
        // {
        //     grounded = false;
