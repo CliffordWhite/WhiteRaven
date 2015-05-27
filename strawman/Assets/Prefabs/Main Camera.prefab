@@ -107,6 +107,7 @@ MonoBehaviour:
   camDist: 10
   w: 90
   t: 10
+  lifeIcon: {fileID: 2800000, guid: c8ad831e52a17394a9bfed48568d8e49, type: 3}
   style:
     m_Name: 
     m_Normal:
