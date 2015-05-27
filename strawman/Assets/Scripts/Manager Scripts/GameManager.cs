@@ -7,14 +7,15 @@ using System.Runtime.Serialization.Formatters.Binary;
 //Our singleton that takes care of game data
 public class GameManager : MonoBehaviour 
 {
-	public static GameManager manager; //allow singleton access
+	public static GameManager manager; 		// allow singleton access
+	public static bool paused = false; 		// bool to tell other scripts the game is paused
 
-	public int lives, keys; // number of lives for hard, number of keys held
-	public float gameTime; // elapsed time for time attack
-	public bool hardModeOn, timeAttackOn; // flags for game modes
-	public bool[] treasureCollected; // flags for collected treasures
-	public int save; // which save slot
-	public string saveName; // the name of the save
+	public int lives, keys; 				// number of lives for hard, number of keys held
+	public float gameTime; 					// elapsed time for time attack
+	public bool hardModeOn, timeAttackOn; 	// flags for game modes
+	public bool[] treasureCollected;		// flags for collected treasures
+	public int save; 						// which save slot
+	public string saveName;					// the name of the save
 	public float MusicVolume;
 	public float SFXVolume;
 	public bool isFullscreen;

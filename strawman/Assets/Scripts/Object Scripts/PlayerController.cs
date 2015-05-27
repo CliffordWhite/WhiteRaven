@@ -84,6 +84,11 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		// ignore this entire call if game is paused
+		if (GameManager.paused)
+			return;
+
         if (GetComponent<Rigidbody>().velocity.y == 0.0f)
         {
             grounded = true;
