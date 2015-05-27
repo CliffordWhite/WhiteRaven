@@ -6,15 +6,17 @@ public class Ladder : MonoBehaviour {
 	public GameObject playerObject;
 	// Update is called once per frame
 	void OnTriggerEnter(Collider other){
-		if (other.gameObject.tag == "Player")
+		if (other.gameObject.tag == "Player") {
 			playerObject.GetComponent<Rigidbody> ().velocity = new Vector3 (0, 0, 0);
 			playerObject.GetComponent<Rigidbody> ().useGravity = false;
+		}
 	}
 
 	void OnTriggerExit(Collider other){
-		if (other.gameObject.tag == "Player")
+		if (other.gameObject.tag == "Player") {
 			playerObject.GetComponent<Rigidbody> ().velocity = new Vector3 (0, 0, 0);
 			playerObject.GetComponent<Rigidbody> ().useGravity = true;
+		}
 	}
 
 	void OnTriggerStay(Collider other){
