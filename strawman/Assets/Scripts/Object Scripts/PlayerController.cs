@@ -2,7 +2,6 @@
 using System.Collections;
 
 public class PlayerController : MonoBehaviour {
-	public Vector3 testvelo;
 
     public float maxSpeed;
     public bool grounded;
@@ -90,7 +89,6 @@ public class PlayerController : MonoBehaviour {
 		if (GameManager.paused)
 			return;
 
-		testvelo = GetComponent<Rigidbody> ().velocity;
         if (GetComponent<Rigidbody>().velocity.y == 0.0f)
         {
             grounded = true;
