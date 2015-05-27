@@ -255,7 +255,7 @@ Transform:
   - {fileID: 58119263}
   - {fileID: 1050358073}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 9
 --- !u!1001 &136652328
 Prefab:
   m_ObjectHideFlags: 0
@@ -750,7 +750,7 @@ Transform:
   - {fileID: 596462570}
   - {fileID: 2007999038}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 12
 --- !u!1001 &498567952
 Prefab:
   m_ObjectHideFlags: 0
@@ -1976,7 +1976,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400184, guid: 4e88bb3ae17a2da4e8a67c5e9847b8aa, type: 2}
       propertyPath: m_RootOrder
-      value: 20
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 11420450, guid: 4e88bb3ae17a2da4e8a67c5e9847b8aa, type: 2}
       propertyPath: target
