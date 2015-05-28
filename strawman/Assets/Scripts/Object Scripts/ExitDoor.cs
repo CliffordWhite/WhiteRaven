@@ -85,7 +85,7 @@ public class ExitDoor : MonoBehaviour
 		// if current level is 4 or more, load back to main menu
 		// load to level select instead once created
 		if (Application.loadedLevel >= 9)
-			Application.LoadLevel (0);
+			Application.LoadLevel (1);
 		// if level 1-3, load the next level
 		else
 			Application.LoadLevel (Application.loadedLevel + 1);
