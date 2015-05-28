@@ -14,7 +14,9 @@ public class GameManager : MonoBehaviour
 	public float gameTime; 					// elapsed time for time attack
 	public bool hardModeOn, timeAttackOn; 	// flags for game modes
 	public bool[] treasureCollected;		// flags for collected treasures
-	public int save; 						// which save slot
+    public bool[] levelCompleted;           //Flags for Levels Completed
+    public bool[] levelUnlocked;            //Flags Level unlocked
+    public int save; 						// which save slot
 	public string saveName;					// the name of the save
 	public float MusicVolume;
 	public float SFXVolume;
@@ -22,6 +24,7 @@ public class GameManager : MonoBehaviour
 
 	void Awake () 
 	{
+        //levelUnlocked[0].Equals(true);
 		if (manager == null) // assign this one as our singleton if it's the first
 		{
 			manager = this;
@@ -59,6 +62,7 @@ public class GameManager : MonoBehaviour
 		info.TimeAttackOn = timeAttackOn;
 		info.Save = save;
 		info.TreasureCollected = treasureCollected;
+        info.LevelCompleted = levelCompleted;
 
 		bf.Serialize (file, info);
 		file.Close ();
@@ -90,7 +94,8 @@ public class GameManager : MonoBehaviour
 		info.TimeAttackOn = false;
 		info.Save = save;
 		info.TreasureCollected = treasureCollected;
-		
+        info.LevelCompleted = levelCompleted;
+
 		bf.Serialize (file, info);
 		file.Close ();
 	}
@@ -123,7 +128,7 @@ public class GameManager : MonoBehaviour
 			timeAttackOn = info.TimeAttackOn;
 			save = info.Save;
 			treasureCollected = info.TreasureCollected;
-
+            levelCompleted = info.LevelCompleted;
 		}
 	}
 	// All of this is for testing, preserved for testing
@@ -161,6 +166,7 @@ public class GameManager : MonoBehaviour
 	{
 		Application.LoadLevel(Application.loadedLevel - 1);
 	}
+
 }
 
 // class for saving data
@@ -236,4 +242,31 @@ class GameInfo
 			treasureCollected = value;
 		}
 	}
+
+    bool[] levelCompleted;
+    public bool[] LevelCompleted
+    {
+        get
+        {
+            return levelCompleted;
+        }
+        set
+        {
+            levelCompleted = value;
+        }
+    }
+
+    bool[] levelUnlocked;
+    public bool[] LevelUnlocked
+    {
+        get
+        {
+            return levelUnlocked;
+        }
+        set
+        {
+            levelUnlocked = value;
+        }
+    }
+
 }

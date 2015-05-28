@@ -14,6 +14,21 @@ TagManager:
   - ReflectiveWall
   - ArmorUp
   - Sprite
+  - Level 1
+  - Level 2
+  - Level 3
+  - Level 4
+  - Level 5A
+  - Level 5B
+  - Level 6A
+  - Level 6B
+  - Level 6C
+  - Level 7A
+  - Level 7B
+  - Level 7C
+  - Level 8A
+  - Level 8B
+  - Level 9
   layers:
   - Default
   - TransparentFX

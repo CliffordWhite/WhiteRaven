@@ -14,7 +14,7 @@ GameObject:
   - 114: {fileID: 11435126}
   - 54: {fileID: 5477518}
   - 59: {fileID: 5996476}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Hookable
   m_TagString: Hookable
   m_Icon: {fileID: 0}
