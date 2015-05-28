@@ -220,6 +220,8 @@ public class PlayerController : MonoBehaviour {
         {
             FXSource.PlayOneShot(DeathSound, 1.0f);
 			float fadetime = GameManager.manager.GetComponent<Fade>().BeginFade(1);
+			if (GameManager.manager.hardModeOn)
+				GameManager.manager.lives--;		// lose life if hard mode
 			Invoke ("RestartLevel", fadetime);
         }
         else if (other.tag == "ArmorUp")
@@ -237,6 +239,8 @@ public class PlayerController : MonoBehaviour {
         {
             FXSource.PlayOneShot(DeathSound, 1.0f);
 			float fadetime = GameManager.manager.GetComponent<Fade>().BeginFade(1);
+			if (GameManager.manager.hardModeOn)
+				GameManager.manager.lives--;		// lose life if hard mode
 			Invoke ("RestartLevel", fadetime);
 		}
         
@@ -244,8 +248,12 @@ public class PlayerController : MonoBehaviour {
     }
 	void RestartLevel()
 	{
+		if (GameManager.manager.hardModeOn && GameManager.manager.lives <= 0)
+			Application.LoadLevel(0);		// load main menu if all lives lost
+
 		// reloads the current level from the start
-		Application.LoadLevel (Application.loadedLevel);
+		else
+			Application.LoadLevel (Application.loadedLevel);
 	}
     void WhipConnect()
     {
