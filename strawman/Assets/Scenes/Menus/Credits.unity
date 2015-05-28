@@ -988,8 +988,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "EP - John Oleske\nAP - Sean Haddaway\n\nDevelopers \n\t-Nicholas Lee\n\t-Joshua
-    Stankieleg\n\t-Clifford The big Red Dog\n\nGame Logo  - Gregory Bey"
+  m_Text: "EP - John Oleske\nAP - Sean Hathaway\n\nDevelopers \n\t-Nicholas Lee\n\t-Joshua
+    Stankiewicz\n\t-Clifford White\n\nGame Logo  - Gregory Bey"
 --- !u!222 &2052450720
 CanvasRenderer:
   m_ObjectHideFlags: 0
