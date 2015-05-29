@@ -23,7 +23,7 @@ public class SkullProjectile : MonoBehaviour
 	{
 		// list all possible items with which this can collide
 		if (other.collider.tag == "Wall" || other.collider.tag == "Shield" || other.collider.tag == "Player" ||
-		    other.collider.tag == "ReflectiveWall")
+		    other.collider.tag == "ReflectiveWall" || other.collider.tag == "Floor")
 		{
 			Instantiate(explode, transform.position, transform.rotation);
             if (other.collider.tag == "Player" && other.gameObject.GetComponent<PlayerController>().HasArmor)

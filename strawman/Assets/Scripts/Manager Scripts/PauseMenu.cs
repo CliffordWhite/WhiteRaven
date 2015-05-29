@@ -109,9 +109,4 @@ public class PauseMenu : MonoBehaviour
 		return (Time.timeScale == 0);
 	}
 	
-	void OnApplicationPause(bool pause) 
-	{
-		if (IsGamePaused())
-			AudioListener.pause = true;
-	}
 }

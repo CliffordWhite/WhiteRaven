@@ -22,7 +22,7 @@ public class Projectile : MonoBehaviour
 	void OnCollisionEnter(Collision other)
 	{
 		// check all tags that this object will destroy on
-		if (other.collider.tag == "Wall" || other.collider.tag == "Player")
+		if (other.collider.tag == "Wall" || other.collider.tag == "Player" || other.collider.tag == "Floor")
 		{
 			Instantiate(explode, transform.position, transform.rotation);
             if (other.collider.tag == "Player" && other.gameObject.GetComponent<PlayerController>().HasArmor)

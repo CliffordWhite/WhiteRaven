@@ -2,7 +2,6 @@
 using System.Collections;
 
 public class PlayerController : MonoBehaviour {
-
     public float maxSpeed;
     bool grounded;
     bool FacingRight;
@@ -84,15 +83,15 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
 		// ignore this entire call if game is paused
 		if (GameManager.paused)
 			return;
 
-        if (GetComponent<Rigidbody>().velocity.y == 0.0f)
-        {
-            grounded = true;
-        }
+		// trying to set grounded in OnCollisionEnter
+        //if (GetComponent<Rigidbody>().velocity.y == 0.0f)
+        //{
+        //    grounded = true;
+        //}
 		//removed this because it was causing player movement issues
        // else
        // {
@@ -168,10 +167,10 @@ public class PlayerController : MonoBehaviour {
         _dir = (screenPos - transform.position).normalized;
        
         
-        if(!grounded && !isGrappled)
-        { return; }
-
-        else if(grounded && !isGrappled)
+        //if(!grounded && !isGrappled)
+        //{ return; }
+											// modified this bit of code for a better feel of jumping
+        if(/*grounded && */!isGrappled)
             GetComponent<Rigidbody>().velocity = new Vector3(HeMoved * maxSpeed, GetComponent<Rigidbody>().velocity.y, 0.0f);
         else if (!grounded && isGrappled)
         {
@@ -244,7 +243,10 @@ public class PlayerController : MonoBehaviour {
 			Invoke ("RestartLevel", fadetime);
 		}
         
-
+		if (!grounded && other.collider.tag == "Floor")
+		{
+			grounded = true;
+		}
     }
 	void RestartLevel()
 	{
