@@ -9,6 +9,8 @@ public class PlayerCamera : MonoBehaviour
 	public Texture lifeIcon;	// icon for how many lives player has	
 	public GUIStyle style;		// allow for large font for timer
 
+	public Texture KeyTexture;
+
 	float showTime = 2.0f; 		// how long to show lives before hiding
 
 	void Update () 
@@ -39,6 +41,12 @@ public class PlayerCamera : MonoBehaviour
 		{
 			GUI.Label (new Rect(Screen.width - lifeIcon.width * 5, lifeIcon.height / 2, 200,200), GameManager.manager.lives.ToString("##") + "x", style);
 			GUI.DrawTexture(new Rect(Screen.width - lifeIcon.width * 2, lifeIcon.height / 2, lifeIcon.width, lifeIcon.height), lifeIcon);
+		}
+		//Show Keys for a brief moment
+		if (GameManager.manager.keyShowTime > 0.0f) {
+			GUI.Label (new Rect(KeyTexture.width, KeyTexture.height / 2, 64,64), "x" + GameManager.manager.keys.ToString("##"), style);
+			GUI.DrawTexture(new Rect(0, KeyTexture.height / 2, KeyTexture.width, KeyTexture.height), KeyTexture);
+			GameManager.manager.keyShowTime -= Time.deltaTime;
 		}
 	}
 }
