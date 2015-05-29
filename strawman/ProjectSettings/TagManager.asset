@@ -29,6 +29,7 @@ TagManager:
   - Level 8A
   - Level 8B
   - Level 9
+  - Floor
   layers:
   - Default
   - TransparentFX

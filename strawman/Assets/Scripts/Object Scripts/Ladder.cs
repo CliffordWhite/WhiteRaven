@@ -25,8 +25,17 @@ public class Ladder : MonoBehaviour {
 				playerObject.transform.position = new Vector3 (playerObject.transform.position.x,
 			                                               playerObject.transform.position.y - speed * Time.deltaTime,
 			                                               playerObject.transform.position.z);
-			else if(!Input.GetKey (KeyCode.A)&&!Input.GetKey (KeyCode.D)&&!Input.GetKey (KeyCode.W))
-				playerObject.GetComponent<Rigidbody> ().velocity = new Vector3 (0, 0, 0);
+			// added for changing jump mechanic
+			else if(Input.GetKey (KeyCode.W))
+			{
+				playerObject.GetComponent<Rigidbody>().velocity = new Vector3 (0, 0, 0);
+
+				playerObject.transform.position = new Vector3 (playerObject.transform.position.x,
+				                                               playerObject.transform.position.y + speed * Time.deltaTime,
+				                                               playerObject.transform.position.z);
+			}
+			else if(!Input.GetKey (KeyCode.A)&&!Input.GetKey (KeyCode.D)/*&&!Input.GetKey (KeyCode.W)*/)
+				playerObject.GetComponent<Rigidbody>().velocity = new Vector3 (0, 0, 0);
 		}
 	}
 
