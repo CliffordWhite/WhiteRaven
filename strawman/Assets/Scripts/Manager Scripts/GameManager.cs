@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
 	public float MusicVolume;
 	public float SFXVolume;
 	public bool isFullscreen;
+	public float keyShowTime;
 
 	void Awake () 
 	{
