@@ -2,10 +2,10 @@
 using System.Collections;
 
 public class PlayerController : MonoBehaviour {
-    public float maxSpeed;
-    bool grounded;
-    bool FacingRight;
-    float HeMoved;
+	public float Speed = 0.15f;
+	bool FacingRight = true;
+	float MoveDir = 0.0f;
+
     //shield anchor
     public GameObject shieldAnchor;
     private Vector2 mousePos;
@@ -49,14 +49,21 @@ public class PlayerController : MonoBehaviour {
     public float endWidth = 0.05f;
     LineRenderer line;
 
+	Rigidbody rigidbody = new Rigidbody();
+	GameObject RayLeftOrigin = null;
+	GameObject RayRightOrigin = null;
+	float RayMaxDist = 1.0f;
+	public LayerMask RayMask;
 
     // Use this for initialization
-	void Start () {
-        if (maxSpeed == 0)
-            maxSpeed = 6.0f;
-
-        grounded = true;
+	void Start ()
+	{
+		rigidbody = transform.GetComponent<Rigidbody> ();
         FacingRight = true;
+
+		RayLeftOrigin = transform.FindChild ("RayOrigin1").gameObject;
+		RayRightOrigin = transform.FindChild ("RayOrigin2").gameObject;
+
         //Shield Anchor
         if (shieldAnchor == null)
             shieldAnchor = GameObject.FindWithTag("ShieldAnchor");
@@ -80,45 +87,26 @@ public class PlayerController : MonoBehaviour {
         line.enabled = false;
         SpriteSwitch.GetComponent<SpriteRenderer>().sprite = NormalSprite;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		// ignore this entire call if game is paused
+
+	void Update ()
+	{
 		if (GameManager.paused)
 			return;
 
-		// trying to set grounded in OnCollisionEnter
-        //if (GetComponent<Rigidbody>().velocity.y == 0.0f)
-        //{
-        //    grounded = true;
-        //}
-		//removed this because it was causing player movement issues
-       // else
-       // {
-       //     grounded = false;
-       // }
-        HeMoved = Input.GetAxis("Horizontal");
+		MoveDir = Input.GetAxisRaw("Horizontal");
 
         //for shield to be active/inactive
         mousePos = Input.mousePosition;
         screenPos = Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, transform.position.z - Camera.main.transform.position.z));
 
         if (Input.GetKeyDown(KeyCode.Mouse1))
-        {
-            shieldAnchor.SetActive(true);
-        }
+			shieldAnchor.SetActive(true);
         else if (Input.GetKeyUp(KeyCode.Mouse1))
-        {
-            shieldAnchor.SetActive(false);
-        }
+			shieldAnchor.SetActive(false);
         if (FacingRight)
-        {
             shieldAnchor.transform.eulerAngles = new Vector3(shieldAnchor.transform.rotation.eulerAngles.x, shieldAnchor.transform.rotation.eulerAngles.y, Mathf.Atan2((screenPos.y - shieldAnchor.transform.position.y), (screenPos.x - shieldAnchor.transform.position.x)) * Mathf.Rad2Deg);
-        }
         else
-        {
-            shieldAnchor.transform.eulerAngles = new Vector3(shieldAnchor.transform.rotation.eulerAngles.x, shieldAnchor.transform.rotation.eulerAngles.y, Mathf.Atan2((screenPos.y - shieldAnchor.transform.position.y), -(screenPos.x - shieldAnchor.transform.position.x)) * Mathf.Rad2Deg);
-        }
+			shieldAnchor.transform.eulerAngles = new Vector3(shieldAnchor.transform.rotation.eulerAngles.x, shieldAnchor.transform.rotation.eulerAngles.y, Mathf.Atan2((screenPos.y - shieldAnchor.transform.position.y), -(screenPos.x - shieldAnchor.transform.position.x)) * Mathf.Rad2Deg);
         if (Input.GetKeyDown(KeyCode.Mouse0) && !isGrappled)
         {
             Ray WhipThrown;
@@ -130,7 +118,6 @@ public class PlayerController : MonoBehaviour {
             {
                 if (Connected.collider.tag == "Hookable")
                 {
-                    grounded = false;
                     isGrappled = true;
                     Hookable = Connected.collider.gameObject;
                     WhipConnect();
@@ -154,40 +141,40 @@ public class PlayerController : MonoBehaviour {
         if (isGrappled)
             HookOnAdjust();
 	}
+
     void FixedUpdate() 
     {
-        if (line.enabled && !isGrappled)
-            line.enabled = false;
-        else if (line.enabled && isGrappled)
-        {
-            DrawLine();
-        }
+        if (line.enabled)
+		{
+			if (!isGrappled)
+				line.enabled = false;
+			else
+				DrawLine();
+		}
+
         mousePos = Input.mousePosition;
         screenPos = Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, transform.position.z - Camera.main.transform.position.z));
         _dir = (screenPos - transform.position).normalized;
-       
-        
-        //if(!grounded && !isGrappled)
-        //{ return; }
-											// modified this bit of code for a better feel of jumping
-        if(/*grounded && */!isGrappled)
-            GetComponent<Rigidbody>().velocity = new Vector3(HeMoved * maxSpeed, GetComponent<Rigidbody>().velocity.y, 0.0f);
-        else if (!grounded && isGrappled)
+
+        if (!isGrappled)
+			transform.position += new Vector3 (MoveDir * Speed, 0.0f, 0.0f);
+        else if (isGrappled)
         {
             HookedOn();
             return;
         }
 
 
-        if (HeMoved > 0 && !FacingRight)
-            Flip();
-        else if (HeMoved < 0 && FacingRight)
-            Flip();
+		if (MoveDir > 0 && !FacingRight)
+           Flip();
+		else if (MoveDir < 0 && FacingRight)
+           Flip();
 
-        if ((Input.GetKey(KeyCode.Space) && grounded) || (Input.GetKey(KeyCode.W) && grounded))
+        if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W))
         {
-            GetComponent<Rigidbody>().AddForce(0.0f, 250.0f, 0.0f);
-            grounded = false;
+			if (Physics.Raycast(RayLeftOrigin.transform.position, new Vector3(0, -1.0f, 0), RayMaxDist, RayMask) 
+			    || Physics.Raycast(RayRightOrigin.transform.position, new Vector3(0, -1.0f, 0), RayMaxDist, RayMask))
+            	GetComponent<Rigidbody>().AddForce(0.0f, 250.0f, 0.0f);
         }
 
         if (Input.GetKeyUp(KeyCode.Mouse0))
@@ -211,7 +198,7 @@ public class PlayerController : MonoBehaviour {
             FacingRight = !FacingRight;
         }
         transform.localRotation = Scale;
-        HeMoved = 0;
+		MoveDir = 0;
     }
     void OnTriggerEnter(Collider other)
     {
@@ -234,6 +221,9 @@ public class PlayerController : MonoBehaviour {
     }
     void OnCollisionEnter(Collision other)
     {
+		if (!isGrappled)
+			rigidbody.velocity = Vector3.zero;
+
         if(other.collider.tag == "Projectile" && !HasArmor)
         {
             FXSource.PlayOneShot(DeathSound, 1.0f);
@@ -241,11 +231,6 @@ public class PlayerController : MonoBehaviour {
 			if (GameManager.manager.hardModeOn)
 				GameManager.manager.lives--;		// lose life if hard mode
 			Invoke ("RestartLevel", fadetime);
-		}
-        
-		if (!grounded && other.collider.tag == "Floor")
-		{
-			grounded = true;
 		}
     }
 	void RestartLevel()
@@ -312,7 +297,7 @@ public class PlayerController : MonoBehaviour {
         else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)  && isGrappled && GetComponent<Rigidbody>().position.y < Hookable.GetComponent<Rigidbody>().position.y
                  && distanceFromHook > HookDistanceMin && distanceFromHook <= HookDistanceMax)
         {
-            GetComponent<Rigidbody>().velocity = new Vector3(HeMoved * maxSpeed, GetComponent<Rigidbody>().velocity.y, 0.0f);
+            GetComponent<Rigidbody>().AddForce(new Vector3(MoveDir * 6.0f, 0.0f, 0.0f));
         }
     }
     void HookOnAdjust()
