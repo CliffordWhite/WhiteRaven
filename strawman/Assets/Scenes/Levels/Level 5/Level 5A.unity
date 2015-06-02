@@ -368,6 +368,17 @@ Prefab:
 GameObject:
   m_PrefabParentObject: {fileID: 170036, guid: 2eae27017149fd64391491a7d60bc6d7, type: 2}
   m_PrefabInternal: {fileID: 1361663893}
+--- !u!114 &143569584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 143569583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 768cc23b9dfe6c9418c23e07f9ea0270, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!82 &143569586
 AudioSource:
   m_ObjectHideFlags: 0
@@ -767,6 +778,17 @@ Transform:
 GameObject:
   m_PrefabParentObject: {fileID: 170036, guid: 2eae27017149fd64391491a7d60bc6d7, type: 2}
   m_PrefabInternal: {fileID: 3457991}
+--- !u!114 &389800495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 389800494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 768cc23b9dfe6c9418c23e07f9ea0270, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!82 &389800496
 AudioSource:
   m_ObjectHideFlags: 0
@@ -872,6 +894,17 @@ Transform:
 GameObject:
   m_PrefabParentObject: {fileID: 170036, guid: 2eae27017149fd64391491a7d60bc6d7, type: 2}
   m_PrefabInternal: {fileID: 1791243477}
+--- !u!114 &425282249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 425282248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 768cc23b9dfe6c9418c23e07f9ea0270, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!82 &425282250
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2584,6 +2617,17 @@ Transform:
 GameObject:
   m_PrefabParentObject: {fileID: 170036, guid: 2eae27017149fd64391491a7d60bc6d7, type: 2}
   m_PrefabInternal: {fileID: 557452154}
+--- !u!114 &1364237254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1364237253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 768cc23b9dfe6c9418c23e07f9ea0270, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!82 &1364237256
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2657,6 +2701,17 @@ AudioSource:
 GameObject:
   m_PrefabParentObject: {fileID: 170036, guid: 2eae27017149fd64391491a7d60bc6d7, type: 2}
   m_PrefabInternal: {fileID: 505661919}
+--- !u!114 &1391660485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1391660484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 768cc23b9dfe6c9418c23e07f9ea0270, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!82 &1391660486
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3170,6 +3225,21 @@ AudioSource:
   m_PrefabParentObject: {fileID: 8222844, guid: 75a471fc19f2eda49a7f7426d66a025a,
     type: 2}
   m_PrefabInternal: {fileID: 1610591740}
+--- !u!1 &1610591742 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 126436, guid: 75a471fc19f2eda49a7f7426d66a025a, type: 2}
+  m_PrefabInternal: {fileID: 1610591740}
+--- !u!114 &1610591743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1610591742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 768cc23b9dfe6c9418c23e07f9ea0270, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1617444186 stripped
 Transform:
   m_PrefabParentObject: {fileID: 429762, guid: b91e16e957ef88e4eac4eecb2238f6c2, type: 2}
@@ -3614,6 +3684,17 @@ MonoBehaviour:
   musicSource: {fileID: 1978175079}
   backgroundCalm: {fileID: 8300000, guid: 6a0115ec26ee85c4d96345f92374db52, type: 3}
   backgroundHaste: {fileID: 8300000, guid: b098b708e677b5d408327715412b12d0, type: 3}
+--- !u!114 &1978175081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1978175078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58b0260734f64d94e817608ecc892fc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1993193623 stripped
 Transform:
   m_PrefabParentObject: {fileID: 407834, guid: ebe8e03c2d5705446b7b7898a1fe9058, type: 2}
