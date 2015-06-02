@@ -9,6 +9,7 @@ public class Achievements : MonoBehaviour {
 	public AudioSource _SFXsource;
 	public AudioSource _Musicsource;
 	public AudioClip _accept;
+	public GameObject[] achieves;
 	// Use this for initialization
 	void Start () {
 		selected = 1;
@@ -16,6 +17,10 @@ public class Achievements : MonoBehaviour {
 		//check manager for volume and set to this value
 		_SFXsource.volume = GameManager.manager.SFXVolume * .1f;
 		_Musicsource.volume = GameManager.manager.MusicVolume * .1f;
+		for (int i = 0; i < achieves.Length; i++) {
+			if (GameManager.manager.achieveList[i])
+				achieves[i].SetActive(true);
+		}
 	}
 	
 	// Update is called once per frame
