@@ -46,6 +46,12 @@ public class PressurePlate : MonoBehaviour {
 
 	void Update()
 	{
+
+
+	}
+
+	void FixedUpdate()
+	{
 		//if triggered start moving object to target position and when within distance of .01f set position and stop moving
 		if (objectMoving) {
 			toEffect.transform.position = Vector3.MoveTowards(toEffect.transform.position,tarPosition,speed*Time.deltaTime);
@@ -54,6 +60,5 @@ public class PressurePlate : MonoBehaviour {
 				objectMoving = false;
 			}
 		}
-
 	}
 }
