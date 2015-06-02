@@ -77,7 +77,7 @@ public class LevelSelect : MonoBehaviour {
          }
 
         GUI.Label(new Rect(100,100,100,100),Levelholder.ToString() + "/15 Levels Completed");
-        GUI.Label(new Rect(100, 150, 100, 100), Levelholder.ToString() + "/12 Treasure Collected");
+        GUI.Label(new Rect(100, 150, 100, 100), TreasureHolder.ToString() + "/12 Treasure Collected");
 
     }
 }
