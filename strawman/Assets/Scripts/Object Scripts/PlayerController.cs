@@ -188,7 +188,7 @@ public class PlayerController : MonoBehaviour {
     }
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Fatal")
+        if (other.tag == "Fatal" || other.tag == "HM Fatal")
         {
             FXSource.PlayOneShot(DeathSound, 1.0f);
 			float fadetime = GameManager.manager.GetComponent<Fade>().BeginFade(1);

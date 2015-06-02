@@ -30,6 +30,9 @@ public class BatController : MonoBehaviour {
         FlapWings = 0.0f;
         WingsOut.GetComponent<BoxCollider>().enabled = true;
         WingsIn.GetComponent<BoxCollider>().enabled = false;
+		if (gameObject.tag == "HM Fatal" && !GameManager.manager.hardModeOn)
+			gameObject.SetActive(false);
+		
 
 	}
 	

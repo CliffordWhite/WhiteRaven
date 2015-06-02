@@ -23,6 +23,11 @@ public class GameManager : MonoBehaviour
 	public bool isFullscreen;
 	public float keyShowTime;
 
+	//acheive info
+	public bool[] achieveList;
+	public float achievePopTime;
+	public string achievePopString;
+
 	void Awake () 
 	{
         //levelUnlocked[0].Equals(true);
@@ -35,6 +40,15 @@ public class GameManager : MonoBehaviour
 		{
 			Destroy(gameObject);
 		}
+	}
+
+	void Update(){
+		if (!achieveList [7] && GameManager.manager.levelCompleted [0]) {
+			achieveList [7] = true;
+			achievePopString = "Test Earned";
+			achievePopTime = 5.0f;
+		}
+		
 	}
 
 	// public function to save the current content from anywhere with this object

@@ -30,6 +30,7 @@ TagManager:
   - Level 8B
   - Level 9
   - Floor
+  - HM Fatal
   layers:
   - Default
   - TransparentFX
