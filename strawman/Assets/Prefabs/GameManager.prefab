@@ -59,16 +59,16 @@ MonoBehaviour:
   hardModeOn: 0
   timeAttackOn: 0
   treasureCollected: 000000000000000000000000000000
-  secrettreasureCollected: 00000000000000
-  levelCompleted: 
-  levelUnlocked: 
+  secrettreasureCollected: 000000000000000000000000000000
+  levelCompleted: 000000000000000000000000000000
+  levelUnlocked: 010000000000000000000000000000
   save: 0
   saveName: 
   MusicVolume: 0
   SFXVolume: 0
   isFullscreen: 0
   keyShowTime: 0
-  achieveList: 
+  achieveList: 0000000000000000
   achievePopTime: 0
   achievePopString: 
 --- !u!1001 &100100000

@@ -33,6 +33,7 @@ public class TreasureTrigger : MonoBehaviour
 			GetComponent<ParticleSystem>().Stop();
 			musicSource.GetComponent<MusicChange>().PlayHasteMusic();
 			Invoke ("DestroyAfterWait", 0.5f);
+            GameManager.manager.treasureCollected[Application.loadedLevel - 6] = true;
 		}
 	}
 	void DestroyAfterWait()
