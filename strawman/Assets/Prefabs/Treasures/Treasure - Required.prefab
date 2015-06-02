@@ -113,6 +113,7 @@ MonoBehaviour:
   sfxManager: {fileID: 0}
   pickupSfx: {fileID: 8300000, guid: e56d457c260fbd54bb212a6d780e817d, type: 3}
   deathWall: {fileID: 0}
+  musicSource: {fileID: 0}
 --- !u!198 &19867066
 ParticleSystem:
   m_ObjectHideFlags: 1

@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
 	public float gameTime; 					// elapsed time for time attack
 	public bool hardModeOn, timeAttackOn; 	// flags for game modes
 	public bool[] treasureCollected;		// flags for collected treasures
+    public bool[] secrettreasureCollected;		// flags for collected treasures
     public bool[] levelCompleted;           //Flags for Levels Completed
     public bool[] levelUnlocked;            //Flags Level unlocked
     public int save; 						// which save slot
@@ -77,6 +78,7 @@ public class GameManager : MonoBehaviour
 		info.TimeAttackOn = timeAttackOn;
 		info.Save = save;
 		info.TreasureCollected = treasureCollected;
+        info.SecrettreasureCollected = secrettreasureCollected;
         info.LevelCompleted = levelCompleted;
 
 		bf.Serialize (file, info);
@@ -109,8 +111,9 @@ public class GameManager : MonoBehaviour
 		info.TimeAttackOn = false;
 		info.Save = save;
 		info.TreasureCollected = treasureCollected;
+        info.SecrettreasureCollected = secrettreasureCollected;
         info.LevelCompleted = levelCompleted;
-
+        
 		bf.Serialize (file, info);
 		file.Close ();
 	}
@@ -143,6 +146,7 @@ public class GameManager : MonoBehaviour
 			timeAttackOn = info.TimeAttackOn;
 			save = info.Save;
 			treasureCollected = info.TreasureCollected;
+            secrettreasureCollected = info.SecrettreasureCollected;
             levelCompleted = info.LevelCompleted;
 		}
 	}
@@ -257,6 +261,18 @@ class GameInfo
 			treasureCollected = value;
 		}
 	}
+    bool[] secrettreasureCollected;
+    public bool[] SecrettreasureCollected
+    {
+        get
+        {
+            return secrettreasureCollected;
+        }
+        set
+        {
+            secrettreasureCollected = value;
+        }
+    }
 
     bool[] levelCompleted;
     public bool[] LevelCompleted
