@@ -3,6 +3,14 @@ using System.Collections;
 
 public class PlayerCamera : MonoBehaviour 
 {
+	public enum CameraMode{
+		Delayed,
+		BoundingBox,
+		RecenteringBoundingBox,
+		Centered
+	}
+	[Header ("They way the camera will follow it's Target.")]
+	public CameraMode CameraStyle = CameraMode.Centered;
 	public GameObject target;	// player to follow with camera
 	public float camDist;		// pull camera away from player
 	public float w, t;			// formatting numbers for timer
@@ -14,16 +22,79 @@ public class PlayerCamera : MonoBehaviour
 
 	float showTime = 2.0f; 		// how long to show lives before hiding
 
+	[Header ("Used With Delayed Camera Style.")]
+	public float moveDelay = 1.0f;
+	Vector3 moveDirection = Vector3.zero;
+	Vector3 ZeroVector = Vector3.zero;
+
+	[Header ("Used With Recentering Bounding Box Camera Style.")]
+	public float camMoveSpeed = 0.2f;
+	bool Moving = false;
+
+	void Start()
+	{
+		Vector3 newPosition = target.transform.position;
+		newPosition.z = transform.position.z;
+		transform.position = newPosition;
+	}
+	
 	void Update () 
 	{
-		// follow the player!
-		transform.position = new Vector3 (target.transform.position.x,
-		                                 target.transform.position.y,
-		                                 target.transform.position.z-camDist);
-
 		// if it's time attack mode, increment the timer for gameplay!
 		if (GameManager.manager.timeAttackOn && Application.loadedLevel >= 6)
 			GameManager.manager.gameTime += Time.deltaTime;
+
+	}
+
+	void FixedUpdate()
+	{
+		if (CameraStyle == CameraMode.Delayed)
+		{
+			Vector3 focus = Camera.main.WorldToViewportPoint(target.transform.position);
+			Vector3 smoothZone = target.transform.position - Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, focus.z));
+			Vector3 moveTo = transform.position + smoothZone;
+			transform.position = Vector3.SmoothDamp(transform.position, moveTo, ref ZeroVector, moveDelay);
+		}
+		else if (CameraStyle == CameraMode.BoundingBox)
+		{
+			Vector3 camPos = new Vector3(transform.position.x, transform.position.y, target.transform.position.z);
+			
+			if (!Moving && (target.transform.position - camPos).magnitude >= 6.0f)
+				Moving = true;
+			if (Moving && (target.transform.position - camPos).magnitude <= 5.9f)
+				Moving = false;
+			
+			else if (Moving)
+			{
+				moveDirection = (target.transform.position - camPos).normalized * camMoveSpeed;
+				// follow the player!
+				transform.position += moveDirection;
+			}
+		}
+		else if (CameraStyle == CameraMode.RecenteringBoundingBox)
+		{
+			Vector3 camPos = new Vector3(transform.position.x, transform.position.y, target.transform.position.z);
+			
+			if (!Moving && (target.transform.position - camPos).magnitude >= 6.0f)
+			{
+				Moving = true;
+			}
+			else if (Moving)
+			{
+				moveDirection = (target.transform.position - camPos).normalized * camMoveSpeed;
+				// follow the player!
+				transform.position += moveDirection;
+				
+				if ((target.transform.position - camPos).magnitude < 0.1f)
+					Moving = false;
+			}
+		}
+		else if (CameraStyle == CameraMode.Centered)
+		{
+			Vector3 newPosition = target.transform.position;
+			newPosition.z = transform.position.z;
+			transform.position = newPosition;
+		}
 	}
 
 	void OnGUI()

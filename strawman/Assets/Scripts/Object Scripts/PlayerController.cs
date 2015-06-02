@@ -6,10 +6,7 @@ public class PlayerController : MonoBehaviour {
 	bool FacingRight = true;
 	float MoveDir = 0.0f;
 
-    //shield anchor
-    public GameObject shieldAnchor;
-    private Vector2 mousePos;
-    private Vector3 screenPos;
+    private Vector3 mousePos;
     //Whip
     public float distanceFromHook;
     public float distance;
@@ -49,25 +46,23 @@ public class PlayerController : MonoBehaviour {
     public float endWidth = 0.05f;
     LineRenderer line;
 
-	Rigidbody rigidbody = new Rigidbody();
+	Rigidbody MyRigidbody = new Rigidbody();
 	GameObject RayLeftOrigin = null;
 	GameObject RayRightOrigin = null;
-	float RayMaxDist = 1.0f;
+	float RayMaxDist = 0.94f;
 	public LayerMask RayMask;
+	GameObject Image = null;
 
     // Use this for initialization
 	void Start ()
 	{
-		rigidbody = transform.GetComponent<Rigidbody> ();
+		MyRigidbody = transform.GetComponent<Rigidbody> ();
         FacingRight = true;
 
 		RayLeftOrigin = transform.FindChild ("RayOrigin1").gameObject;
 		RayRightOrigin = transform.FindChild ("RayOrigin2").gameObject;
+		Image = transform.FindChild ("Sprite").gameObject;
 
-        //Shield Anchor
-        if (shieldAnchor == null)
-            shieldAnchor = GameObject.FindWithTag("ShieldAnchor");
-        shieldAnchor.SetActive(false);
         //Whip swing rotation fix
         NewTransform = transform;
         Origrotation = NewTransform.rotation;
@@ -95,26 +90,19 @@ public class PlayerController : MonoBehaviour {
 
 		MoveDir = Input.GetAxisRaw("Horizontal");
 
-        //for shield to be active/inactive
-        mousePos = Input.mousePosition;
-        screenPos = Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, transform.position.z - Camera.main.transform.position.z));
+		mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+		mousePos.z = transform.position.z;
 
-        if (Input.GetKeyDown(KeyCode.Mouse1))
-			shieldAnchor.SetActive(true);
-        else if (Input.GetKeyUp(KeyCode.Mouse1))
-			shieldAnchor.SetActive(false);
-        if (FacingRight)
-            shieldAnchor.transform.eulerAngles = new Vector3(shieldAnchor.transform.rotation.eulerAngles.x, shieldAnchor.transform.rotation.eulerAngles.y, Mathf.Atan2((screenPos.y - shieldAnchor.transform.position.y), (screenPos.x - shieldAnchor.transform.position.x)) * Mathf.Rad2Deg);
-        else
-			shieldAnchor.transform.eulerAngles = new Vector3(shieldAnchor.transform.rotation.eulerAngles.x, shieldAnchor.transform.rotation.eulerAngles.y, Mathf.Atan2((screenPos.y - shieldAnchor.transform.position.y), -(screenPos.x - shieldAnchor.transform.position.x)) * Mathf.Rad2Deg);
-        if (Input.GetKeyDown(KeyCode.Mouse0) && !isGrappled)
+
+
+         if (Input.GetKeyDown(KeyCode.Mouse0) && !isGrappled)
         {
-            Ray WhipThrown;
-            _dir = (screenPos - transform.position).normalized;
-            WhipThrown = new Ray(transform.position, _dir);
-            Debug.DrawRay(transform.position, _dir * distancecheck);
-            
-            if (Physics.Raycast(WhipThrown, out Connected, distancecheck))
+			Vector3 whipDirection = mousePos - transform.position;
+			whipDirection.Normalize ();
+			Ray WhipThrown = new Ray(transform.position, whipDirection);
+			Debug.DrawRay(transform.position, mousePos * distancecheck);
+			
+			if (Physics.Raycast(WhipThrown, out Connected, distancecheck))
             {
                 if (Connected.collider.tag == "Hookable")
                 {
@@ -132,11 +120,12 @@ public class PlayerController : MonoBehaviour {
             if(!isGrappled)
                 WhipMissed();
         }
+
         if (Input.GetKeyUp(KeyCode.Mouse0))
         {
             isGrappled = false;
             NewTransform.rotation = Origrotation;
-            GetComponent<Rigidbody>().freezeRotation = true;
+			MyRigidbody.freezeRotation = true;
         }
         if (isGrappled)
             HookOnAdjust();
@@ -152,11 +141,7 @@ public class PlayerController : MonoBehaviour {
 				DrawLine();
 		}
 
-        mousePos = Input.mousePosition;
-        screenPos = Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, transform.position.z - Camera.main.transform.position.z));
-        _dir = (screenPos - transform.position).normalized;
-
-        if (!isGrappled)
+		if (MoveDir != 0 && !isGrappled)
 			transform.position += new Vector3 (MoveDir * Speed, 0.0f, 0.0f);
         else if (isGrappled)
         {
@@ -170,34 +155,35 @@ public class PlayerController : MonoBehaviour {
 		else if (MoveDir < 0 && FacingRight)
            Flip();
 
-        if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W))
+		// Jump
+		if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W) && MyRigidbody.velocity.y < 0.1f)
         {
 			if (Physics.Raycast(RayLeftOrigin.transform.position, new Vector3(0, -1.0f, 0), RayMaxDist, RayMask) 
 			    || Physics.Raycast(RayRightOrigin.transform.position, new Vector3(0, -1.0f, 0), RayMaxDist, RayMask))
-            	GetComponent<Rigidbody>().AddForce(0.0f, 250.0f, 0.0f);
+				MyRigidbody.AddForce(0.0f, 250.0f, 0.0f, ForceMode.Acceleration);
         }
 
+		// Detach Grapple
         if (Input.GetKeyUp(KeyCode.Mouse0))
         {
             isGrappled = false;
-            GetComponent<Rigidbody>().freezeRotation = true;
+			MyRigidbody.freezeRotation = true;
             NewTransform.rotation = Origrotation;
         }
     }
     void Flip()
     {
-        Quaternion Scale = transform.localRotation;
+        Quaternion newRotation = Quaternion.identity;
         if (FacingRight)
         {
-            Scale.y = 180;
+			newRotation.y = 180.0f;
             FacingRight = !FacingRight;
         }
         else
         {
-            Scale.y = 0;
             FacingRight = !FacingRight;
         }
-        transform.localRotation = Scale;
+		Image.transform.localRotation = newRotation;
 		MoveDir = 0;
     }
     void OnTriggerEnter(Collider other)
@@ -222,7 +208,7 @@ public class PlayerController : MonoBehaviour {
     void OnCollisionEnter(Collision other)
     {
 		if (!isGrappled)
-			rigidbody.velocity = Vector3.zero;
+			MyRigidbody.velocity = Vector3.zero;
 
         if(other.collider.tag == "Projectile" && !HasArmor)
         {
@@ -246,7 +232,7 @@ public class PlayerController : MonoBehaviour {
     {
         DrawLine();
         isGrappled = true;
-        Hookable.GetComponent<HingeJoint>().connectedBody = GetComponent<Rigidbody>();
+		Hookable.GetComponent<HingeJoint>().connectedBody = MyRigidbody;
         GetComponent<Rigidbody>().freezeRotation = false;
         FXSource.PlayOneShot(WhipConnectSound, 1.0f);
     }
@@ -257,19 +243,20 @@ public class PlayerController : MonoBehaviour {
     }
     void DrawLine()
     {
-        distance = Vector3.Distance(screenPos, transform.position);
-        _dir = (screenPos - transform.position).normalized;
+		_dir = (mousePos - transform.position).normalized;
+		distance = _dir.magnitude;
+		_dir.Normalize ();
         //sets the line positions start and end points
         //and enables the line to be drawn
         line.enabled = true;
-        line.SetPosition(0, GetComponent<Rigidbody>().transform.position);
+        line.SetPosition(0, transform.position);
         if (isGrappled)
         {
             line.SetPosition(1, Connected.transform.position);
         }
         else if (distance < distancecheck)
-            line.SetPosition(1, screenPos);
-        else
+			line.SetPosition(1, mousePos);
+		else
         {
             line.SetPosition(1, _dir * distancecheck + transform.position);
         }
@@ -277,27 +264,27 @@ public class PlayerController : MonoBehaviour {
     }
     void HookedOn() 
     {
-        if (Input.GetKey(KeyCode.W) && isGrappled && GetComponent<Rigidbody>().velocity.magnitude < 5.0f
-                && GetComponent<Rigidbody>().position.y < Hookable.GetComponent<Rigidbody>().position.y
+		if (Input.GetKey(KeyCode.W) && isGrappled && MyRigidbody.velocity.magnitude < 5.0f
+		    && MyRigidbody.position.y < Hookable.GetComponent<Rigidbody>().position.y
                 && distanceFromHook > HookDistanceMin && distanceFromHook <= HookDistanceMax)
         {
             Hookable.GetComponent<HingeJoint>().connectedBody = null;
-            GetComponent<Rigidbody>().transform.position += new Vector3(0.0f, 0.2f, 0.0f);
-            Hookable.GetComponent<HingeJoint>().connectedBody = GetComponent<Rigidbody>();
-
-        }
-        else if (Input.GetKey(KeyCode.S) && isGrappled && GetComponent<Rigidbody>().velocity.magnitude < 5.0f
-                 && GetComponent<Rigidbody>().position.y < Hookable.GetComponent<Rigidbody>().position.y
+			MyRigidbody.transform.position += new Vector3(0.0f, 0.2f, 0.0f);
+			Hookable.GetComponent<HingeJoint>().connectedBody = MyRigidbody;
+			
+		}
+		else if (Input.GetKey(KeyCode.S) && isGrappled && MyRigidbody.velocity.magnitude < 5.0f
+		         && MyRigidbody.position.y < Hookable.GetComponent<Rigidbody>().position.y
                  && distanceFromHook > HookDistanceMin && distanceFromHook <= HookDistanceMax)
         {
             Hookable.GetComponent<HingeJoint>().connectedBody = null;
-            GetComponent<Rigidbody>().transform.position += new Vector3(0.0f, -0.2f, 0.0f);
-            Hookable.GetComponent<HingeJoint>().connectedBody = GetComponent<Rigidbody>();
-        }
-        else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)  && isGrappled && GetComponent<Rigidbody>().position.y < Hookable.GetComponent<Rigidbody>().position.y
+			MyRigidbody.transform.position += new Vector3(0.0f, -0.2f, 0.0f);
+			Hookable.GetComponent<HingeJoint>().connectedBody = MyRigidbody;
+		}
+		else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)  && isGrappled && MyRigidbody.position.y < Hookable.GetComponent<Rigidbody>().position.y
                  && distanceFromHook > HookDistanceMin && distanceFromHook <= HookDistanceMax)
         {
-            GetComponent<Rigidbody>().AddForce(new Vector3(MoveDir * 6.0f, 0.0f, 0.0f));
+			MyRigidbody.AddForce(new Vector3(MoveDir * 6.0f, 0.0f, 0.0f));
         }
     }
     void HookOnAdjust()
@@ -306,16 +293,16 @@ public class PlayerController : MonoBehaviour {
         if (isGrappled && distanceFromHook > HookDistanceMin && distanceFromHook >= HookDistanceMax)
         {
             Hookable.GetComponent<HingeJoint>().connectedBody = null;
-            GetComponent<Rigidbody>().transform.position += new Vector3(0.0f, 0.1f, 0.0f);
-            Hookable.GetComponent<HingeJoint>().connectedBody = GetComponent<Rigidbody>();
-        }
-        else if (isGrappled && distanceFromHook < HookDistanceMin && distanceFromHook <= HookDistanceMax)
+			MyRigidbody.transform.position += new Vector3(0.0f, 0.1f, 0.0f);
+			Hookable.GetComponent<HingeJoint>().connectedBody = MyRigidbody;
+		}
+		else if (isGrappled && distanceFromHook < HookDistanceMin && distanceFromHook <= HookDistanceMax)
         {
             Hookable.GetComponent<HingeJoint>().connectedBody = null;
-            GetComponent<Rigidbody>().transform.position -= new Vector3(0.0f, 0.1f, 0.0f);
-            Hookable.GetComponent<HingeJoint>().connectedBody = GetComponent<Rigidbody>();
-        }
-    }
+			MyRigidbody.transform.position -= new Vector3(0.0f, 0.1f, 0.0f);
+			Hookable.GetComponent<HingeJoint>().connectedBody = MyRigidbody;
+		}
+	}
     void LeverConnect()
     {
         Vector3 Scale = Lever.transform.localScale;
