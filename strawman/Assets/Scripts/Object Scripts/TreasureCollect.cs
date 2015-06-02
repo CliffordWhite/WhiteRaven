@@ -3,13 +3,38 @@ using System.Collections;
 
 public class TreasureCollect : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    public AudioSource sfxManager;	// attach the scenes SXF manager
+    public AudioClip pickupSfx;		// sound clip to play when treasure is collected
+    public GameObject musicSource;	// access music change script on pickup
+
+    bool collected;					// flag on when treasure collected
+    public bool Collected
+    {
+        get
+        {
+            return collected;
+        }
+    }
+
+    void Start()
+    {
+        collected = false;			// initialize bool to false
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        // only trigger pickup once for player only
+        if (other.tag == "Player" && !collected)
+        {
+            collected = true;
+            sfxManager.PlayOneShot(pickupSfx, 1.0f);
+            GetComponent<SpriteRenderer>().enabled = false;
+            GetComponent<ParticleSystem>().Stop();
+            GameManager.manager.secrettreasureCollected[Application.loadedLevel - 6] = true;
+        }
+    }
+    void DestroyAfterWait()
+    {
+        Destroy(gameObject);
+    }
 }

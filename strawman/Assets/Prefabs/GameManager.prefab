@@ -59,8 +59,9 @@ MonoBehaviour:
   hardModeOn: 0
   timeAttackOn: 0
   treasureCollected: 000000000000000000000000000000
+  secrettreasureCollected: 000000000000000000000000000000
   levelCompleted: 000000000000000000000000000000
-  levelUnlocked: 000000000000000000000000000000
+  levelUnlocked: 010000000000000000000000000000
   save: 0
   saveName: 
   MusicVolume: 0
