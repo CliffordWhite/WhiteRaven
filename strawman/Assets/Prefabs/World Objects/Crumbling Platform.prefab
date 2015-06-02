@@ -230,7 +230,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 488192}
   - 65: {fileID: 6542002}
-  - 54: {fileID: 5439440}
+  - 114: {fileID: 11497548}
   m_Layer: 8
   m_Name: HardSurface
   m_TagString: Untagged
@@ -300,6 +300,7 @@ GameObject:
   - 95: {fileID: 9575534}
   - 114: {fileID: 11435680}
   - 65: {fileID: 6567618}
+  - 82: {fileID: 8223938}
   m_Layer: 0
   m_Name: Crumbling Platform
   m_TagString: Untagged
@@ -783,7 +784,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 142956}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.9000001, y: 1.5, z: 0}
+  m_LocalPosition: {x: 10.1601648, y: 1.43736577, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 488192}
@@ -2073,21 +2074,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 104594}
   m_Mesh: {fileID: 4300036, guid: 227ff6665c0626743830819fdd500e78, type: 3}
---- !u!54 &5439440
-Rigidbody:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 132566}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 1
-  m_AngularDrag: 1
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 2
-  m_Constraints: 126
-  m_CollisionDetection: 0
 --- !u!65 &6542002
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -2108,10 +2094,79 @@ BoxCollider:
   m_GameObject: {fileID: 142956}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.79999995, y: .0500000007, z: 2}
-  m_Center: {x: 0, y: .100000001, z: 0}
+  m_Size: {x: 2, y: 0, z: 2}
+  m_Center: {x: 0, y: 1.99000001, z: 0}
+--- !u!82 &8223938
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 142956}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!95 &9575534
 Animator:
   serializedVersion: 3
@@ -2141,6 +2196,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HardSurface: {fileID: 132566}
+  SFXPlayer: {fileID: 8223938}
+  Cracking: {fileID: 8300000, guid: 725db685890adba4bbdd5aeed3cfd512, type: 3}
+  Crumbling: {fileID: 8300000, guid: 10676ddee5c0f904590939b4c489964d, type: 3}
+--- !u!114 &11497548
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 132566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9ccd3644cfb8114c9428c5a9cfd8faf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
