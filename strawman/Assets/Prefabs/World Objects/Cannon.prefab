@@ -25,7 +25,6 @@ GameObject:
   - 4: {fileID: 477266}
   - 212: {fileID: 21274630}
   - 65: {fileID: 6510774}
-  - 65: {fileID: 6550926}
   - 114: {fileID: 11448888}
   m_Layer: 9
   m_Name: Cannon
@@ -52,8 +51,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 170036}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.38000011, y: 1.32000005, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: -1.62920685e-07}
+  m_LocalPosition: {x: 1.10000002, y: 8.5, z: .100000001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 442408}
@@ -65,24 +64,12 @@ BoxCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 170036}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 941607d77af6cea4fa2d8a079a79ea38, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.40999997, y: .589999974, z: .200000003}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &6550926
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 170036}
-  m_Material: {fileID: 13400000, guid: 941607d77af6cea4fa2d8a079a79ea38, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: .0500000007, y: .584999979, z: .200000003}
-  m_Center: {x: .730000019, y: 0, z: 0}
 --- !u!114 &11448888
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -94,12 +81,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8619f347886ec7649933e3902c44eca6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemToFire: {fileID: 164040, guid: a3761f62b58285b479f7d5df480f759b, type: 2}
+  itemToFire: {fileID: 102958, guid: 7a2242c293e94ef46bebbe5b391b696d, type: 2}
   spawnLoc: {fileID: 442408}
-  fireRate: 5
-  delay: 0
+  fireRate: 2
+  delay: .5
   fireSound: {fileID: 8300000, guid: 400a5ce7d62b73349b5ea0891aac082a, type: 3}
-  masterVolume: {fileID: 8222844, guid: 75a471fc19f2eda49a7f7426d66a025a, type: 2}
+  masterVolume: {fileID: 0}
 --- !u!212 &21274630
 SpriteRenderer:
   m_ObjectHideFlags: 1

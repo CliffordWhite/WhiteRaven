@@ -11,7 +11,6 @@ GameObject:
   - 20: {fileID: 2050028}
   - 92: {fileID: 9277792}
   - 124: {fileID: 12443248}
-  - 81: {fileID: 8113550}
   - 114: {fileID: 11420450}
   - 114: {fileID: 11400324}
   m_Layer: 0
@@ -65,13 +64,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: .0219999999
---- !u!81 &8113550
-AudioListener:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 109486}
-  m_Enabled: 1
 --- !u!92 &9277792
 Behaviour:
   m_ObjectHideFlags: 1
@@ -103,6 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f67861ca335a194418726a445bbd03f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CameraStyle: 1
   target: {fileID: 0}
   camDist: 10
   w: 90
@@ -167,6 +160,9 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
+  KeyTexture: {fileID: 0}
+  moveDelay: .5
+  camMoveSpeed: .100000001
 --- !u!124 &12443248
 Behaviour:
   m_ObjectHideFlags: 1
