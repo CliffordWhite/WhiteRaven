@@ -19,29 +19,33 @@ public class PressurePlate : MonoBehaviour {
 		objectMoving = false;
 	}
 
-	void OnTriggerEnter()
+	void OnTriggerEnter(Collider other)
 	{
-		SFXSource.PlayOneShot (clickSound, 1.0f);
-		//if not triggered yet the start moving object
-		if (!isTriggered) 
-			objectMoving = true;
-		//if not already pushed in then push in
-		if (!isPressured)
-			transform.position = new Vector3 (transform.position.x - (transform.up.x *.1f),
-			                                  transform.position.y-(transform.up.y *.1f),
-			                                  transform.position.z-(transform.up.z *.1f));
+		if (other.gameObject.tag == "Player" ||other.gameObject.tag == "Projectile" ) {
+			SFXSource.PlayOneShot (clickSound, 1.0f);
+			//if not triggered yet the start moving object
+			if (!isTriggered) 
+				objectMoving = true;
+			//if not already pushed in then push in
+			if (!isPressured)
+				transform.position = new Vector3 (transform.position.x - (transform.up.x * .1f),
+			                                  transform.position.y - (transform.up.y * .1f),
+			                                  transform.position.z - (transform.up.z * .1f));
 
-		isPressured = true;
-		isTriggered = false;
+			isPressured = true;
+			isTriggered = false;
+		}
 	}
 
-	void OnTriggerExit()
+	void OnTriggerExit(Collider other)
 	{
-		isPressured = false;
-		//raise plate back up
-		transform.position = new Vector3 (transform.position.x + (transform.up.x *.1f),
-		                                  transform.position.y+(transform.up.y *.1f),
-		                                  transform.position.z+(transform.up.z *.1f));
+		if (other.gameObject.tag == "Player"||other.gameObject.tag == "Projectile") {
+			isPressured = false;
+			//raise plate back up
+			transform.position = new Vector3 (transform.position.x + (transform.up.x * .1f),
+		                                  transform.position.y + (transform.up.y * .1f),
+		                                  transform.position.z + (transform.up.z * .1f));
+		}
 	}
 
 	void Update()

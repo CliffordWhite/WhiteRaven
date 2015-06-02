@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
 	public float gameTime; 					// elapsed time for time attack
 	public bool hardModeOn, timeAttackOn; 	// flags for game modes
 	public bool[] treasureCollected;		// flags for collected treasures
+    public bool[] secrettreasureCollected;		// flags for collected treasures
     public bool[] levelCompleted;           //Flags for Levels Completed
     public bool[] levelUnlocked;            //Flags Level unlocked
     public int save; 						// which save slot
@@ -48,7 +49,69 @@ public class GameManager : MonoBehaviour
 			achievePopString = "Test Earned";
 			achievePopTime = 5.0f;
 		}
-		
+
+		if (!achieveList [0] && GameManager.manager.levelCompleted [14]) {
+			achieveList [0] = true;
+			achievePopString = "Beat the Game";
+			achievePopTime = 5.0f;
+		}
+
+		if (!achieveList [1]) {
+			bool earn = true;
+			for (int i = 0; i < GameManager.manager.levelCompleted.Length; i++) {
+				if (!GameManager.manager.levelCompleted[i]) {
+					earn = false;
+					break;
+				}
+			}
+			if (earn) {
+				achieveList [1] = true;
+				achievePopString = "Complete All Levels";
+				achievePopTime = 5.0f;
+			}
+		}
+
+		if (!achieveList [2] && GameManager.manager.levelCompleted [14] && GameManager.manager.hardModeOn ) {
+			achieveList [2] = true;
+			achievePopString = "Beat the Game (Hard)";
+			achievePopTime = 5.0f;
+		}
+
+		if (!achieveList [3] && GameManager.manager.hardModeOn) {
+			bool earn = true;
+			for (int i = 0; i < GameManager.manager.levelCompleted.Length; i++) {
+				if (!GameManager.manager.levelCompleted[i]) {
+					earn = false;
+					break;
+				}
+			}
+			if (earn) {
+				achieveList [3] = true;
+				achievePopString = "Complete All Levels (Hard)";
+				achievePopTime = 5.0f;
+			}
+		}
+
+		if (!achieveList [4] && GameManager.manager.levelCompleted [14] && GameManager.manager.timeAttackOn && GameManager.manager.gameTime < 600.0f) {
+			achieveList [4] = true;
+			achievePopString = "Beat the Game under 10 min";
+			achievePopTime = 5.0f;
+		}
+
+		if (!achieveList [5] && GameManager.manager.timeAttackOn && GameManager.manager.gameTime < 1800.0f) {
+			bool earn = true;
+			for (int i = 0; i < GameManager.manager.levelCompleted.Length; i++) {
+				if (!GameManager.manager.levelCompleted[i]) {
+					earn = false;
+					break;
+				}
+			}
+			if (earn) {
+				achieveList [5] = true;
+				achievePopString = "Complete All Levels (Hard)";
+				achievePopTime = 5.0f;
+			}
+		}
 	}
 
 	// public function to save the current content from anywhere with this object
@@ -77,6 +140,7 @@ public class GameManager : MonoBehaviour
 		info.TimeAttackOn = timeAttackOn;
 		info.Save = save;
 		info.TreasureCollected = treasureCollected;
+        info.SecrettreasureCollected = secrettreasureCollected;
         info.LevelCompleted = levelCompleted;
 
 		bf.Serialize (file, info);
@@ -109,8 +173,9 @@ public class GameManager : MonoBehaviour
 		info.TimeAttackOn = false;
 		info.Save = save;
 		info.TreasureCollected = treasureCollected;
+        info.SecrettreasureCollected = secrettreasureCollected;
         info.LevelCompleted = levelCompleted;
-
+        
 		bf.Serialize (file, info);
 		file.Close ();
 	}
@@ -143,6 +208,7 @@ public class GameManager : MonoBehaviour
 			timeAttackOn = info.TimeAttackOn;
 			save = info.Save;
 			treasureCollected = info.TreasureCollected;
+            secrettreasureCollected = info.SecrettreasureCollected;
             levelCompleted = info.LevelCompleted;
 		}
 	}
@@ -257,6 +323,18 @@ class GameInfo
 			treasureCollected = value;
 		}
 	}
+    bool[] secrettreasureCollected;
+    public bool[] SecrettreasureCollected
+    {
+        get
+        {
+            return secrettreasureCollected;
+        }
+        set
+        {
+            secrettreasureCollected = value;
+        }
+    }
 
     bool[] levelCompleted;
     public bool[] LevelCompleted

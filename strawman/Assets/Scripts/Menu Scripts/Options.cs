@@ -15,8 +15,10 @@ public class Options : MonoBehaviour {
 	public GameObject fullscreenCheck;
 	bool MusicSel;
 	bool SFXSel;
+	bool transition;
 	// Use this for initialization
 	void Start () {
+		transition = false;
 		selected = 1;
 		_button [0].GetComponent<Image> ().color = Color.yellow;
 		//position selectors to volumes currently selected
@@ -40,6 +42,7 @@ public class Options : MonoBehaviour {
 		if (Input.anyKeyDown && !MusicSel && !SFXSel) {
 			if ((Input.GetKeyDown(KeyCode.Return)|| Input.GetMouseButtonDown(0))) {
 				if (selected == _button.Length){
+					transition = true;
 					_SFXsource.PlayOneShot(_accept, 1.0f);
 					float fadetime = GameManager.manager.GetComponent<Fade>().BeginFade(1);
 					Invoke("PauseLoad",fadetime);
@@ -130,7 +133,7 @@ public class Options : MonoBehaviour {
 	//move selection based on mouse position and disable highlight from keyboard traversal
 	public void MouseOver(GameObject _obj)
 	{
-		if (!MusicSel && !SFXSel) {
+		if (!MusicSel && !SFXSel && !transition) {
 			_SFXsource.PlayOneShot (_changeSelection, 1.0f);
 			for (int i = 1; i <= _button.Length; i++) {
 				if (_obj == _button [i - 1]) {

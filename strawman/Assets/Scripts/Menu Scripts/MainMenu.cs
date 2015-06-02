@@ -10,8 +10,10 @@ public class MainMenu : MonoBehaviour {
 	public AudioSource _Musicsource;
 	public AudioClip _accept;
 	public AudioClip _changeSelection;
+	bool transition;
 	// Use this for initialization
 	void Start () {
+		transition = false;
 		selected = 1;
 		_button [0].GetComponent<Image> ().color = Color.yellow;
 
@@ -22,8 +24,9 @@ public class MainMenu : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
-		if (Input.anyKeyDown) {
+		if (Input.anyKeyDown && !transition) {
 			if (Input.GetKeyDown(KeyCode.Return) || Input.GetMouseButtonDown(0)) {
+				transition = true;
 				_SFXsource.PlayOneShot(_accept, 1.0f);
 				float fadetime = GameManager.manager.GetComponent<Fade>().BeginFade(1);
 				Invoke("PauseLoad",fadetime);
@@ -52,14 +55,16 @@ public class MainMenu : MonoBehaviour {
 
 	public void MouseOver(GameObject _obj)
 	{
-		_SFXsource.PlayOneShot(_changeSelection,1.0f);
-		for (int i = 1; i <= _button.Length; i++) {
-			if (_obj == _button[i-1]) {
-				selected = i;
+		if (!transition) {
+			_SFXsource.PlayOneShot (_changeSelection, 1.0f);
+			for (int i = 1; i <= _button.Length; i++) {
+				if (_obj == _button [i - 1]) {
+					selected = i;
+				}
+				_button [i - 1].GetComponent<Image> ().color = Color.white;			
 			}
-			_button [i-1].GetComponent<Image> ().color = Color.white;			
+			_obj.GetComponent<Image> ().color = Color.yellow;
 		}
-		_obj.GetComponent<Image> ().color = Color.yellow;
 	}
 
 	void PauseLoad()
