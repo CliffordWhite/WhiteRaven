@@ -543,6 +543,21 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 409754371062dad44b9b6fd72e8f9f85, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &658089796 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 188164, guid: 409754371062dad44b9b6fd72e8f9f85, type: 2}
+  m_PrefabInternal: {fileID: 658089795}
+--- !u!114 &658089797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 658089796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58b0260734f64d94e817608ecc892fc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &674203579
 GameObject:
   m_ObjectHideFlags: 0
@@ -1360,18 +1375,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 11477824, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
-      propertyPath: levelUnlocked.Array.size
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 11477824, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
-      propertyPath: levelCompleted.Array.size
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 11477824, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
-      propertyPath: treasureCollected.Array.size
-      value: 12
-      objectReference: {fileID: 0}
     - target: {fileID: 448204, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1403,62 +1406,6 @@ Prefab:
     - target: {fileID: 448204, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
       propertyPath: m_RootOrder
       value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 11477824, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
-      propertyPath: levelCompleted.Array.data[0]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11477824, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
-      propertyPath: levelCompleted.Array.data[1]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11477824, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
-      propertyPath: levelCompleted.Array.data[2]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11477824, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
-      propertyPath: levelCompleted.Array.data[3]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11477824, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
-      propertyPath: levelCompleted.Array.data[4]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11477824, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
-      propertyPath: levelCompleted.Array.data[5]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11477824, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
-      propertyPath: levelCompleted.Array.data[6]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11477824, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
-      propertyPath: levelCompleted.Array.data[7]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11477824, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
-      propertyPath: levelUnlocked.Array.data[0]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11477824, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
-      propertyPath: levelUnlocked.Array.data[1]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11477824, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
-      propertyPath: levelUnlocked.Array.data[2]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11477824, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
-      propertyPath: levelUnlocked.Array.data[3]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11477824, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
-      propertyPath: levelUnlocked.Array.data[4]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11477824, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
-      propertyPath: levelUnlocked.Array.data[5]
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}

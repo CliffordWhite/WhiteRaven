@@ -65,7 +65,7 @@ MonoBehaviour:
   save: 0
   saveName: 
   MusicVolume: 0
-  SFXVolume: 0
+  SFXVolume: 5
   isFullscreen: 0
   keyShowTime: 0
   achieveList: 0000000000000000

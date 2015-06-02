@@ -195,7 +195,7 @@ ModelImporter:
       name: Cracked
       takeName: Breaking_Platform.0005
       firstFrame: 1
-      lastFrame: 10
+      lastFrame: 15
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -288,7 +288,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Breaking
       takeName: Breaking_Platform.0005
-      firstFrame: 10
+      firstFrame: 15
       lastFrame: 72
       wrapMode: 0
       orientationOffsetY: 0

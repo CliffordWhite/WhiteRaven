@@ -6,7 +6,7 @@ public class PauseMenu : MonoBehaviour
 	
 	public GUISkin skin;		// load a custum GUISkin, currently takes a default
 	public Color statColor = Color.yellow;	// sets the color of pause menu buttons
-	public enum Page { None,Main,Options }	// change between different pause states
+	public enum Page { None,Main,Options,Music,SFX,LvlSel }	// change between different pause states
 												// None = live gameplay
 												// Main = main pause menu
 												// Options = page to load stats	**Currently Not Implemented**
@@ -51,7 +51,10 @@ public class PauseMenu : MonoBehaviour
 			switch (currentPage) // draw menu based on current page
 			{
 			case Page.Main: MainPauseMenu(); break;
-			case Page.Options: ShowBackButton();/*ShowToolbar();*/ break;
+			case Page.Options: ShowOptions(); break;
+			case Page.Music: ShowMusic(); break;
+			case Page.SFX: ShowSFX(); break;
+			case Page.LvlSel: Application.LoadLevel(1); UnPauseGame(); break;
 			}
 		}   
 	}
@@ -69,11 +72,7 @@ public class PauseMenu : MonoBehaviour
 	}
 
 	// button to return to main pause from any submenu
-	void ShowBackButton() 
-	{
-		if (GUI.Button(new Rect(20, Screen.height - 50, 50, 20),"Back")) 
-			currentPage = Page.Main;
-	}
+
 
 	// draw buttons for main pause menu
 	void MainPauseMenu() 
@@ -84,7 +83,41 @@ public class PauseMenu : MonoBehaviour
 			
 		if (GUILayout.Button ("Options")) 
 			currentPage = Page.Options;
+
+		if (GUILayout.Button ("Return to Level Select"))
+			currentPage = Page.LvlSel;
 		EndPage();
+	}
+
+	void ShowOptions(){
+		BeginPage (200, 200);
+		if (GUILayout.Button ("Toggle Fullscreen")) {
+			Screen.fullScreen = !Screen.fullScreen;
+			GameManager.manager.isFullscreen = !GameManager.manager.isFullscreen;
+		}
+		if (GUILayout.Button ("Music Volume"))
+			currentPage = Page.Music;
+		if (GUILayout.Button ("SFX Volume"))
+			currentPage = Page.SFX;
+		if (GUILayout.Button("Back")) 
+			currentPage = Page.Main;
+		EndPage ();
+	}
+
+	void ShowMusic(){
+		BeginPage (200, 200);
+		GameManager.manager.MusicVolume = GUILayout.HorizontalSlider (GameManager.manager.MusicVolume, 0.0f, 10.0f);
+		if (GUILayout.Button("Back"))
+			currentPage = Page.Options;
+		EndPage ();
+	}
+
+	void ShowSFX(){
+		BeginPage (200, 200);
+		GameManager.manager.SFXVolume = GUILayout.HorizontalSlider (GameManager.manager.SFXVolume, 0.0f, 10.0f);
+		if (GUILayout.Button("Back"))
+			currentPage = Page.Options;
+		EndPage ();
 	}
 	
 	void PauseGame() 

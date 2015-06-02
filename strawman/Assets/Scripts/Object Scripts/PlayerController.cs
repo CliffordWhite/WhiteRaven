@@ -190,11 +190,7 @@ public class PlayerController : MonoBehaviour {
     {
         if (other.tag == "Fatal" || other.tag == "HM Fatal")
         {
-            FXSource.PlayOneShot(DeathSound, 1.0f);
-			float fadetime = GameManager.manager.GetComponent<Fade>().BeginFade(1);
-			if (GameManager.manager.hardModeOn)
-				GameManager.manager.lives--;		// lose life if hard mode
-			Invoke ("RestartLevel", fadetime);
+			KillPlayer();
         }
         else if (other.tag == "ArmorUp")
         {
@@ -205,6 +201,16 @@ public class PlayerController : MonoBehaviour {
             HasArmor = true;
         }
     }
+	
+	void KillPlayer()
+	{
+		FXSource.PlayOneShot(DeathSound, 1.0f);
+		float fadetime = GameManager.manager.GetComponent<Fade>().BeginFade(1);
+		if (GameManager.manager.hardModeOn)
+			GameManager.manager.lives--;		// lose life if hard mode
+		Invoke ("RestartLevel", fadetime);	
+	}
+	
     void OnCollisionEnter(Collision other)
     {
 		if (!isGrappled)
