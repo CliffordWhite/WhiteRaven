@@ -33,6 +33,7 @@ TagManager:
   - HM Fatal
   - ShamanSprite
   - Shaman
+  - Ladder
   layers:
   - Default
   - TransparentFX
