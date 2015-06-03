@@ -31,6 +31,8 @@ TagManager:
   - Level 9
   - Floor
   - HM Fatal
+  - ShamanSprite
+  - Shaman
   layers:
   - Default
   - TransparentFX

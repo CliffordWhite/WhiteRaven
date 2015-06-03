@@ -19,6 +19,10 @@ public class TreasureCollect : MonoBehaviour {
     void Start()
     {
         collected = false;			// initialize bool to false
+        if(GameManager.manager.secrettreasureCollected[Application.loadedLevel - 6] == true)
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     void OnTriggerEnter(Collider other)

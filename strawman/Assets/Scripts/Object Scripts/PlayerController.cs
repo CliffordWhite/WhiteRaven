@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour {
     LineRenderer line;
 
 	Rigidbody MyRigidbody = new Rigidbody();
-	GameObject RayLeftOrigin = null;
+	GameObject RayLeftOrigin = null; // for jumping.
 	GameObject RayRightOrigin = null;
 	float RayMaxDist = 0.94f;
 	public LayerMask RayMask;
@@ -216,7 +216,7 @@ public class PlayerController : MonoBehaviour {
 		if (!isGrappled)
 			MyRigidbody.velocity = Vector3.zero;
 
-        if(other.collider.tag == "Projectile" && !HasArmor)
+        if((other.collider.tag == "Projectile" || other.collider.tag == "Shaman") && !HasArmor )
         {
             FXSource.PlayOneShot(DeathSound, 1.0f);
 			float fadetime = GameManager.manager.GetComponent<Fade>().BeginFade(1);
