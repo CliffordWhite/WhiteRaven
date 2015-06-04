@@ -55,16 +55,20 @@ public class TreasureTrigger : MonoBehaviour
 		if (other.tag == "Player" && !collected)
 		{
 			collected = true;
-			sfxManager.PlayOneShot(pickupSfx, 1.0f);
-			deathWall.SetActive(true);
-			deathWall.GetComponent<FireDeathWall>().BringThePain();
 			GetComponent<SpriteRenderer>().enabled = false;
 			GetComponent<ParticleSystem>().Stop();
-			musicSource.GetComponent<MusicChange>().PlayHasteMusic();
+			if (gameObject.tag == "MainTreasure"){
+				sfxManager.PlayOneShot(pickupSfx, 1.0f);
+				deathWall.SetActive(true);
+				deathWall.GetComponent<FireDeathWall>().BringThePain();
+				musicSource.GetComponent<MusicChange>().PlayHasteMusic();
+				GameManager.manager.DoorUnlocked = true;
+				shake = 0.5f;
+			}
+			else {
+				GameManager.manager.secretGot = true;
+			}
 			Invoke ("DestroyAfterWait", 0.5f);
-            GameManager.manager.treasureCollected[Application.loadedLevel - 6] = true;
-            shake = 0.5f;
-
 		}
 	}
 	void DestroyAfterWait()

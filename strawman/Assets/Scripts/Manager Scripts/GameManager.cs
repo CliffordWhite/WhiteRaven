@@ -29,6 +29,10 @@ public class GameManager : MonoBehaviour
 	public float achievePopTime;
 	public string achievePopString;
 
+	//treasure checks
+	public bool DoorUnlocked;
+	public bool secretGot;
+
 	void Awake () 
 	{
         //levelUnlocked[0].Equals(true);

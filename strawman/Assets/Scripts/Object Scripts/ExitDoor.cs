@@ -6,12 +6,20 @@ public class ExitDoor : MonoBehaviour
 	public AudioSource _SFXsource;
 	public AudioClip doorSound;
 
+	void Start(){
+		GameManager.manager.secretGot = false;
+		GameManager.manager.DoorUnlocked = false;
+	}
+
 	void OnTriggerEnter(Collider other)
 	{
 		// Load the next level when player runs into door
-        if (other.tag == "Player" && GameManager.manager.treasureCollected[Application.loadedLevel - 6] == true)
+		if (other.tag == "Player" && GameManager.manager.DoorUnlocked)
 		{
             GameManager.manager.levelCompleted[Application.loadedLevel - 6] = true;
+			GameManager.manager.treasureCollected[Application.loadedLevel-6] = true;
+			if (GameManager.manager.secretGot)
+				GameManager.manager.secrettreasureCollected[Application.loadedLevel-6]=true;
 
             if (Application.loadedLevel == 6)//level 1
             {
