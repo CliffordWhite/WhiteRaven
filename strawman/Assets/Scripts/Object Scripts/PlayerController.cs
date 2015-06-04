@@ -5,6 +5,8 @@ public class PlayerController : MonoBehaviour {
 	public float Speed = 0.15f;
 	bool FacingRight = true;
 	float MoveDir = 0.0f;
+    float FlyDir = 0.0f;
+    bool CheatCodeFly;
 
     private Vector3 mousePos;
     //Whip
@@ -89,8 +91,22 @@ public class PlayerController : MonoBehaviour {
 			return;
 
 		MoveDir = Input.GetAxisRaw("Horizontal");
+        FlyDir = Input.GetAxisRaw("Vertical");
+        //check to see if cheat code is on.
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+        GetComponent<Rigidbody>().useGravity = CheatCodeFly;
+        CheatCodeFly = !CheatCodeFly;
+        }
+        FlyDir = Input.GetAxisRaw("Vertical");
 
-		mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            GameManager.manager.lives += 30;
+        }
+
+        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 		mousePos.z = transform.position.z;
 
 
@@ -143,6 +159,12 @@ public class PlayerController : MonoBehaviour {
 
 		if (MoveDir != 0 && !isGrappled)
 			transform.position += new Vector3 (MoveDir * Speed, 0.0f, 0.0f);
+
+        if(FlyDir != 0 && CheatCodeFly)
+        {
+
+            transform.position += new Vector3(0.0f, FlyDir*Speed, 0.0f);
+        }
         else if (isGrappled)
         {
             HookedOn();
@@ -156,7 +178,7 @@ public class PlayerController : MonoBehaviour {
            Flip();
 
 		// Jump
-		if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W) && MyRigidbody.velocity.y < 0.1f)
+		if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W) && MyRigidbody.velocity.y < 0.1f && !CheatCodeFly)
         {
 			if (Physics.Raycast(RayLeftOrigin.transform.position, new Vector3(0, -1.0f, 0), RayMaxDist, RayMask) 
 			    || Physics.Raycast(RayRightOrigin.transform.position, new Vector3(0, -1.0f, 0), RayMaxDist, RayMask))
