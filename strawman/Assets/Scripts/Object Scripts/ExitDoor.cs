@@ -81,9 +81,10 @@ public class ExitDoor : MonoBehaviour
             {
                 GameManager.manager.levelUnlocked[14] = true;
             }
-            GameManager.manager.save = GetComponent<SaveLoadScript>().loadSelected;
+
             GameManager.manager.Save();
-			float fadetime = GameManager.manager.GetComponent<Fade>().BeginFade(1);
+			
+            float fadetime = GameManager.manager.GetComponent<Fade>().BeginFade(1);
 			_SFXsource.PlayOneShot(doorSound, 1.0f);
 			Invoke("NextLevel",fadetime);
             

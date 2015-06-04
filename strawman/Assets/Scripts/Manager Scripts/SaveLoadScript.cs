@@ -86,6 +86,7 @@ public class SaveLoadScript : MonoBehaviour
         if (GUI.Button(new Rect((Screen.width / 2) - 250, 100, 100, 25), "Play "+LoadSelected.ToString()))
         {
             Play = true;
+            GameManager.manager.save = LoadSelected;
         }
 		if(GUI.Button (new Rect((Screen.width / 2) - 105, 200, 100, 25), "Load 2"))
 		{

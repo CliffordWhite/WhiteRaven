@@ -146,6 +146,7 @@ public class GameManager : MonoBehaviour
 		info.TreasureCollected = treasureCollected;
         info.SecrettreasureCollected = secrettreasureCollected;
         info.LevelCompleted = levelCompleted;
+        info.LevelUnlocked = levelUnlocked;
 
 		bf.Serialize (file, info);
 		file.Close ();
@@ -184,6 +185,7 @@ public class GameManager : MonoBehaviour
          info.TreasureCollected = ClearSaves;
          info.SecrettreasureCollected = ClearSaves;
          info.LevelCompleted = ClearSaves;
+         info.LevelUnlocked = ClearSaves;
         
 		bf.Serialize (file, info);
 		file.Close ();
@@ -219,6 +221,7 @@ public class GameManager : MonoBehaviour
 			treasureCollected = info.TreasureCollected;
             secrettreasureCollected = info.SecrettreasureCollected;
             levelCompleted = info.LevelCompleted;
+            info.LevelUnlocked = levelUnlocked;
 		}
 	}
 	// All of this is for testing, preserved for testing
