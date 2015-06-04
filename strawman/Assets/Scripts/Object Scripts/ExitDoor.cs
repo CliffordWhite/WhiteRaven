@@ -9,7 +9,7 @@ public class ExitDoor : MonoBehaviour
 	void OnTriggerEnter(Collider other)
 	{
 		// Load the next level when player runs into door
-		if (other.tag == "Player")
+        if (other.tag == "Player" && GameManager.manager.treasureCollected[Application.loadedLevel - 6] == true)
 		{
             GameManager.manager.levelCompleted[Application.loadedLevel - 6] = true;
 
