@@ -15,7 +15,7 @@ GameObject:
   - 198: {fileID: 19867066}
   m_Layer: 0
   m_Name: Treasure
-  m_TagString: Untagged
+  m_TagString: MainTreasure
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31,7 +31,7 @@ GameObject:
   - 212: {fileID: 21297336}
   - 65: {fileID: 6557112}
   - 65: {fileID: 6584938}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Treasure - Required
   m_TagString: Untagged
   m_Icon: {fileID: 0}
