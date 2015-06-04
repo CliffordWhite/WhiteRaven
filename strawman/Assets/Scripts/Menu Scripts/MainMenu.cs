@@ -76,10 +76,12 @@ public class MainMenu : MonoBehaviour {
 		//else
 
 		// quit the game if exit was selected
-		if (selected == 6)
-			Application.Quit ();
-		else
-			Application.LoadLevel (selected);
+        if (selected == 6)
+            Application.Quit();
+        else if (selected != 1)
+            Application.LoadLevel(selected);
+        else if (selected == 1)
+            Application.LoadLevel(21);
 	}
 
 }

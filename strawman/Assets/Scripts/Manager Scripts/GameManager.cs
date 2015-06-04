@@ -176,9 +176,14 @@ public class GameManager : MonoBehaviour
 		info.HardModeOn = false;
 		info.TimeAttackOn = false;
 		info.Save = save;
-		info.TreasureCollected = treasureCollected;
-        info.SecrettreasureCollected = secrettreasureCollected;
-        info.LevelCompleted = levelCompleted;
+        bool[] ClearSaves = new bool[15];
+         for (int i = 0; i < 15; i++)
+        {
+           ClearSaves[i] = false;
+        }
+         info.TreasureCollected = ClearSaves;
+         info.SecrettreasureCollected = ClearSaves;
+         info.LevelCompleted = ClearSaves;
         
 		bf.Serialize (file, info);
 		file.Close ();

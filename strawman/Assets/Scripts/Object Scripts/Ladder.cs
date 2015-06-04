@@ -17,7 +17,8 @@ public class Ladder : MonoBehaviour {
         if (other.gameObject.tag == "Player")
         {
 			playerObject.GetComponent<Rigidbody> ().velocity = new Vector3 (0, 0, 0);
-			playerObject.GetComponent<Rigidbody> ().useGravity = true;
+            if(!playerObject.GetComponent<PlayerController>().FlyModeOn)
+			    playerObject.GetComponent<Rigidbody> ().useGravity = true;
 		}
 	}
 
