@@ -7,7 +7,7 @@ public class Button : MonoBehaviour {
 	public bool pressed;
 	public AudioClip clickSound;
 	public AudioSource SFXSource;
-
+	
 	void OnTriggerStay(Collider other) {
 		//if player within range allow interaction
 		if (other.tag == "Player") {

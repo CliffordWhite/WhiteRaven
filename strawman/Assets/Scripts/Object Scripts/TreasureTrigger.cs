@@ -29,6 +29,9 @@ public class TreasureTrigger : MonoBehaviour
 
 	void Start () 
 	{
+		if (gameObject.tag != "MainTreasure" && GameManager.manager.secrettreasureCollected[Application.loadedLevel-6]) 
+			gameObject.SetActive(false);
+		
 		collected = false;			// initialize bool to false
         _Camera = GameObject.FindWithTag("MainCamera");
         Player = GameObject.FindWithTag("Player");
