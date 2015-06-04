@@ -9,12 +9,12 @@ public class TreasureTrigger : MonoBehaviour
 	public GameObject musicSource;	// access music change script on pickup
 
     //Camera
-     GameObject camera; // set this via inspector
-     float shake = 0.0f;
-     float shakeAmount = 0.1f;
-     float decreaseFactor = 1.0f;
+    // GameObject camera; // set this via inspector
+   //  float shake = 0.0f;
+    // float shakeAmount = 0.1f;
+   //  float decreaseFactor = 1.0f;
      //Player Pos
-     GameObject Player;
+   //  GameObject Player;
 
 
 
@@ -30,13 +30,13 @@ public class TreasureTrigger : MonoBehaviour
 	void Start () 
 	{
 		collected = false;			// initialize bool to false
-        camera = GameObject.FindWithTag("MainCamera");
-        Player = GameObject.FindWithTag("Player");
+       // camera = GameObject.FindWithTag("MainCamera");
+      //  Player = GameObject.FindWithTag("Player");
 	}
 
     void Update()
     {
-        if (shake > 0)
+      /*  if (shake > 0)
         {
             camera.transform.localPosition = Player.transform.position * shakeAmount;
             shake -= Time.deltaTime * decreaseFactor;
@@ -46,7 +46,7 @@ public class TreasureTrigger : MonoBehaviour
         {
             shake = 0.0f;
             camera.transform.localPosition = new Vector3(Player.transform.localPosition.x,Player.transform.localPosition.y,-10.0f);
-        }
+        }*/
     }
 
 	void OnTriggerEnter(Collider other)
@@ -62,8 +62,8 @@ public class TreasureTrigger : MonoBehaviour
 			GetComponent<ParticleSystem>().Stop();
 			musicSource.GetComponent<MusicChange>().PlayHasteMusic();
 			Invoke ("DestroyAfterWait", 0.5f);
-            GameManager.manager.treasureCollected[Application.loadedLevel - 6] = true;
-            shake = 0.5f;
+			GameManager.manager.DoorUnlocked = true;
+            //shake = 0.5f;
 
 		}
 	}

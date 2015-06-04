@@ -5,8 +5,7 @@ public class TreasureCollect : MonoBehaviour {
 
     public AudioSource sfxManager;	// attach the scenes SXF manager
     public AudioClip pickupSfx;		// sound clip to play when treasure is collected
-    public GameObject musicSource;	// access music change script on pickup
-
+  
     bool collected;					// flag on when treasure collected
     public bool Collected
     {
@@ -34,7 +33,7 @@ public class TreasureCollect : MonoBehaviour {
             sfxManager.PlayOneShot(pickupSfx, 1.0f);
             GetComponent<SpriteRenderer>().enabled = false;
             GetComponent<ParticleSystem>().Stop();
-            GameManager.manager.secrettreasureCollected[Application.loadedLevel - 6] = true;
+			GameManager.manager.secretGot = true;
         }
     }
     void DestroyAfterWait()
