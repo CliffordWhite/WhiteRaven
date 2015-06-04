@@ -98,4 +98,12 @@ public class SaveLoadScript : MonoBehaviour
             LoadSelected = 3;
 		}
 	}
+
+    public int loadSelected
+    {
+        get
+        {
+            return LoadSelected;
+        }
+    }
 }
