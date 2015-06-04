@@ -98,7 +98,7 @@ public class ShamanController : MonoBehaviour
        if(Moving)
         {
 
-            velocity = new Vector2(0.0f, (transform.position.y - Player.transform.position.y) * speed);
+            velocity = new Vector2(0.0f, (transform.position.y - Player.transform.position.y+1) * speed);
             GetComponent<Rigidbody>().velocity = -velocity;
            if(Player.transform.position.y - transform.position.y > 0.5)
            {
