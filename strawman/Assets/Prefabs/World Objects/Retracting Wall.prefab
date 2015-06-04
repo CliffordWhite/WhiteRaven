@@ -14,6 +14,7 @@ GameObject:
   - 54: {fileID: 5436456}
   - 82: {fileID: 8276710}
   - 114: {fileID: 11494748}
+  - 65: {fileID: 6512984}
   m_Layer: 8
   m_Name: Retracting Wall
   m_TagString: Wall
@@ -28,8 +29,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 106342}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 30.8999996, y: .0299999993, z: .00999999978}
-  m_LocalScale: {x: 5, y: .387498468, z: 1}
+  m_LocalPosition: {x: 117.160004, y: -12.21, z: .00999999978}
+  m_LocalScale: {x: 5, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -48,6 +49,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!65 &6512984
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 106342}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: .25, y: 3, z: 1}
+  m_Center: {x: -.5, y: 2, z: 0}
 --- !u!65 &6590252
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -140,8 +153,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ac2d95ae47302144b8a4b1c15569a53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: .00999999978
-  EndLocation: {x: 43.8300018, y: 0, z: 0}
+  MoveSpeed: .200000003
+  EndLocation: {x: 127.889999, y: -12.21, z: .00999999978}
   Moving: 0
 --- !u!114 &11494748
 MonoBehaviour:
