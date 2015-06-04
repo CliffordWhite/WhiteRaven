@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ShamanController : MonoBehaviour {
+public class ShamanController : MonoBehaviour
+{
 
     bool FacingRight = true;//Which way he is facing.
     //Audio
@@ -12,46 +13,51 @@ public class ShamanController : MonoBehaviour {
     //Player Detection
     RaycastHit Connected;
     Vector3 PlayerDirection;
+    //Ladder Detection
+    RaycastHit LadderFound;
+    Vector3 LadderDirection;
+    public bool OnLadder;
     //Player
     GameObject Player;
     //Distance check
     public float distancecheck;
     //Bools
     public bool Awake;
-    //Shaman start and end position
-   // private Vector3 startPos, endPos;
-    //Shaman start time
-    private float startTime;
+    public bool Moving;
+    //Falling vars.
+    RaycastHit Grounded;
+    public bool Falling;
     //Shaman Speed;
     public float speed = 1.0f;
-    //Waypoints to move between (Astar)
-    //public Transform[] waypoints;
-    //private int wpIndexStart = 0;
-    //private int wpIndexUP = 1;
-    //private int wpIndexDown = 2;
 
 
 
 
-	// Use this for initialization
-	void Start () {
+
+    // Use this for initialization
+    void Start()
+    {
         Image = transform.FindChild("ShamanSprite").gameObject;
         Player = GameObject.FindWithTag("Player");
         Awake = false;
-      //  startPos = transform.position = waypoints[wpIndexStart].position;
-	}
-	
-	// Update is called once per frame
-	void Update () {
+        Moving = false;
+        OnLadder = false;
+        Falling = true;
+        //  startPos = transform.position = waypoints[wpIndexStart].position;
+    }
 
-	}
+    // Update is called once per frame
+    void Update()
+    {
+       
+    }
     void FixedUpdate()
     {
         PlayerDirection = Player.transform.position - transform.position;
         PlayerDirection.Normalize();
         Ray LookingForPlayer = new Ray(transform.position, PlayerDirection);
         //Debug.DrawRay(transform.position, PlayerDirection * distancecheck);
-        if (!Awake)
+        if (!Awake) // sleep mode
         {
             if (Physics.Raycast(LookingForPlayer, out Connected, distancecheck))
             {
@@ -62,49 +68,104 @@ public class ShamanController : MonoBehaviour {
                 }
             }
         }
+        else if (!OnLadder && !(Player.transform.position.y - transform.position.y < 0.25))
+        {
+            FindLadder();
+        }
         else
         {
-            startTime = Time.time;
             if (PlayerDirection.x > 0 && !FacingRight)
                 Flip();
             else if (PlayerDirection.x < 0 && FacingRight)
                 Flip();
-
-            if (Physics.Raycast(LookingForPlayer, out Connected, distancecheck))
-            {
-                if (Connected.collider.tag == "Player")
-                {
-                    Chase();//chase the player down.
-                }
-            }
+            Chase();//chase the player down.
         }
     }
 
-    void Chase() 
+    void Chase()
     {
-        //float i = (Time.time - startTime) / speed;
+        Ray LookingForGround = new Ray(transform.position, Vector3.down);
+        if (Falling && Physics.Raycast(LookingForGround, out Grounded, 100.0f))//raycast down to see if on floor or not.
+        {
+            if (!(Grounded.collider.tag == "Floor") && !((transform.position - Grounded.transform.position).magnitude < 1.0f))
+            {
+                GetComponent<Rigidbody>().MovePosition(new Vector3(transform.position.x, transform.position.y - 0.5f, transform.position.z));
+            }
+        }
 
-        //if(PlayerDirection.y > 0)//player is above
-        //{
-        //    endPos = waypoints[wpIndexUP].position;
-            
-        //} 
-        //else if (PlayerDirection.y < 0)//player is below
-        //{
-        //    endPos = waypoints[wpIndexDown].position;
-        //}
-        //else if (PlayerDirection.x > 0 && !FacingRight) //left
-        //{
-        //    //transform.GetComponent<Rigidbody>().AddForce(-125.0f, 0.0f, 0.0f, ForceMode.Acceleration);
-        //    endPos = Player.transform.position;
-        //}
-        //else if (PlayerDirection.x < 0 && FacingRight)//Right
-        //{
-        //    //transform.GetComponent<Rigidbody>().AddForce(125.0f, 0.0f, 0.0f, ForceMode.Acceleration);
-        //    endPos = Player.transform.position;
-        //}
-        //transform.position = Vector3.Lerp(startPos, endPos, i);
-        //startPos = endPos;
+            Vector2 velocity = new Vector2((transform.position.x - Player.transform.position.x) * speed, (0.0f) * speed);
+            GetComponent<Rigidbody>().velocity = -velocity;
+       if(Moving)
+        {
+
+            velocity = new Vector2(0.0f, (transform.position.y - Player.transform.position.y) * speed);
+            GetComponent<Rigidbody>().velocity = -velocity;
+           if(Player.transform.position.y - transform.position.y > 0.5)
+           {
+               GetComponent<Rigidbody>().MovePosition(new Vector3(transform.position.x, transform.position.y + 0.09f, transform.position.z));
+              
+           }
+        }
+      
+
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (!(Player.transform.position.y - transform.position.y < 0.25f))
+        {
+          Falling = true;
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Ladder" && !(Player.transform.position.y - transform.position.y < 0.25) )
+        {
+            if (transform.position.x != other.transform.position.x)
+            {
+                GetComponent<Rigidbody>().MovePosition(new Vector3(other.transform.position.x, transform.position.y, transform.position.z));
+            }
+           GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+           GetComponent<Rigidbody>().useGravity = false;
+           Moving = true;
+           OnLadder = true;
+           Falling = false;
+        }
+    }
+
+    void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "Ladder" && Player.transform.position.y - transform.position.y < 0.25)
+        {
+         
+            GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+            GetComponent<Rigidbody>().useGravity = true;
+            Moving = false;
+            if (!(Player.transform.position.y - transform.position.y < 0.25f))
+            {
+                Falling = true;
+            }
+            //Falling = true;
+        }
+
+    }
+
+    void FindLadder()
+    {
+        LadderDirection = Player.transform.position - transform.position;
+        LadderDirection.Normalize();
+        Ray LookingForLadder = new Ray(transform.position, LadderDirection);
+            if (Physics.Raycast(LookingForLadder, out LadderFound, 100.0f)) // LadderFound is the object.
+            {
+                if (Connected.collider.tag == "Ladder")
+                {
+                    Vector2 velocity = new Vector2((transform.position.x - LadderFound.transform.position.x) * speed, (0.0f) * speed);
+                    GetComponent<Rigidbody>().velocity = -velocity;
+                    OnLadder = true;
+                    Falling = false;
+                }
+            }
     }
 
     void Flip()

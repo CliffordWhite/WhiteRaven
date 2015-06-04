@@ -15,6 +15,7 @@ public class FallingWall : MonoBehaviour
 	LayerMask levelStuff = 256;
 	public bool Moving = false;
 	private AudioSource SFXPlayer = null;
+	bool PlayerDead = false;
 
 	void Start ()
 	{
@@ -74,7 +75,7 @@ public class FallingWall : MonoBehaviour
 	
 	void OnCollisionStay(Collision _obj)
 	{
-		if (Moving && _obj.transform.tag == "Player")
+		if (!PlayerDead && Moving && _obj.transform.tag == "Player")
 		{
 			Vector3 rayOrigin = new Vector3();
 			rayOrigin.x = _obj.transform.position.x;
@@ -106,7 +107,10 @@ public class FallingWall : MonoBehaviour
 			
 			
 			if (Physics.Raycast(rayOrigin, rayCastDirection, rayCastDist, levelStuff))
+			{
 				_obj.transform.SendMessage("KillPlayer");
+				PlayerDead = true;	
+			}
 		}
 	}
 	
