@@ -9,10 +9,10 @@ public class TreasureTrigger : MonoBehaviour
 	public GameObject musicSource;	// access music change script on pickup
 
     //Camera
-    // GameObject camera; // set this via inspector
-   //  float shake = 0.0f;
-    // float shakeAmount = 0.1f;
-   //  float decreaseFactor = 1.0f;
+     GameObject _Camera; // set this via inspector
+     float shake = 0.0f;
+     float shakeAmount = 0.1f;
+     float decreaseFactor = 1.0f;
      //Player Pos
    //  GameObject Player;
 
@@ -30,22 +30,22 @@ public class TreasureTrigger : MonoBehaviour
 	void Start () 
 	{
 		collected = false;			// initialize bool to false
-       // camera = GameObject.FindWithTag("MainCamera");
-      //  Player = GameObject.FindWithTag("Player");
+        _Camera = GameObject.FindWithTag("MainCamera");
+        Player = GameObject.FindWithTag("Player");
 	}
 
     void Update()
     {
       /*  if (shake > 0)
         {
-            camera.transform.localPosition = Player.transform.position * shakeAmount;
+            _Camera.transform.localPosition = new Vector3((Random.Range(0.1f, 5.0f) * shakeAmount) + Player.transform.position.x, Player.transform.position.y, -10.0f);
             shake -= Time.deltaTime * decreaseFactor;
 
         }
         else if(shake < 0)
         {
             shake = 0.0f;
-            camera.transform.localPosition = new Vector3(Player.transform.localPosition.x,Player.transform.localPosition.y,-10.0f);
+            _Camera.transform.localPosition = new Vector3(Player.transform.localPosition.x, Player.transform.localPosition.y, -10.0f);
         }*/
     }
 
