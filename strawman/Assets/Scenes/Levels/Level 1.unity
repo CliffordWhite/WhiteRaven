@@ -1328,20 +1328,12 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 424386, guid: 90652139aa707874ab9c2857535641fe, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 11476676, guid: 90652139aa707874ab9c2857535641fe, type: 2}
+    - target: {fileID: 11476506, guid: 90652139aa707874ab9c2857535641fe, type: 2}
       propertyPath: toEffect
       value: 
       objectReference: {fileID: 1591014261}
-    - target: {fileID: 11476676, guid: 90652139aa707874ab9c2857535641fe, type: 2}
-      propertyPath: SFXSource
-      value: 
-      objectReference: {fileID: 1956103053}
-    - target: {fileID: 11476676, guid: 90652139aa707874ab9c2857535641fe, type: 2}
-      propertyPath: clickSound
-      value: 
-      objectReference: {fileID: 8300000, guid: b18625db72dff8945b8f9ac1aa33a374, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 90652139aa707874ab9c2857535641fe, type: 2}
   m_IsPrefabParent: 0

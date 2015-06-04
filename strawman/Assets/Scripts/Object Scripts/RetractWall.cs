@@ -41,4 +41,10 @@ public class RetractWall : MonoBehaviour {
 		Moving = true;
 		SFXPlayer.Play();
 	}
+	
+	void OnTriggerEnter(Collider _obj)
+	{
+			if( _obj.tag == "Player" )
+			Moving = true;
+	}
 }
