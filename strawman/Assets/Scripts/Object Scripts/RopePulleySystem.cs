@@ -7,7 +7,7 @@ using System.Collections.Generic;
 public class RopePulleySystem : MonoBehaviour {
 
 	[Header ("Try Using Small Numbers Like 0.05f")]
-	public float MoveSpeed = 0.01f;
+	public float MoveSpeed = 0.05f;
 	[Header ("Object One Settings. - Primary Object")]
 	public GameObject ObjectOne = null;
 	Vector3 StartPosOne = Vector3.zero;
@@ -19,22 +19,25 @@ public class RopePulleySystem : MonoBehaviour {
 	public Vector3 EndPosTwo = Vector3.zero;
 	float ObjTwoMoveSpeed = 0.0f;
 	
-	[Header ("Starting Positions Will Be Auto Set AT Start")]
+	[Header ("Starting Positions Will Auto Set")]
 	public bool Moving = false;
 	bool MovingForward = true;
 	
-	[Header ("Place Cogs In Order From Primary Object to Secondary")]
+	[Header ("Place Cogs In Order From Primary Obj to Secondary")]
 	public GameObject[] Cogs;
-	[Header ("Set to Same Size: Turn On If Cog Rotates In Wrong Direction")]
+	[Header ("Set Size = to NumCogs: Turn On If Cog Rotates Wrong Way")]
 	public bool[] CogRotationFix;
 	float[] CogFix;
 	
+	[Header ("Place Rope Anchors In Order Starting From Primary Obj")]
+	public GameObject[] Anchors;
+	GameObject[] AnchorsList;
+	
 	[Header ("Place Rope Prefab Here.")]
 	public GameObject RopeObject = null;
-	public int NumberOfRopes = 0;
-	GameObject[] RopeTo;
 	GameObject[] Ropes;
 	
+	AudioSource SFXPlayer = null;
 	void Start ()
 	{
 		if (ObjectOne == null || ObjectTwo == null)
@@ -43,19 +46,19 @@ public class RopePulleySystem : MonoBehaviour {
 			Destroy(this);
 		} else
 		{
-			StartPosOne = ObjectOne.transform.position;	
-			StartPosTwo = ObjectTwo.transform.position;	
+			StartPosOne = ObjectOne.transform.localPosition;	
+			StartPosTwo = ObjectTwo.transform.localPosition;	
 			ObjTwoMoveSpeed = ((StartPosTwo - EndPosTwo).magnitude / (StartPosOne - EndPosOne).magnitude) * MoveSpeed;
 			
-			RopeTo = new GameObject[Cogs.Length + 2];
-			for (int i = 0; i < RopeTo.Length; i++)
+			AnchorsList = new GameObject[Cogs.Length + 2];
+			for (int i = 0; i < AnchorsList.Length; i++)
 			{
 				if (i == 0)
-					RopeTo[i] = ObjectOne;
-				else if (i == RopeTo.Length - 1)
-					RopeTo[i] = ObjectTwo;
+					AnchorsList[i] = ObjectOne;
+				else if (i == AnchorsList.Length - 1)
+					AnchorsList[i] = ObjectTwo;
 				else
-					RopeTo[i] = Cogs[i - 1];
+					AnchorsList[i] = Anchors[i - 1];
 			}
 			
 			CogFix = new float[Cogs.Length];
@@ -66,13 +69,41 @@ public class RopePulleySystem : MonoBehaviour {
 				else
 					CogFix[i] = 1.0f;
 			}
-			Ropes = new GameObject[NumberOfRopes];
-			for (int i = 0; i < NumberOfRopes; i++)
+			Ropes = new GameObject[AnchorsList.Length - 1];
+			for (int i = 0; i < Ropes.Length; i++)
 			{
 				Ropes[i] = Instantiate(RopeObject);
 				Ropes[i].transform.parent = transform;
 				Ropes[i].transform.position = Vector3.zero;
 			}
+			
+			Vector3 LastPos = Vector3.zero;
+			for (int RopeNum = 0; RopeNum < Ropes.Length; RopeNum++)
+			{
+				Vector3	Startpos = LastPos;
+				if (RopeNum == 0)
+				{
+					Startpos = AnchorsList[RopeNum].transform.position;
+					Startpos.z += 0.1f;
+				}
+				Ropes[RopeNum].GetComponent<LineRenderer>().SetPosition(0, Startpos);
+				
+				Vector3	Endpos;
+				if (RopeNum == AnchorsList.Length - 1)
+				{
+					Endpos = ObjectTwo.transform.position;
+					Endpos.z += 0.1f;
+				}
+				else
+				{
+					Endpos = AnchorsList[RopeNum + 1].transform.position;
+					Endpos.z += 0.1f;	
+				}
+				LastPos = Endpos;
+				Ropes[RopeNum].GetComponent<LineRenderer>().SetPosition(1, Endpos);
+			}
+			
+			SFXPlayer = GetComponent<AudioSource>();
 		}
 	}
 	
@@ -80,15 +111,19 @@ public class RopePulleySystem : MonoBehaviour {
 	{
 		if (Moving)
 		{
+			if (!SFXPlayer.isPlaying)
+					SFXPlayer.Play();
+				
 			if (MovingForward)
 			{
 				for (int i = 0; i < Cogs.Length; i++)
 					Cogs[i].transform.RotateAround(Cogs[i].transform.position, new Vector3(0,0,1.0f),  -CogFix[i] * 135.0f * MoveSpeed);
-				ObjectOne.transform.position = Vector3.MoveTowards(ObjectOne.transform.position, EndPosOne, MoveSpeed);
-				ObjectTwo.transform.position = Vector3.MoveTowards(ObjectTwo.transform.position, EndPosTwo, ObjTwoMoveSpeed);
-				if((ObjectOne.transform.position - EndPosOne).magnitude <= 0.001f)
+				ObjectOne.transform.localPosition = Vector3.MoveTowards(ObjectOne.transform.localPosition, EndPosOne, MoveSpeed);
+				ObjectTwo.transform.localPosition = Vector3.MoveTowards(ObjectTwo.transform.localPosition, EndPosTwo, ObjTwoMoveSpeed);
+				if((ObjectOne.transform.localPosition - EndPosOne).magnitude <= 0.001f)
 				{
-					//Moving = false;
+					Moving = false;
+					SFXPlayer.Stop();
 					MovingForward = false;
 				}
 			}
@@ -96,48 +131,47 @@ public class RopePulleySystem : MonoBehaviour {
 			{
 				for (int i = 0; i < Cogs.Length; i++)
 					Cogs[i].transform.RotateAround(Cogs[i].transform.position, new Vector3(0,0,1.0f),  CogFix[i] * 135.0f * MoveSpeed);
-				ObjectOne.transform.position = Vector3.MoveTowards(ObjectOne.transform.position, StartPosOne, MoveSpeed);
-				ObjectTwo.transform.position = Vector3.MoveTowards(ObjectTwo.transform.position, StartPosTwo, ObjTwoMoveSpeed);
-				if((ObjectOne.transform.position - StartPosOne).magnitude <= 0.001f)
+				ObjectOne.transform.localPosition = Vector3.MoveTowards(ObjectOne.transform.localPosition, StartPosOne, MoveSpeed);
+				ObjectTwo.transform.localPosition = Vector3.MoveTowards(ObjectTwo.transform.localPosition, StartPosTwo, ObjTwoMoveSpeed);
+				if((ObjectOne.transform.localPosition - StartPosOne).magnitude <= 0.001f)
 				{
-					//Moving = false;
+					Moving = false;
+					SFXPlayer.Stop();
 					MovingForward = true;
 				}
 			}
-			for (int RopeNum = 0; RopeNum < NumberOfRopes; RopeNum++)
+			Vector3 LastPos = Vector3.zero;
+			for (int RopeNum = 0; RopeNum < Ropes.Length; RopeNum++)
 			{
-				Vector3	Startpos = RopeTo[RopeNum].transform.position;
-				Startpos.z += 0.1f;
-				if (RopeNum != 0)
+				Vector3	Startpos = LastPos;
+				if (RopeNum == 0)
 				{
-					if (RopeTo[RopeNum - 1].transform.position.x < RopeTo[RopeNum + 1].transform.position.x)
-						Startpos.x -= 0.15f;
-					else
-						Startpos.x += 0.15f;
-					
-					if (RopeTo[RopeNum].transform.position.y < RopeTo[RopeNum + 1].transform.position.y)
-						Startpos.y -= 0.15f;
-					else
-						Startpos.y += 0.15f;
+					Startpos = AnchorsList[RopeNum].transform.position;
+					Startpos.z += 0.1f;
 				}
 				Ropes[RopeNum].GetComponent<LineRenderer>().SetPosition(0, Startpos);
 					
-				Vector3	Endpos = RopeTo[RopeNum + 1].transform.position;
-				Endpos.z += 0.1f;
-				if (RopeNum != NumberOfRopes - 1)
+				Vector3	Endpos;
+				if (RopeNum == AnchorsList.Length - 1)
 				{
-					if (RopeTo[RopeNum - 1].transform.position.x < RopeTo[RopeNum + 1].transform.position.x)
-						Endpos.x -= 0.15f;
-					else
-						Endpos.x += 0.15f;
-					
-					if (RopeTo[RopeNum].transform.position.y < RopeTo[RopeNum + 1].transform.position.y)
-						Endpos.y -= 0.15f;
-					else
-						Endpos.y += 0.15f;
+					Endpos = ObjectTwo.transform.position;
+					Endpos.z += 0.1f;
 				}
+				else
+				{
+					Endpos = AnchorsList[RopeNum + 1].transform.position;
+					Endpos.z += 0.1f;	
+				}
+				LastPos = Endpos;
 				Ropes[RopeNum].GetComponent<LineRenderer>().SetPosition(1, Endpos);
 			}
 		}
+		else if (SFXPlayer.isPlaying)
+					SFXPlayer.Stop();
+	}
+	
+	void GoForward(bool _Forward)
+	{
+		MovingForward = _Forward;
 	}
 }

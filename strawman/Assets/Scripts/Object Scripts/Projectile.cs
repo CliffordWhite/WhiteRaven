@@ -24,12 +24,11 @@ public class Projectile : MonoBehaviour
 		// check all tags that this object will destroy on
 		if (other.collider.tag == "Wall" || other.collider.tag == "Player" || other.collider.tag == "Floor")
 		{
-			Instantiate(explode, transform.position, transform.rotation);
-            if (other.collider.tag == "Player" && other.gameObject.GetComponent<PlayerController>().HasArmor)
-            {
-                other.gameObject.GetComponent<PlayerController>().HitWithArmor();
-            }
-			Destroy (gameObject);
+			if (other.collider.tag == "Player" && other.gameObject.GetComponent<PlayerController>().HasArmor)
+			{
+				other.gameObject.GetComponent<PlayerController>().HitWithArmor();
+			}
+			Kill();
 		}
 		// deflect from shield once
 		else if (other.collider.tag == "Shield" && !deflected)
@@ -53,5 +52,11 @@ public class Projectile : MonoBehaviour
                 direction.z = 0.0f;
             }
         }
+	}
+	
+	void Kill()
+	{
+		Instantiate(explode, transform.position, transform.rotation);
+		Destroy (gameObject);
 	}
 }
