@@ -35,6 +35,8 @@ TagManager:
   - Shaman
   - Ladder
   - MainTreasure
+  - MineRail
+  - MineCart
   layers:
   - Default
   - TransparentFX
