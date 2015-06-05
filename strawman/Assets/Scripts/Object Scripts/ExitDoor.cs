@@ -17,9 +17,12 @@ public class ExitDoor : MonoBehaviour
 		if (other.tag == "Player" && (GameManager.manager.DoorUnlocked || Application.loadedLevel < 9))
 		{
             GameManager.manager.levelCompleted[Application.loadedLevel - 6] = true;
-			GameManager.manager.treasureCollected[Application.loadedLevel-6] = true;
-			if (GameManager.manager.secretGot)
+            if(Application.loadedLevel > 8)
+    			GameManager.manager.treasureCollected[Application.loadedLevel-6] = true;
+			
+            if (GameManager.manager.secretGot)
 				GameManager.manager.secrettreasureCollected[Application.loadedLevel-6]=true;
+
 
             if (Application.loadedLevel == 6)//level 1
             {

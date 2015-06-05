@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
 	public float gameTime; 					// elapsed time for time attack
 	public bool hardModeOn, timeAttackOn; 	// flags for game modes
 	public bool[] treasureCollected;		// flags for collected treasures
-    public bool[] secrettreasureCollected;		// flags for collected treasures
+    public bool[] secrettreasureCollected;		//flags for collected treasures
     public bool[] levelCompleted;           //Flags for Levels Completed
     public bool[] levelUnlocked;            //Flags Level unlocked
     public int save; 						// which save slot
@@ -177,15 +177,22 @@ public class GameManager : MonoBehaviour
 		info.HardModeOn = false;
 		info.TimeAttackOn = false;
 		info.Save = save;
-        bool[] ClearSaves = new bool[15];
+        bool[] ClearSaves1 = new bool[15];
+        bool[] ClearSaves2 = new bool[15];
+        bool[] ClearSaves3 = new bool[15];
+        bool[] ClearSaves4 = new bool[15];
+
          for (int i = 0; i < 15; i++)
         {
-           ClearSaves[i] = false;
+            ClearSaves1[i] = false;
+            ClearSaves2[i] = false;
+            ClearSaves3[i] = false;
+            ClearSaves4[i] = false;
         }
-         info.TreasureCollected = ClearSaves;
-         info.SecrettreasureCollected = ClearSaves;
-         info.LevelCompleted = ClearSaves;
-         info.LevelUnlocked = ClearSaves;
+         info.TreasureCollected = ClearSaves1;
+         info.SecrettreasureCollected = ClearSaves2;
+         info.LevelCompleted = ClearSaves3;
+         info.LevelUnlocked = ClearSaves4;
         
 		bf.Serialize (file, info);
 		file.Close ();
