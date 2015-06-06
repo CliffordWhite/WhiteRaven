@@ -20,9 +20,10 @@ public class ExitDoor : MonoBehaviour
             if(Application.loadedLevel > 8)
     			GameManager.manager.treasureCollected[Application.loadedLevel-6] = true;
 			
-            if (GameManager.manager.secretGot)
+            if (GameManager.manager.secretGot){
 				GameManager.manager.secrettreasureCollected[Application.loadedLevel-6]=true;
-
+				//put achieve check and earn in here
+			}
 
             if (Application.loadedLevel == 6)//level 1
             {
@@ -84,7 +85,13 @@ public class ExitDoor : MonoBehaviour
             {
                 GameManager.manager.levelUnlocked[14] = true;
             }
-
+			else if (Application.loadedLevel == 20) {
+				GameManager.manager.achieveList[0] = true;
+				if (GameManager.manager.hardModeOn)
+					GameManager.manager.achieveList[2] = true;
+				if (GameManager.manager.timeAttackOn && GameManager.manager.gameTime <= 600.0f)
+					GameManager.manager.achieveList[4] = true;
+			}
             GameManager.manager.Save();
 			
             float fadetime = GameManager.manager.GetComponent<Fade>().BeginFade(1);
@@ -98,9 +105,11 @@ public class ExitDoor : MonoBehaviour
 	{
 		// if current level is 4 or more, load back to main menu
 		// load to level select instead once created
-		if (Application.loadedLevel >= 9)
+		if (Application.loadedLevel >= 9 && Application.loadedLevel != 20)
 			Application.LoadLevel (1);
 		// if level 1-3, load the next level
+		else if (Application.loadedLevel == 20)
+			Application.LoadLevel (5);
 		else
 			Application.LoadLevel (Application.loadedLevel + 1);
 	}
