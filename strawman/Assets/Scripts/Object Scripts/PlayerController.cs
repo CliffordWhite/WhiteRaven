@@ -219,9 +219,11 @@ public class PlayerController : MonoBehaviour {
 	{
 		FXSource.PlayOneShot(DeathSound, 1.0f);
 		float fadetime = GameManager.manager.GetComponent<Fade>().BeginFade(1);
-		if (GameManager.manager.hardModeOn)
-			GameManager.manager.lives--;		// lose life if hard mode
-		Invoke ("RestartLevel", fadetime);	
+        if (GameManager.manager.hardModeOn)
+        {
+            GameManager.manager.lives--;		// lose life if hard mode
+        }
+        Invoke("RestartLevel", fadetime);	
 	}
 	
     void OnCollisionEnter(Collision other)
@@ -233,19 +235,23 @@ public class PlayerController : MonoBehaviour {
         {
             FXSource.PlayOneShot(DeathSound, 1.0f);
 			float fadetime = GameManager.manager.GetComponent<Fade>().BeginFade(1);
-			if (GameManager.manager.hardModeOn)
-				GameManager.manager.lives--;		// lose life if hard mode
+            if (GameManager.manager.hardModeOn)
+            {
+                GameManager.manager.lives--;// lose life if hard mode
+            }
 			Invoke ("RestartLevel", fadetime);
 		}
     }
 	void RestartLevel()
 	{
-		if (GameManager.manager.hardModeOn && GameManager.manager.lives <= 0)
-			Application.LoadLevel(0);		// load main menu if all lives lost
-
-		// reloads the current level from the start
-		else
-			Application.LoadLevel (Application.loadedLevel);
+        if (GameManager.manager.hardModeOn && GameManager.manager.lives <= 0)
+        {
+            GameManager.manager.EraseFile();
+            Application.LoadLevel(0);		// load main menu if all lives lost
+        }
+        // reloads the current level from the start
+        else
+            Application.LoadLevel(Application.loadedLevel);
 	}
     void WhipConnect()
     {
