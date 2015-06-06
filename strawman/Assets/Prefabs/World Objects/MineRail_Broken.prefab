@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 498762}
   - 212: {fileID: 21239224}
   - 65: {fileID: 6506020}
-  - 65: {fileID: 6533940}
+  - 135: {fileID: 13505364}
   m_Layer: 8
   m_Name: MineRail_Broken
   m_TagString: MineRail
@@ -42,18 +42,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.84000003, y: .140000001, z: 1}
   m_Center: {x: -.25, y: .0399999991, z: 0}
---- !u!65 &6533940
-BoxCollider:
+--- !u!135 &13505364
+SphereCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 169778}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_Material: {fileID: 13400000, guid: 941607d77af6cea4fa2d8a079a79ea38, type: 2}
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.84000003, y: .200000003, z: 1}
-  m_Center: {x: -.25, y: .209999993, z: 0}
+  m_Radius: .600000024
+  m_Center: {x: .670000017, y: -.49000001, z: 0}
 --- !u!212 &21239224
 SpriteRenderer:
   m_ObjectHideFlags: 1

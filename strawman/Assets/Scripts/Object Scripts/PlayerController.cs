@@ -52,6 +52,7 @@ public class PlayerController : MonoBehaviour {
 	float RayMaxDist = 0.94f;
 	public LayerMask RayMask;
 	GameObject Image = null;
+	bool InMineCart = false;
 
     // Use this for initialization
 	void Start ()
@@ -120,13 +121,6 @@ public class PlayerController : MonoBehaviour {
             if(!isGrappled)
                 WhipMissed();
         }
-
-        if (Input.GetKeyUp(KeyCode.Mouse0))
-        {
-            isGrappled = false;
-            NewTransform.rotation = Origrotation;
-			MyRigidbody.freezeRotation = true;
-        }
         if (isGrappled)
             HookOnAdjust();
 	}
@@ -141,13 +135,14 @@ public class PlayerController : MonoBehaviour {
 				DrawLine();
 		}
 
-		if (MoveDir != 0 && !isGrappled)
-			transform.position += new Vector3 (MoveDir * Speed, 0.0f, 0.0f);
-        else if (isGrappled)
-        {
-            HookedOn();
-            return;
-        }
+		if( !InMineCart && MoveDir != 0 && !isGrappled )
+			transform.position += new Vector3( MoveDir * Speed, 0.0f, 0.0f );
+		else
+		if( isGrappled )
+		{
+			HookedOn();
+			return;
+		}
 
 
 		if (MoveDir > 0 && !FacingRight)
@@ -156,15 +151,19 @@ public class PlayerController : MonoBehaviour {
            Flip();
 
 		// Jump
-		if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W) && MyRigidbody.velocity.y < 0.1f)
+		if (!InMineCart && (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W)) && MyRigidbody.velocity.y < 0.1f)
         {
 			if (Physics.Raycast(RayLeftOrigin.transform.position, new Vector3(0, -1.0f, 0), RayMaxDist, RayMask) 
 			    || Physics.Raycast(RayRightOrigin.transform.position, new Vector3(0, -1.0f, 0), RayMaxDist, RayMask))
 				MyRigidbody.AddForce(0.0f, 250.0f, 0.0f, ForceMode.Acceleration);
         }
+		else if (InMineCart && (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W)) && transform.parent.GetComponent<MineCartController>().OnTracks > 0)
+		{
+			transform.parent.transform.GetComponent<Rigidbody>().AddForce(0.0f, 250.0f, 0.0f, ForceMode.Acceleration);
+		}
 
 		// Detach Grapple
-        if (Input.GetKeyUp(KeyCode.Mouse0))
+		if (isGrappled && Input.GetKeyUp(KeyCode.Mouse0))
         {
             isGrappled = false;
 			MyRigidbody.freezeRotation = true;
@@ -237,7 +236,11 @@ public class PlayerController : MonoBehaviour {
     void WhipConnect()
     {
         DrawLine();
-        isGrappled = true;
+		if( InMineCart )
+		{
+			transform.parent.transform.SendMessage("LeaveCart");
+			MineCartMode( null );
+		}
 		Hookable.GetComponent<HingeJoint>().connectedBody = MyRigidbody;
         GetComponent<Rigidbody>().freezeRotation = false;
         FXSource.PlayOneShot(WhipConnectSound, 1.0f);
@@ -331,4 +334,29 @@ public class PlayerController : MonoBehaviour {
         SpriteSwitch.GetComponent<SpriteRenderer>().sprite = NormalSprite;
         HasArmor = false;
     }
+	
+	public void MineCartMode(Transform _inMineCart)
+	{
+		if( _inMineCart == null )
+			InMineCart = false;
+		else
+			InMineCart = true;
+		
+		transform.parent = _inMineCart;
+		if( InMineCart )
+		{
+			Vector3 center = transform.localPosition;
+			center.x = 0.0f;
+			center.y = 1.2f;
+			transform.localPosition = center;
+			MyRigidbody.isKinematic = true;
+			MyRigidbody.useGravity = false;
+			MyRigidbody.velocity = Vector3.zero;
+		}
+		else
+		{
+			MyRigidbody.isKinematic = false;
+			MyRigidbody.useGravity = true;
+		}
+	}
 }
