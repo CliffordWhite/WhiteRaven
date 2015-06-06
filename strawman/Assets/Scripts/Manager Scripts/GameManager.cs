@@ -193,9 +193,11 @@ public class GameManager : MonoBehaviour
          info.SecrettreasureCollected = ClearSaves2;
          info.LevelCompleted = ClearSaves3;
          info.LevelUnlocked = ClearSaves4;
+         info.LevelUnlocked[0] = true;
         
 		bf.Serialize (file, info);
 		file.Close ();
+        Load(save);
 	}
 
 	// public function to load the passed in save from anywhere with this object
@@ -228,7 +230,7 @@ public class GameManager : MonoBehaviour
 			treasureCollected = info.TreasureCollected;
             secrettreasureCollected = info.SecrettreasureCollected;
             levelCompleted = info.LevelCompleted;
-            info.LevelUnlocked = levelUnlocked;
+            levelUnlocked = info.LevelUnlocked;
 		}
 	}
 	// All of this is for testing, preserved for testing
