@@ -120,9 +120,5 @@ public class PlayerCamera : MonoBehaviour
 			GUI.DrawTexture(new Rect(0, KeyTexture.height / 2, KeyTexture.width, KeyTexture.height), KeyTexture);
 			GameManager.manager.keyShowTime -= Time.deltaTime;
 		}
-		if (GameManager.manager.achievePopTime > 0.0f) {
-			GUI.Label (new Rect((Screen.width/2)-128, Screen.height-64, 128,64),GameManager.manager.achievePopString, style);
-			GameManager.manager.achievePopTime -= Time.deltaTime;
-		}
 	}
 }
