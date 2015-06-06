@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
 	public float gameTime; 					// elapsed time for time attack
 	public bool hardModeOn, timeAttackOn; 	// flags for game modes
 	public bool[] treasureCollected;		// flags for collected treasures
-    public bool[] secrettreasureCollected;		// flags for collected treasures
+    public bool[] secrettreasureCollected;		//flags for collected treasures
     public bool[] levelCompleted;           //Flags for Levels Completed
     public bool[] levelUnlocked;            //Flags Level unlocked
     public int save; 						// which save slot
@@ -26,8 +26,6 @@ public class GameManager : MonoBehaviour
 
 	//acheive info
 	public bool[] achieveList;
-	public float achievePopTime;
-	public string achievePopString;
 
 	//treasure checks
 	public bool DoorUnlocked;
@@ -47,76 +45,6 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
-	void Update(){
-		if (!achieveList [7] && GameManager.manager.levelCompleted [0]) {
-			achieveList [7] = true;
-			achievePopString = "Test Earned";
-			achievePopTime = 5.0f;
-		}
-
-		if (!achieveList [0] && GameManager.manager.levelCompleted [14]) {
-			achieveList [0] = true;
-			achievePopString = "Beat the Game";
-			achievePopTime = 5.0f;
-		}
-
-		if (!achieveList [1]) {
-			bool earn = true;
-			for (int i = 0; i < GameManager.manager.levelCompleted.Length; i++) {
-				if (!GameManager.manager.levelCompleted[i]) {
-					earn = false;
-					break;
-				}
-			}
-			if (earn) {
-				achieveList [1] = true;
-				achievePopString = "Complete All Levels";
-				achievePopTime = 5.0f;
-			}
-		}
-
-		if (!achieveList [2] && GameManager.manager.levelCompleted [14] && GameManager.manager.hardModeOn ) {
-			achieveList [2] = true;
-			achievePopString = "Beat the Game (Hard)";
-			achievePopTime = 5.0f;
-		}
-
-		if (!achieveList [3] && GameManager.manager.hardModeOn) {
-			bool earn = true;
-			for (int i = 0; i < GameManager.manager.levelCompleted.Length; i++) {
-				if (!GameManager.manager.levelCompleted[i]) {
-					earn = false;
-					break;
-				}
-			}
-			if (earn) {
-				achieveList [3] = true;
-				achievePopString = "Complete All Levels (Hard)";
-				achievePopTime = 5.0f;
-			}
-		}
-
-		if (!achieveList [4] && GameManager.manager.levelCompleted [14] && GameManager.manager.timeAttackOn && GameManager.manager.gameTime < 600.0f) {
-			achieveList [4] = true;
-			achievePopString = "Beat the Game under 10 min";
-			achievePopTime = 5.0f;
-		}
-
-		if (!achieveList [5] && GameManager.manager.timeAttackOn && GameManager.manager.gameTime < 1800.0f) {
-			bool earn = true;
-			for (int i = 0; i < GameManager.manager.levelCompleted.Length; i++) {
-				if (!GameManager.manager.levelCompleted[i]) {
-					earn = false;
-					break;
-				}
-			}
-			if (earn) {
-				achieveList [5] = true;
-				achievePopString = "Complete All Levels (Hard)";
-				achievePopTime = 5.0f;
-			}
-		}
-	}
 
 	// public function to save the current content from anywhere with this object
 	public void Save()
@@ -146,6 +74,7 @@ public class GameManager : MonoBehaviour
 		info.TreasureCollected = treasureCollected;
         info.SecrettreasureCollected = secrettreasureCollected;
         info.LevelCompleted = levelCompleted;
+        info.LevelUnlocked = levelUnlocked;
 
 		bf.Serialize (file, info);
 		file.Close ();
@@ -176,12 +105,27 @@ public class GameManager : MonoBehaviour
 		info.HardModeOn = false;
 		info.TimeAttackOn = false;
 		info.Save = save;
-		info.TreasureCollected = treasureCollected;
-        info.SecrettreasureCollected = secrettreasureCollected;
-        info.LevelCompleted = levelCompleted;
+        bool[] ClearSaves1 = new bool[15];
+        bool[] ClearSaves2 = new bool[15];
+        bool[] ClearSaves3 = new bool[15];
+        bool[] ClearSaves4 = new bool[15];
+
+         for (int i = 0; i < 15; i++)
+        {
+            ClearSaves1[i] = false;
+            ClearSaves2[i] = false;
+            ClearSaves3[i] = false;
+            ClearSaves4[i] = false;
+        }
+         info.TreasureCollected = ClearSaves1;
+         info.SecrettreasureCollected = ClearSaves2;
+         info.LevelCompleted = ClearSaves3;
+         info.LevelUnlocked = ClearSaves4;
+         info.LevelUnlocked[0] = true;
         
 		bf.Serialize (file, info);
 		file.Close ();
+        Load(save);
 	}
 
 	// public function to load the passed in save from anywhere with this object
@@ -214,6 +158,7 @@ public class GameManager : MonoBehaviour
 			treasureCollected = info.TreasureCollected;
             secrettreasureCollected = info.SecrettreasureCollected;
             levelCompleted = info.LevelCompleted;
+            levelUnlocked = info.LevelUnlocked;
 		}
 	}
 	// All of this is for testing, preserved for testing

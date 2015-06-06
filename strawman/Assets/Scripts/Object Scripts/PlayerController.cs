@@ -5,6 +5,8 @@ public class PlayerController : MonoBehaviour {
 	public float Speed = 0.15f;
 	bool FacingRight = true;
 	float MoveDir = 0.0f;
+    float FlyDir = 0.0f;
+
 
     private Vector3 mousePos;
     //Whip
@@ -82,6 +84,9 @@ public class PlayerController : MonoBehaviour {
         line.material.color = Color.red;
         line.enabled = false;
         SpriteSwitch.GetComponent<SpriteRenderer>().sprite = NormalSprite;
+        //Cheat Code bools
+        flyModeOn = false;
+        addLives = 30;
 	}
 
 	void Update ()
@@ -90,8 +95,11 @@ public class PlayerController : MonoBehaviour {
 			return;
 
 		MoveDir = Input.GetAxisRaw("Horizontal");
+        FlyDir = Input.GetAxisRaw("Vertical");
+        //check to see if cheat code is on.
+        FlyDir = Input.GetAxisRaw("Vertical");
 
-		mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 		mousePos.z = transform.position.z;
 
 
@@ -205,9 +213,11 @@ public class PlayerController : MonoBehaviour {
 	{
 		FXSource.PlayOneShot(DeathSound, 1.0f);
 		float fadetime = GameManager.manager.GetComponent<Fade>().BeginFade(1);
-		if (GameManager.manager.hardModeOn)
-			GameManager.manager.lives--;		// lose life if hard mode
-		Invoke ("RestartLevel", fadetime);	
+        if (GameManager.manager.hardModeOn)
+        {
+            GameManager.manager.lives--;		// lose life if hard mode
+        }
+        Invoke("RestartLevel", fadetime);	
 	}
 	
     void OnCollisionEnter(Collision other)
@@ -219,19 +229,23 @@ public class PlayerController : MonoBehaviour {
         {
             FXSource.PlayOneShot(DeathSound, 1.0f);
 			float fadetime = GameManager.manager.GetComponent<Fade>().BeginFade(1);
-			if (GameManager.manager.hardModeOn)
-				GameManager.manager.lives--;		// lose life if hard mode
+            if (GameManager.manager.hardModeOn)
+            {
+                GameManager.manager.lives--;// lose life if hard mode
+            }
 			Invoke ("RestartLevel", fadetime);
 		}
     }
 	void RestartLevel()
 	{
-		if (GameManager.manager.hardModeOn && GameManager.manager.lives <= 0)
-			Application.LoadLevel(0);		// load main menu if all lives lost
-
-		// reloads the current level from the start
-		else
-			Application.LoadLevel (Application.loadedLevel);
+        if (GameManager.manager.hardModeOn && GameManager.manager.lives <= 0)
+        {
+            GameManager.manager.EraseFile();
+            Application.LoadLevel(0);		// load main menu if all lives lost
+        }
+        // reloads the current level from the start
+        else
+            Application.LoadLevel(Application.loadedLevel);
 	}
     void WhipConnect()
     {
