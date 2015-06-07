@@ -5,15 +5,34 @@ public class SaveLoadScript : MonoBehaviour
 {
     bool Play = false;
     int LoadSelected = 1;
-    float ModePoPTimer = 0.0f;
     public GUIStyle style;		// allow for large font for timer
-    bool HardModeClicked = false, TimeAttackModeClicked = false;
+    string HardModeString = "Off";
+    string AttackTimeString = "Off";
+
 
     void FixedUpdate()
     {
         if (Play)
         {
             Application.LoadLevel(1);
+        }
+
+        if(GameManager.manager.timeAttackOn)
+        {
+            AttackTimeString = "On";
+        }
+        else
+        {
+            AttackTimeString = "Off";
+        }
+
+        if(GameManager.manager.hardModeOn)
+        {
+            HardModeString = "On";
+        }
+        else
+        {
+            HardModeString = "Off";
         }
     }
 
@@ -44,12 +63,12 @@ public class SaveLoadScript : MonoBehaviour
             }
         }
 
-		GUI.TextField(new Rect(Screen.width - 105, 10, 100, 20), "time: " + GameManager.manager.gameTime.ToString());
-		GUI.TextField(new Rect(Screen.width - 105, 40, 100, 20), "keys: " + GameManager.manager.keys.ToString());
-        GUI.TextField(new Rect(Screen.width - 105, 70, 100, 20), "lives: " + GameManager.manager.lives.ToString());
-        GUI.TextField(new Rect(Screen.width - 105, 100, 100, 20), "Treasure: " + TreasureHolder.ToString());
-        GUI.TextField(new Rect(Screen.width - 105, 130, 100, 20), "Secrets: " + STreasureHolder.ToString());
-        GUI.TextField(new Rect(Screen.width - 105, 160, 100, 20), "Levels: " + Levelholder.ToString());
+		GUI.TextField(new Rect(Screen.width - 105, 20, 100, 20), "time: " + GameManager.manager.gameTime.ToString());
+		GUI.TextField(new Rect(Screen.width - 105, 50, 100, 20), "keys: " + GameManager.manager.keys.ToString());
+        GUI.TextField(new Rect(Screen.width - 105, 80, 100, 20), "lives: " + GameManager.manager.lives.ToString());
+        GUI.TextField(new Rect(Screen.width - 105, 110, 100, 20), "Treasure: " + TreasureHolder.ToString());
+        GUI.TextField(new Rect(Screen.width - 105, 140, 100, 20), "Secrets: " + STreasureHolder.ToString());
+        GUI.TextField(new Rect(Screen.width - 105, 170, 100, 20), "Levels: " + Levelholder.ToString());
 
 
         //if(GUI.Button (new Rect((Screen.width / 2) + 105, 100, 100, 25), "Save 1"))
@@ -67,62 +86,6 @@ public class SaveLoadScript : MonoBehaviour
         //    GameManager.manager.save = 3;
         //    GameManager.manager.Save();
         //}
-
-
-        //Start of TimeAttack/Hardmode buttons
-        GUI.Box(new Rect((Screen.width / 2) + 105, 100, 100,80), "Play Modes");
-
-        // Hard Mode button
-        if (GUI.Button (new Rect((Screen.width / 2) + 105, 125, 100, 25), "Hard Mode"))
-        {
-            GameManager.manager.hardModeOn = !GameManager.manager.hardModeOn;
-            if(!GameManager.manager.hardModeOn)
-            { HardModeClicked = true; }
-            ModePoPTimer = 5.0f;
-
-        }
-
-        // Time Attack Button
-        if(GUI.Button (new Rect((Screen.width / 2) + 105, 155, 100, 25), "Time Attack"))
-        {
-            GameManager.manager.timeAttackOn = !GameManager.manager.timeAttackOn;
-            if (!GameManager.manager.timeAttackOn)
-            { TimeAttackModeClicked = true; }
-            ModePoPTimer = 5.0f;
-        }
-
-        //Time Attack / HardMode headsup display.
-        if (GameManager.manager.hardModeOn && ModePoPTimer > 0.0f)
-        {
-                GUI.Label(new Rect((Screen.width / 2) - 128, Screen.height - 64, 128, 64), "Hard Mode On", style);
-                ModePoPTimer -= Time.deltaTime;
-        }
-        else if (HardModeClicked && ModePoPTimer > 0.0f)
-        {
-            GUI.Label(new Rect((Screen.width / 2) - 128, Screen.height - 64, 128, 64), "Hard Mode Off", style);
-            ModePoPTimer -= Time.deltaTime;
-        }
-        else
-        {
-            HardModeClicked = false;
-        }
-
-        if (GameManager.manager.timeAttackOn && ModePoPTimer > 0.0f)
-        {
-            GUI.Label(new Rect((Screen.width / 2) + 105, Screen.height - 64, 128, 64), "Time Attack On", style);
-            ModePoPTimer -= Time.deltaTime;
-        }
-            else if (TimeAttackModeClicked && ModePoPTimer > 0.0f)
-        {
-            GUI.Label(new Rect((Screen.width / 2) + 105, Screen.height - 64, 128, 64), "Time Attack Off", style);
-            ModePoPTimer -= Time.deltaTime;
-            TimeAttackModeClicked = true;
-        }
-        else
-        {
-            TimeAttackModeClicked = false;
-        }
-        //End of Timeattack/Hardmode
 
 		if(GUI.Button (new Rect((Screen.width / 2) - 105, 150, 100, 25), "Erase 1"))
 		{
@@ -159,6 +122,30 @@ public class SaveLoadScript : MonoBehaviour
 			GameManager.manager.Load (3);
             LoadSelected = 3;
 		}
+
+
+        //Start of TimeAttack/Hardmode buttons
+        GUI.Box(new Rect((Screen.width / 2) + 105, 100, 110, 80), "Play Modes");
+
+        // Hard Mode button
+        if (GUI.Button(new Rect((Screen.width / 2) + 105, 125, 110, 25), "Hard Mode "+ HardModeString.ToString()))
+        {
+            GameManager.manager.hardModeOn = !GameManager.manager.hardModeOn;
+            if (!GameManager.manager.hardModeOn)
+                { HardModeString = "Off"; }
+            else
+                { HardModeString = "On"; }
+        }
+        // Time Attack Button
+        if (GUI.Button(new Rect((Screen.width / 2) + 105, 155, 110, 25), "Time Attack "+AttackTimeString.ToString()))
+        {
+            GameManager.manager.timeAttackOn = !GameManager.manager.timeAttackOn;
+            if (!GameManager.manager.timeAttackOn)
+            { AttackTimeString = "Off";}
+            else
+            { AttackTimeString = "On";}
+        }
+        //End of Timeattack/Hardmode
 	}
 
     public int loadSelected
