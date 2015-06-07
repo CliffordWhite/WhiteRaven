@@ -21,7 +21,6 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1;	// normal play speed
         FlyModeOn = false;
         Player = GameObject.FindWithTag("Player");
-        FlyModeOn = false;
     }
 
     void LateUpdate()
@@ -167,10 +166,11 @@ public class PauseMenu : MonoBehaviour
         {
             FlyModeOn = !FlyModeOn;
             Player.GetComponent<PlayerController>().FlyModeOn = FlyModeOn; // Calling a fuction to set fly more on everywhere else;
-            if(FlyModeOn)
-            CheatCodeString = "Fly Mode On"; //To confrim
+            if (FlyModeOn)
+                CheatCodeString = "Fly Mode On"; //To confrim
             else
                 CheatCodeString = "Fly Mode Off";//To confrim
+            GameManager.manager.flyMode = FlyModeOn;
         }
         else if (CheatCodeString == "AddLives") //What you want them to type in.
         {

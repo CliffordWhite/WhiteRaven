@@ -84,7 +84,7 @@ public class PlayerController : MonoBehaviour {
         line.enabled = false;
         SpriteSwitch.GetComponent<SpriteRenderer>().sprite = NormalSprite;
         //Cheat Code bools
-        flyModeOn = false;
+        flyModeOn = GameManager.manager.flyMode;
         addLives = 30;
 	}
 
@@ -92,7 +92,8 @@ public class PlayerController : MonoBehaviour {
 	{
 		if (GameManager.paused)
 			return;
-
+        if (GameManager.manager.flyMode)
+            FlyModeOn = true;
 		MoveDir = Input.GetAxisRaw("Horizontal");
         FlyDir = Input.GetAxisRaw("Vertical");
         //check to see if cheat code is on.
@@ -352,7 +353,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     //Cheat codes
-    bool flyModeOn;
+    public bool flyModeOn;
     int addLives;
     public bool FlyModeOn
     {
