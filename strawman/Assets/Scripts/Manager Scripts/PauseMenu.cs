@@ -19,7 +19,7 @@ public class PauseMenu : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1;	// normal play speed
-        FlyModeOn = false;
+        FlyModeOn = GameManager.manager.flyMode;
         Player = GameObject.FindWithTag("Player");
     }
 
@@ -158,7 +158,7 @@ public class PauseMenu : MonoBehaviour
     {
         return (Time.timeScale == 0);
     }
-    void ShowCheatCode()
+    void ShowCheatCode() // Where to place more CheatCodes;
     {
         BeginPage(200, 200);
         CheatCodeString = GUILayout.TextField(CheatCodeString, 25);
