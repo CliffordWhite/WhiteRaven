@@ -89,5 +89,11 @@ public class LevelSelect : MonoBehaviour {
         GUI.Label(new Rect(100, 200, 100, 100), STreasureHolder.ToString() + "/7 Secret Treasure Collected");
 
 
+        if (GUI.Button(new Rect(Screen.width - 105, 155, 110, 25), "Main Menu"))
+        {
+            Application.LoadLevel(0);
+        }
+
+
     }
 }

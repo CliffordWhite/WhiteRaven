@@ -92,25 +92,42 @@ public class ExitDoor : MonoBehaviour
 				if (GameManager.manager.timeAttackOn && GameManager.manager.gameTime <= 600.0f)
 					GameManager.manager.achieveList[4] = true;
 			}
-            GameManager.manager.Save();
+            if (!GameManager.manager.webMode) // not web
+                GameManager.manager.Save();
+            else
+                GameManager.manager.PlayerPrefSave();
+
 			
             float fadetime = GameManager.manager.GetComponent<Fade>().BeginFade(1);
 			_SFXsource.PlayOneShot(doorSound, 1.0f);
 			Invoke("NextLevel",fadetime);
-            
+
+            //Debug.Log("attempting to load level 2 from exit door");
+            //Application.LoadLevel("Level 2");
 		}
 	}
 
 	void NextLevel()
 	{
-		// if current level is 4 or more, load back to main menu
+		// if current level is 4 or more, load back to Level Select
 		// load to level select instead once created
-		if (Application.loadedLevel >= 9 && Application.loadedLevel != 20)
-			Application.LoadLevel (1);
-		// if level 1-3, load the next level
-		else if (Application.loadedLevel == 20)
-			Application.LoadLevel (5);
-		else
-			Application.LoadLevel (Application.loadedLevel + 1);
+        if (Application.loadedLevel >= 9 && Application.loadedLevel != 20)
+            LoadNewLevel(1);
+            //Application.LoadLevel(1);
+        // if level 1-3, load the next level
+        else if (Application.loadedLevel == 20)
+            LoadNewLevel(5);
+            //Application.LoadLevel(5);
+        else
+            LoadNewLevel(Application.loadedLevel + 1);
+			//Application.LoadLevel (Application.loadedLevel + 1);
 	}
+    void LoadNewLevel(int Level)
+    {
+        Debug.Log("attempting to load level "+Level);
+        if (Application.CanStreamedLevelBeLoaded(Level))
+        {
+            Application.LoadLevel(Level);
+        }
+    }
 }

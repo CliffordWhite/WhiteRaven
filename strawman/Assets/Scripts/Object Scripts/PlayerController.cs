@@ -247,7 +247,10 @@ public class PlayerController : MonoBehaviour {
 	{
         if (GameManager.manager.hardModeOn && GameManager.manager.lives <= 0)
         {
-            GameManager.manager.EraseFile();
+            if (!GameManager.manager.webMode)
+                GameManager.manager.EraseFile();
+            else
+                GameManager.manager.PlayerPrefsErase();
             Application.LoadLevel(0);		// load main menu if all lives lost
         }
         // reloads the current level from the start
