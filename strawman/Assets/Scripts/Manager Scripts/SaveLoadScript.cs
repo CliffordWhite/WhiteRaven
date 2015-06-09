@@ -125,6 +125,8 @@ public class SaveLoadScript : MonoBehaviour
 
 
         //Start of TimeAttack/Hardmode buttons
+        if (GameManager.manager.levelUnlocked[1] == false)
+        {
         GUI.Box(new Rect((Screen.width / 2) + 105, 100, 110, 80), "Play Modes");
 
         // Hard Mode button
@@ -146,7 +148,8 @@ public class SaveLoadScript : MonoBehaviour
             { AttackTimeString = "On";}
         }
         //End of Timeattack/Hardmode
-	}
+	    }
+    }
 
     public int loadSelected
     {
