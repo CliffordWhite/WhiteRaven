@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
 	public static bool paused = false; 		// bool to tell other scripts the game is paused
 
 	public int lives, keys; 				// number of lives for hard, number of keys held
+    public bool flyMode;                    //IF the cheat Fly is on, will stay on.
 	public float gameTime; 					// elapsed time for time attack
 	public bool hardModeOn, timeAttackOn; 	// flags for game modes
 	public bool[] treasureCollected;		// flags for collected treasures
@@ -75,6 +76,7 @@ public class GameManager : MonoBehaviour
         info.SecrettreasureCollected = secrettreasureCollected;
         info.LevelCompleted = levelCompleted;
         info.LevelUnlocked = levelUnlocked;
+        info.FlyMode = flyMode;
 
 		bf.Serialize (file, info);
 		file.Close ();
@@ -122,6 +124,7 @@ public class GameManager : MonoBehaviour
          info.LevelCompleted = ClearSaves3;
          info.LevelUnlocked = ClearSaves4;
          info.LevelUnlocked[0] = true;
+         info.FlyMode = flyMode;
         
 		bf.Serialize (file, info);
 		file.Close ();
@@ -159,6 +162,8 @@ public class GameManager : MonoBehaviour
             secrettreasureCollected = info.SecrettreasureCollected;
             levelCompleted = info.LevelCompleted;
             levelUnlocked = info.LevelUnlocked;
+            flyMode = info.FlyMode;
+
 		}
 	}
 	// All of this is for testing, preserved for testing
@@ -311,4 +316,16 @@ class GameInfo
         }
     }
 
+    bool flyMode;
+    public bool FlyMode
+    {
+        get
+        {
+            return flyMode;
+        }
+        set
+        {
+            flyMode = value;
+        }
+    }
 }

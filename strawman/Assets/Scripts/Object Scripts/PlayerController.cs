@@ -84,7 +84,7 @@ public class PlayerController : MonoBehaviour {
         line.enabled = false;
         SpriteSwitch.GetComponent<SpriteRenderer>().sprite = NormalSprite;
         //Cheat Code bools
-        flyModeOn = false;
+        flyModeOn = GameManager.manager.flyMode;
         addLives = 30;
 	}
 
@@ -92,11 +92,12 @@ public class PlayerController : MonoBehaviour {
 	{
 		if (GameManager.paused)
 			return;
-
+        if (GameManager.manager.flyMode)
+            FlyModeOn = true;
 		MoveDir = Input.GetAxisRaw("Horizontal");
         FlyDir = Input.GetAxisRaw("Vertical");
         //check to see if cheat code is on.
-        FlyDir = Input.GetAxisRaw("Vertical");
+
 
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 		mousePos.z = transform.position.z;
@@ -352,7 +353,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     //Cheat codes
-    bool flyModeOn;
+    public bool flyModeOn;
     int addLives;
     public bool FlyModeOn
     {
@@ -363,6 +364,7 @@ public class PlayerController : MonoBehaviour {
         set
         {
             flyModeOn = value;
+            GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
             GetComponent<Rigidbody>().useGravity = !flyModeOn; // the ! is to turn off gravity.
         }
     }
