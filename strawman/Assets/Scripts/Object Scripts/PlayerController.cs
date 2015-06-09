@@ -332,12 +332,12 @@ public class PlayerController : MonoBehaviour {
         Vector3 Scale = Lever.transform.localScale;
         if (LeverFacingRight)
         {
-            Scale.x = -1;
+            Scale.x = -Scale.x;
             LeverFacingRight = !LeverFacingRight;
         }
         else
         {
-            Scale.x = 1;
+            Scale.x = -Scale.x;
             LeverFacingRight = !LeverFacingRight;
         }
         Lever.transform.localScale = Scale;

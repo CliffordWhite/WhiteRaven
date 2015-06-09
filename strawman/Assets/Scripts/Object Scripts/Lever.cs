@@ -4,33 +4,33 @@ using System.Collections;
 public class Lever : MonoBehaviour {
 
 	public Vector3 tarPosition;
-    Vector3 OldPosition;
-    public bool Hasmoved;
+    public Vector3 OldPosition;
     public GameObject LeverObject;
 	bool movingUp,movingDown;
 	public float speed;
+	Lever[] m_Levers;
 	// Use this for initialization
 	void Start () {
+		m_Levers = GetComponents<Lever> ();
 		movingUp = false;
 		movingDown = false;
-		Hasmoved = false;
-		OldPosition = LeverObject.transform.position;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (movingUp) {
-			LeverObject.transform.position = Vector3.MoveTowards(LeverObject.transform.position,tarPosition,speed*Time.deltaTime);
-			if (Vector3.Distance(LeverObject.transform.position,tarPosition) <=.01f) {
-				LeverObject.transform.position = tarPosition;
-				movingUp = false;
-			}
-		}
-		else if (movingDown) {
-			LeverObject.transform.position = Vector3.MoveTowards(LeverObject.transform.position,OldPosition,speed*Time.deltaTime);
-			if (Vector3.Distance(LeverObject.transform.position,OldPosition) <=.01f) {
-				LeverObject.transform.position = OldPosition;
-				movingDown = false;
+		foreach (Lever t_lever in m_Levers) {
+			if (t_lever.movingUp) {
+				t_lever.LeverObject.transform.position = Vector3.MoveTowards (t_lever.LeverObject.transform.position, t_lever.tarPosition, t_lever.speed * Time.deltaTime);
+				if (Vector3.Distance (t_lever.LeverObject.transform.position, t_lever.tarPosition) <= .01f) {
+					t_lever.LeverObject.transform.position = t_lever.tarPosition;
+					t_lever.movingUp = false;
+				}
+			} else if (t_lever.movingDown) {
+				t_lever.LeverObject.transform.position = Vector3.MoveTowards (t_lever.LeverObject.transform.position, t_lever.OldPosition, t_lever.speed * Time.deltaTime);
+				if (Vector3.Distance (t_lever.LeverObject.transform.position, t_lever.OldPosition) <= .01f) {
+					t_lever.LeverObject.transform.position = t_lever.OldPosition;
+					t_lever.movingDown = false;
+				}
 			}
 		}
 	}
@@ -41,16 +41,15 @@ public class Lever : MonoBehaviour {
 
 
     public void HasMoved()
-    {        
-		if (!Hasmoved) {
-			Hasmoved = !Hasmoved;
-			movingUp = true;
-			movingDown = false;
-		}
-		else {
-			Hasmoved = !Hasmoved;
-			movingUp = false;
-			movingDown = true;
+    {   
+		foreach (Lever t_lever in m_Levers) {
+			if (t_lever.LeverObject.transform.position == t_lever.OldPosition || t_lever.movingDown) {
+				t_lever.movingUp = true;
+				t_lever.movingDown = false;
+			} else if (t_lever.LeverObject.transform.position == t_lever.tarPosition || t_lever.movingUp) {
+				t_lever.movingUp = false;
+				t_lever.movingDown = true;
+			}
 		}
     }
 }

@@ -13,7 +13,7 @@ public class Attach_Player : MonoBehaviour {
 
 	void OnCollisionEnter(Collision _Obj)
 	{
-		if (_Obj.transform.tag == "Player")
+		if (_Obj.transform.tag == "Player" && !_Obj.transform.GetComponent<PlayerController>().isGrappled)
 			_Obj.transform.parent = transform;
 	}
 
