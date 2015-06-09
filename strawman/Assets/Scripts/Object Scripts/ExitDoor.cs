@@ -22,7 +22,29 @@ public class ExitDoor : MonoBehaviour
 			
             if (GameManager.manager.secretGot){
 				GameManager.manager.secrettreasureCollected[Application.loadedLevel-6]=true;
-				//put achieve check and earn in here
+				//Check if achieved all treasure
+				int numGot = 0;
+				for (int i = 0; i < GameManager.manager.secrettreasureCollected.Length; i++) {
+					if (GameManager.manager.secrettreasureCollected[i])
+						numGot++;
+				}
+				if (numGot == 7) 
+					GameManager.manager.achieveList[6] = true;
+			}
+			//Check if completed all levels and give achieve
+			bool complete = true;
+			for (int l = 0; l < GameManager.manager.levelCompleted.Length; l++) {
+				if (!GameManager.manager.levelCompleted[l]){
+					complete = false;
+					break;
+				}
+			}
+			if (complete){
+				GameManager.manager.achieveList[1] = true;
+				if (GameManager.manager.hardModeOn)
+					GameManager.manager.achieveList[3] = true;
+				if (GameManager.manager.timeAttackOn && GameManager.manager.gameTime <= 1800.0f)
+					GameManager.manager.achieveList[5] = true;
 			}
 
             if (Application.loadedLevel == 6)//level 1
