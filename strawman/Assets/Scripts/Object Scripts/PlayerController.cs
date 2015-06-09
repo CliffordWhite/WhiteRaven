@@ -85,7 +85,7 @@ public class PlayerController : MonoBehaviour {
         line.enabled = false;
         SpriteSwitch.GetComponent<SpriteRenderer>().sprite = NormalSprite;
         //Cheat Code bools
-        flyModeOn = false;
+        flyModeOn = GameManager.manager.flyMode;
         addLives = 30;
 	}
 
@@ -93,18 +93,18 @@ public class PlayerController : MonoBehaviour {
 	{
 		if (GameManager.paused)
 			return;
-
+        if (GameManager.manager.flyMode)
+            FlyModeOn = true;
 		MoveDir = Input.GetAxisRaw("Horizontal");
         FlyDir = Input.GetAxisRaw("Vertical");
         //check to see if cheat code is on.
-        FlyDir = Input.GetAxisRaw("Vertical");
+
 
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 		mousePos.z = transform.position.z;
 
 
-
-         if (Input.GetKeyDown(KeyCode.Mouse0) && !isGrappled)
+		if (Input.GetKeyDown(KeyCode.Mouse0) && !isGrappled)
         {
 			Vector3 whipDirection = mousePos - transform.position;
 			whipDirection.Normalize ();
@@ -129,6 +129,13 @@ public class PlayerController : MonoBehaviour {
             if(!isGrappled)
                 WhipMissed();
         }
+		else if (isGrappled && Input.GetKeyUp(KeyCode.Mouse0))
+		{
+			isGrappled = false;
+			MyRigidbody.freezeRotation = true;
+			NewTransform.rotation = Origrotation;
+		}
+		
         if (isGrappled)
             HookOnAdjust();
 	}
@@ -165,18 +172,12 @@ public class PlayerController : MonoBehaviour {
 			    || Physics.Raycast(RayRightOrigin.transform.position, new Vector3(0, -1.0f, 0), RayMaxDist, RayMask))
 				MyRigidbody.AddForce(0.0f, 250.0f, 0.0f, ForceMode.Acceleration);
         }
-		else if (InMineCart && (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W)) && transform.parent.GetComponent<MineCartController>().OnTracks > 0)
-		{
-			transform.parent.transform.GetComponent<Rigidbody>().AddForce(0.0f, 250.0f, 0.0f, ForceMode.Acceleration);
-		}
+//		else if (InMineCart && (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W)) && transform.parent.GetComponent<MineCartController>().OnTracks > 0)
+//		{
+//			transform.parent.transform.GetComponent<Rigidbody>().AddForce(0.0f, 250.0f, 0.0f, ForceMode.Acceleration);
+//		}
 
 		// Detach Grapple
-		if (isGrappled && Input.GetKeyUp(KeyCode.Mouse0))
-        {
-            isGrappled = false;
-			MyRigidbody.freezeRotation = true;
-            NewTransform.rotation = Origrotation;
-        }
     }
     void Flip()
     {
@@ -373,4 +374,33 @@ public class PlayerController : MonoBehaviour {
 			MyRigidbody.useGravity = true;
 		}
 	}
+
+    //Cheat codes
+    public bool flyModeOn;
+    int addLives;
+    public bool FlyModeOn
+    {
+        get
+        {
+            return flyModeOn;
+        }
+        set
+        {
+            flyModeOn = value;
+            GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+            GetComponent<Rigidbody>().useGravity = !flyModeOn; // the ! is to turn off gravity.
+        }
+    }
+    public int AddLives
+    {
+        get
+        {
+            return addLives;
+        }
+        set
+        {
+            addLives = value;
+            GameManager.manager.lives += addLives;
+        }
+    }
 }

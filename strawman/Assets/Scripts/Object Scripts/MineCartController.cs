@@ -4,29 +4,91 @@ using System.Collections;
 public class MineCartController : MonoBehaviour {
 
 	bool Enabled = false;
+	bool OnRail = false;
+	
+	float MaxMoveSpeed = 0.15f;
+	float MoveSpeed = 0.0f;
+	
+	float UpTime = 0.5f;
+	float TimeUp = 0.0f;
+	
+	float MaxUpRate = 0.15f;
+	float UpRate = 0.0f;
+	bool MovingUp = false;
+	
+	public LayerMask MineRailMask;
 	GameObject Player = null;
-	int tracks = 0;
+	
+	void Start()
+	{
+		MoveSpeed = MaxMoveSpeed;
+		UpRate = MaxUpRate;
+	}
+	
+	void Update()
+	{
+		if (Enabled && OnRail && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space)) )
+		{
+			MovingUp = true;
+			OnRail = false;
+		}
+	}
 	
 	void FixedUpdate()
 	{
-		if( Enabled )
+		RaycastHit PosCheck = new RaycastHit();
+		Physics.Raycast( transform.position + Vector3.up, Vector3.down, out PosCheck, float.MaxValue, MineRailMask );
+		if (PosCheck.distance > 1.2f || PosCheck.distance == 0.0f)
 		{
-			transform.position += transform.right * 0.2f;
-//			if (tracks == 0)
-//				transform.position += Vector3.down * 0.01f;
+			OnRail = false;
+			transform.eulerAngles = new Vector3(0.0f, 0.0f, 25.0f);
+			if (!MovingUp)
+			{
+				transform.position += Vector3.down * UpRate;
+				UpRate += 0.01f;
+				if (UpRate > MaxUpRate * 2.0f)
+					UpRate = MaxUpRate * 2.0f;
+			}
+		}
+		else if (!MovingUp)
+		{
+			OnRail = true;
+			UpRate = MaxUpRate;
+			TimeUp = 0.0f;
+			if (PosCheck.collider.transform.tag != "MineRail")
+			{
+				MoveSpeed -= MaxMoveSpeed * 0.1f;
+				if (MoveSpeed < 0.0f)
+					MoveSpeed = 0.0f;
+			}
+			else
+				MoveSpeed = MaxMoveSpeed;
+			transform.rotation = PosCheck.collider.transform.rotation;
+			Vector3 upFix = transform.position;
+			upFix.y = PosCheck.point.y;
+			transform.position = upFix;
+				
 		}
 		
-		if (transform.eulerAngles.z > 30.0f && transform.eulerAngles.z <= 180.0f)
+		if( Enabled )
 		{
-			Vector3 fixRot = transform.eulerAngles;
-			fixRot.z = 30.0f;
-			transform.eulerAngles = fixRot;
+			transform.position += transform.right * MoveSpeed;
 		}
-		else if (transform.eulerAngles.z < 330.0f && transform.eulerAngles.z >= 180.0f)
+		
+		if (MovingUp)
 		{
-			Vector3 fixRot = transform.eulerAngles;
-			fixRot.z = 330.0f;
-			transform.eulerAngles = fixRot;
+				
+			transform.position += Vector3.up * UpRate;
+			UpRate -= 0.01f;
+			if (UpRate < MaxUpRate * 0.1f)
+				UpRate = MaxUpRate * 0.1f;
+			TimeUp += Time.deltaTime;
+			if (TimeUp > UpTime)
+			{
+				MovingUp = false;
+				UpRate = MaxUpRate;
+				TimeUp = 0.0f;
+			}
 		}
 	}
 	
@@ -37,26 +99,6 @@ public class MineCartController : MonoBehaviour {
 			Enabled = true;
 			Player = _obj.transform.gameObject;
 			Player.SendMessage("MineCartMode", transform);
-		}
-	}
-	
-	void OnCollisionEnter(Collision _obj)
-	{
-		if( _obj.transform.tag == "MineRail" )
-			tracks++;
-	}
-	
-	void OnCollisionExit(Collision _obj)
-	{
-		if( _obj.transform.tag == "MineRail" )
-			tracks--;
-	}
-	
-	public int OnTracks
-	{
-		get
-		{
-			return tracks;
 		}
 	}
 	
