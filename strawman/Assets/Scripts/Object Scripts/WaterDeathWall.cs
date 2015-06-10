@@ -3,13 +3,29 @@ using System.Collections;
 
 public class WaterDeathWall : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+	void Start ()
+	{
 	
 	}
 	
-	// Update is called once per frame
-	void Update () {
+	void Update ()
+	{
 	
+	}
+	
+	void OnTriggerEnter(Collider _obj)
+	{
+		if( _obj.tag == "Player" )
+		{
+			_obj.GetComponent<PlayerController>().WaterMode = true;	
+		}
+	}
+	
+	void OnTriggerExit(Collider _obj)
+	{
+		if( _obj.tag == "Player" )
+		{
+			_obj.GetComponent<PlayerController>().WaterMode = false;	
+		}
 	}
 }
