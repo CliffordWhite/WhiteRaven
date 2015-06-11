@@ -127,7 +127,7 @@ public class PlayerController : MonoBehaviour {
 			Ray WhipThrown = new Ray(transform.position, whipDirection);
 			Debug.DrawRay(transform.position, mousePos * distancecheck);
 			
-			if (Physics.Raycast(WhipThrown, out Connected, distancecheck))
+			if (Physics.Raycast(WhipThrown, out Connected, distancecheck, RayMask))
             {
                 if (Connected.collider.tag == "Hookable")
                 {
