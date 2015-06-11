@@ -11,7 +11,6 @@ GameObject:
   - 114: {fileID: 11425616}
   - 65: {fileID: 6522498}
   - 212: {fileID: 21259512}
-  - 65: {fileID: 6590638}
   m_Layer: 4
   m_Name: WaterDeathWall 1
   m_TagString: Water
@@ -32,18 +31,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!65 &6522498
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 181914}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 7.8499999, y: 5.86999989, z: 3}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &6590638
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
