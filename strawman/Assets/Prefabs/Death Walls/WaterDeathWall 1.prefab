@@ -1,66 +1,85 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &178818
+--- !u!1 &181914
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 451202}
-  - 65: {fileID: 6586432}
-  - 212: {fileID: 21268628}
-  - 114: {fileID: 11404502}
-  m_Layer: 0
-  m_Name: Reflective Wall
-  m_TagString: ReflectiveWall
+  - 4: {fileID: 401590}
+  - 114: {fileID: 11425616}
+  - 65: {fileID: 6522498}
+  - 212: {fileID: 21259512}
+  - 65: {fileID: 6590638}
+  m_Layer: 4
+  m_Name: WaterDeathWall 1
+  m_TagString: Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &451202
+--- !u!4 &401590
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 178818}
-  m_LocalRotation: {x: 0, y: 0, z: .707106829, w: .707106709}
-  m_LocalPosition: {x: -13, y: 5, z: .00999999978}
-  m_LocalScale: {x: 2.5, y: 1, z: 1}
+  m_GameObject: {fileID: 181914}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -24.6399994, y: -9.47999954, z: .899999976}
+  m_LocalScale: {x: 1.5, y: 0, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!65 &6586432
+--- !u!65 &6522498
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 178818}
-  m_Material: {fileID: 13400000, guid: 941607d77af6cea4fa2d8a079a79ea38, type: 2}
-  m_IsTrigger: 0
+  m_GameObject: {fileID: 181914}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.24000001, y: .699999988, z: 1}
+  m_Size: {x: 7.8499999, y: 5.86999989, z: 3}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &11404502
+--- !u!65 &6590638
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 181914}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.8499999, y: 5.86999989, z: 3}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &11425616
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 178818}
+  m_GameObject: {fileID: 181914}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adc3fb0c01a58284dae6b5c022dfc2ca, type: 3}
+  m_Script: {fileID: 11500000, guid: 140d0b0c5f83ceb44bf08a2d89e1a1b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FXSource: {fileID: 0}
-  ReflectSound: {fileID: 8300000, guid: 15ae33176f2762e4db126bb46ba81327, type: 3}
---- !u!212 &21268628
+  Parent: {fileID: 0}
+  EndYScales:
+  - 1.29999995
+  - 3.5
+  GrowthOrders: 0000000002000000
+  GrowthSpeeds:
+  - .100000001
+  - .0500000007
+--- !u!212 &21259512
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 178818}
+  m_GameObject: {fileID: 181914}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -79,8 +98,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d94ec735a9de71f48adf8a2951b635be, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 5c631a4ce83e8f644910fc0b6c556e06, type: 3}
+  m_Color: {r: 0, g: .958620548, b: 1, a: .517647088}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -90,5 +109,5 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 178818}
+  m_RootGameObject: {fileID: 181914}
   m_IsPrefabParent: 1
