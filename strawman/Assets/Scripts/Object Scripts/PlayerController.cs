@@ -65,12 +65,13 @@ public class PlayerController : MonoBehaviour {
 	bool Drowning = false;
 	public GameObject BreathBar = null;
 	public Image BubblesImage = null;
-	Vector3 gravityBase = Physics.gravity;
+	Vector3 gravityBase = Vector3.zero;
 	bool alive = true;
 
     // Use this for initialization
 	void Start ()
 	{
+		gravityBase = Physics.gravity;
 		BreathBar.SetActive( false );
 		
 		invincibleFrames = 0.0f;
@@ -96,8 +97,9 @@ public class PlayerController : MonoBehaviour {
         line = gameObject.AddComponent<LineRenderer>();
         line.SetWidth(startWidth, endWidth);
         line.SetVertexCount(2);
-        line.material.color = Color.red;
+        line.material.color = Color.black;
         line.enabled = false;
+		line.sortingOrder = 0;
         SpriteSwitch.GetComponent<SpriteRenderer>().sprite = NormalSprite;
         //Cheat Code bools
         flyModeOn = GameManager.manager.flyMode;
@@ -320,16 +322,27 @@ public class PlayerController : MonoBehaviour {
         //sets the line positions start and end points
         //and enables the line to be drawn
         line.enabled = true;
-        line.SetPosition(0, transform.position);
-        if (isGrappled)
-        {
-            line.SetPosition(1, Connected.transform.position);
-        }
-        else if (distance < distancecheck)
-			line.SetPosition(1, mousePos);
+		Vector3 ZFix = transform.position;
+		ZFix.z = 0.5f;
+		line.SetPosition(0, ZFix);
+		Vector3 endPos = Vector3.zero;
+        if( isGrappled )
+		{
+			endPos = Connected.transform.position;
+			endPos.z = ZFix.z;
+			line.SetPosition( 1, endPos );
+		}
+		else if( distance < distancecheck )
+		{
+			endPos = mousePos;
+			endPos.z = ZFix.z;
+			line.SetPosition(1, endPos);
+		}
 		else
         {
-            line.SetPosition(1, _dir * distancecheck + transform.position);
+			endPos = _dir * distancecheck + transform.position;
+			endPos.z = ZFix.z;
+			line.SetPosition(1, endPos);
         }
 
     }
