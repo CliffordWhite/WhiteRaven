@@ -65,6 +65,7 @@ public class PlayerController : MonoBehaviour {
 	public GameObject BreathBar = null;
 	public Image BubblesImage = null;
 	Vector3 gravityBase = Physics.gravity;
+	bool alive = true;
 
     // Use this for initialization
 	void Start ()
@@ -123,7 +124,7 @@ public class PlayerController : MonoBehaviour {
 			Ray WhipThrown = new Ray(transform.position, whipDirection);
 			Debug.DrawRay(transform.position, mousePos * distancecheck);
 			
-			if (Physics.Raycast(WhipThrown, out Connected, distancecheck))
+			if (Physics.Raycast(WhipThrown, out Connected, distancecheck, RayMask))
             {
                 if (Connected.collider.tag == "Hookable")
                 {
@@ -152,14 +153,15 @@ public class PlayerController : MonoBehaviour {
         if (isGrappled)
             HookOnAdjust();
 		
-		if( UnderWater > 0)
+		if( Drowning )
 		{
 			TimeUnderWater += Time.deltaTime;
 			BubblesImage.fillAmount = 1.0f - TimeUnderWater / BreathDuration;
-			if (TimeUnderWater >= BreathDuration)
+			if (TimeUnderWater >= BreathDuration && alive)
 			{
 				KillPlayer();
-				BubblesImage.fillAmount = 0.0f;	
+				BubblesImage.fillAmount = 0.0f;
+				alive = false;
 			}
 		}
 	}
@@ -457,7 +459,7 @@ public class PlayerController : MonoBehaviour {
 	{
 		set
 		{
-			UnderWater += value;	
+			UnderWater += value;
 			if(UnderWater > 0)
 			{
 				Physics.gravity = gravityBase * 0.2f;
