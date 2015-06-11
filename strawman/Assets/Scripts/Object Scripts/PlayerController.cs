@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour {
     public Sprite ArmorSprite;
     GameObject SpriteSwitch;
     public bool HasArmor;
+	float invincibleFrames;
     // Player Rotation after whip
     Quaternion Origrotation;
     Transform NewTransform;
@@ -59,6 +60,7 @@ public class PlayerController : MonoBehaviour {
     // Use this for initialization
 	void Start ()
 	{
+		invincibleFrames = 0.0f;
 		MyRigidbody = transform.GetComponent<Rigidbody> ();
         FacingRight = true;
 
@@ -103,6 +105,8 @@ public class PlayerController : MonoBehaviour {
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 		mousePos.z = transform.position.z;
 
+		if (invincibleFrames > 0.0f)
+			invincibleFrames -= Time.deltaTime;
 
 		if (Input.GetKeyDown(KeyCode.Mouse0) && !isGrappled)
         {
@@ -196,18 +200,19 @@ public class PlayerController : MonoBehaviour {
     }
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Fatal" || other.tag == "HM Fatal")
-        {
-			KillPlayer();
-        }
-        else if (other.tag == "ArmorUp")
-        {
-            Armor = other.gameObject;
-            Armor.SetActive(false);
-            FXSource.PlayOneShot(ArmorPickUpSound, 1.0f);         
-            SpriteSwitch.GetComponent<SpriteRenderer>().sprite = ArmorSprite;
-            HasArmor = true;
-        }
+		if (invincibleFrames <= 0.0f) {
+			if ((other.tag == "Fatal" || other.tag == "HM Fatal") && !HasArmor)
+				KillPlayer ();
+			else if ((other.tag == "Fatal" || other.tag == "HM Fatal") && HasArmor) 
+				HitWithArmor ();
+			else if (other.tag == "ArmorUp") {
+				Armor = other.gameObject;
+				Armor.SetActive (false);
+				FXSource.PlayOneShot (ArmorPickUpSound, 1.0f);         
+				SpriteSwitch.GetComponent<SpriteRenderer> ().sprite = ArmorSprite;
+				HasArmor = true;
+			}
+		}
     }
 	
 	void KillPlayer()
@@ -226,15 +231,16 @@ public class PlayerController : MonoBehaviour {
 		if (!isGrappled)
 			MyRigidbody.velocity = Vector3.zero;
 
-        if((other.collider.tag == "Projectile" || other.collider.tag == "Shaman") && !HasArmor )
-        {
-            FXSource.PlayOneShot(DeathSound, 1.0f);
-			float fadetime = GameManager.manager.GetComponent<Fade>().BeginFade(1);
-            if (GameManager.manager.hardModeOn)
-            {
-                GameManager.manager.lives--;// lose life if hard mode
-            }
-			Invoke ("RestartLevel", fadetime);
+		if (invincibleFrames <= 0.0f) {
+			if ((other.collider.tag == "Projectile" || other.collider.tag == "Shaman") && !HasArmor) {
+				FXSource.PlayOneShot (DeathSound, 1.0f);
+				float fadetime = GameManager.manager.GetComponent<Fade> ().BeginFade (1);
+				if (GameManager.manager.hardModeOn) {
+					GameManager.manager.lives--;// lose life if hard mode
+				}
+				Invoke ("RestartLevel", fadetime);
+			} else if ((other.collider.tag == "Projectile" || other.collider.tag == "Shaman") && HasArmor)
+				HitWithArmor ();
 		}
     }
 	void RestartLevel()
@@ -348,6 +354,7 @@ public class PlayerController : MonoBehaviour {
     {
         SpriteSwitch.GetComponent<SpriteRenderer>().sprite = NormalSprite;
         HasArmor = false;
+		invincibleFrames = 1.0f;
     }
 	
 	public void MineCartMode(Transform _inMineCart)

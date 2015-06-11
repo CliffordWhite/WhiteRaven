@@ -255,6 +255,10 @@ Prefab:
       propertyPath: FXSource
       value: 
       objectReference: {fileID: 1964072460}
+    - target: {fileID: 11465618, guid: 7ee9316a0972db545953d0eda858c446, type: 2}
+      propertyPath: FXSource
+      value: 
+      objectReference: {fileID: 1964072460}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7ee9316a0972db545953d0eda858c446, type: 2}
   m_IsPrefabParent: 0
