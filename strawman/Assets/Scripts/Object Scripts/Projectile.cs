@@ -54,6 +54,14 @@ public class Projectile : MonoBehaviour
         }
 	}
 	
+	void OnCollisionExit(Collision other)
+	{
+		if (other.collider.tag == "Shield")
+		{
+			deflected = false;
+		}	
+	}
+	
 	void Kill()
 	{
 		Instantiate(explode, transform.position, transform.rotation);

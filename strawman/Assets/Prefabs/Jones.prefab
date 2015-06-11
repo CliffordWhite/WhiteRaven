@@ -388,7 +388,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FXSource: {fileID: 0}
-  ShieldDeflectSound: {fileID: 0}
+  ShieldDeflectSound: {fileID: 8300000, guid: 15ae33176f2762e4db126bb46ba81327, type: 3}
 --- !u!114 &11482098
 MonoBehaviour:
   m_ObjectHideFlags: 1
