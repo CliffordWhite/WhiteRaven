@@ -15,17 +15,25 @@ public class WaterDeathWall : MonoBehaviour {
 	
 	void OnTriggerEnter(Collider _obj)
 	{
-		if( _obj.tag == "Player" )
+		if (_obj.tag == "PlayerBody")
 		{
-			_obj.GetComponent<PlayerController>().WaterMode = true;	
+			_obj.transform.parent.GetComponent<PlayerController> ().WaterMode = 1;	
+		}
+		else if (_obj.tag == "PlayerHead")
+		{
+			_obj.transform.parent.GetComponent<PlayerController> ().isDrowning = true;
 		}
 	}
 	
 	void OnTriggerExit(Collider _obj)
 	{
-		if( _obj.tag == "Player" )
+		if( _obj.tag == "PlayerBody" )
 		{
-			_obj.GetComponent<PlayerController>().WaterMode = false;	
+			_obj.transform.parent.GetComponent<PlayerController>().WaterMode = -1;	
+		}
+		else if (_obj.tag == "PlayerHead")
+		{
+			_obj.transform.parent.GetComponent<PlayerController> ().isDrowning = false;
 		}
 	}
 }

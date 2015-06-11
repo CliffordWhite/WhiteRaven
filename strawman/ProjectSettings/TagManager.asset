@@ -38,6 +38,8 @@ TagManager:
   - MineRail
   - MineCart
   - Water
+  - PlayerHead
+  - PlayerBody
   layers:
   - Default
   - TransparentFX

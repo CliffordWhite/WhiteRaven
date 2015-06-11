@@ -58,9 +58,10 @@ public class PlayerController : MonoBehaviour {
 	bool InMineCart = false;
 	
 	// Water Studd
-	bool UnderWater = false;
+	int UnderWater = 0;
 	float BreathDuration = 15.0f;
 	float TimeUnderWater = 0.0f;
+	bool Drowning = false;
 	public GameObject BreathBar = null;
 	public Image BubblesImage = null;
 	Vector3 gravityBase = Physics.gravity;
@@ -151,7 +152,7 @@ public class PlayerController : MonoBehaviour {
         if (isGrappled)
             HookOnAdjust();
 		
-		if( UnderWater )
+		if( UnderWater > 0)
 		{
 			TimeUnderWater += Time.deltaTime;
 			BubblesImage.fillAmount = 1.0f - TimeUnderWater / BreathDuration;
@@ -175,7 +176,7 @@ public class PlayerController : MonoBehaviour {
 
 		if( !InMineCart && MoveDir != 0 && !isGrappled )
 		{
-			if (UnderWater)
+			if (UnderWater > 0)
 				transform.position += new Vector3( MoveDir * Speed * 0.5f, 0.0f, 0.0f );
 			else
 				transform.position += new Vector3( MoveDir * Speed, 0.0f, 0.0f );
@@ -199,7 +200,7 @@ public class PlayerController : MonoBehaviour {
 			if (Physics.Raycast(RayLeftOrigin.transform.position, new Vector3(0, -1.0f, 0), RayMaxDist, RayMask) 
 			    || Physics.Raycast(RayRightOrigin.transform.position, new Vector3(0, -1.0f, 0), RayMaxDist, RayMask))
 			{
-				if (UnderWater)
+				if (UnderWater > 0)
 					MyRigidbody.AddForce(0.0f, 150.0f, 0.0f, ForceMode.Acceleration);
 				else
 					MyRigidbody.AddForce(0.0f, 250.0f, 0.0f, ForceMode.Acceleration);
@@ -327,7 +328,7 @@ public class PlayerController : MonoBehaviour {
 	
     void HookedOn() 
     {
-		if( UnderWater )
+		if( UnderWater > 0)
 			MyRigidbody.drag = 1.5f;
 		else
 			MyRigidbody.drag = 0.0f;
@@ -452,23 +453,39 @@ public class PlayerController : MonoBehaviour {
         }
     }
 	
-	public bool WaterMode
+	public int WaterMode
 	{
 		set
 		{
-			UnderWater = value;	
-			if(UnderWater)
+			UnderWater += value;	
+			if(UnderWater > 0)
 			{
-				BreathBar.SetActive(true);
-				BubblesImage.fillAmount = 1.0f;
-				TimeUnderWater = 0.0f;
 				Physics.gravity = gravityBase * 0.2f;
 			}
 			else
 			{
-				BreathBar.SetActive(false);
 				Physics.gravity = gravityBase;
 			}
 		}
 	}
+
+	public bool isDrowning
+	{
+		set
+		{
+			Drowning = value;
+
+			if(Drowning)
+			{
+				BreathBar.SetActive(true);
+				BubblesImage.fillAmount = 1.0f;
+				TimeUnderWater = 0.0f;
+			}
+			else
+			{
+				BreathBar.SetActive(false);
+			}
+		}
+	}
+
 }
