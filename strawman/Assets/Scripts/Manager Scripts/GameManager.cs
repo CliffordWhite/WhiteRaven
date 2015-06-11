@@ -31,6 +31,10 @@ public class GameManager : MonoBehaviour
 	//treasure checks
 	public bool DoorUnlocked;
 	public bool secretGot;
+    //webplayer
+    string SaveFile;
+    public bool webMode;
+
 
 	void Awake () 
 	{
@@ -44,6 +48,8 @@ public class GameManager : MonoBehaviour
 		{
 			Destroy(gameObject);
 		}
+        webMode = false;
+
 	}
 
 
@@ -81,6 +87,56 @@ public class GameManager : MonoBehaviour
 		bf.Serialize (file, info);
 		file.Close ();
 	}
+   
+    public void PlayerPrefSave()
+    {
+
+        SaveFile = "SaveFile " + save;
+        PlayerPrefs.SetInt(SaveFile, save);
+        PlayerPrefs.SetInt(SaveFile +" Keys", keys);
+        PlayerPrefs.SetInt(SaveFile +" Lives", lives);
+        PlayerPrefs.SetFloat(SaveFile +" GameTime", gameTime);
+
+        if(hardModeOn)
+            PlayerPrefs.SetInt(SaveFile + " HardModeOn", 1);
+        else
+            PlayerPrefs.SetInt(SaveFile + " HardModeOn", 0);
+
+        if (timeAttackOn)
+            PlayerPrefs.SetInt(SaveFile + " TimeAttackOn", 1);
+        else
+            PlayerPrefs.SetInt(SaveFile + " TimeAttackOn", 0);
+
+        for (int i = 0; i < 15; i++)
+        {
+            if(treasureCollected[i] == true)
+                PlayerPrefs.SetInt(SaveFile + " TreasureCollected" + i, 1);
+            else
+                PlayerPrefs.SetInt(SaveFile + " TreasureCollected" + i, 0);
+
+            if (secrettreasureCollected[i] == true)
+                PlayerPrefs.SetInt(SaveFile + " SecretTreasureCollected" + i, 1);
+            else
+                PlayerPrefs.SetInt(SaveFile + " SecretTreasureCollected" + i, 0);
+
+            if (levelCompleted[i] == true)
+                PlayerPrefs.SetInt(SaveFile + " LevelCompleted" + i, 1);
+            else
+                PlayerPrefs.SetInt(SaveFile + " LevelCompleted" + i, 0);
+
+            if (levelUnlocked[i] == true)
+                PlayerPrefs.SetInt(SaveFile + " LevelUnlocked" + i, 1);
+            else
+                PlayerPrefs.SetInt(SaveFile + " LevelUnlocked" + i, 0);
+
+        }
+        if (flyMode)
+            PlayerPrefs.SetInt(SaveFile + " FlyMode", 1);
+        else
+            PlayerPrefs.SetInt(SaveFile + " FlyMode", 0);
+
+        PlayerPrefs.Save();
+    }
 
 	// used to clear a save file
 	public void EraseFile()
@@ -130,6 +186,25 @@ public class GameManager : MonoBehaviour
 		file.Close ();
         Load(save);
 	}
+    public void PlayerPrefsErase()
+    {
+        SaveFile = "SaveFile " + save;
+        PlayerPrefs.DeleteKey(SaveFile);
+        PlayerPrefs.DeleteKey(SaveFile + " Keys");
+        PlayerPrefs.DeleteKey(SaveFile + " Lives");
+        PlayerPrefs.DeleteKey(SaveFile + " GameTime");
+        PlayerPrefs.DeleteKey(SaveFile + " HardModeOn");
+        PlayerPrefs.DeleteKey(SaveFile + " TimeAttackOn");
+        for (int i = 0; i < 15; i++)
+        {
+            PlayerPrefs.DeleteKey(SaveFile + " TreasureCollected" + i);
+            PlayerPrefs.DeleteKey(SaveFile + " SecretTreasureCollected" + i);
+            PlayerPrefs.DeleteKey(SaveFile + " LevelCompleted" + i);
+            PlayerPrefs.DeleteKey(SaveFile + " LevelUnlocked" + i);
+        }
+        PlayerPrefs.DeleteKey(SaveFile + " FlyMode");
+        PlayerPrefsLoad();
+    }
 
 	// public function to load the passed in save from anywhere with this object
 	public void Load(int saveToOpen)
@@ -166,6 +241,63 @@ public class GameManager : MonoBehaviour
 
 		}
 	}
+
+	public void PlayerPrefsLoad()
+    {
+        SaveFile = "SaveFile " + save;
+
+        keys = PlayerPrefs.GetInt(SaveFile + " Keys");
+        lives = PlayerPrefs.GetInt(SaveFile + " Lives");
+        gameTime = PlayerPrefs.GetFloat(SaveFile + " GameTime");
+
+        if (PlayerPrefs.GetInt(SaveFile + " HardModeOn") == 1)
+            hardModeOn = true;
+        else
+            hardModeOn = false;
+
+        if (PlayerPrefs.GetInt(SaveFile + " TimeAttackOn") == 1)
+            timeAttackOn = true;
+        else
+            timeAttackOn = false;
+
+        for (int i = 0; i < 15; i++)
+        {
+            if (PlayerPrefs.GetInt(SaveFile + " TreasureCollected" + i) == 1)
+                treasureCollected[i] = true;
+            else
+                treasureCollected[i] = false;
+
+            if (PlayerPrefs.GetInt(SaveFile + " SecretTreasureCollected" + i) == 1)
+                secrettreasureCollected[i] = true;
+            else
+                secrettreasureCollected[i] = false;
+
+            if (PlayerPrefs.GetInt(SaveFile + " LevelCompleted" + i) == 1)
+                levelCompleted[i] = true;
+            else
+                levelCompleted[i] = false;
+
+            if (PlayerPrefs.GetInt(SaveFile + " LevelUnlocked" + i) == 1)
+                levelUnlocked[i] = true;
+            else
+                levelUnlocked[i] = false;
+
+            if (i == 0)
+                levelUnlocked[0] = true;
+
+
+        }
+        if (PlayerPrefs.GetInt(SaveFile + " FlyMode") == 1)
+            flyMode = true;
+        else
+            flyMode = false;
+
+    }
+
+
+
+
+
 	// All of this is for testing, preserved for testing
 	//void OnGUI()
 	//{
@@ -195,6 +327,7 @@ public class GameManager : MonoBehaviour
 	
 	void NextLevel()
 	{
+        Debug.Log("GameInfo manager NextLevel()");
 		Application.LoadLevel(Application.loadedLevel + 1);
 	}
 	void PrevLevel()
@@ -326,6 +459,18 @@ class GameInfo
         set
         {
             flyMode = value;
+        }
+    }
+    bool webMode;
+    public bool WebMode
+    {
+        get
+        {
+            return webMode;
+        }
+        set
+        {
+            webMode = value;
         }
     }
 }

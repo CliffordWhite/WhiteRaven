@@ -37,6 +37,9 @@ TagManager:
   - MainTreasure
   - MineRail
   - MineCart
+  - Water
+  - PlayerHead
+  - PlayerBody
   layers:
   - Default
   - TransparentFX

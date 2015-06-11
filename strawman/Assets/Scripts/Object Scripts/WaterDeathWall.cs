@@ -3,13 +3,37 @@ using System.Collections;
 
 public class WaterDeathWall : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+	void Start ()
+	{
 	
 	}
 	
-	// Update is called once per frame
-	void Update () {
+	void Update ()
+	{
 	
+	}
+	
+	void OnTriggerEnter(Collider _obj)
+	{
+		if (_obj.tag == "PlayerBody")
+		{
+			_obj.transform.parent.GetComponent<PlayerController> ().WaterMode = 1;	
+		}
+		else if (_obj.tag == "PlayerHead")
+		{
+			_obj.transform.parent.GetComponent<PlayerController> ().isDrowning = true;
+		}
+	}
+	
+	void OnTriggerExit(Collider _obj)
+	{
+		if( _obj.tag == "PlayerBody" )
+		{
+			_obj.transform.parent.GetComponent<PlayerController>().WaterMode = -1;	
+		}
+		else if (_obj.tag == "PlayerHead")
+		{
+			_obj.transform.parent.GetComponent<PlayerController> ().isDrowning = false;
+		}
 	}
 }

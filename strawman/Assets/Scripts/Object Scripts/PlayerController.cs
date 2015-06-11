@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class PlayerController : MonoBehaviour {
@@ -56,10 +57,21 @@ public class PlayerController : MonoBehaviour {
 	public LayerMask RayMask;
 	GameObject Image = null;
 	bool InMineCart = false;
+	
+	// Water Studd
+	int UnderWater = 0;
+	float BreathDuration = 15.0f;
+	float TimeUnderWater = 0.0f;
+	bool Drowning = false;
+	public GameObject BreathBar = null;
+	public Image BubblesImage = null;
+	Vector3 gravityBase = Physics.gravity;
 
     // Use this for initialization
 	void Start ()
 	{
+		BreathBar.SetActive( false );
+		
 		invincibleFrames = 0.0f;
 		MyRigidbody = transform.GetComponent<Rigidbody> ();
         FacingRight = true;
@@ -138,10 +150,22 @@ public class PlayerController : MonoBehaviour {
 			isGrappled = false;
 			MyRigidbody.freezeRotation = true;
 			NewTransform.rotation = Origrotation;
+			MyRigidbody.drag = 0.0f;
 		}
 		
         if (isGrappled)
             HookOnAdjust();
+		
+		if( UnderWater > 0)
+		{
+			TimeUnderWater += Time.deltaTime;
+			BubblesImage.fillAmount = 1.0f - TimeUnderWater / BreathDuration;
+			if (TimeUnderWater >= BreathDuration)
+			{
+				KillPlayer();
+				BubblesImage.fillAmount = 0.0f;	
+			}
+		}
 	}
 
     void FixedUpdate() 
@@ -155,7 +179,12 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		if( !InMineCart && MoveDir != 0 && !isGrappled )
-			transform.position += new Vector3( MoveDir * Speed, 0.0f, 0.0f );
+		{
+			if (UnderWater > 0)
+				transform.position += new Vector3( MoveDir * Speed * 0.5f, 0.0f, 0.0f );
+			else
+				transform.position += new Vector3( MoveDir * Speed, 0.0f, 0.0f );
+		}
 		else
 		if( isGrappled )
 		{
@@ -174,15 +203,16 @@ public class PlayerController : MonoBehaviour {
         {
 			if (Physics.Raycast(RayLeftOrigin.transform.position, new Vector3(0, -1.0f, 0), RayMaxDist, RayMask) 
 			    || Physics.Raycast(RayRightOrigin.transform.position, new Vector3(0, -1.0f, 0), RayMaxDist, RayMask))
-				MyRigidbody.AddForce(0.0f, 250.0f, 0.0f, ForceMode.Acceleration);
+			{
+				if (UnderWater > 0)
+					MyRigidbody.AddForce(0.0f, 150.0f, 0.0f, ForceMode.Acceleration);
+				else
+					MyRigidbody.AddForce(0.0f, 250.0f, 0.0f, ForceMode.Acceleration);
+			}
         }
-//		else if (InMineCart && (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W)) && transform.parent.GetComponent<MineCartController>().OnTracks > 0)
-//		{
-//			transform.parent.transform.GetComponent<Rigidbody>().AddForce(0.0f, 250.0f, 0.0f, ForceMode.Acceleration);
-//		}
-
-		// Detach Grapple
+		
     }
+	
     void Flip()
     {
         Quaternion newRotation = Quaternion.identity;
@@ -198,6 +228,7 @@ public class PlayerController : MonoBehaviour {
 		Image.transform.localRotation = newRotation;
 		MoveDir = 0;
     }
+	
     void OnTriggerEnter(Collider other)
     {
 		if (invincibleFrames <= 0.0f) {
@@ -217,6 +248,7 @@ public class PlayerController : MonoBehaviour {
 	
 	void KillPlayer()
 	{
+		Physics.gravity = gravityBase;
 		FXSource.PlayOneShot(DeathSound, 1.0f);
 		float fadetime = GameManager.manager.GetComponent<Fade>().BeginFade(1);
         if (GameManager.manager.hardModeOn)
@@ -243,34 +275,41 @@ public class PlayerController : MonoBehaviour {
 				HitWithArmor ();
 		}
     }
+	
 	void RestartLevel()
 	{
         if (GameManager.manager.hardModeOn && GameManager.manager.lives <= 0)
         {
-            GameManager.manager.EraseFile();
+            if (!GameManager.manager.webMode)
+                GameManager.manager.EraseFile();
+            else
+                GameManager.manager.PlayerPrefsErase();
             Application.LoadLevel(0);		// load main menu if all lives lost
         }
         // reloads the current level from the start
         else
             Application.LoadLevel(Application.loadedLevel);
 	}
+	
     void WhipConnect()
     {
         DrawLine();
 		if( InMineCart )
 		{
-			transform.parent.transform.SendMessage("LeaveCart");
+			transform.parent.transform.SendMessage( "LeaveCart" );
 			MineCartMode( null );
 		}
 		Hookable.GetComponent<HingeJoint>().connectedBody = MyRigidbody;
         GetComponent<Rigidbody>().freezeRotation = false;
         FXSource.PlayOneShot(WhipConnectSound, 1.0f);
     }
+	
     void WhipMissed()
     {
         DrawLine();
         FXSource.PlayOneShot(WhipMissSound, 1.0f);
     }
+	
     void DrawLine()
     {
 		_dir = (mousePos - transform.position).normalized;
@@ -292,8 +331,14 @@ public class PlayerController : MonoBehaviour {
         }
 
     }
+	
     void HookedOn() 
     {
+		if( UnderWater > 0)
+			MyRigidbody.drag = 1.5f;
+		else
+			MyRigidbody.drag = 0.0f;
+			
 		if (Input.GetKey(KeyCode.W) && isGrappled && MyRigidbody.velocity.magnitude < 5.0f
 		    && MyRigidbody.position.y < Hookable.GetComponent<Rigidbody>().position.y
                 && distanceFromHook > HookDistanceMin && distanceFromHook <= HookDistanceMax)
@@ -317,6 +362,7 @@ public class PlayerController : MonoBehaviour {
 			MyRigidbody.AddForce(new Vector3(MoveDir * 6.0f, 0.0f, 0.0f));
         }
     }
+	
     void HookOnAdjust()
     {
         distanceFromHook = Vector3.Distance(transform.position, Hookable.transform.position);
@@ -333,6 +379,7 @@ public class PlayerController : MonoBehaviour {
 			Hookable.GetComponent<HingeJoint>().connectedBody = MyRigidbody;
 		}
 	}
+	
     void LeverConnect()
     {
         Vector3 Scale = Lever.transform.localScale;
@@ -350,6 +397,7 @@ public class PlayerController : MonoBehaviour {
         FXSource.PlayOneShot(WhipConnectSound, 1.0f);
         Lever.GetComponent<Lever>().HasMoved();
     }
+	
     public void HitWithArmor()
     {
         SpriteSwitch.GetComponent<SpriteRenderer>().sprite = NormalSprite;
@@ -398,6 +446,7 @@ public class PlayerController : MonoBehaviour {
             GetComponent<Rigidbody>().useGravity = !flyModeOn; // the ! is to turn off gravity.
         }
     }
+	
     public int AddLives
     {
         get
@@ -410,4 +459,40 @@ public class PlayerController : MonoBehaviour {
             GameManager.manager.lives += addLives;
         }
     }
+	
+	public int WaterMode
+	{
+		set
+		{
+			UnderWater += value;	
+			if(UnderWater > 0)
+			{
+				Physics.gravity = gravityBase * 0.2f;
+			}
+			else
+			{
+				Physics.gravity = gravityBase;
+			}
+		}
+	}
+
+	public bool isDrowning
+	{
+		set
+		{
+			Drowning = value;
+
+			if(Drowning)
+			{
+				BreathBar.SetActive(true);
+				BubblesImage.fillAmount = 1.0f;
+				TimeUnderWater = 0.0f;
+			}
+			else
+			{
+				BreathBar.SetActive(false);
+			}
+		}
+	}
+
 }
