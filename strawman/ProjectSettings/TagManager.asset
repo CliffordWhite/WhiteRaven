@@ -41,6 +41,7 @@ TagManager:
   - PlayerHead
   - PlayerBody
   - Sand
+  - SandDepth
   layers:
   - Default
   - TransparentFX

@@ -20,6 +20,10 @@ public class SandDeathWall : MonoBehaviour
 		{
 			_obj.GetComponent<PlayerController>().IsInSand = true;
 		}
+		else if( _obj.tag == "SandDepth" )
+		{
+			_obj.transform.parent.SendMessage("KillPlayer");
+		}
 	}
 	
 	void OnTriggerExit(Collider _obj)

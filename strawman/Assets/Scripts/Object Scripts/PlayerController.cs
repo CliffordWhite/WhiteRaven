@@ -73,6 +73,7 @@ public class PlayerController : MonoBehaviour {
 	bool InSand = false;
 	public LayerMask SandOnly;
 	RaycastHit SandInfo = new RaycastHit();
+	bool NotJumping = true;
 
     // Use this for initialization
 	void Start ()
@@ -182,30 +183,35 @@ public class PlayerController : MonoBehaviour {
 
     void FixedUpdate() 
     {
-        if (line.enabled)
-		{
+		if (line.enabled) {
 			if (!isGrappled)
 				line.enabled = false;
 			else
-				DrawLine();
+				DrawLine ();
 		}
+
+		float speedReduction = 1.0f;
+		float JumpForceMod = 1.0f;
+		if (InSand) {
+			Physics.Raycast (RaySandDepthCheck.transform.position, Vector3.down, out SandInfo, 1.87f, SandOnly);
+			float DistanceCheck = SandInfo.distance;
+			if (SandInfo.collider == null)
+				DistanceCheck = 1.87f;
+			DistanceCheck = DistanceCheck / 1.87f;
+			speedReduction = DistanceCheck * 0.25f;
+			MyRigidbody.drag = 15.0f;
+			JumpForceMod = 0.9f * (DistanceCheck / 1.87f);
+		} else if (UnderWater > 0) {
+			speedReduction = 0.5f;
+			JumpForceMod = 0.6f;
+		} else
+			MyRigidbody.drag = 0.0f;
 
 		if( !InMineCart && MoveDir != 0 && !isGrappled )
 		{
-			if (UnderWater > 0)
-				transform.position += new Vector3( MoveDir * Speed * 0.5f, 0.0f, 0.0f );
-			else if (InSand)
-			{
-				Physics.Raycast(RaySandDepthCheck.transform.position, Vector3.down, out SandInfo, 1.87f, SandOnly);
-				Debug.Log(SandInfo.distance);
-				float speedReduction = (SandInfo.distance == 0.0f ? 1.87f : SandInfo.distance / 1.87f) * 0.25f;
 				transform.position += new Vector3( MoveDir * Speed * speedReduction, 0.0f, 0.0f );
-			}
-			else
-				transform.position += new Vector3( MoveDir * Speed, 0.0f, 0.0f );
 		}
-		else
-		if( isGrappled )
+		else if( isGrappled )
 		{
 			HookedOn();
 			return;
@@ -218,17 +224,18 @@ public class PlayerController : MonoBehaviour {
            Flip();
 
 		// Jump
-		if (!InMineCart && (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W)) && MyRigidbody.velocity.y < 0.1f)
+		if (InSand && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W)))
+			MyRigidbody.AddForce(0.0f, 250.0f * JumpForceMod, 0.0f, ForceMode.Acceleration);
+		else if (!InMineCart && (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W)) && MyRigidbody.velocity.y < 0.1f)
         {
-			if (Physics.Raycast(RayLeftOrigin.transform.position, new Vector3(0, -1.0f, 0), RayMaxDist, RayMask) 
+			if (InSand || Physics.Raycast(RayLeftOrigin.transform.position, new Vector3(0, -1.0f, 0), RayMaxDist, RayMask) 
 			    || Physics.Raycast(RayRightOrigin.transform.position, new Vector3(0, -1.0f, 0), RayMaxDist, RayMask))
 			{
-				if (UnderWater > 0)
-					MyRigidbody.AddForce(0.0f, 150.0f, 0.0f, ForceMode.Acceleration);
-				else
-					MyRigidbody.AddForce(0.0f, 250.0f, 0.0f, ForceMode.Acceleration);
+				if (!InSand)
+					MyRigidbody.AddForce(0.0f, 250.0f * JumpForceMod, 0.0f, ForceMode.Acceleration);
 			}
         }
+
 		
     }
 	
@@ -366,7 +373,7 @@ public class PlayerController : MonoBehaviour {
     {
 		if( UnderWater > 0)
 			MyRigidbody.drag = 1.5f;
-		else
+		else if (!InSand)
 			MyRigidbody.drag = 0.0f;
 			
 		if (Input.GetKey(KeyCode.W) && isGrappled && MyRigidbody.velocity.magnitude < 5.0f
@@ -374,11 +381,11 @@ public class PlayerController : MonoBehaviour {
                 && distanceFromHook > HookDistanceMin && distanceFromHook <= HookDistanceMax)
         {
             Hookable.GetComponent<HingeJoint>().connectedBody = null;
-			MyRigidbody.transform.position += new Vector3(0.0f, 0.2f, 0.0f);
+			MyRigidbody.transform.position += new Vector3(0.0f, InSand ? 0.01f : 0.2f, 0.0f);
 			Hookable.GetComponent<HingeJoint>().connectedBody = MyRigidbody;
 			
 		}
-		else if (Input.GetKey(KeyCode.S) && isGrappled && MyRigidbody.velocity.magnitude < 5.0f
+		else if (!InSand && Input.GetKey(KeyCode.S) && isGrappled && MyRigidbody.velocity.magnitude < 5.0f
 		         && MyRigidbody.position.y < Hookable.GetComponent<Rigidbody>().position.y
                  && distanceFromHook > HookDistanceMin && distanceFromHook <= HookDistanceMax)
         {
@@ -386,7 +393,7 @@ public class PlayerController : MonoBehaviour {
 			MyRigidbody.transform.position += new Vector3(0.0f, -0.2f, 0.0f);
 			Hookable.GetComponent<HingeJoint>().connectedBody = MyRigidbody;
 		}
-		else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)  && isGrappled && MyRigidbody.position.y < Hookable.GetComponent<Rigidbody>().position.y
+		else if (!InSand && (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))  && isGrappled && MyRigidbody.position.y < Hookable.GetComponent<Rigidbody>().position.y
                  && distanceFromHook > HookDistanceMin && distanceFromHook <= HookDistanceMax)
         {
 			MyRigidbody.AddForce(new Vector3(MoveDir * 6.0f, 0.0f, 0.0f));

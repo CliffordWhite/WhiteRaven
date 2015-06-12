@@ -102,6 +102,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &176030
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 441604}
+  - 135: {fileID: 13546266}
+  m_Layer: 10
+  m_Name: QuickSandDepth
+  m_TagString: SandDepth
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &187788
 GameObject:
   m_ObjectHideFlags: 0
@@ -146,6 +162,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 485846}
   m_RootOrder: 5
+--- !u!4 &441604
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 176030}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: .935000002, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 485846}
+  m_RootOrder: 6
 --- !u!4 &443826
 Transform:
   m_ObjectHideFlags: 1
@@ -190,7 +218,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 129822}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -19, y: -9.25, z: 0}
+  m_LocalPosition: {x: 136.227005, y: -37.0439987, z: .200000003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 489562}
@@ -199,6 +227,7 @@ Transform:
   - {fileID: 443826}
   - {fileID: 491218}
   - {fileID: 433656}
+  - {fileID: 441604}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &489562
@@ -425,7 +454,22 @@ MonoBehaviour:
     m_Bits: 256
   BreathBar: {fileID: 0}
   BubblesImage: {fileID: 0}
+  SandOnly:
+    serializedVersion: 2
+    m_Bits: 2048
   flyModeOn: 0
+--- !u!135 &13546266
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 176030}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: .00100000005
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &21231538
 SpriteRenderer:
   m_ObjectHideFlags: 1
