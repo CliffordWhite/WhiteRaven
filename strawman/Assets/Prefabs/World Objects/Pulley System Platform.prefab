@@ -26,7 +26,6 @@ GameObject:
   - 65: {fileID: 6598076}
   - 212: {fileID: 21238894}
   - 65: {fileID: 6500380}
-  - 114: {fileID: 11408148}
   - 114: {fileID: 11444670}
   m_Layer: 8
   m_Name: Platform
@@ -109,7 +108,8 @@ GameObject:
   - 4: {fileID: 448358}
   - 65: {fileID: 6595168}
   - 212: {fileID: 21205870}
-  - 114: {fileID: 11412392}
+  - 114: {fileID: 11407840}
+  - 114: {fileID: 11408148}
   m_Layer: 8
   m_Name: Pully Wall
   m_TagString: Floor
@@ -124,7 +124,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100666}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.1400001, y: -1.52199996, z: 0}
+  m_LocalPosition: {x: 2.1400001, y: -1.79999995, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 442714}
@@ -136,7 +136,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 138778}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2, y: -1.65199995, z: 0}
+  m_LocalPosition: {x: 2, y: -2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 442714}
@@ -312,20 +312,20 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
---- !u!114 &11408148
+--- !u!114 &11407840
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 114182}
+  m_GameObject: {fileID: 182518}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6cc8525127c81654da8b90d46f38193e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &11412392
+--- !u!114 &11408148
 MonoBehaviour:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 182518}

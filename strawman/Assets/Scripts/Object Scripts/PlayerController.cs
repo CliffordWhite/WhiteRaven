@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour {
 	GameObject Image = null;
 	bool InMineCart = false;
 	
-	// Water Studd
+	// Water Stuff
 	int UnderWater = 0;
 	float BreathDuration = 15.0f;
 	float TimeUnderWater = 0.0f;
@@ -67,6 +67,12 @@ public class PlayerController : MonoBehaviour {
 	public Image BubblesImage = null;
 	Vector3 gravityBase = Vector3.zero;
 	bool alive = true;
+	
+	// Sand Stuff
+	GameObject RaySandDepthCheck = null;
+	bool InSand = false;
+	public LayerMask SandOnly;
+	RaycastHit SandInfo = new RaycastHit();
 
     // Use this for initialization
 	void Start ()
@@ -81,6 +87,8 @@ public class PlayerController : MonoBehaviour {
 		RayLeftOrigin = transform.FindChild ("RayOrigin1").gameObject;
 		RayRightOrigin = transform.FindChild ("RayOrigin2").gameObject;
 		Image = transform.FindChild ("Sprite").gameObject;
+		
+		RaySandDepthCheck = transform.FindChild("QuickSandDepth").gameObject;
 
         //Whip swing rotation fix
         NewTransform = transform;
@@ -186,6 +194,13 @@ public class PlayerController : MonoBehaviour {
 		{
 			if (UnderWater > 0)
 				transform.position += new Vector3( MoveDir * Speed * 0.5f, 0.0f, 0.0f );
+			else if (InSand)
+			{
+				Physics.Raycast(RaySandDepthCheck.transform.position, Vector3.down, out SandInfo, 1.87f, SandOnly);
+				Debug.Log(SandInfo.distance);
+				float speedReduction = (SandInfo.distance == 0.0f ? 1.87f : SandInfo.distance / 1.87f) * 0.25f;
+				transform.position += new Vector3( MoveDir * Speed * speedReduction, 0.0f, 0.0f );
+			}
 			else
 				transform.position += new Vector3( MoveDir * Speed, 0.0f, 0.0f );
 		}
@@ -507,6 +522,14 @@ public class PlayerController : MonoBehaviour {
 			{
 				BreathBar.SetActive(false);
 			}
+		}
+	}
+	
+	public bool IsInSand
+	{
+		set
+		{
+			InSand = value;	
 		}
 	}
 

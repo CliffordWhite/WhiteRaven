@@ -40,6 +40,7 @@ TagManager:
   - Water
   - PlayerHead
   - PlayerBody
+  - Sand
   layers:
   - Default
   - TransparentFX
@@ -52,7 +53,7 @@ TagManager:
   - Level
   - Cannon
   - PlayerObj
-  - 
+  - Sand
   - 
   - 
   - 
