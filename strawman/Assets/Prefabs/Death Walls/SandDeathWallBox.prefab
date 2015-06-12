@@ -11,9 +11,9 @@ GameObject:
   - 33: {fileID: 3341264}
   - 23: {fileID: 2345706}
   - 114: {fileID: 11439634}
-  - 136: {fileID: 13623008}
+  - 65: {fileID: 6535492}
   m_Layer: 11
-  m_Name: SandDeathWall
+  m_Name: SandDeathWallBox
   m_TagString: Sand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,8 +26,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 114000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 144, y: -38.1300011, z: .00999999978}
-  m_LocalScale: {x: 6, y: 6, z: 1}
+  m_LocalPosition: {x: 153.190002, y: -37.5499992, z: .0100999996}
+  m_LocalScale: {x: 0, y: 0, z: .00999999978}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -41,7 +41,7 @@ MeshRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_Materials:
-  - {fileID: 2100000, guid: ed2c9acd7f2bc144e9276212853737be, type: 2}
+  - {fileID: 2100000, guid: c5b5daf5508bea2449e0b9083de94eef, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -61,7 +61,19 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 114000}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &6535492
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 114000}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &11439634
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -73,19 +85,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e1695036969cb246af597c1f5d417e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!136 &13623008
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 114000}
-  m_Material: {fileID: 13400000, guid: 941607d77af6cea4fa2d8a079a79ea38, type: 2}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: .5
-  m_Height: 1
-  m_Direction: 0
-  m_Center: {x: 0, y: 0, z: 0}
+  GrowthX: .100000001
+  GrowthY: .100000001
+  EndSize: {x: 1, y: 1, z: 1}
+  Grate: {fileID: 0}
+  Finisher: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
