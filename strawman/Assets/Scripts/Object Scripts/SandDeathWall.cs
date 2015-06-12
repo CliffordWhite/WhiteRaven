@@ -20,7 +20,8 @@ public class SandDeathWall : MonoBehaviour
 		if (Grate != null)
 		{
 			Grate.GetComponent<ParticleSystem> ().Play ();
-			SFXSource.PlayOneShot(SandStart);
+			if (SandStart != null)
+				SFXSource.PlayOneShot(SandStart);
 			if (SFXSource.clip != null)
 				SFXSource.Play();
 
@@ -64,7 +65,8 @@ public class SandDeathWall : MonoBehaviour
 					Grate.GetComponent<ParticleSystem> ().Stop ();
 					if (SFXSource.clip != null)
 						SFXSource.Stop();
-					SFXSource.PlayOneShot(SandEnd);
+					if (SandEnd != null)
+						SFXSource.PlayOneShot(SandEnd);
 				}
 
 				if (Finisher != null)

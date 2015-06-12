@@ -73,7 +73,6 @@ public class PlayerController : MonoBehaviour {
 	int InSand = 0;
 	public LayerMask SandOnly;
 	RaycastHit SandInfo = new RaycastHit();
-	bool NotJumping = true;
 
     // Use this for initialization
 	void Start ()
