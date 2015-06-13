@@ -26,7 +26,6 @@ GameObject:
   - 65: {fileID: 6598076}
   - 212: {fileID: 21238894}
   - 65: {fileID: 6500380}
-  - 114: {fileID: 11408148}
   - 114: {fileID: 11444670}
   m_Layer: 8
   m_Name: Platform
@@ -109,6 +108,8 @@ GameObject:
   - 4: {fileID: 448358}
   - 65: {fileID: 6595168}
   - 212: {fileID: 21205870}
+  - 114: {fileID: 11407840}
+  - 114: {fileID: 11408148}
   m_Layer: 8
   m_Name: Pully Wall
   m_TagString: Floor
@@ -123,7 +124,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100666}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.13999987, y: .140000001, z: 0}
+  m_LocalPosition: {x: 2.1400001, y: -1.79999995, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 442714}
@@ -135,7 +136,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 138778}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5, y: 0, z: 0}
+  m_LocalPosition: {x: 2, y: -2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 442714}
@@ -147,8 +148,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 114182}
   m_LocalRotation: {x: 0, y: 0, z: .707106829, w: .707106709}
-  m_LocalPosition: {x: -5.13999987, y: -5, z: 0}
-  m_LocalScale: {x: .200000003, y: 2, z: 1}
+  m_LocalPosition: {x: -2.1400001, y: -5, z: 0}
+  m_LocalScale: {x: .200000003, y: 1.25, z: 1}
   m_Children: []
   m_Father: {fileID: 442714}
   m_RootOrder: 0
@@ -159,7 +160,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 126546}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 68.6679459, y: -.535879135, z: 0}
+  m_LocalPosition: {x: 8, y: 0, z: .0199999996}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 422800}
@@ -177,8 +178,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 182518}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.13999987, y: -9.17000008, z: 0}
-  m_LocalScale: {x: .200000003, y: 2, z: 1}
+  m_LocalPosition: {x: 2.1400001, y: -8.5, z: .5}
+  m_LocalScale: {x: 1, y: .5, z: 1}
   m_Children: []
   m_Father: {fileID: 442714}
   m_RootOrder: 5
@@ -189,7 +190,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 161782}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.13999987, y: .140000001, z: 0}
+  m_LocalPosition: {x: -2.1400001, y: -1.88300002, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 442714}
@@ -201,7 +202,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 131716}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5, y: 0, z: 0}
+  m_LocalPosition: {x: -2, y: -2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 442714}
@@ -311,12 +312,23 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
---- !u!114 &11408148
+--- !u!114 &11407840
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 114182}
+  m_GameObject: {fileID: 182518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cc8525127c81654da8b90d46f38193e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11408148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 182518}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6cc8525127c81654da8b90d46f38193e, type: 3}
@@ -333,16 +345,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 569b139a9e7f9f04c964443042e07ffb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: .0199999996
+  MoveSpeed: .00749999983
   ObjectOne: {fileID: 114182}
-  EndPosOne: {x: -5.0999999, y: -10.6000004, z: 0}
+  EndPosOne: {x: -2.0999999, y: -8, z: 0}
   ObjectTwo: {fileID: 182518}
-  EndPosTwo: {x: 5.0999999, y: -2, z: 0}
+  EndPosTwo: {x: 2.0999999, y: -1, z: 0}
   Moving: 0
   Cogs:
   - {fileID: 131716}
   - {fileID: 138778}
-  CogRotationFix: 0000
+  CogRotationFix: 0101
   Anchors:
   - {fileID: 161782}
   - {fileID: 100666}

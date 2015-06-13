@@ -63,7 +63,6 @@ public class TreasureTrigger : MonoBehaviour
 			if (gameObject.tag == "MainTreasure"){
 				sfxManager.PlayOneShot(pickupSfx, 1.0f);
 				deathWall.SetActive(true);
-				deathWall.GetComponent<FireDeathWall>().BringThePain();
 				musicSource.GetComponent<MusicChange>().PlayHasteMusic();
 				GameManager.manager.DoorUnlocked = true;
 				shake = 0.5f;

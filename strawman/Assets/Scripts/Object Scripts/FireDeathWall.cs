@@ -13,6 +13,8 @@ public class FireDeathWall : MonoBehaviour
 	private float startTime;		// used to reference when the wall starts moving
 	private float musicTime;		// used to loop the fire sound if necessary
 	private Vector3 fireEnd;		// keep track of end point
+	
+	bool DoOnce  = true;
 
 	void Start()
 	{
@@ -21,20 +23,19 @@ public class FireDeathWall : MonoBehaviour
 	}
 	void Update () 
 	{
+		if( DoOnce )
+		{
+			startTime = musicTime = Time.time;
+			transform.position = fireStart;
+			sfxSource.PlayOneShot(fireSound, 0.5f);
+			DoOnce = false;
+		}
+		
 		float i = (Time.time - startTime)/speed; // ratio of time elapsed to overall time to complete
 		transform.position = Vector3.Lerp(fireStart,fireEnd,i);
 
 		// replay the sound effect as necessary
 		if (Time.time - musicTime >= fireSound.length)
 			sfxSource.PlayOneShot(fireSound, 0.5f);
-	}
-
-	// used to initialize the death wall
-	public void BringThePain()
-	{
-		startTime = musicTime = Time.time;
-		transform.position = fireStart;
-		sfxSource.PlayOneShot(fireSound, 0.5f);
-
 	}
 }

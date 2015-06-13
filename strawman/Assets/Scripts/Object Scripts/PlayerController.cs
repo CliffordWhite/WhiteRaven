@@ -58,18 +58,26 @@ public class PlayerController : MonoBehaviour {
 	GameObject Image = null;
 	bool InMineCart = false;
 	
-	// Water Studd
+	// Water Stuff
 	int UnderWater = 0;
 	float BreathDuration = 15.0f;
 	float TimeUnderWater = 0.0f;
 	bool Drowning = false;
 	public GameObject BreathBar = null;
 	public Image BubblesImage = null;
-	Vector3 gravityBase = Physics.gravity;
+	Vector3 gravityBase = Vector3.zero;
+	bool alive = true;
+	
+	// Sand Stuff
+	GameObject RaySandDepthCheck = null;
+	int InSand = 0;
+	public LayerMask SandOnly;
+	RaycastHit SandInfo = new RaycastHit();
 
     // Use this for initialization
 	void Start ()
 	{
+		gravityBase = Physics.gravity;
 		BreathBar.SetActive( false );
 		
 		invincibleFrames = 0.0f;
@@ -79,6 +87,8 @@ public class PlayerController : MonoBehaviour {
 		RayLeftOrigin = transform.FindChild ("RayOrigin1").gameObject;
 		RayRightOrigin = transform.FindChild ("RayOrigin2").gameObject;
 		Image = transform.FindChild ("Sprite").gameObject;
+		
+		RaySandDepthCheck = transform.FindChild("QuickSandDepth").gameObject;
 
         //Whip swing rotation fix
         NewTransform = transform;
@@ -95,8 +105,9 @@ public class PlayerController : MonoBehaviour {
         line = gameObject.AddComponent<LineRenderer>();
         line.SetWidth(startWidth, endWidth);
         line.SetVertexCount(2);
-        line.material.color = Color.red;
+        line.material.color = Color.black;
         line.enabled = false;
+		line.sortingOrder = 0;
         SpriteSwitch.GetComponent<SpriteRenderer>().sprite = NormalSprite;
         //Cheat Code bools
         flyModeOn = GameManager.manager.flyMode;
@@ -127,7 +138,7 @@ public class PlayerController : MonoBehaviour {
 			Ray WhipThrown = new Ray(transform.position, whipDirection);
 			Debug.DrawRay(transform.position, mousePos * distancecheck);
 			
-			if (Physics.Raycast(WhipThrown, out Connected, distancecheck))
+			if (Physics.Raycast(WhipThrown, out Connected, distancecheck, RayMask))
             {
                 if (Connected.collider.tag == "Hookable")
                 {
@@ -156,37 +167,50 @@ public class PlayerController : MonoBehaviour {
         if (isGrappled)
             HookOnAdjust();
 		
-		if( UnderWater > 0)
+		if( Drowning )
 		{
 			TimeUnderWater += Time.deltaTime;
 			BubblesImage.fillAmount = 1.0f - TimeUnderWater / BreathDuration;
-			if (TimeUnderWater >= BreathDuration)
+			if (TimeUnderWater >= BreathDuration && alive)
 			{
 				KillPlayer();
-				BubblesImage.fillAmount = 0.0f;	
+				BubblesImage.fillAmount = 0.0f;
+				alive = false;
 			}
 		}
 	}
 
     void FixedUpdate() 
     {
-        if (line.enabled)
-		{
+		if (line.enabled) {
 			if (!isGrappled)
 				line.enabled = false;
 			else
-				DrawLine();
+				DrawLine ();
 		}
+
+		float speedReduction = 1.0f;
+		float JumpForceMod = 1.0f;
+		if (InSand > 0) {
+			Physics.Raycast (RaySandDepthCheck.transform.position, Vector3.down, out SandInfo, 1.87f, SandOnly);
+			float DistanceCheck = SandInfo.distance;
+			if (SandInfo.collider == null)
+				DistanceCheck = 1.87f;
+			DistanceCheck = DistanceCheck / 1.87f;
+			speedReduction = DistanceCheck * 0.25f;
+			MyRigidbody.drag = 15.0f;
+			JumpForceMod = 0.9f * (DistanceCheck / 1.87f);
+		} else if (UnderWater > 0) {
+			speedReduction = 0.5f;
+			JumpForceMod = 0.6f;
+		} else
+			MyRigidbody.drag = 0.0f;
 
 		if( !InMineCart && MoveDir != 0 && !isGrappled )
 		{
-			if (UnderWater > 0)
-				transform.position += new Vector3( MoveDir * Speed * 0.5f, 0.0f, 0.0f );
-			else
-				transform.position += new Vector3( MoveDir * Speed, 0.0f, 0.0f );
+				transform.position += new Vector3( MoveDir * Speed * speedReduction, 0.0f, 0.0f );
 		}
-		else
-		if( isGrappled )
+		else if( isGrappled )
 		{
 			HookedOn();
 			return;
@@ -199,17 +223,18 @@ public class PlayerController : MonoBehaviour {
            Flip();
 
 		// Jump
-		if (!InMineCart && (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W)) && MyRigidbody.velocity.y < 0.1f)
+		if (InSand > 0 && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W)))
+			MyRigidbody.AddForce(0.0f, 250.0f * JumpForceMod, 0.0f, ForceMode.Acceleration);
+		else if (!InMineCart && (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W)) && MyRigidbody.velocity.y < 0.1f)
         {
-			if (Physics.Raycast(RayLeftOrigin.transform.position, new Vector3(0, -1.0f, 0), RayMaxDist, RayMask) 
+			if (InSand > 0 || Physics.Raycast(RayLeftOrigin.transform.position, new Vector3(0, -1.0f, 0), RayMaxDist, RayMask) 
 			    || Physics.Raycast(RayRightOrigin.transform.position, new Vector3(0, -1.0f, 0), RayMaxDist, RayMask))
 			{
-				if (UnderWater > 0)
-					MyRigidbody.AddForce(0.0f, 150.0f, 0.0f, ForceMode.Acceleration);
-				else
-					MyRigidbody.AddForce(0.0f, 250.0f, 0.0f, ForceMode.Acceleration);
+				if (InSand == 0)
+					MyRigidbody.AddForce(0.0f, 250.0f * JumpForceMod, 0.0f, ForceMode.Acceleration);
 			}
         }
+
 		
     }
 	
@@ -318,16 +343,27 @@ public class PlayerController : MonoBehaviour {
         //sets the line positions start and end points
         //and enables the line to be drawn
         line.enabled = true;
-        line.SetPosition(0, transform.position);
-        if (isGrappled)
-        {
-            line.SetPosition(1, Connected.transform.position);
-        }
-        else if (distance < distancecheck)
-			line.SetPosition(1, mousePos);
+		Vector3 ZFix = transform.position;
+		ZFix.z = 0.5f;
+		line.SetPosition(0, ZFix);
+		Vector3 endPos = Vector3.zero;
+        if( isGrappled )
+		{
+			endPos = Connected.transform.position;
+			endPos.z = ZFix.z;
+			line.SetPosition( 1, endPos );
+		}
+		else if( distance < distancecheck )
+		{
+			endPos = mousePos;
+			endPos.z = ZFix.z;
+			line.SetPosition(1, endPos);
+		}
 		else
         {
-            line.SetPosition(1, _dir * distancecheck + transform.position);
+			endPos = _dir * distancecheck + transform.position;
+			endPos.z = ZFix.z;
+			line.SetPosition(1, endPos);
         }
 
     }
@@ -336,7 +372,7 @@ public class PlayerController : MonoBehaviour {
     {
 		if( UnderWater > 0)
 			MyRigidbody.drag = 1.5f;
-		else
+		else if (InSand == 0)
 			MyRigidbody.drag = 0.0f;
 			
 		if (Input.GetKey(KeyCode.W) && isGrappled && MyRigidbody.velocity.magnitude < 5.0f
@@ -344,11 +380,11 @@ public class PlayerController : MonoBehaviour {
                 && distanceFromHook > HookDistanceMin && distanceFromHook <= HookDistanceMax)
         {
             Hookable.GetComponent<HingeJoint>().connectedBody = null;
-			MyRigidbody.transform.position += new Vector3(0.0f, 0.2f, 0.0f);
+			MyRigidbody.transform.position += new Vector3(0.0f, InSand > 0 ? 0.01f : 0.2f, 0.0f);
 			Hookable.GetComponent<HingeJoint>().connectedBody = MyRigidbody;
 			
 		}
-		else if (Input.GetKey(KeyCode.S) && isGrappled && MyRigidbody.velocity.magnitude < 5.0f
+		else if (InSand == 0 && Input.GetKey(KeyCode.S) && isGrappled && MyRigidbody.velocity.magnitude < 5.0f
 		         && MyRigidbody.position.y < Hookable.GetComponent<Rigidbody>().position.y
                  && distanceFromHook > HookDistanceMin && distanceFromHook <= HookDistanceMax)
         {
@@ -356,7 +392,7 @@ public class PlayerController : MonoBehaviour {
 			MyRigidbody.transform.position += new Vector3(0.0f, -0.2f, 0.0f);
 			Hookable.GetComponent<HingeJoint>().connectedBody = MyRigidbody;
 		}
-		else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)  && isGrappled && MyRigidbody.position.y < Hookable.GetComponent<Rigidbody>().position.y
+		else if (InSand == 0 && (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))  && isGrappled && MyRigidbody.position.y < Hookable.GetComponent<Rigidbody>().position.y
                  && distanceFromHook > HookDistanceMin && distanceFromHook <= HookDistanceMax)
         {
 			MyRigidbody.AddForce(new Vector3(MoveDir * 6.0f, 0.0f, 0.0f));
@@ -464,7 +500,7 @@ public class PlayerController : MonoBehaviour {
 	{
 		set
 		{
-			UnderWater += value;	
+			UnderWater += value;
 			if(UnderWater > 0)
 			{
 				Physics.gravity = gravityBase * 0.2f;
@@ -492,6 +528,14 @@ public class PlayerController : MonoBehaviour {
 			{
 				BreathBar.SetActive(false);
 			}
+		}
+	}
+	
+	public int IsInSand
+	{
+		set
+		{
+			InSand += value;	
 		}
 	}
 
