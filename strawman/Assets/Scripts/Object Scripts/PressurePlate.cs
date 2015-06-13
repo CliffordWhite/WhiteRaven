@@ -22,16 +22,20 @@ public class PressurePlate : MonoBehaviour {
 	void OnTriggerEnter(Collider other)
 	{
 		if (other.gameObject.tag == "Player" ||other.gameObject.tag == "Projectile" ) {
+			if (toEffect.tag == "FallingWall") {
+				toEffect.GetComponent<FallingWall>().Moving = true;
+			}
+			else{
+				//if not triggered yet the start moving object
+				if (!isTriggered) 
+					objectMoving = true;
+			}
 			SFXSource.PlayOneShot (clickSound, 1.0f);
-			//if not triggered yet the start moving object
-			if (!isTriggered) 
-				objectMoving = true;
-			//if not already pushed in then push in
+				//if not already pushed in then push in
 			if (!isPressured)
-				transform.position = new Vector3 (transform.position.x - (transform.up.x * .1f),
-			                                  transform.position.y - (transform.up.y * .1f),
-			                                  transform.position.z - (transform.up.z * .1f));
-
+			transform.position = new Vector3 (transform.position.x - (transform.up.x * .1f),
+			                                transform.position.y - (transform.up.y * .1f),
+			                                transform.position.z - (transform.up.z * .1f));
 			isPressured = true;
 			isTriggered = false;
 		}
@@ -57,7 +61,7 @@ public class PressurePlate : MonoBehaviour {
 	void FixedUpdate()
 	{
 		//if triggered start moving object to target position and when within distance of .01f set position and stop moving
-		if (objectMoving) {
+		if (toEffect.tag != "FallingWall" && objectMoving) {
 			toEffect.transform.position = Vector3.MoveTowards(toEffect.transform.position,tarPosition,speed*Time.deltaTime);
 			if (Vector3.Distance(toEffect.transform.position,tarPosition) <=.01f) {
 				toEffect.transform.position = tarPosition;
