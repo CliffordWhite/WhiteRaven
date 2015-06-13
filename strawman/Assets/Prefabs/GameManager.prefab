@@ -40,7 +40,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83665e5b2b1d28248afcf3358b00b179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeOutTexture: {fileID: 2800000, guid: b2280f8360b70eb468db394647f41a9a, type: 3}
+  fadeOutTexture: {fileID: 2800000, guid: 6de904631df8bae44904c36fac384005, type: 3}
   fadeSpeed: .800000012
 --- !u!114 &11477824
 MonoBehaviour:
@@ -55,6 +55,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lives: 0
   keys: 0
+  flyMode: 0
   gameTime: 0
   hardModeOn: 0
   timeAttackOn: 0
@@ -69,8 +70,9 @@ MonoBehaviour:
   isFullscreen: 0
   keyShowTime: 0
   achieveList: 0000000000000000
-  achievePopTime: 0
-  achievePopString: 
+  DoorUnlocked: 0
+  secretGot: 0
+  webMode: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

@@ -1187,13 +1187,21 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 485846, guid: 7ee9316a0972db545953d0eda858c446, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 11465618, guid: 7ee9316a0972db545953d0eda858c446, type: 2}
+    - target: {fileID: 11482098, guid: 7ee9316a0972db545953d0eda858c446, type: 2}
       propertyPath: FXSource
       value: 
       objectReference: {fileID: 1956103053}
     - target: {fileID: 11482098, guid: 7ee9316a0972db545953d0eda858c446, type: 2}
+      propertyPath: BreathBar
+      value: 
+      objectReference: {fileID: 521531253}
+    - target: {fileID: 11482098, guid: 7ee9316a0972db545953d0eda858c446, type: 2}
+      propertyPath: BubblesImage
+      value: 
+      objectReference: {fileID: 521531252}
+    - target: {fileID: 11465618, guid: 7ee9316a0972db545953d0eda858c446, type: 2}
       propertyPath: FXSource
       value: 
       objectReference: {fileID: 1956103053}
