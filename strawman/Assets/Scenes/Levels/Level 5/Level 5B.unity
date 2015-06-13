@@ -491,6 +491,16 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4e88bb3ae17a2da4e8a67c5e9847b8aa, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &389214316 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11431162, guid: 4e88bb3ae17a2da4e8a67c5e9847b8aa,
+    type: 2}
+  m_PrefabInternal: {fileID: 389214315}
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+--- !u!1 &389214317 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 119500, guid: 4e88bb3ae17a2da4e8a67c5e9847b8aa, type: 2}
+  m_PrefabInternal: {fileID: 389214315}
 --- !u!4 &409702108 stripped
 Transform:
   m_PrefabParentObject: {fileID: 452508, guid: cdd52bf3470f5b9409ebeb2725ae5049, type: 2}
@@ -932,6 +942,14 @@ Prefab:
       propertyPath: FXSource
       value: 
       objectReference: {fileID: 2123258772}
+    - target: {fileID: 11482098, guid: 7ee9316a0972db545953d0eda858c446, type: 2}
+      propertyPath: BreathBar
+      value: 
+      objectReference: {fileID: 389214317}
+    - target: {fileID: 11482098, guid: 7ee9316a0972db545953d0eda858c446, type: 2}
+      propertyPath: BubblesImage
+      value: 
+      objectReference: {fileID: 389214316}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7ee9316a0972db545953d0eda858c446, type: 2}
   m_IsPrefabParent: 0
