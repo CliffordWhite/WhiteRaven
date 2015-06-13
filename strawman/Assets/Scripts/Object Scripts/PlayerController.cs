@@ -65,7 +65,7 @@ public class PlayerController : MonoBehaviour {
 	bool Drowning = false;
 	public GameObject BreathBar = null;
 	public Image BubblesImage = null;
-	Vector3 gravityBase = Vector3.zero;
+	Vector3 gravityBase = new Vector3(0, -9.8f, 0);
 	bool alive = true;
 	
 	// Sand Stuff
@@ -203,8 +203,10 @@ public class PlayerController : MonoBehaviour {
 		} else if (UnderWater > 0) {
 			speedReduction = 0.5f;
 			JumpForceMod = 0.6f;
-		} else
+		} else {
+			Physics.gravity = new Vector3(0, -9.8f, 0);
 			MyRigidbody.drag = 0.0f;
+		}
 
 		if( !InMineCart && MoveDir != 0 && !isGrappled )
 		{
