@@ -42,6 +42,7 @@ TagManager:
   - PlayerBody
   - Sand
   - SandDepth
+  - FallingWall
   layers:
   - Default
   - TransparentFX
