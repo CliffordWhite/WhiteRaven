@@ -522,10 +522,11 @@ Prefab:
     - target: {fileID: 485846, guid: 7ee9316a0972db545953d0eda858c446, type: 2}
       propertyPath: m_LocalPosition.x
       value: -.0900000036
+      value: -19
       objectReference: {fileID: 0}
     - target: {fileID: 485846, guid: 7ee9316a0972db545953d0eda858c446, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 16.25
+      value: -9.25
       objectReference: {fileID: 0}
     - target: {fileID: 485846, guid: 7ee9316a0972db545953d0eda858c446, type: 2}
       propertyPath: m_LocalPosition.z
@@ -552,6 +553,10 @@ Prefab:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 11482098, guid: 7ee9316a0972db545953d0eda858c446, type: 2}
+      propertyPath: FXSource
+      value: 
+      objectReference: {fileID: 1506826517}
+    - target: {fileID: 11482098, guid: 7ee9316a0972db545953d0eda858c446, type: 2}
       propertyPath: BreathBar
       value: 
       objectReference: {fileID: 270373596}
@@ -559,10 +564,6 @@ Prefab:
       propertyPath: BubblesImage
       value: 
       objectReference: {fileID: 1238918420}
-    - target: {fileID: 11482098, guid: 7ee9316a0972db545953d0eda858c446, type: 2}
-      propertyPath: FXSource
-      value: 
-      objectReference: {fileID: 1506826517}
     - target: {fileID: 11465618, guid: 7ee9316a0972db545953d0eda858c446, type: 2}
       propertyPath: FXSource
       value: 
@@ -1392,6 +1393,10 @@ Prefab:
       propertyPath: m_Size.z
       value: .100000001
       objectReference: {fileID: 0}
+    - target: {fileID: 11444316, guid: 6628d94d3ef76b24a98d53287ccf30de, type: 2}
+      propertyPath: exitDoor
+      value: 
+      objectReference: {fileID: 73964974}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6628d94d3ef76b24a98d53287ccf30de, type: 2}
   m_IsPrefabParent: 0
@@ -3681,6 +3686,10 @@ Prefab:
       propertyPath: m_Name
       value: Reflective Wall 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11404502, guid: c67981a68ad5ea848b19f8c2b58dd53a, type: 2}
+      propertyPath: FXSource
+      value: 
+      objectReference: {fileID: 1506826517}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c67981a68ad5ea848b19f8c2b58dd53a, type: 2}
   m_IsPrefabParent: 0
@@ -4627,6 +4636,10 @@ Prefab:
       propertyPath: m_LocalScale.x
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 11404502, guid: c67981a68ad5ea848b19f8c2b58dd53a, type: 2}
+      propertyPath: FXSource
+      value: 
+      objectReference: {fileID: 1506826517}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c67981a68ad5ea848b19f8c2b58dd53a, type: 2}
   m_IsPrefabParent: 0
@@ -6041,6 +6054,25 @@ Prefab:
 GameObject:
   m_PrefabParentObject: {fileID: 188164, guid: 409754371062dad44b9b6fd72e8f9f85, type: 2}
   m_PrefabInternal: {fileID: 1899377981}
+--- !u!82 &1899377984 stripped
+AudioSource:
+  m_PrefabParentObject: {fileID: 8262418, guid: 409754371062dad44b9b6fd72e8f9f85,
+    type: 2}
+  m_PrefabInternal: {fileID: 1899377981}
+--- !u!114 &1899377985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1899377982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7c69ecccb7aa044d81839aca2e7c51d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicSource: {fileID: 1899377984}
+  backgroundCalm: {fileID: 8300000, guid: 6a0115ec26ee85c4d96345f92374db52, type: 3}
+  backgroundHaste: {fileID: 8300000, guid: b098b708e677b5d408327715412b12d0, type: 3}
 --- !u!1001 &1910333781
 Prefab:
   m_ObjectHideFlags: 0
