@@ -4558,6 +4558,11 @@ Prefab:
       propertyPath: deathWall
       value: 
       objectReference: {fileID: 581966798}
+    - target: {fileID: 21231190, guid: d6aee1f2f98250d42bf622f9ff1ff2fb, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300110, guid: ef1246e490516d74caaf2b0c48fe0fe3,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d6aee1f2f98250d42bf622f9ff1ff2fb, type: 2}
   m_IsPrefabParent: 0

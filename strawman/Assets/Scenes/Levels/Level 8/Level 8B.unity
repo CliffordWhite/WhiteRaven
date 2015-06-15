@@ -366,7 +366,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11481012, guid: 20f6a13eb7f9ef048ba79df52a1619f0, type: 2}
       propertyPath: Moving
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11481012, guid: 20f6a13eb7f9ef048ba79df52a1619f0, type: 2}
       propertyPath: FallSpeed.y
@@ -2993,6 +2993,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 21231190, guid: d6aee1f2f98250d42bf622f9ff1ff2fb, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300038, guid: ef1246e490516d74caaf2b0c48fe0fe3,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d6aee1f2f98250d42bf622f9ff1ff2fb, type: 2}
   m_IsPrefabParent: 0
