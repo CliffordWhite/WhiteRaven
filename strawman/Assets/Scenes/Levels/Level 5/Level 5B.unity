@@ -223,10 +223,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 636984474}
-  - {fileID: 710413791}
   - {fileID: 173984482}
-  - {fileID: 951708055}
+  - {fileID: 710413791}
   - {fileID: 1665371238}
+  - {fileID: 951708055}
   m_Father: {fileID: 0}
   m_RootOrder: 11
 --- !u!1001 &132640606
@@ -312,7 +312,7 @@ Transform:
   - {fileID: 332696680}
   - {fileID: 1168359492}
   m_Father: {fileID: 116547179}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!4 &198377684 stripped
 Transform:
   m_PrefabParentObject: {fileID: 429762, guid: b91e16e957ef88e4eac4eecb2238f6c2, type: 2}
@@ -712,7 +712,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 428710, guid: d565e9ab5bdf1e647800f4bb23a1f729, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 11400016, guid: d565e9ab5bdf1e647800f4bb23a1f729, type: 2}
       propertyPath: waypoints.Array.data[0]
@@ -838,22 +838,6 @@ Prefab:
       propertyPath: waypoints.Array.data[1]
       value: 
       objectReference: {fileID: 1328239365}
-    - target: {fileID: 11400016, guid: d565e9ab5bdf1e647800f4bb23a1f729, type: 2}
-      propertyPath: stayTime
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400016, guid: d565e9ab5bdf1e647800f4bb23a1f729, type: 2}
-      propertyPath: speed
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400016, guid: d565e9ab5bdf1e647800f4bb23a1f729, type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400016, guid: d565e9ab5bdf1e647800f4bb23a1f729, type: 2}
-      propertyPath: animate
-      value: 
-      objectReference: {fileID: 2108395003}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d565e9ab5bdf1e647800f4bb23a1f729, type: 2}
   m_IsPrefabParent: 0
@@ -1227,7 +1211,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 428710, guid: d565e9ab5bdf1e647800f4bb23a1f729, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 141004, guid: d565e9ab5bdf1e647800f4bb23a1f729, type: 2}
       propertyPath: m_Name
@@ -1897,7 +1881,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 428710, guid: d565e9ab5bdf1e647800f4bb23a1f729, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 11400016, guid: d565e9ab5bdf1e647800f4bb23a1f729, type: 2}
       propertyPath: waypoints.Array.data[0]
@@ -3093,27 +3077,6 @@ Transform:
   - {fileID: 2132996667}
   m_Father: {fileID: 0}
   m_RootOrder: 9
---- !u!1 &2108394999 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 141004, guid: d565e9ab5bdf1e647800f4bb23a1f729, type: 2}
-  m_PrefabInternal: {fileID: 636984473}
---- !u!95 &2108395003
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2108394999}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2a78fd2bc9c1a2d4cae76c1e6d3dab9e, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1001 &2117411480
 Prefab:
   m_ObjectHideFlags: 0
