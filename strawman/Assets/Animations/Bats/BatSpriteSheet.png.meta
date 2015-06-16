@@ -1,0 +1,187 @@
+fileFormatVersion: 2
+guid: 2342c6633961ddb49808cd8d8d3d407b
+timeCreated: 1434412877
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: BatSpriteSheet_0
+    21300002: BatSpriteSheet_1
+    21300004: BatSpriteSheet_2
+    21300006: BatSpriteSheet_3
+    21300008: BatSpriteSheet_4
+    21300010: BatSpriteSheet_5
+    21300012: BatSpriteSheet_6
+    21300014: BatSpriteSheet_7
+    21300016: BatSpriteSheet_8
+    21300018: BatSpriteSheet_9
+    21300020: BatSpriteSheet_10
+    21300022: BatSpriteSheet_11
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: BatSpriteSheet_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 283
+        width: 90
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BatSpriteSheet_1
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 289
+        width: 78
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BatSpriteSheet_2
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 277
+        width: 42
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BatSpriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 197
+        width: 63
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BatSpriteSheet_4
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 203
+        width: 57
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BatSpriteSheet_5
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 179
+        width: 56
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BatSpriteSheet_6
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 101
+        width: 63
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BatSpriteSheet_7
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 107
+        width: 57
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BatSpriteSheet_8
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 83
+        width: 57
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BatSpriteSheet_9
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 11
+        width: 90
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BatSpriteSheet_10
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 17
+        width: 78
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BatSpriteSheet_11
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 5
+        width: 42
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
