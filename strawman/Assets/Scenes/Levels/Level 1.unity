@@ -424,7 +424,8 @@ Prefab:
     - target: {fileID: 11420450, guid: 4e88bb3ae17a2da4e8a67c5e9847b8aa, type: 2}
       propertyPath: style.m_Font
       value: 
-      objectReference: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+      objectReference: {fileID: 12800000, guid: 9dee2150d6fcc9048aea1d3fce9e3475,
+        type: 3}
     - target: {fileID: 11420450, guid: 4e88bb3ae17a2da4e8a67c5e9847b8aa, type: 2}
       propertyPath: style.m_FontSize
       value: 45
@@ -1600,7 +1601,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11477824, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
       propertyPath: timeAttackOn
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11477824, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
       propertyPath: treasureCollected.Array.data[0]

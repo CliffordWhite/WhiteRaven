@@ -3364,6 +3364,11 @@ Prefab:
       propertyPath: target
       value: 
       objectReference: {fileID: 2095408265}
+    - target: {fileID: 11420450, guid: 4e88bb3ae17a2da4e8a67c5e9847b8aa, type: 2}
+      propertyPath: style.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 9dee2150d6fcc9048aea1d3fce9e3475,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4e88bb3ae17a2da4e8a67c5e9847b8aa, type: 2}
   m_IsPrefabParent: 0

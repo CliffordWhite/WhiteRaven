@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12001, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: PauseGUI
+  m_Name: MedievalSkin
   m_EditorClassIdentifier: 
   m_Font: {fileID: 12800000, guid: 9dee2150d6fcc9048aea1d3fce9e3475, type: 3}
   m_box:
@@ -118,7 +118,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 0}
-    m_FontSize: 0
+    m_FontSize: 12
     m_FontStyle: 0
     m_Alignment: 4
     m_WordWrap: 0
@@ -1256,4 +1256,4 @@ MonoBehaviour:
     m_TripleClickSelectsLine: 1
     m_CursorColor: {r: 1, g: 1, b: 1, a: 1}
     m_CursorFlashSpeed: -1
-    m_SelectionColor: {r: .0980392173, g: .384313732, b: .698039234, a: .698039234}
+    m_SelectionColor: {r: 1, g: .384039074, b: 0, a: .699999988}

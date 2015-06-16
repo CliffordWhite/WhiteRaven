@@ -5,10 +5,10 @@ public class SaveLoadScript : MonoBehaviour
 {
     bool Play = false;
     int LoadSelected = 1;
-    public GUIStyle style;		// allow for large font for timer
+//    public GUIStyle style;		// allow for large font for timer
     string HardModeString = "Off";
     string AttackTimeString = "Off";
-
+	public GUISkin skin;		// for using custom font
 
     void FixedUpdate()
     {
@@ -38,6 +38,7 @@ public class SaveLoadScript : MonoBehaviour
 
     void OnGUI()
 	{
+		GUI.skin = skin;
         int Levelholder = 0;
         int TreasureHolder = 0;
         int STreasureHolder = 0;

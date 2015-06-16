@@ -131,6 +131,7 @@ MonoBehaviour:
   SceneNumber: 11
   LevelBeat: 0
   LevelUnlock: 0
+  skin: {fileID: 11400000, guid: a40621d6f5f0cd4469f116e0fc0a508e, type: 2}
 --- !u!65 &61373189
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -213,6 +214,7 @@ MonoBehaviour:
   SceneNumber: 14
   LevelBeat: 0
   LevelUnlock: 0
+  skin: {fileID: 11400000, guid: a40621d6f5f0cd4469f116e0fc0a508e, type: 2}
 --- !u!65 &99365574
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -295,6 +297,7 @@ MonoBehaviour:
   SceneNumber: 12
   LevelBeat: 0
   LevelUnlock: 0
+  skin: {fileID: 11400000, guid: a40621d6f5f0cd4469f116e0fc0a508e, type: 2}
 --- !u!65 &213172745
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -377,6 +380,7 @@ MonoBehaviour:
   SceneNumber: 8
   LevelBeat: 0
   LevelUnlock: 0
+  skin: {fileID: 11400000, guid: a40621d6f5f0cd4469f116e0fc0a508e, type: 2}
 --- !u!65 &462810919
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -459,6 +463,7 @@ MonoBehaviour:
   SceneNumber: 20
   LevelBeat: 0
   LevelUnlock: 0
+  skin: {fileID: 11400000, guid: a40621d6f5f0cd4469f116e0fc0a508e, type: 2}
 --- !u!65 &612282416
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -662,6 +667,7 @@ MonoBehaviour:
   SceneNumber: 18
   LevelBeat: 0
   LevelUnlock: 0
+  skin: {fileID: 11400000, guid: a40621d6f5f0cd4469f116e0fc0a508e, type: 2}
 --- !u!65 &741773945
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -744,6 +750,7 @@ MonoBehaviour:
   SceneNumber: 16
   LevelBeat: 0
   LevelUnlock: 0
+  skin: {fileID: 11400000, guid: a40621d6f5f0cd4469f116e0fc0a508e, type: 2}
 --- !u!65 &754707780
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -826,6 +833,7 @@ MonoBehaviour:
   SceneNumber: 17
   LevelBeat: 0
   LevelUnlock: 0
+  skin: {fileID: 11400000, guid: a40621d6f5f0cd4469f116e0fc0a508e, type: 2}
 --- !u!65 &821776240
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1000,6 +1008,7 @@ MonoBehaviour:
   SceneNumber: 7
   LevelBeat: 0
   LevelUnlock: 0
+  skin: {fileID: 11400000, guid: a40621d6f5f0cd4469f116e0fc0a508e, type: 2}
 --- !u!65 &946665187
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1082,6 +1091,7 @@ MonoBehaviour:
   SceneNumber: 13
   LevelBeat: 0
   LevelUnlock: 0
+  skin: {fileID: 11400000, guid: a40621d6f5f0cd4469f116e0fc0a508e, type: 2}
 --- !u!65 &1188177509
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1164,6 +1174,7 @@ MonoBehaviour:
   SceneNumber: 19
   LevelBeat: 0
   LevelUnlock: 0
+  skin: {fileID: 11400000, guid: a40621d6f5f0cd4469f116e0fc0a508e, type: 2}
 --- !u!65 &1390079951
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1330,6 +1341,7 @@ MonoBehaviour:
   SceneNumber: 10
   LevelBeat: 0
   LevelUnlock: 0
+  skin: {fileID: 11400000, guid: a40621d6f5f0cd4469f116e0fc0a508e, type: 2}
 --- !u!65 &1575081467
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1454,6 +1466,7 @@ MonoBehaviour:
   SceneNumber: 6
   LevelBeat: 0
   LevelUnlock: 1
+  skin: {fileID: 11400000, guid: a40621d6f5f0cd4469f116e0fc0a508e, type: 2}
 --- !u!65 &1765989440
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1536,6 +1549,7 @@ MonoBehaviour:
   SceneNumber: 9
   LevelBeat: 0
   LevelUnlock: 0
+  skin: {fileID: 11400000, guid: a40621d6f5f0cd4469f116e0fc0a508e, type: 2}
 --- !u!65 &1818000672
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1679,6 +1693,7 @@ MonoBehaviour:
   SceneNumber: 15
   LevelBeat: 0
   LevelUnlock: 0
+  skin: {fileID: 11400000, guid: a40621d6f5f0cd4469f116e0fc0a508e, type: 2}
 --- !u!65 &2103986059
 BoxCollider:
   m_ObjectHideFlags: 0
