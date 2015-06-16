@@ -76,7 +76,6 @@ public class LevelSelect : MonoBehaviour
 			else if (levelName == "9")
 				gameObject.GetComponent<SpriteRenderer>().sprite = GameManager.manager.GetComponent<TreasureList>().level9b;
 		}
-	}
 	
         FlyModeOn = GameManager.manager.flyMode;
         Player = GameObject.FindWithTag("Player");
@@ -148,7 +147,9 @@ public class LevelSelect : MonoBehaviour
             }
         }
 
-        GUI.Label(new Rect(100, 200, 200, 100), STreasureHolder.ToString() + "/7 Secret Treasure Collected");
+        GUI.Label(new Rect(50, 100, 200, 200), Levelholder.ToString() + "/15 Levels Completed");
+        GUI.Label(new Rect(50, 150, 200, 200), TreasureHolder.ToString() + "/12 Treasure Collected");
+        GUI.Label(new Rect(50, 200, 200, 200), STreasureHolder.ToString() + "/7 Secret Treasure Collected");
 
 
         if (GUI.Button(new Rect(Screen.width - 105, 155, 110, 25), "Main Menu"))
@@ -210,18 +211,18 @@ public class LevelSelect : MonoBehaviour
         if (GameManager.manager.marcoPoloMode)
         {
             Level2.GetComponent<ParticleSystem>().Play();
-            // Level4.GetComponent<ParticleSystem>().Play();
-            //  Level5A.GetComponent<ParticleSystem>().Play();
-            // Level7A.GetComponent<ParticleSystem>().Play();
-            //  Level9.GetComponent<ParticleSystem>().Play();
+            Level4.GetComponent<ParticleSystem>().Play();
+            Level5A.GetComponent<ParticleSystem>().Play();
+            Level7A.GetComponent<ParticleSystem>().Play();
+            Level9.GetComponent<ParticleSystem>().Play();
         }
         else
         {
             Level2.GetComponent<ParticleSystem>().Stop();
-            //Level4.GetComponent<ParticleSystem>().Stop();
-            //Level5A.GetComponent<ParticleSystem>().Stop();
-            //Level7A.GetComponent<ParticleSystem>().Stop();
-            //Level9.GetComponent<ParticleSystem>().Stop();
+            Level4.GetComponent<ParticleSystem>().Stop();
+            Level5A.GetComponent<ParticleSystem>().Stop();
+            Level7A.GetComponent<ParticleSystem>().Stop();
+            Level9.GetComponent<ParticleSystem>().Stop();
         }
     }
 }

@@ -64,10 +64,7 @@ public class Projectile : MonoBehaviour
 	
 	void Kill()
 	{
-        if (!GameManager.manager.godMode)
-        {
             Instantiate(explode, transform.position, transform.rotation);
             Destroy(gameObject);
-        }
 	}
 }
