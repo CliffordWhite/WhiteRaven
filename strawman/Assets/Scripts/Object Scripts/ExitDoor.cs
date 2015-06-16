@@ -5,10 +5,12 @@ public class ExitDoor : MonoBehaviour
 {
 	public AudioSource _SFXsource;
 	public AudioClip doorSound;
+    public bool IsExiting;
 
 	void Start(){
 		GameManager.manager.secretGot = false;
 		GameManager.manager.DoorUnlocked = false;
+        IsExiting = false;
 	}
 
 	void OnTriggerEnter(Collider other)
@@ -16,6 +18,7 @@ public class ExitDoor : MonoBehaviour
 		// Load the next level when player runs into door
 		if (other.tag == "Player" && (GameManager.manager.DoorUnlocked || Application.loadedLevel < 9))
 		{
+            IsExiting = true;
             GameManager.manager.levelCompleted[Application.loadedLevel - 6] = true;
             if(Application.loadedLevel > 8)
     			GameManager.manager.treasureCollected[Application.loadedLevel-6] = true;

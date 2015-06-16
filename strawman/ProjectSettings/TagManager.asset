@@ -43,6 +43,7 @@ TagManager:
   - Sand
   - SandDepth
   - FallingWall
+  - ExitDoor
   layers:
   - Default
   - TransparentFX
