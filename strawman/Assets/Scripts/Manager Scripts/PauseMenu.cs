@@ -6,7 +6,9 @@ public class PauseMenu : MonoBehaviour
 
     public GUISkin skin;		// load a custum GUISkin, currently takes a default
     public Color statColor = Color.yellow;	// sets the color of pause menu buttons
-    public enum Page { None, Main, Options, Music, SFX, LvlSel, CheatCode }	// change between different pause states
+    public enum Page { None, Main, Options, Music, SFX, LvlSel, CheatCode, Treasure }	// change between different pause states
+	public GameObject treasurePanel;	// MUST be set with treasure panel child
+	public GameObject treasureBack;		// button on treasure page
     // None = live gameplay
     // Main = main pause menu
     // Options = page to load stats	**Currently Not Implemented**
@@ -21,6 +23,8 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1;	// normal play speed
         FlyModeOn = GameManager.manager.flyMode;
         Player = GameObject.FindWithTag("Player");
+		if (treasurePanel)
+			treasurePanel.SetActive(false);
     }
 
     void LateUpdate()
@@ -36,6 +40,10 @@ public class PauseMenu : MonoBehaviour
                 case Page.Main:
                     UnPauseGame(); // unpause if main pause menu
                     break;
+				case Page.Treasure:
+					treasurePanel.SetActive(false);
+					currentPage = Page.Main;
+					break;
 
                 default:
                     currentPage = Page.Main; // go to main pause menu from any pause submenu
@@ -59,6 +67,7 @@ public class PauseMenu : MonoBehaviour
                 case Page.SFX: ShowSFX(); break;
                 case Page.LvlSel: Application.LoadLevel(1); UnPauseGame(); break;
                 case Page.CheatCode: ShowCheatCode(); break;
+				case Page.Treasure: ShowTreasure(); break;
             }
         }
     }
@@ -96,9 +105,10 @@ public class PauseMenu : MonoBehaviour
             currentPage = Page.LvlSel;
 
         if (GUILayout.Button("Cheat Code"))
-        {
             currentPage = Page.CheatCode;
-        }
+
+		if (GUILayout.Button("Treasures"))
+			currentPage = Page.Treasure;
         EndPage();
     }
 
@@ -137,6 +147,18 @@ public class PauseMenu : MonoBehaviour
         EndPage();
     }
 
+	void ShowTreasure()
+	{
+		if (treasurePanel)
+			treasurePanel.SetActive(true);
+	}
+
+	void BackButton()
+	{
+		if (treasurePanel)
+			treasurePanel.SetActive(false);
+		currentPage = Page.Main;
+	}
     void PauseGame()
     {
         savedTimeScale = Time.timeScale;

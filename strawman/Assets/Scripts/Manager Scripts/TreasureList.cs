@@ -4,6 +4,7 @@ using System.Collections;
 public class TreasureList : MonoBehaviour 
 {
 	[Header ("Set each level's treasure sprite here")]
+	public Sprite closedChest;
 	public Sprite tutorialLevel;
 	public Sprite level4;
 	public Sprite level5a;
@@ -27,4 +28,5 @@ public class TreasureList : MonoBehaviour
 	public Sprite lvl7;
 	public Sprite lvl8;
 	public Sprite lvl9;
+
 }

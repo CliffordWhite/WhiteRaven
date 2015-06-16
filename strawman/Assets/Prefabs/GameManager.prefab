@@ -85,6 +85,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41a784f19adddd4418510974c647392a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  closedChest: {fileID: 21300072, guid: ef1246e490516d74caaf2b0c48fe0fe3, type: 3}
   tutorialLevel: {fileID: 21300000, guid: b70b7c8fe2d7ff347b9c7d33fb733267, type: 3}
   level4: {fileID: 21300000, guid: ef1246e490516d74caaf2b0c48fe0fe3, type: 3}
   level5a: {fileID: 21300120, guid: ef1246e490516d74caaf2b0c48fe0fe3, type: 3}
