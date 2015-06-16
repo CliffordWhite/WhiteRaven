@@ -366,7 +366,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11481012, guid: 20f6a13eb7f9ef048ba79df52a1619f0, type: 2}
       propertyPath: Moving
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11481012, guid: 20f6a13eb7f9ef048ba79df52a1619f0, type: 2}
       propertyPath: FallSpeed.y
@@ -3638,6 +3638,10 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 11486666, guid: 02433cba86fde4740a0181cf77cf3958, type: 2}
+      propertyPath: playerObject
+      value: 
+      objectReference: {fileID: 759974036}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 02433cba86fde4740a0181cf77cf3958, type: 2}
   m_IsPrefabParent: 0

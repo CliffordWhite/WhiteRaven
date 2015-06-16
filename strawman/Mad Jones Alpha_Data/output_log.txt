@@ -1,0 +1,70 @@
+Initialize engine version: 5.0.1f1 (5a2e8fe35a68)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: Intel(R) HD Graphics 4600 (ID=0x416)
+    Vendor:   Intel
+    VRAM:     512 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: F:\Documents\Full Sail\Structure of Game Production\WhiteRaven\strawman\Mad Jones Alpha_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading F:\Documents\Full Sail\Structure of Game Production\WhiteRaven\strawman\Mad Jones Alpha_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: F:\Documents\Full Sail\Structure of Game Production\WhiteRaven\strawman\Mad Jones Alpha_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading F:\Documents\Full Sail\Structure of Game Production\WhiteRaven\strawman\Mad Jones Alpha_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: F:\Documents\Full Sail\Structure of Game Production\WhiteRaven\strawman\Mad Jones Alpha_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading F:\Documents\Full Sail\Structure of Game Production\WhiteRaven\strawman\Mad Jones Alpha_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+- Completed reload, in  0.063 seconds
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+Platform assembly: F:\Documents\Full Sail\Structure of Game Production\WhiteRaven\strawman\Mad Jones Alpha_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: F:\Documents\Full Sail\Structure of Game Production\WhiteRaven\strawman\Mad Jones Alpha_Data\Managed\System.dll (this message is harmless)
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: d3c -> priority: 1 
+  Thread -> id: 1fc -> priority: 1 
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 3.350185 ms
+
+Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 236.
+Total: 0.211685 ms (FindLiveObjects: 0.021809 ms CreateObjectMapping: 0.010691 ms MarkObjects: 0.167209 ms  DeleteObjects: 0.011546 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.216389 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 335.
+Total: 0.226652 ms (FindLiveObjects: 0.032073 ms CreateObjectMapping: 0.023092 ms MarkObjects: 0.156518 ms  DeleteObjects: 0.014967 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.340834 ms
+
+Unloading 18 unused Assets to reduce memory usage. Loaded Objects now: 486.
+Total: 0.276259 ms (FindLiveObjects: 0.015822 ms CreateObjectMapping: 0.029507 ms MarkObjects: 0.217672 ms  DeleteObjects: 0.012829 ms)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.490510 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 490.
+Total: 0.333992 ms (FindLiveObjects: 0.020527 ms CreateObjectMapping: 0.023520 ms MarkObjects: 0.272411 ms  DeleteObjects: 0.017533 ms)
+
+<RI.Hid> Failed to get preparsed data: The request is not supported.
+
+ 
+(Filename:  Line: 78)
+
+<RI.Hid> Failed to get preparsed data: The request is not supported.
+
+ 
+(Filename:  Line: 78)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.479392 ms
+
+Unloading 69 unused Assets to reduce memory usage. Loaded Objects now: 340.
+Total: 0.279681 ms (FindLiveObjects: 0.015395 ms CreateObjectMapping: 0.013684 ms MarkObjects: 0.201421 ms  DeleteObjects: 0.048751 ms)
+
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.315175 ms
+
+Unloading 18 unused Assets to reduce memory usage. Loaded Objects now: 331.
+Total: 0.300635 ms (FindLiveObjects: 0.019671 ms CreateObjectMapping: 0.013684 ms MarkObjects: 0.249745 ms  DeleteObjects: 0.016678 ms)
+

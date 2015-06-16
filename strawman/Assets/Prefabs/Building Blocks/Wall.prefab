@@ -9,7 +9,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 429762}
   - 212: {fileID: 21259480}
-  - 65: {fileID: 6508582}
+  - 65: {fileID: 6513772}
+  - 114: {fileID: 11423048}
   m_Layer: 8
   m_Name: Wall
   m_TagString: Wall
@@ -24,23 +25,34 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 174606}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 2, z: 1}
+  m_LocalPosition: {x: -17.5, y: -2, z: 0}
+  m_LocalScale: {x: 2, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!65 &6508582
+--- !u!65 &6513772
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 174606}
-  m_Material: {fileID: 13400000, guid: 941607d77af6cea4fa2d8a079a79ea38, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.5, y: 1.64999998, z: 1}
+  m_Size: {x: 2.5, y: 1.66499996, z: .200000003}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &11423048
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 174606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10f6833ab10d6a34894a748054012c32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &21259480
 SpriteRenderer:
   m_ObjectHideFlags: 1
