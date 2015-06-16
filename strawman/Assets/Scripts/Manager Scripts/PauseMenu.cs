@@ -153,7 +153,7 @@ public class PauseMenu : MonoBehaviour
 			treasurePanel.SetActive(true);
 	}
 
-	void BackButton()
+	public void BackButton()
 	{
 		if (treasurePanel)
 			treasurePanel.SetActive(false);
