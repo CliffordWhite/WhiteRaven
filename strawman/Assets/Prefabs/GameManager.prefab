@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 448204}
   - 114: {fileID: 11477824}
   - 114: {fileID: 11452152}
+  - 114: {fileID: 11494390}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -73,6 +74,38 @@ MonoBehaviour:
   DoorUnlocked: 0
   secretGot: 0
   webMode: 0
+--- !u!114 &11494390
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 114462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41a784f19adddd4418510974c647392a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tutorialLevel: {fileID: 21300000, guid: b70b7c8fe2d7ff347b9c7d33fb733267, type: 3}
+  level4: {fileID: 21300000, guid: ef1246e490516d74caaf2b0c48fe0fe3, type: 3}
+  level5a: {fileID: 21300120, guid: ef1246e490516d74caaf2b0c48fe0fe3, type: 3}
+  level5b: {fileID: 21300046, guid: ef1246e490516d74caaf2b0c48fe0fe3, type: 3}
+  level6a: {fileID: 21300008, guid: ef1246e490516d74caaf2b0c48fe0fe3, type: 3}
+  level6b: {fileID: 21300110, guid: ef1246e490516d74caaf2b0c48fe0fe3, type: 3}
+  level6c: {fileID: 21300100, guid: ef1246e490516d74caaf2b0c48fe0fe3, type: 3}
+  level7a: {fileID: 21300052, guid: ef1246e490516d74caaf2b0c48fe0fe3, type: 3}
+  level7b: {fileID: 21300006, guid: ef1246e490516d74caaf2b0c48fe0fe3, type: 3}
+  level7c: {fileID: 21300118, guid: ef1246e490516d74caaf2b0c48fe0fe3, type: 3}
+  level8a: {fileID: 21300106, guid: ef1246e490516d74caaf2b0c48fe0fe3, type: 3}
+  level8b: {fileID: 21300038, guid: ef1246e490516d74caaf2b0c48fe0fe3, type: 3}
+  level9a: {fileID: 21300002, guid: ef1246e490516d74caaf2b0c48fe0fe3, type: 3}
+  level9b: {fileID: 21300004, guid: ef1246e490516d74caaf2b0c48fe0fe3, type: 3}
+  lvl2: {fileID: 21300054, guid: ef1246e490516d74caaf2b0c48fe0fe3, type: 3}
+  lvl4: {fileID: 21300014, guid: ef1246e490516d74caaf2b0c48fe0fe3, type: 3}
+  lvl5: {fileID: 21300060, guid: ef1246e490516d74caaf2b0c48fe0fe3, type: 3}
+  lvl6: {fileID: 21300066, guid: ef1246e490516d74caaf2b0c48fe0fe3, type: 3}
+  lvl7: {fileID: 21300064, guid: ef1246e490516d74caaf2b0c48fe0fe3, type: 3}
+  lvl8: {fileID: 21300088, guid: ef1246e490516d74caaf2b0c48fe0fe3, type: 3}
+  lvl9: {fileID: 21300104, guid: ef1246e490516d74caaf2b0c48fe0fe3, type: 3}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

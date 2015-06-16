@@ -25,7 +25,7 @@ RenderSettings:
   m_AmbientGroundColor: {r: .0469999984, g: .0430000015, b: .0350000001, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 0
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: c78dda6619c03c54483efbe64963a671, type: 2}
   m_HaloStrength: .5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -1823,15 +1823,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 470058, guid: 61aee28102814904a82bfab81eb94e97, type: 2}
       propertyPath: m_RootOrder
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 470058, guid: 61aee28102814904a82bfab81eb94e97, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 473316, guid: 61aee28102814904a82bfab81eb94e97, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -.150000006
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 116084, guid: 61aee28102814904a82bfab81eb94e97, type: 2}
       propertyPath: m_Name
@@ -2380,7 +2372,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 470058, guid: 61aee28102814904a82bfab81eb94e97, type: 2}
       propertyPath: m_RootOrder
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 61aee28102814904a82bfab81eb94e97, type: 2}
@@ -3412,11 +3404,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400184, guid: 4e88bb3ae17a2da4e8a67c5e9847b8aa, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -22.2600002
+      value: -6.82999992
       objectReference: {fileID: 0}
     - target: {fileID: 400184, guid: 4e88bb3ae17a2da4e8a67c5e9847b8aa, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 1.50999999
       objectReference: {fileID: 0}
     - target: {fileID: 400184, guid: 4e88bb3ae17a2da4e8a67c5e9847b8aa, type: 2}
       propertyPath: m_LocalPosition.z
@@ -3446,6 +3438,11 @@ Prefab:
       propertyPath: target
       value: 
       objectReference: {fileID: 800952950}
+    - target: {fileID: 11420450, guid: 4e88bb3ae17a2da4e8a67c5e9847b8aa, type: 2}
+      propertyPath: style.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 9dee2150d6fcc9048aea1d3fce9e3475,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4e88bb3ae17a2da4e8a67c5e9847b8aa, type: 2}
   m_IsPrefabParent: 0
@@ -5544,6 +5541,11 @@ Prefab:
       propertyPath: musicSource
       value: 
       objectReference: {fileID: 1544218652}
+    - target: {fileID: 21231190, guid: d6aee1f2f98250d42bf622f9ff1ff2fb, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300118, guid: ef1246e490516d74caaf2b0c48fe0fe3,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d6aee1f2f98250d42bf622f9ff1ff2fb, type: 2}
   m_IsPrefabParent: 0

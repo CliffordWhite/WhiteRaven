@@ -25,7 +25,7 @@ RenderSettings:
   m_AmbientGroundColor: {r: .0469999984, g: .0430000015, b: .0350000001, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 0
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: c78dda6619c03c54483efbe64963a671, type: 2}
   m_HaloStrength: .5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -223,10 +223,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 636984474}
-  - {fileID: 710413791}
   - {fileID: 173984482}
-  - {fileID: 951708055}
+  - {fileID: 710413791}
   - {fileID: 1665371238}
+  - {fileID: 951708055}
   m_Father: {fileID: 0}
   m_RootOrder: 11
 --- !u!1001 &132640606
@@ -312,7 +312,7 @@ Transform:
   - {fileID: 332696680}
   - {fileID: 1168359492}
   m_Father: {fileID: 116547179}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!4 &198377684 stripped
 Transform:
   m_PrefabParentObject: {fileID: 429762, guid: b91e16e957ef88e4eac4eecb2238f6c2, type: 2}
@@ -446,11 +446,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400184, guid: 4e88bb3ae17a2da4e8a67c5e9847b8aa, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 13.4399996
       objectReference: {fileID: 0}
     - target: {fileID: 400184, guid: 4e88bb3ae17a2da4e8a67c5e9847b8aa, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: .939999998
       objectReference: {fileID: 0}
     - target: {fileID: 400184, guid: 4e88bb3ae17a2da4e8a67c5e9847b8aa, type: 2}
       propertyPath: m_LocalPosition.z
@@ -488,6 +488,11 @@ Prefab:
       propertyPath: moveDelay
       value: .25
       objectReference: {fileID: 0}
+    - target: {fileID: 11420450, guid: 4e88bb3ae17a2da4e8a67c5e9847b8aa, type: 2}
+      propertyPath: style.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 9dee2150d6fcc9048aea1d3fce9e3475,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4e88bb3ae17a2da4e8a67c5e9847b8aa, type: 2}
   m_IsPrefabParent: 0
@@ -712,7 +717,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 428710, guid: d565e9ab5bdf1e647800f4bb23a1f729, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 11400016, guid: d565e9ab5bdf1e647800f4bb23a1f729, type: 2}
       propertyPath: waypoints.Array.data[0]
@@ -838,14 +843,6 @@ Prefab:
       propertyPath: waypoints.Array.data[1]
       value: 
       objectReference: {fileID: 1328239365}
-    - target: {fileID: 11400016, guid: d565e9ab5bdf1e647800f4bb23a1f729, type: 2}
-      propertyPath: stayTime
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400016, guid: d565e9ab5bdf1e647800f4bb23a1f729, type: 2}
-      propertyPath: speed
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d565e9ab5bdf1e647800f4bb23a1f729, type: 2}
   m_IsPrefabParent: 0
@@ -1219,7 +1216,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 428710, guid: d565e9ab5bdf1e647800f4bb23a1f729, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 141004, guid: d565e9ab5bdf1e647800f4bb23a1f729, type: 2}
       propertyPath: m_Name
@@ -1889,7 +1886,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 428710, guid: d565e9ab5bdf1e647800f4bb23a1f729, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 11400016, guid: d565e9ab5bdf1e647800f4bb23a1f729, type: 2}
       propertyPath: waypoints.Array.data[0]

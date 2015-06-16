@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 12001, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: PauseGUI
   m_EditorClassIdentifier: 
-  m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Font: {fileID: 12800000, guid: 9dee2150d6fcc9048aea1d3fce9e3475, type: 3}
   m_box:
     m_Name: box
     m_Normal:
