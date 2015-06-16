@@ -1,0 +1,737 @@
+fileFormatVersion: 2
+guid: ef1246e490516d74caaf2b0c48fe0fe3
+timeCreated: 1434342755
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Treasures_0
+    21300002: Treasures_1
+    21300004: Treasures_2
+    21300006: Treasures_3
+    21300008: Treasures_4
+    21300010: Treasures_5
+    21300012: Treasures_6
+    21300014: Treasures_7
+    21300016: Treasures_9
+    21300018: Treasures_16
+    21300020: Treasures_17
+    21300022: Treasures_18
+    21300024: Treasures_20
+    21300026: Treasures_21
+    21300028: Treasures_22
+    21300030: Treasures_23
+    21300032: Treasures_24
+    21300034: Treasures_28
+    21300036: Treasures_29
+    21300038: Treasures_30
+    21300040: Treasures_31
+    21300042: Treasures_32
+    21300044: Treasures_33
+    21300046: Treasures_34
+    21300048: Treasures_35
+    21300050: Treasures_36
+    21300052: Treasures_37
+    21300054: Treasures_41
+    21300056: Treasures_42
+    21300058: Treasures_43
+    21300060: Treasures_44
+    21300062: Treasures_45
+    21300064: Treasures_46
+    21300066: Treasures_47
+    21300068: Treasures_48
+    21300070: Treasures_49
+    21300072: Treasures_50
+    21300074: Treasures_51
+    21300076: Treasures_52
+    21300078: Treasures_53
+    21300080: Treasures_54
+    21300082: Treasures_55
+    21300084: Treasures_56
+    21300086: Treasures_57
+    21300088: Treasures_58
+    21300090: Treasures_59
+    21300092: Treasures_60
+    21300094: Treasures_62
+    21300096: Treasures_63
+    21300098: Treasures_64
+    21300100: Treasures_65
+    21300102: Treasures_66
+    21300104: Treasures_67
+    21300106: Treasures_68
+    21300108: Treasures_71
+    21300110: Treasures_72
+    21300112: Treasures_76
+    21300114: Treasures_77
+    21300116: Treasures_61
+    21300118: Treasures_39
+    21300120: Treasures_19
+    21300122: Treasures_8
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Treasures_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 549
+        width: 90
+        height: 96
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Treasures_2
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 549
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Treasures_3
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 549
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Treasures_4
+      rect:
+        serializedVersion: 2
+        x: 429
+        y: 549
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Treasures_5
+      rect:
+        serializedVersion: 2
+        x: 537
+        y: 549
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Treasures_6
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 549
+        width: 90
+        height: 96
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Treasures_7
+      rect:
+        serializedVersion: 2
+        x: 867
+        y: 549
+        width: 84
+        height: 96
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Treasures_9
+      rect:
+        serializedVersion: 2
+        x: 753
+        y: 555
+        width: 96
+        height: 78
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Treasures_16
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 441
+        width: 60
+        height: 96
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Treasures_17
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 441
+        width: 96
+        height: 90
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Treasures_18
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 441
+        width: 90
+        height: 96
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Treasures_20
+      rect:
+        serializedVersion: 2
+        x: 537
+        y: 441
+        width: 90
+        height: 96
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Treasures_21
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 441
+        width: 96
+        height: 90
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Treasures_22
+      rect:
+        serializedVersion: 2
+        x: 861
+        y: 441
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Treasures_23
+      rect:
+        serializedVersion: 2
+        x: 969
+        y: 441
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Treasures_24
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 441
+        width: 96
+        height: 78
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Treasures_28
+      rect:
+        serializedVersion: 2
+        x: 753
+        y: 459
+        width: 96
+        height: 54
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Treasures_29
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 333
+        width: 93
+        height: 96
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Treasures_30
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 333
+        width: 96
+        height: 90
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Treasures_31
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 333
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Treasures_32
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 339
+        width: 96
+        height: 90
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Treasures_33
+      rect:
+        serializedVersion: 2
+        x: 429
+        y: 333
+        width: 96
+        height: 90
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Treasures_34
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 333
+        width: 90
+        height: 96
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Treasures_35
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 333
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Treasures_36
+      rect:
+        serializedVersion: 2
+        x: 753
+        y: 333
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Treasures_37
+      rect:
+        serializedVersion: 2
+        x: 861
+        y: 333
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Treasures_41
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 225
+        width: 93
+        height: 90
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Treasures_42
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 225
+        width: 96
+        height: 90
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Treasures_43
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 225
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Treasures_44
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 225
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Treasures_45
+      rect:
+        serializedVersion: 2
+        x: 429
+        y: 225
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Treasures_46
+      rect:
+        serializedVersion: 2
+        x: 537
+        y: 225
+        width: 96
+        height: 90
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Treasures_47
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 225
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Treasures_48
+      rect:
+        serializedVersion: 2
+        x: 753
+        y: 225
+        width: 90
+        height: 96
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Treasures_49
+      rect:
+        serializedVersion: 2
+        x: 861
+        y: 225
+        width: 96
+        height: 90
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Treasures_50
+      rect:
+        serializedVersion: 2
+        x: 969
+        y: 225
+        width: 96
+        height: 90
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Treasures_51
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 117
+        width: 93
+        height: 96
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Treasures_52
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 117
+        width: 90
+        height: 96
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Treasures_53
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 117
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Treasures_54
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 117
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Treasures_55
+      rect:
+        serializedVersion: 2
+        x: 429
+        y: 117
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Treasures_56
+      rect:
+        serializedVersion: 2
+        x: 537
+        y: 117
+        width: 96
+        height: 72
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Treasures_57
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 117
+        width: 90
+        height: 96
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Treasures_58
+      rect:
+        serializedVersion: 2
+        x: 753
+        y: 117
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Treasures_59
+      rect:
+        serializedVersion: 2
+        x: 861
+        y: 117
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Treasures_60
+      rect:
+        serializedVersion: 2
+        x: 969
+        y: 117
+        width: 90
+        height: 96
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Treasures_62
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 9
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Treasures_63
+      rect:
+        serializedVersion: 2
+        x: 429
+        y: 9
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Treasures_64
+      rect:
+        serializedVersion: 2
+        x: 537
+        y: 9
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Treasures_65
+      rect:
+        serializedVersion: 2
+        x: 753
+        y: 9
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Treasures_66
+      rect:
+        serializedVersion: 2
+        x: 867
+        y: 21
+        width: 84
+        height: 84
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Treasures_67
+      rect:
+        serializedVersion: 2
+        x: 975
+        y: 9
+        width: 90
+        height: 96
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Treasures_68
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 15
+        width: 78
+        height: 78
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Treasures_71
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 9
+        width: 96
+        height: 90
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Treasures_72
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 9
+        width: 96
+        height: 90
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Treasures_76
+      rect:
+        serializedVersion: 2
+        x: 951
+        y: 21
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Treasures_77
+      rect:
+        serializedVersion: 2
+        x: 939
+        y: 9
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Treasures_61
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 5
+        width: 91
+        height: 104
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Treasures_39
+      rect:
+        serializedVersion: 2
+        x: 968
+        y: 337
+        width: 98
+        height: 92
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Treasures_19
+      rect:
+        serializedVersion: 2
+        x: 428
+        y: 441
+        width: 99
+        height: 97
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Treasures_8
+      rect:
+        serializedVersion: 2
+        x: 969
+        y: 548
+        width: 98
+        height: 98
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Treasures_1
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 550
+        width: 103
+        height: 96
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -7,7 +7,7 @@ public class LevelSelect : MonoBehaviour {
     public bool LevelBeat;
     public bool LevelUnlock;
 
-
+	public GUISkin skin;			// for using custom font
 	
     // Use this for initialization
 	void Start () {
@@ -57,6 +57,7 @@ public class LevelSelect : MonoBehaviour {
 
     void OnGUI()
     {
+		GUI.skin = skin;
         int Levelholder = 0;
         int TreasureHolder = 0;
         int STreasureHolder = 0;
@@ -84,9 +85,9 @@ public class LevelSelect : MonoBehaviour {
            }
        }
 
-        GUI.Label(new Rect(100,100,100,100),Levelholder.ToString() + "/15 Levels Completed");
-        GUI.Label(new Rect(100, 150, 100, 100), TreasureHolder.ToString() + "/12 Treasure Collected");
-        GUI.Label(new Rect(100, 200, 100, 100), STreasureHolder.ToString() + "/7 Secret Treasure Collected");
+        GUI.Label(new Rect(100, 100, 200,100),Levelholder.ToString() + "/15 Levels Completed");
+        GUI.Label(new Rect(100, 150, 200, 100), TreasureHolder.ToString() + "/12 Treasure Collected");
+        GUI.Label(new Rect(100, 200, 200, 100), STreasureHolder.ToString() + "/7 Secret Treasure Collected");
 
 
         if (GUI.Button(new Rect(Screen.width - 105, 155, 110, 25), "Main Menu"))
