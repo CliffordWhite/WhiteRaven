@@ -112,6 +112,8 @@ public class PlayerController : MonoBehaviour {
         //Cheat Code bools
         flyModeOn = GameManager.manager.flyMode;
         addLives = 30;
+        MoveDir = 0.0f;
+        FlyDir = 0.0f;
 	}
 
 	void Update ()
@@ -120,9 +122,10 @@ public class PlayerController : MonoBehaviour {
 			return;
         if (GameManager.manager.flyMode)
             FlyModeOn = true;
+
 		MoveDir = Input.GetAxisRaw("Horizontal");
+        if(FlyModeOn)
         FlyDir = Input.GetAxisRaw("Vertical");
-        //check to see if cheat code is on.
 
 
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -208,6 +211,10 @@ public class PlayerController : MonoBehaviour {
 			MyRigidbody.drag = 0.0f;
 		}
 
+        if (FlyDir != 0 && !isGrappled && !InMineCart)
+        {
+            transform.position += new Vector3(0.0f, FlyDir * Speed * speedReduction, 0.0f);
+        }
 		if( !InMineCart && MoveDir != 0 && !isGrappled )
 		{
 				transform.position += new Vector3( MoveDir * Speed * speedReduction, 0.0f, 0.0f );
@@ -225,7 +232,7 @@ public class PlayerController : MonoBehaviour {
            Flip();
 
 		// Jump
-		if (InSand > 0 && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W)))
+		if (InSand > 0 && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W)) && !FlyModeOn)
 			MyRigidbody.AddForce(0.0f, 250.0f * JumpForceMod, 0.0f, ForceMode.Acceleration);
 		else if (!InMineCart && (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W)) && MyRigidbody.velocity.y < 0.1f)
         {
@@ -275,7 +282,9 @@ public class PlayerController : MonoBehaviour {
 	
 	void KillPlayer()
 	{
-		Physics.gravity = gravityBase;
+        if(!GameManager.manager.godMode)
+		{
+        Physics.gravity = gravityBase;
 		FXSource.PlayOneShot(DeathSound, 1.0f);
 		float fadetime = GameManager.manager.GetComponent<Fade>().BeginFade(1);
         if (GameManager.manager.hardModeOn)
@@ -283,6 +292,7 @@ public class PlayerController : MonoBehaviour {
             GameManager.manager.lives--;		// lose life if hard mode
         }
         Invoke("RestartLevel", fadetime);	
+        }
 	}
 	
     void OnCollisionEnter(Collision other)
@@ -290,17 +300,24 @@ public class PlayerController : MonoBehaviour {
 		if (!isGrappled)
 			MyRigidbody.velocity = Vector3.zero;
 
-		if (invincibleFrames <= 0.0f) {
-			if ((other.collider.tag == "Projectile" || other.collider.tag == "Shaman") && !HasArmor) {
-				FXSource.PlayOneShot (DeathSound, 1.0f);
-				float fadetime = GameManager.manager.GetComponent<Fade> ().BeginFade (1);
-				if (GameManager.manager.hardModeOn) {
-					GameManager.manager.lives--;// lose life if hard mode
-				}
-				Invoke ("RestartLevel", fadetime);
-			} else if ((other.collider.tag == "Projectile" || other.collider.tag == "Shaman") && HasArmor)
-				HitWithArmor ();
-		}
+        if (!GameManager.manager.godMode)
+        {
+            if (invincibleFrames <= 0.0f)
+            {
+                if ((other.collider.tag == "Projectile" || other.collider.tag == "Shaman") && !HasArmor)
+                {
+                    FXSource.PlayOneShot(DeathSound, 1.0f);
+                    float fadetime = GameManager.manager.GetComponent<Fade>().BeginFade(1);
+                    if (GameManager.manager.hardModeOn)
+                    {
+                        GameManager.manager.lives--;// lose life if hard mode
+                    }
+                    Invoke("RestartLevel", fadetime);
+                }
+                else if ((other.collider.tag == "Projectile" || other.collider.tag == "Shaman") && HasArmor)
+                    HitWithArmor();
+            }
+        }
     }
 	
 	void RestartLevel()
@@ -438,9 +455,12 @@ public class PlayerController : MonoBehaviour {
 	
     public void HitWithArmor()
     {
-        SpriteSwitch.GetComponent<SpriteRenderer>().sprite = NormalSprite;
-        HasArmor = false;
-		invincibleFrames = 1.0f;
+        if (!GameManager.manager.godMode)
+        {
+            SpriteSwitch.GetComponent<SpriteRenderer>().sprite = NormalSprite;
+            HasArmor = false;
+            invincibleFrames = 1.0f;
+        }
     }
 	
 	public void MineCartMode(Transform _inMineCart)

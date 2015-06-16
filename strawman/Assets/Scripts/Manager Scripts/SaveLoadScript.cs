@@ -63,13 +63,13 @@ public class SaveLoadScript : MonoBehaviour
                 STreasureHolder++;
             }
         }
-
-		GUI.TextField(new Rect(Screen.width - 105, 20, 100, 20), "time: " + GameManager.manager.gameTime.ToString());
-		GUI.TextField(new Rect(Screen.width - 105, 50, 100, 20), "keys: " + GameManager.manager.keys.ToString());
-        GUI.TextField(new Rect(Screen.width - 105, 80, 100, 20), "lives: " + GameManager.manager.lives.ToString());
-        GUI.TextField(new Rect(Screen.width - 105, 110, 100, 20), "Treasure: " + TreasureHolder.ToString());
-        GUI.TextField(new Rect(Screen.width - 105, 140, 100, 20), "Secrets: " + STreasureHolder.ToString());
-        GUI.TextField(new Rect(Screen.width - 105, 170, 100, 20), "Levels: " + Levelholder.ToString());
+        GUI.Box(new Rect((Screen.width / 2) - 55, 250, 100, 175), "Game Info");
+        GUI.TextField(new Rect((Screen.width / 2) - 55, 280, 100, 25), "Time: " + GameManager.manager.gameTime.ToString());
+        GUI.TextField(new Rect((Screen.width / 2) - 55, 310, 100, 25), "Keys: " + GameManager.manager.keys.ToString());
+        GUI.TextField(new Rect((Screen.width / 2) - 55, 340, 100, 25), "Lives: " + GameManager.manager.lives.ToString());
+        GUI.TextField(new Rect((Screen.width / 2) - 55, 370, 100, 25), "Treasure: " + TreasureHolder.ToString());
+        GUI.TextField(new Rect((Screen.width / 2) - 55, 400, 100, 25), "Secrets: " + STreasureHolder.ToString());
+        GUI.TextField(new Rect((Screen.width / 2) - 55, 430, 100, 25), "Levels: " + Levelholder.ToString());
 
 
         //if(GUI.Button (new Rect((Screen.width / 2) + 105, 100, 100, 25), "Save 1"))
@@ -88,31 +88,31 @@ public class SaveLoadScript : MonoBehaviour
         //    GameManager.manager.Save();
         //}
 
-		if(GUI.Button (new Rect((Screen.width / 2) - 105, 150, 100, 25), "Erase 1"))
+        if (GUI.Button(new Rect(0, Screen.height - 100, 110, 25), "Erase " + LoadSelected.ToString()))
 		{
-			GameManager.manager.save = 1;
+            GameManager.manager.save = LoadSelected;
             if (!GameManager.manager.webMode)
                 GameManager.manager.EraseFile();
             else
                 GameManager.manager.PlayerPrefsErase();
 		}
-		if(GUI.Button (new Rect((Screen.width / 2) - 105, 250, 100, 25), "Erase 2"))
-		{
-			GameManager.manager.save = 2;
-            if (!GameManager.manager.webMode)
-                GameManager.manager.EraseFile();
-            else
-                GameManager.manager.PlayerPrefsErase();
-		}
-		if(GUI.Button (new Rect((Screen.width / 2) - 105, 350, 100, 25), "Erase 3"))
-		{
-			GameManager.manager.save = 3;
-            if (!GameManager.manager.webMode)
-                GameManager.manager.EraseFile();
-            else
-                GameManager.manager.PlayerPrefsErase();
-		}
-		if(GUI.Button (new Rect((Screen.width / 2) - 105, 100, 100, 25), "Load 1"))
+        //if (GUI.Button(new Rect((Screen.width / 2) - 250, 250, 100, 25), "Erase 2"))
+        //{
+        //    GameManager.manager.save = 2;
+        //    if (!GameManager.manager.webMode)
+        //        GameManager.manager.EraseFile();
+        //    else
+        //        GameManager.manager.PlayerPrefsErase();
+        //}
+        //if (GUI.Button(new Rect((Screen.width / 2) - 250, 350, 100, 25), "Erase 3"))
+        //{
+        //    GameManager.manager.save = 3;
+        //    if (!GameManager.manager.webMode)
+        //        GameManager.manager.EraseFile();
+        //    else
+        //        GameManager.manager.PlayerPrefsErase();
+        //}
+		if(GUI.Button (new Rect(0, 100, 100, 25), "Load 1"))
 		{
             LoadSelected = 1;
             GameManager.manager.save = 1;
@@ -122,12 +122,13 @@ public class SaveLoadScript : MonoBehaviour
                 GameManager.manager.PlayerPrefsLoad();
 
 		}
-        if (GUI.Button(new Rect((Screen.width / 2) - 250, 100, 100, 25), "Play "+LoadSelected.ToString())) //When play is clicked.
+
+        if (GUI.Button(new Rect((Screen.width / 2) - 55, 200, 100, 25), "Play "+LoadSelected.ToString())) //When play is clicked.
         {
             Play = true;
             GameManager.manager.save = LoadSelected;
         }
-		if(GUI.Button (new Rect((Screen.width / 2) - 105, 200, 100, 25), "Load 2"))
+        if (GUI.Button(new Rect((Screen.width / 2) - 55, 100, 100, 25), "Load 2"))
 		{
             GameManager.manager.save = 2;
             if (!GameManager.manager.webMode)
@@ -136,7 +137,7 @@ public class SaveLoadScript : MonoBehaviour
                 GameManager.manager.PlayerPrefsLoad();
             LoadSelected = 2;
 		}
-		if(GUI.Button (new Rect((Screen.width / 2) - 105, 300, 100, 25), "Load 3"))
+        if (GUI.Button(new Rect((Screen.width) - 105, 100, 100, 25), "Load 3"))
 		{
             GameManager.manager.save = 3;
             if (!GameManager.manager.webMode)
@@ -146,14 +147,19 @@ public class SaveLoadScript : MonoBehaviour
             LoadSelected = 3;
 		}
 
+        //Back to Menu button
+        if (GUI.Button(new Rect(Screen.width - 105, Screen.height - 100, 100, 25), "Main Menu"))
+        {
+            Application.LoadLevel(0);
+        }
 
         //Start of TimeAttack/Hardmode buttons
         if (GameManager.manager.levelUnlocked[1] == false)
         {
-        GUI.Box(new Rect((Screen.width / 2) + 105, 100, 110, 80), "Play Modes");
+            GUI.Box(new Rect((Screen.width) - 105, 250, 100, 25), "Play Modes");
 
         // Hard Mode button
-        if (GUI.Button(new Rect((Screen.width / 2) + 105, 125, 110, 25), "Hard Mode "+ HardModeString.ToString()))
+            if (GUI.Button(new Rect((Screen.width) - 105, 280, 100, 25), "Hard Mode " + HardModeString.ToString()))
         {
             GameManager.manager.hardModeOn = !GameManager.manager.hardModeOn;
             if (!GameManager.manager.hardModeOn)
@@ -162,7 +168,7 @@ public class SaveLoadScript : MonoBehaviour
                 { HardModeString = "On"; }
         }
         // Time Attack Button
-        if (GUI.Button(new Rect((Screen.width / 2) + 105, 155, 110, 25), "Time Attack "+AttackTimeString.ToString()))
+            if (GUI.Button(new Rect((Screen.width) - 105, 310, 100, 25), "Time Attack " + AttackTimeString.ToString()))
         {
             GameManager.manager.timeAttackOn = !GameManager.manager.timeAttackOn;
             if (!GameManager.manager.timeAttackOn)

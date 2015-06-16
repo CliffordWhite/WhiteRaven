@@ -1133,6 +1133,10 @@ Prefab:
       propertyPath: _SFXsource
       value: 
       objectReference: {fileID: 1080183069}
+    - target: {fileID: 179280, guid: 43af35218c32fe74bb0799dc54c6eb3b, type: 2}
+      propertyPath: m_TagString
+      value: ExitDoor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 43af35218c32fe74bb0799dc54c6eb3b, type: 2}
   m_IsPrefabParent: 0

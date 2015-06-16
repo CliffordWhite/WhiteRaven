@@ -11,7 +11,11 @@ public class GameManager : MonoBehaviour
 	public static bool paused = false; 		// bool to tell other scripts the game is paused
 
 	public int lives, keys; 				// number of lives for hard, number of keys held
+    //cheats begin
     public bool flyMode;                    //IF the cheat Fly is on, will stay on.
+    public bool godMode;
+    public bool marcoPoloMode;
+    //cheats end
 	public float gameTime; 					// elapsed time for time attack
 	public bool hardModeOn, timeAttackOn; 	// flags for game modes
 	public bool[] treasureCollected;		// flags for collected treasures
@@ -24,6 +28,7 @@ public class GameManager : MonoBehaviour
 	public float SFXVolume;
 	public bool isFullscreen;
 	public float keyShowTime;
+
 
 	//acheive info
 	public bool[] achieveList;
@@ -49,7 +54,6 @@ public class GameManager : MonoBehaviour
 			Destroy(gameObject);
 		}
         webMode = false;
-
 	}
 
 
@@ -83,6 +87,8 @@ public class GameManager : MonoBehaviour
         info.LevelCompleted = levelCompleted;
         info.LevelUnlocked = levelUnlocked;
         info.FlyMode = flyMode;
+        info.GodMode = godMode;
+        info.MarcoPoloMode = marcoPoloMode;
 
 		bf.Serialize (file, info);
 		file.Close ();
@@ -134,8 +140,15 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetInt(SaveFile + " FlyMode", 1);
         else
             PlayerPrefs.SetInt(SaveFile + " FlyMode", 0);
-
-        PlayerPrefs.Save();
+        if (godMode)
+            PlayerPrefs.SetInt(SaveFile + " GodMode", 1);
+        else
+            PlayerPrefs.SetInt(SaveFile + " GodMode", 0);
+        if (marcoPoloMode)
+            PlayerPrefs.SetInt(SaveFile + " MarcoPoloMode", 1);
+        else
+            PlayerPrefs.SetInt(SaveFile + " MarcoPoloMode", 0);
+            PlayerPrefs.Save();
     }
 
 	// used to clear a save file
@@ -180,7 +193,9 @@ public class GameManager : MonoBehaviour
          info.LevelCompleted = ClearSaves3;
          info.LevelUnlocked = ClearSaves4;
          info.LevelUnlocked[0] = true;
-         info.FlyMode = flyMode;
+         info.FlyMode = false;
+         info.GodMode = false;
+         info.MarcoPoloMode = false;
         
 		bf.Serialize (file, info);
 		file.Close ();
@@ -203,6 +218,9 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.DeleteKey(SaveFile + " LevelUnlocked" + i);
         }
         PlayerPrefs.DeleteKey(SaveFile + " FlyMode");
+        PlayerPrefs.DeleteKey(SaveFile + " GodMode");
+        PlayerPrefs.DeleteKey(SaveFile + " MarcoPoloMode");
+
         PlayerPrefsLoad();
     }
 
@@ -238,6 +256,8 @@ public class GameManager : MonoBehaviour
             levelCompleted = info.LevelCompleted;
             levelUnlocked = info.LevelUnlocked;
             flyMode = info.FlyMode;
+            godMode = info.GodMode;
+            marcoPoloMode = info.MarcoPoloMode;
 
 		}
 	}
@@ -291,7 +311,14 @@ public class GameManager : MonoBehaviour
             flyMode = true;
         else
             flyMode = false;
-
+        if (PlayerPrefs.GetInt(SaveFile + " GodMode") == 1)
+            godMode = true;
+        else
+            godMode = false;
+        if (PlayerPrefs.GetInt(SaveFile + " MarcoPoloMode") == 1)
+            marcoPoloMode = true;
+        else
+            marcoPoloMode = false;
     }
 
 
@@ -459,6 +486,30 @@ class GameInfo
         set
         {
             flyMode = value;
+        }
+    }
+    bool godMode;
+    public bool GodMode
+    {
+        get
+        {
+            return godMode;
+        }
+        set
+        {
+            godMode = value;
+        }
+    }
+    bool marcoPoloMode;
+    public bool MarcoPoloMode
+    {
+        get
+        {
+            return marcoPoloMode;
+        }
+        set
+        {
+            marcoPoloMode = value;
         }
     }
     bool webMode;
