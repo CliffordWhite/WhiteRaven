@@ -2177,6 +2177,14 @@ Prefab:
       propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11422230, guid: 88c579e41192eec4eb870a1a38c7f910, type: 2}
+      propertyPath: hiddenIndex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11422230, guid: 88c579e41192eec4eb870a1a38c7f910, type: 2}
+      propertyPath: sfxManager
+      value: 
+      objectReference: {fileID: 1964072460}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 88c579e41192eec4eb870a1a38c7f910, type: 2}
   m_IsPrefabParent: 0
@@ -2576,6 +2584,10 @@ Prefab:
         type: 2}
     - target: {fileID: 21248892, guid: a3cd6fdfe2e04f1458707612c2a08753, type: 2}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 110298, guid: a3cd6fdfe2e04f1458707612c2a08753, type: 2}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

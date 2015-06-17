@@ -24,7 +24,7 @@ public class ExitDoor : MonoBehaviour
     			GameManager.manager.treasureCollected[Application.loadedLevel-6] = true;
 			
             if (GameManager.manager.secretGot){
-				GameManager.manager.secrettreasureCollected[Application.loadedLevel-6]=true;
+//				GameManager.manager.secrettreasureCollected[Application.loadedLevel-6]=true; // commented out to refactor secret array
 				//Check if achieved all treasure
 				int numGot = 0;
 				for (int i = 0; i < GameManager.manager.secrettreasureCollected.Length; i++) {
@@ -69,13 +69,13 @@ public class ExitDoor : MonoBehaviour
             }
             else if (Application.loadedLevel == 10)//level 5A
             {
-                GameManager.manager.levelUnlocked[8] = true;
+                GameManager.manager.levelUnlocked[6] = true;
                 GameManager.manager.levelUnlocked[7] = true;
             }
             else if (Application.loadedLevel == 11)//Level 5B
             {
                 GameManager.manager.levelUnlocked[7] = true;
-                GameManager.manager.levelUnlocked[6] = true;
+                GameManager.manager.levelUnlocked[8] = true;
             }
             else if (Application.loadedLevel == 12)//Level 6A
             {

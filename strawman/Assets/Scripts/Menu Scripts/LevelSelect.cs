@@ -125,7 +125,7 @@ public class LevelSelect : MonoBehaviour
         int Levelholder = 0;
         int TreasureHolder = 0;
         int STreasureHolder = 0;
-        for (int i = 0; i < 15; i++)
+        for (int i = 0; i < GameManager.manager.levelCompleted.Length; i++)
         {
             if (GameManager.manager.levelCompleted[i] == true)
             {
@@ -134,14 +134,14 @@ public class LevelSelect : MonoBehaviour
 
         }
 
-        for (int i = 0; i < 15; i++)
+        for (int i = 0; i < GameManager.manager.treasureCollected.Length; i++)
         {
             if (GameManager.manager.treasureCollected[i] == true)
             {
                 TreasureHolder++;
             }
         }
-        for (int i = 0; i < 15; i++)
+        for (int i = 0; i < GameManager.manager.secrettreasureCollected.Length; i++)
         {
             if (GameManager.manager.secrettreasureCollected[i] == true)
             {
@@ -150,7 +150,7 @@ public class LevelSelect : MonoBehaviour
         }
 
         GUI.Label(new Rect(50, 100, 200, 200), Levelholder.ToString() + "/15 Levels Completed");
-        GUI.Label(new Rect(50, 150, 200, 200), TreasureHolder.ToString() + "/12 Treasure Collected");
+        GUI.Label(new Rect(50, 150, 200, 200), TreasureHolder.ToString() + "/13 Treasure Collected");
         GUI.Label(new Rect(50, 200, 200, 200), STreasureHolder.ToString() + "/7 Secret Treasure Collected");
 
 

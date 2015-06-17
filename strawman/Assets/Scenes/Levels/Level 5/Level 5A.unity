@@ -1266,11 +1266,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 448204, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
       propertyPath: m_RootOrder
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 114462, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
-      propertyPath: m_Name
-      value: GameManager
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
@@ -3353,20 +3349,12 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 419306, guid: 88c579e41192eec4eb870a1a38c7f910, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 21204946, guid: 88c579e41192eec4eb870a1a38c7f910, type: 2}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 21204946, guid: 88c579e41192eec4eb870a1a38c7f910, type: 2}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 21204946, guid: 88c579e41192eec4eb870a1a38c7f910, type: 2}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
+    - target: {fileID: 11422230, guid: 88c579e41192eec4eb870a1a38c7f910, type: 2}
+      propertyPath: sfxManager
+      value: 
+      objectReference: {fileID: 1610591741}
     - target: {fileID: 21204946, guid: 88c579e41192eec4eb870a1a38c7f910, type: 2}
       propertyPath: m_Sprite
       value: 

@@ -57,11 +57,13 @@ MonoBehaviour:
   lives: 0
   keys: 0
   flyMode: 0
+  godMode: 0
+  marcoPoloMode: 0
   gameTime: 0
   hardModeOn: 0
   timeAttackOn: 0
-  treasureCollected: 000000000000000000000000000000
-  secrettreasureCollected: 000000000000000000000000000000
+  treasureCollected: 00000000000000000000000000000000
+  secrettreasureCollected: 00000000000000
   levelCompleted: 000000000000000000000000000000
   levelUnlocked: 010000000000000000000000000000
   save: 0
@@ -100,6 +102,7 @@ MonoBehaviour:
   level8b: {fileID: 21300038, guid: ef1246e490516d74caaf2b0c48fe0fe3, type: 3}
   level9a: {fileID: 21300002, guid: ef1246e490516d74caaf2b0c48fe0fe3, type: 3}
   level9b: {fileID: 21300004, guid: ef1246e490516d74caaf2b0c48fe0fe3, type: 3}
+  treasures: []
   lvl2: {fileID: 21300054, guid: ef1246e490516d74caaf2b0c48fe0fe3, type: 3}
   lvl4: {fileID: 21300014, guid: ef1246e490516d74caaf2b0c48fe0fe3, type: 3}
   lvl5: {fileID: 21300060, guid: ef1246e490516d74caaf2b0c48fe0fe3, type: 3}
@@ -107,6 +110,7 @@ MonoBehaviour:
   lvl7: {fileID: 21300064, guid: ef1246e490516d74caaf2b0c48fe0fe3, type: 3}
   lvl8: {fileID: 21300088, guid: ef1246e490516d74caaf2b0c48fe0fe3, type: 3}
   lvl9: {fileID: 21300104, guid: ef1246e490516d74caaf2b0c48fe0fe3, type: 3}
+  secrets: []
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

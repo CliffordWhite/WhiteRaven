@@ -109,14 +109,14 @@ public class PlayerCamera : MonoBehaviour
 			GUI.Label(new Rect((Screen.width - w) / 2 ,t,200,200), min.ToString("#0:") + sec.ToString("0#.0"), style);
 		}
 		// Show lives for a brief moment
-		if (GameManager.manager.hardModeOn && showTime > Time.timeSinceLevelLoad)
+		if (GameManager.manager.hardModeOn && (showTime > Time.timeSinceLevelLoad || GameManager.paused))
 		{
 			GUI.Label (new Rect(Screen.width - lifeIcon.width * 5, lifeIcon.height / 2, 200,200), GameManager.manager.lives.ToString("##") + "x", style);
 			GUI.DrawTexture(new Rect(Screen.width - lifeIcon.width * 2, lifeIcon.height / 2, lifeIcon.width, lifeIcon.height), lifeIcon);
 		}
 		//Show Keys for a brief moment
-		if (GameManager.manager.keyShowTime > 0.0f) {
-			GUI.Label (new Rect(KeyTexture.width, KeyTexture.height / 2, 64,64), "x" + GameManager.manager.keys.ToString("##"), style);
+		if (GameManager.manager.keyShowTime > 0.0f || GameManager.paused) {
+			GUI.Label (new Rect(KeyTexture.width, KeyTexture.height / 2, 64,64), "x" + GameManager.manager.keys.ToString("#0"), style);
 			GUI.DrawTexture(new Rect(0, KeyTexture.height / 2, KeyTexture.width, KeyTexture.height), KeyTexture);
 			GameManager.manager.keyShowTime -= Time.deltaTime;
 		}

@@ -10,7 +10,6 @@ GameObject:
   - 4: {fileID: 419306}
   - 212: {fileID: 21241774}
   - 65: {fileID: 6572746}
-  - 65: {fileID: 6506646}
   m_Layer: 8
   m_Name: Treasure - Optional
   m_TagString: Untagged
@@ -57,24 +56,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 143472}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.95284939, y: 1.35419929, z: 0}
+  m_LocalPosition: {x: -29, y: -3.5, z: .0199999996}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 411492}
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!65 &6506646
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 143472}
-  m_Material: {fileID: 13400000, guid: 941607d77af6cea4fa2d8a079a79ea38, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.95000005, y: .649999976, z: .200000003}
-  m_Center: {x: -.0199999996, y: -.150000006, z: 0}
 --- !u!65 &6513940
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -111,9 +98,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sfxManager: {fileID: 0}
-  pickupSfx: {fileID: 8300000, guid: e56d457c260fbd54bb212a6d780e817d, type: 3}
+  pickupSfx: {fileID: 8300000, guid: d5a6b406f1620394db6064a31948ad8f, type: 3}
   deathWall: {fileID: 0}
   musicSource: {fileID: 0}
+  hiddenIndex: 2
 --- !u!198 &19842756
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -1227,8 +1215,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4068d485651700a4784b5c73a686fc84, type: 3}
-  m_Color: {r: .378676474, g: .443965524, b: .757352948, a: 1}
+  m_Sprite: {fileID: 21300064, guid: ef1246e490516d74caaf2b0c48fe0fe3, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21241774
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -1253,8 +1241,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: faeb76e2d88a36d4380f6b80e1efb649, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 3f6f80ff3843b1e4691933b34a1cafa5, type: 3}
+  m_Color: {r: 0, g: 1, b: 0, a: 1}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

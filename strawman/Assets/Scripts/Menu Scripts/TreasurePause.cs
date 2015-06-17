@@ -55,13 +55,12 @@ public class TreasurePause : MonoBehaviour
 		secrets.Add(lvl8);
 		secrets.Add(lvl9);
 
-		for (int i = 0; i < GameManager.manager.treasureCollected.Length; i++)
+		for (int i = 0; i < treasures.Count; i++)
 		{
-			if (i >= treasures.Count) continue;
-			if (GameManager.manager.treasureCollected[i])
+			if (GameManager.manager.treasureCollected[i + 3])
 				treasures[i].GetComponent<Image>().sprite = GameManager.manager.GetComponent<TreasureList>().treasures[i];
 		}
-		for (int i = 0; i < GameManager.manager.secrettreasureCollected.Length; i++)
+		for (int i = 0; i < secrets.Count; i++)
 		{
 			if (i >= secrets.Count) continue;
 			if (GameManager.manager.secrettreasureCollected[i])

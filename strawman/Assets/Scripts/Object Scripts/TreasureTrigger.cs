@@ -7,7 +7,7 @@ public class TreasureTrigger : MonoBehaviour
 	public AudioClip pickupSfx;		// sound clip to play when treasure is collected
 	public GameObject deathWall;	// deathwall to activate
 	public GameObject musicSource;	// access music change script on pickup
-
+	public int hiddenIndex;			// used for populating the secret treasure array
     //Camera
      GameObject _Camera; // set this via inspector
      float shake = 0.0f;
@@ -29,7 +29,7 @@ public class TreasureTrigger : MonoBehaviour
 
 	void Start () 
 	{
-		if (gameObject.tag != "MainTreasure" && GameManager.manager.secrettreasureCollected[Application.loadedLevel-6]) 
+		if (gameObject.tag != "MainTreasure" && GameManager.manager.secrettreasureCollected[hiddenIndex]) 
 			gameObject.SetActive(false);
 		
 		collected = false;			// initialize bool to false
@@ -69,6 +69,8 @@ public class TreasureTrigger : MonoBehaviour
 			}
 			else {
 				GameManager.manager.secretGot = true;
+				GameManager.manager.secrettreasureCollected[hiddenIndex] = true;
+				sfxManager.PlayOneShot(pickupSfx, 1.0f);
 			}
 			Invoke ("DestroyAfterWait", 0.5f);
 		}
