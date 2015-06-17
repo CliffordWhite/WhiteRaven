@@ -449,6 +449,24 @@ MonoBehaviour:
           m_CallState: 2
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1279542158}
+          m_MethodName: MouseLeave
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 476335509}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine,
+              Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!114 &476335512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -552,6 +570,7 @@ RectTransform:
   - {fileID: 476335510}
   - {fileID: 252056330}
   - {fileID: 2052450718}
+  - {fileID: 1845855413}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_AnchorMin: {x: 0, y: 0}
@@ -575,6 +594,7 @@ MonoBehaviour:
   _SFXsource: {fileID: 203184694}
   _Musicsource: {fileID: 1438918709}
   _accept: {fileID: 8300000, guid: 9fe497804111beb42a4e8c06a7f6994e, type: 3}
+  _changeSelection: {fileID: 8300000, guid: a5e4df5fe17cd9647b877f28e1ca05de, type: 3}
 --- !u!114 &1279542160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -924,10 +944,10 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1845855409}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -351.5, y: -263.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1279542157}
   m_RootOrder: 5
 --- !u!1 &2052450717
 GameObject:

@@ -14,9 +14,8 @@ public class MainMenu : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		transition = false;
-		selected = 1;
-		_button [0].GetComponent<Image> ().color = Color.yellow;
-
+		//_button [0].GetComponent<Image> ().color = Color.yellow;
+		selected = 0;
 		_SFXsource.volume = GameManager.manager.SFXVolume * .1f;
 		_Musicsource.volume = GameManager.manager.MusicVolume * .1f;
 	}
@@ -25,7 +24,7 @@ public class MainMenu : MonoBehaviour {
 	void Update () {
 	
 		if (Input.anyKeyDown && !transition) {
-			if (Input.GetKeyDown(KeyCode.Return) || Input.GetMouseButtonDown(0)) {
+			if ((Input.GetKeyDown(KeyCode.Return) || Input.GetMouseButtonDown(0)) && selected != 0) {
 				transition = true;
 				_SFXsource.PlayOneShot(_accept, 1.0f);
 				float fadetime = GameManager.manager.GetComponent<Fade>().BeginFade(1);
@@ -40,7 +39,7 @@ public class MainMenu : MonoBehaviour {
 			if (Input.GetKeyDown (KeyCode.S) || Input.GetKeyDown (KeyCode.DownArrow)) {
 				_SFXsource.PlayOneShot(_changeSelection);
 				selected++;
-				if (selected > _button.Length)
+				if (selected > _button.Length || selected == 0)
 					selected = 1;
 			}
 			for (int i = 1; i <= _button.Length; i++) {
@@ -60,10 +59,18 @@ public class MainMenu : MonoBehaviour {
 			for (int i = 1; i <= _button.Length; i++) {
 				if (_obj == _button [i - 1]) {
 					selected = i;
+					break;
 				}
-				_button [i - 1].GetComponent<Image> ().color = Color.white;			
 			}
 			_obj.GetComponent<Image> ().color = Color.yellow;
+		}
+	}
+
+	public void MouseLeave(GameObject _obj)
+	{
+		if (!transition) {
+			_obj.GetComponent<Image>().color = Color.white;
+			selected = 0;
 		}
 	}
 
