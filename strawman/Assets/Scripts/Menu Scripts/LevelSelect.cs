@@ -88,12 +88,14 @@ public class LevelSelect : MonoBehaviour
         Level9 = GameObject.FindWithTag("Level 9");
 
         //Making sure they are not on.
-        Level2.GetComponent<ParticleSystem>().Stop();
-        Level4.GetComponent<ParticleSystem>().Stop();
-        Level5A.GetComponent<ParticleSystem>().Stop();
-        Level7A.GetComponent<ParticleSystem>().Stop();
-        Level9.GetComponent<ParticleSystem>().Stop();
-
+        if (!GameManager.manager.marcoPoloMode)
+        {
+            Level2.GetComponent<ParticleSystem>().Stop();
+            Level4.GetComponent<ParticleSystem>().Stop();
+            Level5A.GetComponent<ParticleSystem>().Stop();
+            Level7A.GetComponent<ParticleSystem>().Stop();
+            Level9.GetComponent<ParticleSystem>().Stop();
+        }
     }
 
     void OnMouseOver()
