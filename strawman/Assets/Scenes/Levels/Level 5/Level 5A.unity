@@ -2221,23 +2221,6 @@ Prefab:
       propertyPath: target
       value: 
       objectReference: {fileID: 1031033827}
-    - target: {fileID: 11420450, guid: 4e88bb3ae17a2da4e8a67c5e9847b8aa, type: 2}
-      propertyPath: moveDelay
-      value: .25
-      objectReference: {fileID: 0}
-    - target: {fileID: 11420450, guid: 4e88bb3ae17a2da4e8a67c5e9847b8aa, type: 2}
-      propertyPath: CameraStyle
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11420450, guid: 4e88bb3ae17a2da4e8a67c5e9847b8aa, type: 2}
-      propertyPath: style.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: 9dee2150d6fcc9048aea1d3fce9e3475,
-        type: 3}
-    - target: {fileID: 2050028, guid: 4e88bb3ae17a2da4e8a67c5e9847b8aa, type: 2}
-      propertyPath: m_ClearFlags
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4e88bb3ae17a2da4e8a67c5e9847b8aa, type: 2}
   m_IsPrefabParent: 0
@@ -2448,7 +2431,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 430590, guid: 43af35218c32fe74bb0799dc54c6eb3b, type: 2}
       propertyPath: m_RootOrder
-      value: 14
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 11422060, guid: 43af35218c32fe74bb0799dc54c6eb3b, type: 2}
       propertyPath: _SFXsource
