@@ -83,7 +83,7 @@ public class PauseMenu : MonoBehaviour
     // draw buttons for main pause menu
     void MainPauseMenu()
     {
-         if (CheatCodeString != "Hello Jones")
+        if (CheatCodeString != "Hello Jones")
         {
             CheatCodeString = "Hello Jones"; //reset string when you go back to main pause menu
         }
@@ -185,12 +185,18 @@ public class PauseMenu : MonoBehaviour
                 CheatCodeString = "God Mode On"; //To confrim
             else
                 CheatCodeString = "God Mode Off"; //To confrim
-
+        }
+        else if (CheatCodeString == "Unlock Levels")
+        {
+            for (int i = 0; i < 15; i++)
+            {
+                GameManager.manager.levelUnlocked[i] = true;
+            }
+            CheatCodeString = "Levels Unlocked";
         }
         if (GUILayout.Button("Back"))
             currentPage = Page.Main;
         EndPage();
-        
-    }
 
+    }
 }
