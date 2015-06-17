@@ -16,6 +16,7 @@ public class SpriteTile : MonoBehaviour {
 		SpriteRenderer t_childSprite = t_child.AddComponent<SpriteRenderer> ();
 		t_childSprite.transform.position = transform.position;
 		t_childSprite.sprite = sprite.sprite;
+		t_childSprite.sortingOrder = 1;
 
 		GameObject children;
 		for (float i = 0, height = sprite.bounds.size.y; i*t_size.y < height; i++) {

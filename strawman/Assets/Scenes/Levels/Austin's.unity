@@ -2784,6 +2784,60 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1424d4c1719128248bc89ee07046dfd5, type: 2}
   m_IsPrefabParent: 0
+--- !u!1001 &1046167898
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 415592, guid: 610a74eb9f5357446a97a24e0451aa4b, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 138.996826
+      objectReference: {fileID: 0}
+    - target: {fileID: 415592, guid: 610a74eb9f5357446a97a24e0451aa4b, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -33.1549149
+      objectReference: {fileID: 0}
+    - target: {fileID: 415592, guid: 610a74eb9f5357446a97a24e0451aa4b, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 415592, guid: 610a74eb9f5357446a97a24e0451aa4b, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 415592, guid: 610a74eb9f5357446a97a24e0451aa4b, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 415592, guid: 610a74eb9f5357446a97a24e0451aa4b, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 415592, guid: 610a74eb9f5357446a97a24e0451aa4b, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 415592, guid: 610a74eb9f5357446a97a24e0451aa4b, type: 2}
+      propertyPath: m_RootOrder
+      value: 74
+      objectReference: {fileID: 0}
+    - target: {fileID: 11452978, guid: 610a74eb9f5357446a97a24e0451aa4b, type: 2}
+      propertyPath: SandDeathWalls.Array.data[0]
+      value: 
+      objectReference: {fileID: 2097915049}
+    - target: {fileID: 11452978, guid: 610a74eb9f5357446a97a24e0451aa4b, type: 2}
+      propertyPath: SandDeathWalls.Array.data[1]
+      value: 
+      objectReference: {fileID: 1404550426}
+    - target: {fileID: 11452978, guid: 610a74eb9f5357446a97a24e0451aa4b, type: 2}
+      propertyPath: SandDeathWalls.Array.data[2]
+      value: 
+      objectReference: {fileID: 884248205}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 610a74eb9f5357446a97a24e0451aa4b, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &1088021579
 Prefab:
   m_ObjectHideFlags: 0
@@ -4744,53 +4798,10 @@ Prefab:
 GameObject:
   m_PrefabParentObject: {fileID: 119500, guid: 4e88bb3ae17a2da4e8a67c5e9847b8aa, type: 2}
   m_PrefabInternal: {fileID: 1497286707}
---- !u!1 &1547133660
+--- !u!1 &1547133660 stripped
 GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1547133662}
-  - 114: {fileID: 1547133661}
-  m_Layer: 0
-  m_Name: SandMain
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &1547133661
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1547133660}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7adfc5bbfa27e4741b67bb1d53221991, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SandDeathWalls:
-  - {fileID: 2097915049}
-  - {fileID: 1404550426}
-  - {fileID: 884248205}
-  ActivationDelays:
-  - 0
-  - 2
-  - 4
---- !u!4 &1547133662
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1547133660}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 138.996826, y: -33.1549149, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 74
+  m_PrefabParentObject: {fileID: 107938, guid: 610a74eb9f5357446a97a24e0451aa4b, type: 2}
+  m_PrefabInternal: {fileID: 1046167898}
 --- !u!1001 &1585338031
 Prefab:
   m_ObjectHideFlags: 0
