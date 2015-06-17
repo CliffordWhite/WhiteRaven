@@ -16,16 +16,18 @@ public class PauseMenu : MonoBehaviour
     string CheatCodeString = "Hello Jones";
     bool FlyModeOn;
     GameObject Player;
+    GameObject ExitDoor;
     void Start()
     {
         Time.timeScale = 1;	// normal play speed
         FlyModeOn = GameManager.manager.flyMode;
         Player = GameObject.FindWithTag("Player");
+        ExitDoor = GameObject.FindWithTag("ExitDoor");
     }
 
     void LateUpdate()
     {
-        if (Input.GetKeyDown("escape"))
+        if (Input.GetKeyDown("escape") && !ExitDoor.GetComponent<ExitDoor>().IsExiting)
         {
             switch (currentPage)
             {
@@ -162,10 +164,9 @@ public class PauseMenu : MonoBehaviour
     {
         BeginPage(200, 200);
         CheatCodeString = GUILayout.TextField(CheatCodeString, 25);
-        if (CheatCodeString == "Fly") // What you want them to type in.
+        if (CheatCodeString == "FlyMode") // What you want them to type in.
         {
             FlyModeOn = !FlyModeOn;
-            Player.GetComponent<PlayerController>().FlyModeOn = FlyModeOn; // Calling a fuction to set fly more on everywhere else;
             if (FlyModeOn)
                 CheatCodeString = "Fly Mode On"; //To confrim
             else
@@ -174,13 +175,22 @@ public class PauseMenu : MonoBehaviour
         }
         else if (CheatCodeString == "AddLives") //What you want them to type in.
         {
-            Player.GetComponent<PlayerController>().AddLives = 30; // Addeding 30 lives to the player.
+            GameManager.manager.lives += 30;
             CheatCodeString = "Added 30 Lives"; // To confrim
+        }
+        else if (CheatCodeString == "GodMode")
+        {
+            GameManager.manager.godMode = !GameManager.manager.godMode;
+            if (GameManager.manager.godMode)
+                CheatCodeString = "God Mode On"; //To confrim
+            else
+                CheatCodeString = "God Mode Off"; //To confrim
+
         }
         if (GUILayout.Button("Back"))
             currentPage = Page.Main;
         EndPage();
-
+        
     }
 
 }

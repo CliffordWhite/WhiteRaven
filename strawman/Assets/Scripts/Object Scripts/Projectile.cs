@@ -64,7 +64,7 @@ public class Projectile : MonoBehaviour
 	
 	void Kill()
 	{
-		Instantiate(explode, transform.position, transform.rotation);
-		Destroy (gameObject);
+            Instantiate(explode, transform.position, transform.rotation);
+            Destroy(gameObject);
 	}
 }
