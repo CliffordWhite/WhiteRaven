@@ -200,6 +200,16 @@ public class LevelSelect : MonoBehaviour
                 CheatCodeString = "Marco Polo Off"; //To confrim
             ShowHiddenTreasure();
         }
+        else if (CheatCodeString == "Unlock Levels")
+        {
+            for (int i = 0; i < 15; i++)
+            {
+                GameManager.manager.levelUnlocked[i] = true;
+            }
+            CheatCodeString = "Levels Unlocked";
+            Application.LoadLevel(1);
+        }
+
         if (GUILayout.Button("Back"))
         {
             ShowCheats = false;
