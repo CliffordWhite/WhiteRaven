@@ -1,0 +1,726 @@
+fileFormatVersion: 2
+guid: d2f34355fb204514e93060cd06a5112e
+timeCreated: 1434653028
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: newsprites_mad_jones_armor2_0
+    21300002: newsprites_mad_jones_armor2_1
+    21300004: newsprites_mad_jones_armor2_2
+    21300006: newsprites_mad_jones_armor2_3
+    21300008: newsprites_mad_jones_armor2_4
+    21300010: newsprites_mad_jones_armor2_5
+    21300012: newsprites_mad_jones_armor2_6
+    21300014: newsprites_mad_jones_armor2_7
+    21300016: newsprites_mad_jones_armor2_8
+    21300018: newsprites_mad_jones_armor2_9
+    21300020: newsprites_mad_jones_armor2_10
+    21300022: newsprites_mad_jones_armor2_11
+    21300024: newsprites_mad_jones_armor2_12
+    21300026: newsprites_mad_jones_armor2_13
+    21300028: newsprites_mad_jones_armor2_14
+    21300030: newsprites_mad_jones_armor2_15
+    21300032: newsprites_mad_jones_armor2_16
+    21300034: newsprites_mad_jones_armor2_17
+    21300036: newsprites_mad_jones_armor2_18
+    21300038: newsprites_mad_jones_armor2_19
+    21300040: newsprites_mad_jones_armor2_20
+    21300042: newsprites_mad_jones_armor2_21
+    21300044: newsprites_mad_jones_armor2_22
+    21300046: newsprites_mad_jones_armor2_23
+    21300048: newsprites_mad_jones_armor2_24
+    21300050: newsprites_mad_jones_armor2_25
+    21300052: newsprites_mad_jones_armor2_26
+    21300054: newsprites_mad_jones_armor2_27
+    21300056: newsprites_mad_jones_armor2_28
+    21300058: newsprites_mad_jones_armor2_29
+    21300060: newsprites_mad_jones_armor2_30
+    21300062: newsprites_mad_jones_armor2_31
+    21300064: newsprites_mad_jones_armor2_32
+    21300066: newsprites_mad_jones_armor2_33
+    21300068: newsprites_mad_jones_armor2_35
+    21300070: newsprites_mad_jones_armor2_36
+    21300072: newsprites_mad_jones_armor2_37
+    21300074: newsprites_mad_jones_armor2_38
+    21300076: newsprites_mad_jones_armor2_39
+    21300078: newsprites_mad_jones_armor2_40
+    21300080: newsprites_mad_jones_armor2_41
+    21300082: newsprites_mad_jones_armor2_42
+    21300084: newsprites_mad_jones_armor2_43
+    21300086: newsprites_mad_jones_armor2_44
+    21300088: newsprites_mad_jones_armor2_45
+    21300090: newsprites_mad_jones_armor2_46
+    21300092: newsprites_mad_jones_armor2_47
+    21300094: newsprites_mad_jones_armor2_48
+    21300096: newsprites_mad_jones_armor2_49
+    21300098: newsprites_mad_jones_armor2_50
+    21300100: newsprites_mad_jones_armor2_51
+    21300102: newsprites_mad_jones_armor2_52
+    21300104: newsprites_mad_jones_armor2_53
+    21300106: newsprites_mad_jones_armor2_54
+    21300108: newsprites_mad_jones_armor2_55
+    21300110: newsprites_mad_jones_armor2_56
+    21300112: newsprites_mad_jones_armor2_57
+    21300114: newsprites_mad_jones_armor2_58
+    21300116: newsprites_mad_jones_armor2_59
+    21300118: newsprites_mad_jones_armor2_60
+    21300120: newsprites_mad_jones_armor2_61
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 25
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: newsprites_mad_jones_armor2_0
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 1020
+        width: 24
+        height: 46
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: newsprites_mad_jones_armor2_1
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 1020
+        width: 29
+        height: 46
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: newsprites_mad_jones_armor2_2
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 1017
+        width: 23
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: newsprites_mad_jones_armor2_3
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 1014
+        width: 22
+        height: 48
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: newsprites_mad_jones_armor2_4
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 1022
+        width: 26
+        height: 46
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: newsprites_mad_jones_armor2_5
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 1016
+        width: 20
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: newsprites_mad_jones_armor2_6
+      rect:
+        serializedVersion: 2
+        x: 497
+        y: 1017
+        width: 25
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: newsprites_mad_jones_armor2_7
+      rect:
+        serializedVersion: 2
+        x: 573
+        y: 1013
+        width: 20
+        height: 45
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: newsprites_mad_jones_armor2_8
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 1012
+        width: 24
+        height: 44
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: newsprites_mad_jones_armor2_9
+      rect:
+        serializedVersion: 2
+        x: 725
+        y: 1029
+        width: 22
+        height: 20
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: newsprites_mad_jones_armor2_10
+      rect:
+        serializedVersion: 2
+        x: 811
+        y: 988
+        width: 6
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: newsprites_mad_jones_armor2_11
+      rect:
+        serializedVersion: 2
+        x: 1025
+        y: 1037
+        width: 19
+        height: 28
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: newsprites_mad_jones_armor2_12
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 932
+        width: 35
+        height: 46
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: newsprites_mad_jones_armor2_13
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 924
+        width: 52
+        height: 59
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: newsprites_mad_jones_armor2_14
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 925
+        width: 38
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: newsprites_mad_jones_armor2_15
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 926
+        width: 24
+        height: 46
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: newsprites_mad_jones_armor2_16
+      rect:
+        serializedVersion: 2
+        x: 553
+        y: 926
+        width: 32
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: newsprites_mad_jones_armor2_17
+      rect:
+        serializedVersion: 2
+        x: 674
+        y: 943
+        width: 5
+        height: 49
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: newsprites_mad_jones_armor2_18
+      rect:
+        serializedVersion: 2
+        x: 796
+        y: 925
+        width: 23
+        height: 62
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: newsprites_mad_jones_armor2_19
+      rect:
+        serializedVersion: 2
+        x: 882
+        y: 927
+        width: 64
+        height: 95
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: newsprites_mad_jones_armor2_20
+      rect:
+        serializedVersion: 2
+        x: 1025
+        y: 969
+        width: 19
+        height: 30
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: newsprites_mad_jones_armor2_21
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 957
+        width: 50
+        height: 6
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: newsprites_mad_jones_armor2_22
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 958
+        width: 56
+        height: 5
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: newsprites_mad_jones_armor2_23
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 926
+        width: 29
+        height: 28
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: newsprites_mad_jones_armor2_24
+      rect:
+        serializedVersion: 2
+        x: 656
+        y: 877
+        width: 27
+        height: 65
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: newsprites_mad_jones_armor2_25
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 835
+        width: 49
+        height: 59
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: newsprites_mad_jones_armor2_26
+      rect:
+        serializedVersion: 2
+        x: 1027
+        y: 891
+        width: 18
+        height: 30
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: newsprites_mad_jones_armor2_27
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 829
+        width: 27
+        height: 46
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: newsprites_mad_jones_armor2_28
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 789
+        width: 27
+        height: 94
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: newsprites_mad_jones_armor2_29
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 838
+        width: 35
+        height: 46
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: newsprites_mad_jones_armor2_30
+      rect:
+        serializedVersion: 2
+        x: 475
+        y: 833
+        width: 34
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: newsprites_mad_jones_armor2_31
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 865
+        width: 50
+        height: 6
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: newsprites_mad_jones_armor2_32
+      rect:
+        serializedVersion: 2
+        x: 818
+        y: 828
+        width: 5
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: newsprites_mad_jones_armor2_33
+      rect:
+        serializedVersion: 2
+        x: 882
+        y: 774
+        width: 59
+        height: 95
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: newsprites_mad_jones_armor2_35
+      rect:
+        serializedVersion: 2
+        x: 614
+        y: 770
+        width: 32
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: newsprites_mad_jones_armor2_36
+      rect:
+        serializedVersion: 2
+        x: 729
+        y: 813
+        width: 6
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: newsprites_mad_jones_armor2_37
+      rect:
+        serializedVersion: 2
+        x: 807
+        y: 765
+        width: 19
+        height: 62
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: newsprites_mad_jones_armor2_38
+      rect:
+        serializedVersion: 2
+        x: 973
+        y: 762
+        width: 63
+        height: 58
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: newsprites_mad_jones_armor2_39
+      rect:
+        serializedVersion: 2
+        x: 584
+        y: 770
+        width: 30
+        height: 28
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: newsprites_mad_jones_armor2_40
+      rect:
+        serializedVersion: 2
+        x: 711
+        y: 747
+        width: 29
+        height: 65
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: newsprites_mad_jones_armor2_41
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 756
+        width: 4
+        height: 11
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: newsprites_mad_jones_armor2_42
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 670
+        width: 29
+        height: 46
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: newsprites_mad_jones_armor2_43
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 673
+        width: 23
+        height: 62
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: newsprites_mad_jones_armor2_44
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 669
+        width: 31
+        height: 49
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: newsprites_mad_jones_armor2_45
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 672
+        width: 35
+        height: 46
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: newsprites_mad_jones_armor2_46
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 674
+        width: 31
+        height: 46
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: newsprites_mad_jones_armor2_47
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 674
+        width: 23
+        height: 46
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: newsprites_mad_jones_armor2_48
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 665
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: newsprites_mad_jones_armor2_49
+      rect:
+        serializedVersion: 2
+        x: 718
+        y: 670
+        width: 43
+        height: 23
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: newsprites_mad_jones_armor2_50
+      rect:
+        serializedVersion: 2
+        x: 820
+        y: 665
+        width: 65
+        height: 10
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: newsprites_mad_jones_armor2_51
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 499
+        width: 29
+        height: 46
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: newsprites_mad_jones_armor2_52
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 500
+        width: 30
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: newsprites_mad_jones_armor2_53
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 502
+        width: 33
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: newsprites_mad_jones_armor2_54
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 510
+        width: 29
+        height: 35
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: newsprites_mad_jones_armor2_55
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 500
+        width: 27
+        height: 40
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: newsprites_mad_jones_armor2_56
+      rect:
+        serializedVersion: 2
+        x: 604
+        y: 506
+        width: 36
+        height: 34
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: newsprites_mad_jones_armor2_57
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 365
+        width: 48
+        height: 45
+      alignment: 3
+      pivot: {x: 1, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: newsprites_mad_jones_armor2_58
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 350
+        width: 32
+        height: 61
+      alignment: 3
+      pivot: {x: 1, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: newsprites_mad_jones_armor2_59
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 342
+        width: 18
+        height: 71
+      alignment: 2
+      pivot: {x: .5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: newsprites_mad_jones_armor2_60
+      rect:
+        serializedVersion: 2
+        x: 413
+        y: 348
+        width: 26
+        height: 62
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: newsprites_mad_jones_armor2_61
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 371
+        width: 55
+        height: 45
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

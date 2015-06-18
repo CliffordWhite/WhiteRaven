@@ -19,6 +19,8 @@ public class Ladder : MonoBehaviour {
 			playerObject.GetComponent<Rigidbody> ().velocity = new Vector3 (0, 0, 0);
             if(!playerObject.GetComponent<PlayerController>().FlyModeOn)
 			    playerObject.GetComponent<Rigidbody> ().useGravity = true;
+            playerObject.GetComponent<PlayerController>().OnLadder = false;
+
 		}
 	}
 
@@ -40,6 +42,9 @@ public class Ladder : MonoBehaviour {
 			}
 			else if(!Input.GetKey (KeyCode.A)&&!Input.GetKey (KeyCode.D)/*&&!Input.GetKey (KeyCode.W)*/)
 				playerObject.GetComponent<Rigidbody>().velocity = new Vector3 (0, 0, 0);
+
+            playerObject.GetComponent<PlayerController>().anim.Play("Climb");
+            playerObject.GetComponent<PlayerController>().OnLadder = true;
 		}
 	}
 

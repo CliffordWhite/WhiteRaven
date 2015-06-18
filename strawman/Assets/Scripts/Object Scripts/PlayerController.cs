@@ -5,10 +5,10 @@ using System.Collections;
 public class PlayerController : MonoBehaviour
 {
     public float Speed = 0.15f;
-    bool FacingRight = true;
+    public bool FacingRight = true;
     float MoveDir = 0.0f;
     float FlyDir = 0.0f;
-
+    public bool OnLadder = false;
 
     private Vector3 mousePos;
     //Whip
@@ -106,7 +106,7 @@ public class PlayerController : MonoBehaviour
         //  if (SpriteSwitch == null)
         //     SpriteSwitch = GameObject.FindWithTag("Sprite");
         //Line drawing settings
-        line = gameObject.AddComponent<LineRenderer>();
+        line = GetComponentInChildren<LineRenderer>();
         line.SetWidth(startWidth, endWidth);
         line.SetVertexCount(2);
         line.material.color = Color.black;
@@ -119,8 +119,9 @@ public class PlayerController : MonoBehaviour
         MoveDir = 0.0f;
         FlyDir = 0.0f;
         //animation
-        // anim = GetComponent<Animator>();
+        anim = GetComponent<Animator>();
         anim.Play("idle");
+        OnLadder = false;
     }
 
     void Update()
@@ -152,7 +153,7 @@ public class PlayerController : MonoBehaviour
             Vector3 whipDirection = mousePos - transform.position;
             whipDirection.Normalize();
             Ray WhipThrown = new Ray(transform.position, whipDirection);
-            Debug.DrawRay(transform.position, mousePos * distancecheck);
+            //Debug.DrawRay(transform.position, mousePos * distancecheck);
 
             if (Physics.Raycast(WhipThrown, out Connected, distancecheck, RayMask))
             {
@@ -206,13 +207,13 @@ public class PlayerController : MonoBehaviour
 
         if (MoveDir == 0 && (Physics.Raycast(RayLeftOrigin.transform.position, new Vector3(0, -1.0f, 0), RayMaxDist, RayMask)
                     || Physics.Raycast(RayRightOrigin.transform.position, new Vector3(0, -1.0f, 0), RayMaxDist, RayMask)
-                    && MyRigidbody.velocity.y < 0.1f))
+                    && MyRigidbody.velocity.y < 0.1f) && !OnLadder)
         {
             anim.Play("idle");
         }
         if (!(Physics.Raycast(RayLeftOrigin.transform.position, new Vector3(0, -1.0f, 0), RayMaxDist, RayMask)
                     || Physics.Raycast(RayRightOrigin.transform.position, new Vector3(0, -1.0f, 0), RayMaxDist, RayMask)
-                    && MyRigidbody.velocity.y < 0.1f) && !isGrappled)
+                    && MyRigidbody.velocity.y < 0.1f) && !isGrappled && !OnLadder)
             anim.Play("JumpAndFall");
         if (line.enabled)
         {
@@ -256,7 +257,7 @@ public class PlayerController : MonoBehaviour
             if ((Physics.Raycast(RayLeftOrigin.transform.position, new Vector3(0, -1.0f, 0), RayMaxDist, RayMask)
                 || Physics.Raycast(RayRightOrigin.transform.position, new Vector3(0, -1.0f, 0), RayMaxDist, RayMask)
                 && MyRigidbody.velocity.y < 0.1f))
-                anim.Play("Run");
+                 anim.Play("Run");
         }
         else if (isGrappled)
         {
@@ -314,6 +315,8 @@ public class PlayerController : MonoBehaviour
         Vector3 TheScale = transform.localScale;
         TheScale.x *= -1;
         transform.localScale = TheScale;
+        GetComponentInChildren<LineRenderer>().transform.localScale = TheScale;
+        
     }
 
     void OnTriggerEnter(Collider other)
@@ -337,38 +340,21 @@ public class PlayerController : MonoBehaviour
 
     void KillPlayer()
     {
-		if (invincibleFrames <= 0.0f && !GameManager.manager.isExiting) {
-			if ((other.tag == "Fatal" || other.tag == "HM Fatal") && !HasArmor)
-				KillPlayer ();
-			else if ((other.tag == "Fatal" || other.tag == "HM Fatal") && HasArmor) 
-				HitWithArmor ();
-			else if (other.tag == "ArmorUp") {
-				Armor = other.gameObject;
-				Armor.SetActive (false);
-				FXSource.PlayOneShot (ArmorPickUpSound, 1.0f);         
-				SpriteSwitch.GetComponent<SpriteRenderer> ().sprite = ArmorSprite;
-				HasArmor = true;
-			}
-		}
-    }
-	
-	void KillPlayer()
-	{
-        if(!GameManager.manager.godMode)
-		{
-        Physics.gravity = gravityBase;
-		FXSource.PlayOneShot(DeathSound, 1.0f);
-		float fadetime = GameManager.manager.GetComponent<Fade>().BeginFade(1);
-        if (GameManager.manager.hardModeOn)
+        if (!GameManager.manager.godMode)
         {
             Physics.gravity = gravityBase;
             FXSource.PlayOneShot(DeathSound, 1.0f);
             float fadetime = GameManager.manager.GetComponent<Fade>().BeginFade(1);
             if (GameManager.manager.hardModeOn)
             {
-                GameManager.manager.lives--;		// lose life if hard mode
+                Physics.gravity = gravityBase;
+                FXSource.PlayOneShot(DeathSound, 1.0f);
+                if (GameManager.manager.hardModeOn)
+                {
+                    GameManager.manager.lives--;		// lose life if hard mode
+                }
+                Invoke("RestartLevel", fadetime);
             }
-            Invoke("RestartLevel", fadetime);
         }
     }
 
@@ -441,8 +427,9 @@ public class PlayerController : MonoBehaviour
         //and enables the line to be drawn
         line.enabled = true;
         Vector3 ZFix = transform.position;
-        ZFix.z = 0.5f;
-        line.SetPosition(0, ZFix);
+        ZFix.z = 10f;
+           
+                line.SetPosition(0, ZFix);
         Vector3 endPos = Vector3.zero;
         if (isGrappled)
         {
@@ -462,8 +449,8 @@ public class PlayerController : MonoBehaviour
             endPos.z = ZFix.z;
             line.SetPosition(1, endPos);
         }
-        Debug.Log(endPos);
-        Debug.Log(ZFix);
+        Debug.Log(line.transform.localScale.x);
+        Debug.Log(transform.localScale.x);
         Debug.Log(transform.position);
 
     }

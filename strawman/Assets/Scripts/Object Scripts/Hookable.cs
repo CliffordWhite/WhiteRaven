@@ -20,7 +20,8 @@ public class Hookable : MonoBehaviour {
         if (Input.GetMouseButtonUp(0))
         {
             GetComponent<HingeJoint>().connectedBody = null;
-            player.GetComponent<Rigidbody>().freezeRotation = true;
+            if(player != null)
+                player.GetComponent<Rigidbody>().freezeRotation = true;
         }
 	}
 
