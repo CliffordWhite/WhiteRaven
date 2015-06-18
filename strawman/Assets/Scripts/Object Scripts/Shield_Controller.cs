@@ -5,7 +5,6 @@ public class Shield_Controller : MonoBehaviour {
 
 	GameObject shield = null;
 	Vector3 mousePos = Vector3.zero;
-	
 	void Start ()
 	{
 		shield = transform.FindChild ("Shield").gameObject;
@@ -23,9 +22,10 @@ public class Shield_Controller : MonoBehaviour {
 	{
 		if (shield.activeSelf)
 		{
-			mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-			mousePos.z = transform.parent.transform.position.z;
-			transform.LookAt(mousePos);
-		}
+                mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                mousePos.z = transform.parent.transform.position.z;
+                transform.LookAt(mousePos);
+        }
+
 	}
 }
