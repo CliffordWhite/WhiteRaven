@@ -19,12 +19,8 @@ public class Options : MonoBehaviour {
 		transition = false;
 		selected = 0;
 		//position selectors to volumes currently selected
-		MusicSelector.GetComponent<RectTransform>().position = new Vector3(MusicSelector.GetComponent<RectTransform>().position.x +(10*(GameManager.manager.MusicVolume-5)),
-		                                                                   MusicSelector.GetComponent<RectTransform>().position.y,
-		                                                                   MusicSelector.GetComponent<RectTransform>().position.z);
-		SFXSelector.GetComponent<RectTransform>().position = new Vector3(SFXSelector.GetComponent<RectTransform>().position.x +(10*(GameManager.manager.SFXVolume-5)),
-		                                                                   SFXSelector.GetComponent<RectTransform>().position.y,
-		                                                                   SFXSelector.GetComponent<RectTransform>().position.z);
+		MusicSelector.GetComponent<Slider> ().value = GameManager.manager.MusicVolume * 0.1f;
+		SFXSelector.GetComponent<Slider> ().value = GameManager.manager.SFXVolume * 0.1f;
 	
 		_SFXsource.volume = GameManager.manager.SFXVolume * 0.1f;
 		_Musicsource.volume = GameManager.manager.MusicVolume * 0.1f;
@@ -95,6 +91,16 @@ public class Options : MonoBehaviour {
 			_obj.GetComponent<Image>().color = Color.white;
 			selected = 0;
 		}
+	}
+
+	public void ChangeMusicVolume(){
+		GameManager.manager.MusicVolume = MusicSelector.GetComponent<Slider> ().value * 10.0f;
+		_Musicsource.volume = MusicSelector.GetComponent<Slider> ().value;
+	}	
+	public void ChangeSFXVolume(){
+		_SFXsource.PlayOneShot (_changeSelection, 1.0f);
+		GameManager.manager.SFXVolume = SFXSelector.GetComponent<Slider> ().value * 10.0f;
+		_SFXsource.volume = SFXSelector.GetComponent<Slider> ().value;
 	}
 
 	void PauseLoad()

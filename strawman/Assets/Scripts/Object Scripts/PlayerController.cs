@@ -265,7 +265,7 @@ public class PlayerController : MonoBehaviour {
 	
     void OnTriggerEnter(Collider other)
     {
-		if (invincibleFrames <= 0.0f) {
+		if (invincibleFrames <= 0.0f && !GameManager.manager.isExiting) {
 			if ((other.tag == "Fatal" || other.tag == "HM Fatal") && !HasArmor)
 				KillPlayer ();
 			else if ((other.tag == "Fatal" || other.tag == "HM Fatal") && HasArmor) 

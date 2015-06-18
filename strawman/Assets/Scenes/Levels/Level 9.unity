@@ -1436,6 +1436,52 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 437218, guid: 720f5ff955ad36c4f999bb34d61aebc6, type: 2}
   m_PrefabInternal: {fileID: 1611877911}
+--- !u!1001 &428104837
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2117405686}
+    m_Modifications:
+    - target: {fileID: 440990, guid: 1424d4c1719128248bc89ee07046dfd5, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 11.1999998
+      objectReference: {fileID: 0}
+    - target: {fileID: 440990, guid: 1424d4c1719128248bc89ee07046dfd5, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -4.19999981
+      objectReference: {fileID: 0}
+    - target: {fileID: 440990, guid: 1424d4c1719128248bc89ee07046dfd5, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -.00999999978
+      objectReference: {fileID: 0}
+    - target: {fileID: 440990, guid: 1424d4c1719128248bc89ee07046dfd5, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 440990, guid: 1424d4c1719128248bc89ee07046dfd5, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 440990, guid: 1424d4c1719128248bc89ee07046dfd5, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 440990, guid: 1424d4c1719128248bc89ee07046dfd5, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 440990, guid: 1424d4c1719128248bc89ee07046dfd5, type: 2}
+      propertyPath: m_RootOrder
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 196258, guid: 1424d4c1719128248bc89ee07046dfd5, type: 2}
+      propertyPath: m_Name
+      value: MineRail 11
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 1424d4c1719128248bc89ee07046dfd5, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &437707840
 Prefab:
   m_ObjectHideFlags: 0
@@ -5129,6 +5175,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 11469578, guid: 52ef098b71d96404b9cb0478766e2acc, type: 2}
+      propertyPath: SFXSource
+      value: 
+      objectReference: {fileID: 2127844121}
+    - target: {fileID: 11469578, guid: 52ef098b71d96404b9cb0478766e2acc, type: 2}
+      propertyPath: sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 0f45979d3ec7a0a4aa60d2e8657d753f, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 52ef098b71d96404b9cb0478766e2acc, type: 2}
   m_IsPrefabParent: 0
@@ -5867,6 +5921,14 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 11435458, guid: 5868bd8d7a1ed994d97262e4985ac1b7, type: 2}
+      propertyPath: SFXSource
+      value: 
+      objectReference: {fileID: 2127844121}
+    - target: {fileID: 11435458, guid: 5868bd8d7a1ed994d97262e4985ac1b7, type: 2}
+      propertyPath: sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 47d9ddd0d84231e4f933632299175210, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5868bd8d7a1ed994d97262e4985ac1b7, type: 2}
   m_IsPrefabParent: 0
@@ -6381,6 +6443,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11422060, guid: 43af35218c32fe74bb0799dc54c6eb3b, type: 2}
+      propertyPath: _SFXsource
+      value: 
+      objectReference: {fileID: 2127844121}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 43af35218c32fe74bb0799dc54c6eb3b, type: 2}
   m_IsPrefabParent: 0
@@ -7210,7 +7276,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 485846, guid: 7ee9316a0972db545953d0eda858c446, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11482098, guid: 7ee9316a0972db545953d0eda858c446, type: 2}
       propertyPath: BreathBar
@@ -7991,6 +8057,10 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 452508, guid: cdd52bf3470f5b9409ebeb2725ae5049, type: 2}
   m_PrefabInternal: {fileID: 1614637818}
+--- !u!4 &2037409457 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 440990, guid: 1424d4c1719128248bc89ee07046dfd5, type: 2}
+  m_PrefabInternal: {fileID: 428104837}
 --- !u!1001 &2038417788
 Prefab:
   m_ObjectHideFlags: 0
@@ -8319,6 +8389,7 @@ Transform:
   - {fileID: 2014891930}
   - {fileID: 2029726434}
   - {fileID: 2061182760}
+  - {fileID: 2037409457}
   m_Father: {fileID: 1755653897}
   m_RootOrder: 2
 --- !u!1001 &2117439465

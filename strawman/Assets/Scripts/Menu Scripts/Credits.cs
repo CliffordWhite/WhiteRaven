@@ -74,6 +74,11 @@ public class Credits : MonoBehaviour {
 	void PauseLoad()
 	{
 		//loads main and allows pause for SFX
-		Application.LoadLevel (0);
+		if (GameManager.manager.endGameTransition) {
+			GameManager.manager.endGameTransition = false;
+			Application.LoadLevel(1);
+		}
+		else
+			Application.LoadLevel (0);
 	}
 }

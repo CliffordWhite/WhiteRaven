@@ -11,7 +11,11 @@ public class Achievements : MonoBehaviour {
 	public AudioClip _accept;
 	public GameObject[] achieves;
 	public AudioClip _changeSelection;
+	public GameObject BeatText;
+	public GameObject BeatHardText;
+	public GameObject AllTreasureText;
 	bool transition;
+	int levelBeat, treasureCol, hardLevelBeat;
 	// Use this for initialization
 	void Start () {
 		transition = false;
@@ -23,6 +27,33 @@ public class Achievements : MonoBehaviour {
 			if (GameManager.manager.achieveList[i])
 				achieves[i].SetActive(true);
 		}
+
+		levelBeat = 0;
+		for (int c = 0; c < GameManager.manager.levelCompleted.Length; c++) {
+			if (GameManager.manager.levelCompleted[c]) 
+				levelBeat++;
+		}
+
+		hardLevelBeat = 0;
+		if (GameManager.manager.hardModeOn) {
+			for (int c = 0; c < GameManager.manager.levelCompleted.Length; c++) {
+				if (GameManager.manager.levelCompleted [c]) 
+					hardLevelBeat++;
+			}
+		}
+
+		treasureCol = 0;
+		for (int t = 0; t < GameManager.manager.treasureCollected.Length; t++) {
+			if (GameManager.manager.treasureCollected[t])
+				treasureCol++;
+		}
+		for (int st = 0; st < GameManager.manager.secrettreasureCollected.Length; st++) {
+			if (GameManager.manager.secrettreasureCollected[st])
+				treasureCol++;
+		}
+		BeatText.GetComponent<Text>().text = "Beat All Levels \n\t("+levelBeat+"/15)";
+		BeatHardText.GetComponent<Text>().text = "Beat All Levels (Hard) \n\t("+hardLevelBeat+"/15)";
+		AllTreasureText.GetComponent<Text>().text = "Collect All Treasures \n\t("+treasureCol+"/20)";
 	}
 	
 	// Update is called once per frame
