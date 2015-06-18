@@ -5,9 +5,11 @@ public class Shield_Controller : MonoBehaviour {
 
 	GameObject shield = null;
 	Vector3 mousePos = Vector3.zero;
+    GameObject player;
 	void Start ()
 	{
 		shield = transform.FindChild ("Shield").gameObject;
+        player = GameObject.FindWithTag("Player");
 	}
 	
 	void Update ()

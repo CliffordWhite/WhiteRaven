@@ -119,7 +119,7 @@ public class PlayerController : MonoBehaviour
         MoveDir = 0.0f;
         FlyDir = 0.0f;
         //animation
-        anim = GetComponent<Animator>();
+        anim = GetComponentInChildren<Animator>();
         anim.Play("idle");
         OnLadder = false;
     }
@@ -312,10 +312,10 @@ public class PlayerController : MonoBehaviour
         //}
         //transform.localRotation = newRotation;
         FacingRight = !FacingRight;
-        Vector3 TheScale = transform.localScale;
+        Vector3 TheScale = anim.transform.localScale;
         TheScale.x *= -1;
-        transform.localScale = TheScale;
-        GetComponentInChildren<LineRenderer>().transform.localScale = TheScale;
+        anim.transform.localScale = TheScale;
+        //GetComponentInChildren<LineRenderer>().transform.localScale = TheScale;
         
     }
 
