@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: d2f34355fb204514e93060cd06a5112e
-timeCreated: 1434653028
+timeCreated: 1434668248
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -353,10 +353,10 @@ TextureImporter:
     - name: newsprites_mad_jones_armor2_24
       rect:
         serializedVersion: 2
-        x: 656
-        y: 877
-        width: 27
-        height: 65
+        x: 672
+        y: 923
+        width: 7
+        height: 20
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
