@@ -42,21 +42,21 @@ public class SaveLoadScript : MonoBehaviour
         int Levelholder = 0;
         int TreasureHolder = 0;
         int STreasureHolder = 0;
-        for (int i = 0; i < 15; i++)
+        for (int i = 0; i < GameManager.manager.levelCompleted.Length; i++)
         {
             if (GameManager.manager.levelCompleted[i] == true)
             {
                 Levelholder++;
             }
         }
-        for (int i = 0; i < 15; i++)
+        for (int i = 0; i < GameManager.manager.treasureCollected.Length; i++)
         {
             if (GameManager.manager.treasureCollected[i] == true)
             {
                 TreasureHolder++;
             }
         }
-        for (int i = 0; i < 15; i++)
+        for (int i = 0; i < GameManager.manager.secrettreasureCollected.Length; i++)
         {
             if (GameManager.manager.secrettreasureCollected[i] == true)
             {
