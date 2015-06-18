@@ -11,6 +11,7 @@ public class Credits : MonoBehaviour {
 	public AudioClip _accept;
 	public AudioClip _changeSelection;
 	bool transition;
+	public GameObject creditText;
 	// Use this for initialization
 	void Start () {
 		transition = false;
@@ -22,7 +23,7 @@ public class Credits : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		creditText.transform.localPosition = Vector3.MoveTowards (creditText.transform.localPosition, new Vector3 (-245, 480, 0), 1.0f);
 		if (Input.anyKeyDown) {
 			//if back is pressed return to main
 			if ((Input.GetKeyDown(KeyCode.Return) || Input.GetMouseButtonDown(0)) && selected != 0) {
@@ -74,6 +75,11 @@ public class Credits : MonoBehaviour {
 	void PauseLoad()
 	{
 		//loads main and allows pause for SFX
-		Application.LoadLevel (0);
+		if (GameManager.manager.endGameTransition) {
+			GameManager.manager.endGameTransition = false;
+			Application.LoadLevel(1);
+		}
+		else
+			Application.LoadLevel (0);
 	}
 }

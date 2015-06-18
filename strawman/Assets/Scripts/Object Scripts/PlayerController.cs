@@ -337,7 +337,29 @@ public class PlayerController : MonoBehaviour
 
     void KillPlayer()
     {
-        if (!GameManager.manager.godMode)
+		if (invincibleFrames <= 0.0f && !GameManager.manager.isExiting) {
+			if ((other.tag == "Fatal" || other.tag == "HM Fatal") && !HasArmor)
+				KillPlayer ();
+			else if ((other.tag == "Fatal" || other.tag == "HM Fatal") && HasArmor) 
+				HitWithArmor ();
+			else if (other.tag == "ArmorUp") {
+				Armor = other.gameObject;
+				Armor.SetActive (false);
+				FXSource.PlayOneShot (ArmorPickUpSound, 1.0f);         
+				SpriteSwitch.GetComponent<SpriteRenderer> ().sprite = ArmorSprite;
+				HasArmor = true;
+			}
+		}
+    }
+	
+	void KillPlayer()
+	{
+        if(!GameManager.manager.godMode)
+		{
+        Physics.gravity = gravityBase;
+		FXSource.PlayOneShot(DeathSound, 1.0f);
+		float fadetime = GameManager.manager.GetComponent<Fade>().BeginFade(1);
+        if (GameManager.manager.hardModeOn)
         {
             Physics.gravity = gravityBase;
             FXSource.PlayOneShot(DeathSound, 1.0f);

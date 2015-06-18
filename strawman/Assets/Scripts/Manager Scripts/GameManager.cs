@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour
 	public float SFXVolume;
 	public bool isFullscreen;
 	public float keyShowTime;
+	public bool endGameTransition;
+	public bool isExiting;
 
 
 	//acheive info

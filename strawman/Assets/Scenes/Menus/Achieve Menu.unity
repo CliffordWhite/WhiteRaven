@@ -141,7 +141,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 3
+    m_Alignment: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
@@ -470,7 +470,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 3
+    m_Alignment: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
@@ -702,7 +702,7 @@ RectTransform:
   m_RootOrder: 4
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -256, y: -128}
+  m_AnchoredPosition: {x: 32, y: 128}
   m_SizeDelta: {x: 32, y: 32}
   m_Pivot: {x: .5, y: .5}
 --- !u!1 &827373917
@@ -738,7 +738,7 @@ RectTransform:
   m_RootOrder: 6
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 0, y: 64}
+  m_AnchoredPosition: {x: 32, y: 0}
   m_SizeDelta: {x: 32, y: 32}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &827373919
@@ -1222,6 +1222,70 @@ Prefab:
       propertyPath: achieveList.Array.data[4]
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11477824, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
+      propertyPath: treasureCollected.Array.data[15]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11477824, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
+      propertyPath: treasureCollected.Array.data[14]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11477824, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
+      propertyPath: treasureCollected.Array.data[13]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11477824, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
+      propertyPath: treasureCollected.Array.data[12]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11477824, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
+      propertyPath: treasureCollected.Array.data[11]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11477824, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
+      propertyPath: treasureCollected.Array.data[10]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11477824, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
+      propertyPath: treasureCollected.Array.data[9]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11477824, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
+      propertyPath: secrettreasureCollected.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11477824, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
+      propertyPath: secrettreasureCollected.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11477824, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
+      propertyPath: secrettreasureCollected.Array.data[2]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11477824, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
+      propertyPath: secrettreasureCollected.Array.data[6]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11477824, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
+      propertyPath: secrettreasureCollected.Array.data[4]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11477824, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
+      propertyPath: levelCompleted.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11477824, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
+      propertyPath: levelCompleted.Array.data[3]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11477824, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
+      propertyPath: levelCompleted.Array.data[6]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11477824, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
+      propertyPath: hardModeOn
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
   m_IsPrefabParent: 0
@@ -1367,6 +1431,9 @@ MonoBehaviour:
   - {fileID: 1758419206}
   - {fileID: 0}
   _changeSelection: {fileID: 0}
+  BeatText: {fileID: 1716755058}
+  BeatHardText: {fileID: 41032033}
+  AllTreasureText: {fileID: 499008996}
 --- !u!224 &1352975308
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1666,7 +1733,7 @@ RectTransform:
   m_RootOrder: 5
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 0, y: 128}
+  m_AnchoredPosition: {x: 32, y: 64}
   m_SizeDelta: {x: 32, y: 32}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1690125797
@@ -1750,7 +1817,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 3
+    m_Alignment: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
@@ -1997,8 +2064,8 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 0, y: -224}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: -228, y: -120}
+  m_SizeDelta: {x: 80, y: 25}
   m_Pivot: {x: .5, y: .5}
 --- !u!1 &1833561494
 GameObject:

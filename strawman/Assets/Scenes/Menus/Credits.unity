@@ -87,6 +87,72 @@ NavMeshSettings:
     cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &165834622
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 165834625}
+  - 222: {fileID: 165834624}
+  - 114: {fileID: 165834623}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &165834623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 165834622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: .196078435, g: .196078435, b: .196078435, a: 1}
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 9dee2150d6fcc9048aea1d3fce9e3475, type: 3}
+    m_FontSize: 64
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: CREDITS
+--- !u!222 &165834624
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 165834622}
+--- !u!224 &165834625
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 165834622}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2052450718}
+  m_RootOrder: 0
+  m_AnchorMin: {x: .5, y: .5}
+  m_AnchorMax: {x: .5, y: .5}
+  m_AnchoredPosition: {x: 0, y: 100}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: .5, y: .5}
 --- !u!1 &203184693
 GameObject:
   m_ObjectHideFlags: 0
@@ -269,7 +335,7 @@ RectTransform:
   m_RootOrder: 3
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 192, y: 64}
+  m_AnchoredPosition: {x: 228, y: 64}
   m_SizeDelta: {x: 192, y: 256}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &252056331
@@ -416,8 +482,8 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 0, y: -224}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 250, y: -235}
+  m_SizeDelta: {x: 80, y: 25}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &476335511
 MonoBehaviour:
@@ -595,6 +661,7 @@ MonoBehaviour:
   _Musicsource: {fileID: 1438918709}
   _accept: {fileID: 8300000, guid: 9fe497804111beb42a4e8c06a7f6994e, type: 3}
   _changeSelection: {fileID: 8300000, guid: a5e4df5fe17cd9647b877f28e1ca05de, type: 3}
+  creditText: {fileID: 2052450717}
 --- !u!114 &1279542160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -975,12 +1042,13 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 165834625}
   m_Father: {fileID: 1279542157}
   m_RootOrder: 4
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -224, y: 192}
+  m_AnchoredPosition: {x: -245, y: -350}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &2052450719
@@ -1008,8 +1076,13 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "EP - John Oleske\nAP - Sean Hathaway\n\nDevelopers \n\t-Nicholas Lee\n\t-Joshua
-    Stankiewicz\n\t-Clifford White\n\t-Austin Ware\n\nGame Logo  - Gregory Bey"
+  m_Text: "Executive Producer - John Oleske\nAst. Producer - Sean Hathaway\n\nGame
+    Design\n\t-Nicholas Lee\n\t-Joshua Stnkiewicz\n\t-Clifford White\n\nGame Development
+    \n\t-Nicholas Lee\n\t-Joshua Stankiewicz\n\t-Clifford White\n\t-Austin Ware\n\nGame
+    Logo  - Gregory Bey\nPlayer Sprites - Gregory Bey\nEnemy Sprites - Gregory Bey\nMain
+    Menu Image - Gregory Bey\n\nMad Jones was developed as a Full Sail\nUniversity
+    Class Project. All Copyrighted \nAssets are used for non-profit to adhere\n to
+    fair use policies."
 --- !u!222 &2052450720
 CanvasRenderer:
   m_ObjectHideFlags: 0

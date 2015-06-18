@@ -10,7 +10,7 @@ public class ExitDoor : MonoBehaviour
 	void Start(){
 		GameManager.manager.secretGot = false;
 		GameManager.manager.DoorUnlocked = false;
-        IsExiting = false;
+        GameManager.manager.isExiting = false;
 	}
 
 	void OnTriggerEnter(Collider other)
@@ -18,7 +18,7 @@ public class ExitDoor : MonoBehaviour
 		// Load the next level when player runs into door
 		if (other.tag == "Player" && (GameManager.manager.DoorUnlocked || Application.loadedLevel < 9))
 		{
-            IsExiting = true;
+			GameManager.manager.isExiting = true;
             GameManager.manager.levelCompleted[Application.loadedLevel - 6] = true;
             if(Application.loadedLevel > 8)
     			GameManager.manager.treasureCollected[Application.loadedLevel-6] = true;
@@ -137,11 +137,13 @@ public class ExitDoor : MonoBehaviour
 		// if current level is 4 or more, load back to Level Select
 		// load to level select instead once created
         if (Application.loadedLevel >= 9 && Application.loadedLevel != 20)
-            LoadNewLevel(1);
+			LoadNewLevel (1);
             //Application.LoadLevel(1);
         // if level 1-3, load the next level
-        else if (Application.loadedLevel == 20)
-            LoadNewLevel(5);
+        else if (Application.loadedLevel == 20) {
+			GameManager.manager.endGameTransition = true;
+			LoadNewLevel (5);
+		}
             //Application.LoadLevel(5);
         else
             LoadNewLevel(Application.loadedLevel + 1);

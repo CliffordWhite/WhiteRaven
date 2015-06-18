@@ -105,5 +105,6 @@ public class MineCartController : MonoBehaviour {
 	void LeaveCart()
 	{
 		GetComponent<BoxCollider>().enabled = false;
+		Enabled = false;
 	}
 }
