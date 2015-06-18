@@ -1575,6 +1575,14 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11487512, guid: a64004016163ee14ba9321bebcf93139, type: 2}
+      propertyPath: IsBox
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11487512, guid: a64004016163ee14ba9321bebcf93139, type: 2}
+      propertyPath: BoxFill
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2345706, guid: a64004016163ee14ba9321bebcf93139, type: 2}
     - {fileID: 3341264, guid: a64004016163ee14ba9321bebcf93139, type: 2}

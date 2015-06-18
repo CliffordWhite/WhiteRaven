@@ -3147,6 +3147,10 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11487512, guid: a64004016163ee14ba9321bebcf93139, type: 2}
+      propertyPath: IsBox
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a64004016163ee14ba9321bebcf93139, type: 2}
   m_IsPrefabParent: 0
