@@ -4,12 +4,15 @@ using System.Collections;
 public class ShamanController : MonoBehaviour
 {
 
-    bool FacingRight = true;//Which way he is facing.
+//    bool FacingRight = true;//Which way he is facing.
     //Audio
     public AudioSource FXSource;
     public AudioClip EvilLaugh;
     //Sprite flipping
-    GameObject Image = null;
+//    GameObject Image = null;
+
+	// animations
+	public Animator animate;
     //Player Detection
     RaycastHit Connected;
     Vector3 PlayerDirection;
@@ -37,7 +40,10 @@ public class ShamanController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        Image = transform.FindChild("ShamanSprite").gameObject;
+//        Image = transform.FindChild("ShamanSprite").gameObject;
+		if (animate == null)
+			animate = gameObject.GetComponent<Animator>();
+		animate.Play("Idle");
         Player = GameObject.FindWithTag("Player");
         Awake = false;
         Moving = false;
@@ -65,6 +71,7 @@ public class ShamanController : MonoBehaviour
                 {
                     Awake = true;
                     FXSource.PlayOneShot(EvilLaugh, 1.0f);
+					animate.Play("Awake");
                 }
             }
         }
@@ -74,10 +81,10 @@ public class ShamanController : MonoBehaviour
         }
         else
         {
-            if (PlayerDirection.x > 0 && !FacingRight)
-                Flip();
-            else if (PlayerDirection.x < 0 && FacingRight)
-                Flip();
+            if (PlayerDirection.x > 0 /*&& !FacingRight*/)
+				animate.Play("MoveRight");
+            else if (PlayerDirection.x < 0 /*&& FacingRight*/)
+				animate.Play("MoveLeft");
             Chase();//chase the player down.
         }
     }
@@ -168,18 +175,18 @@ public class ShamanController : MonoBehaviour
             }
     }
 
-    void Flip()
-    {
-        Quaternion newRotation = Quaternion.identity;
-        if (FacingRight)
-        {
-            newRotation.y = 180.0f;
-            FacingRight = !FacingRight;
-        }
-        else
-        {
-            FacingRight = !FacingRight;
-        }
-        Image.transform.localRotation = newRotation;
-    }
+//    void Flip()
+//    {
+//        Quaternion newRotation = Quaternion.identity;
+//        if (FacingRight)
+//        {
+//            newRotation.y = 180.0f;
+//            FacingRight = !FacingRight;
+//        }
+//        else
+//        {
+//            FacingRight = !FacingRight;
+//        }
+//        Image.transform.localRotation = newRotation;
+//    }
 }

@@ -1,0 +1,209 @@
+fileFormatVersion: 2
+guid: 46ea24feee607484ab11213e3978b934
+timeCreated: 1434592819
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: 1505_WhiteRaven_shaman_0
+    21300002: 1505_WhiteRaven_shaman_1
+    21300004: 1505_WhiteRaven_shaman_2
+    21300006: 1505_WhiteRaven_shaman_3
+    21300008: 1505_WhiteRaven_shaman_4
+    21300010: 1505_WhiteRaven_shaman_5
+    21300012: 1505_WhiteRaven_shaman_6
+    21300014: 1505_WhiteRaven_shaman_7
+    21300016: 1505_WhiteRaven_shaman_8
+    21300018: 1505_WhiteRaven_shaman_9
+    21300020: 1505_WhiteRaven_shaman_10
+    21300022: 1505_WhiteRaven_shaman_11
+    21300024: 1505_WhiteRaven_shaman_12
+    21300026: 1505_WhiteRaven_shaman_13
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: 1505_WhiteRaven_shaman_0
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 433
+        width: 93
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1505_WhiteRaven_shaman_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 427
+        width: 93
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1505_WhiteRaven_shaman_2
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 427
+        width: 93
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1505_WhiteRaven_shaman_3
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 427
+        width: 105
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1505_WhiteRaven_shaman_4
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 427
+        width: 105
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1505_WhiteRaven_shaman_5
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 256
+        width: 84
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1505_WhiteRaven_shaman_6
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 262
+        width: 84
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1505_WhiteRaven_shaman_7
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 256
+        width: 84
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1505_WhiteRaven_shaman_8
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 256
+        width: 84
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1505_WhiteRaven_shaman_9
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 262
+        width: 84
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1505_WhiteRaven_shaman_10
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 256
+        width: 84
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1505_WhiteRaven_shaman_11
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 88
+        width: 93
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1505_WhiteRaven_shaman_12
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 88
+        width: 93
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1505_WhiteRaven_shaman_13
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 88
+        width: 93
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
