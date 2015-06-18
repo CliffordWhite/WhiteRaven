@@ -9,8 +9,10 @@ public class Lever : MonoBehaviour {
 	bool movingUp,movingDown;
 	public float speed;
 	Lever[] m_Levers;
+	public int hastriggered;
 	// Use this for initialization
 	void Start () {
+		hastriggered = 0;
 		m_Levers = GetComponents<Lever> ();
 		movingUp = false;
 		movingDown = false;
@@ -42,6 +44,7 @@ public class Lever : MonoBehaviour {
 
     public void HasMoved()
     {   
+		hastriggered++;
 		foreach (Lever t_lever in m_Levers) {
 			if (t_lever.LeverObject.transform.position == t_lever.OldPosition || t_lever.movingDown) {
 				t_lever.movingUp = true;
