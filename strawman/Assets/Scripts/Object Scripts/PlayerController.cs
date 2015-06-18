@@ -353,8 +353,8 @@ public class PlayerController : MonoBehaviour
                 {
                     GameManager.manager.lives--;		// lose life if hard mode
                 }
-                Invoke("RestartLevel", fadetime);
             }
+                Invoke("RestartLevel", fadetime);
         }
     }
 
@@ -428,8 +428,7 @@ public class PlayerController : MonoBehaviour
         line.enabled = true;
         Vector3 ZFix = transform.position;
         ZFix.z = 10f;
-           
-                line.SetPosition(0, ZFix);
+        line.SetPosition(0, ZFix);
         Vector3 endPos = Vector3.zero;
         if (isGrappled)
         {
@@ -449,9 +448,6 @@ public class PlayerController : MonoBehaviour
             endPos.z = ZFix.z;
             line.SetPosition(1, endPos);
         }
-        Debug.Log(line.transform.localScale.x);
-        Debug.Log(transform.localScale.x);
-        Debug.Log(transform.position);
 
     }
 
