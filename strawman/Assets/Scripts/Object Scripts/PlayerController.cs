@@ -52,6 +52,7 @@ public class PlayerController : MonoBehaviour
     LineRenderer line;
 
     Rigidbody MyRigidbody = new Rigidbody();
+    GameObject PlayerHead;
     GameObject RayLeftOrigin = null; // for jumping.
     GameObject RayRightOrigin = null;
     float RayMaxDist = 0.94f;
@@ -122,6 +123,7 @@ public class PlayerController : MonoBehaviour
         anim = GetComponentInChildren<Animator>();
         anim.Play("idle");
         OnLadder = false;
+        PlayerHead = GameObject.FindWithTag("PlayerHead");
     }
 
     void Update()
