@@ -68,11 +68,13 @@ MonoBehaviour:
   levelUnlocked: 010000000000000000000000000000
   save: 0
   saveName: 
-  MusicVolume: 0
+  MusicVolume: 5
   SFXVolume: 5
   isFullscreen: 0
   keyShowTime: 0
-  achieveList: 0000000000000000
+  endGameTransition: 0
+  isExiting: 0
+  achieveList: 00000000000000
   DoorUnlocked: 0
   secretGot: 0
   webMode: 0

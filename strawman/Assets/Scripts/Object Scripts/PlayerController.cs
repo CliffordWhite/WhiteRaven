@@ -427,7 +427,7 @@ public class PlayerController : MonoBehaviour
         //and enables the line to be drawn
         line.enabled = true;
         Vector3 ZFix = transform.position;
-        ZFix.z = 10f;
+        ZFix.z = 0.0f;
         line.SetPosition(0, ZFix);
         Vector3 endPos = Vector3.zero;
         if (isGrappled)

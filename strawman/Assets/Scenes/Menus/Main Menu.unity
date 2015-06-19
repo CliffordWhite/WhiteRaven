@@ -94,22 +94,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 11477824, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
-      propertyPath: achieveList.Array.size
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 11477824, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
-      propertyPath: levelUnlocked.Array.size
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 11477824, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
-      propertyPath: levelCompleted.Array.size
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 11477824, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
-      propertyPath: treasureCollected.Array.size
-      value: 15
-      objectReference: {fileID: 0}
     - target: {fileID: 448204, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -140,74 +124,6 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 448204, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
       propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11477824, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
-      propertyPath: levelCompleted.Array.data[0]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11477824, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
-      propertyPath: levelCompleted.Array.data[1]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11477824, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
-      propertyPath: levelCompleted.Array.data[2]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11477824, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
-      propertyPath: levelCompleted.Array.data[3]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11477824, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
-      propertyPath: levelCompleted.Array.data[4]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11477824, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
-      propertyPath: levelCompleted.Array.data[5]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11477824, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
-      propertyPath: levelCompleted.Array.data[6]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11477824, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
-      propertyPath: levelCompleted.Array.data[7]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11477824, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
-      propertyPath: levelUnlocked.Array.data[0]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11477824, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
-      propertyPath: levelUnlocked.Array.data[1]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11477824, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
-      propertyPath: levelUnlocked.Array.data[2]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11477824, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
-      propertyPath: levelUnlocked.Array.data[3]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11477824, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
-      propertyPath: levelUnlocked.Array.data[4]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11477824, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
-      propertyPath: levelUnlocked.Array.data[5]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11477824, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
-      propertyPath: MusicVolume
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 11477824, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
-      propertyPath: SFXVolume
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 11477824, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
-      propertyPath: achieveList.Array.data[0]
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
