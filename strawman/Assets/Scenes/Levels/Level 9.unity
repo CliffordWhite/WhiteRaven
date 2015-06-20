@@ -4547,6 +4547,10 @@ Prefab:
       propertyPath: FXSource
       value: 
       objectReference: {fileID: 2127844121}
+    - target: {fileID: 178818, guid: c67981a68ad5ea848b19f8c2b58dd53a, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c67981a68ad5ea848b19f8c2b58dd53a, type: 2}
   m_IsPrefabParent: 0
@@ -6008,6 +6012,14 @@ Prefab:
       propertyPath: sound
       value: 
       objectReference: {fileID: 8300000, guid: 47d9ddd0d84231e4f933632299175210, type: 3}
+    - target: {fileID: 158244, guid: 5868bd8d7a1ed994d97262e4985ac1b7, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 158244, guid: 5868bd8d7a1ed994d97262e4985ac1b7, type: 2}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5868bd8d7a1ed994d97262e4985ac1b7, type: 2}
   m_IsPrefabParent: 0
