@@ -117,12 +117,22 @@ public class PauseMenu : MonoBehaviour
     void ShowOptions()
     {
         BeginPage(200, 200);
+		///////////////////////////////////////////////
+		// FOUND BUG 15 
+		// using setResolution
+		///////////////////////////////////////////////
+		
         if (GUILayout.Button("Toggle Fullscreen"))
         {
-            Screen.fullScreen = !Screen.fullScreen;
+            //Screen.fullScreen = !Screen.fullScreen;
             GameManager.manager.isFullscreen = !GameManager.manager.isFullscreen;
+			Screen.SetResolution(Screen.width, Screen.height, GameManager.manager.isFullscreen);
         }
-        if (GUILayout.Button("Music Volume"))
+		///////////////////////////////////////////////
+        // END FOUND BUG 15
+		///////////////////////////////////////////////
+		
+		if (GUILayout.Button("Music Volume"))
             currentPage = Page.Music;
         if (GUILayout.Button("SFX Volume"))
             currentPage = Page.SFX;

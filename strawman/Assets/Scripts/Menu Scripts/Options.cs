@@ -39,12 +39,23 @@ public class Options : MonoBehaviour {
 					float fadetime = GameManager.manager.GetComponent<Fade>().BeginFade(1);
 					Invoke("PauseLoad",fadetime);
 				}
+				///////////////////////////////////////////////
+				// FOUND BUG 15
+				// using set resolution to maintain fullscreen 
+				// in the same resolution as selected on boot
+				///////////////////////////////////////////////
+				
 				else if (selected == 3) {
 					_SFXsource.PlayOneShot(_changeSelection,1.0f);
 					GameManager.manager.isFullscreen = !GameManager.manager.isFullscreen;
 					fullscreenCheck.SetActive(GameManager.manager.isFullscreen);
-					Screen.fullScreen = GameManager.manager.isFullscreen;
+					//Screen.fullScreen = GameManager.manager.isFullscreen;
+					Screen.SetResolution(Screen.width, Screen.height, GameManager.manager.isFullscreen);
 				}
+				///////////////////////////////////////////////
+				// END FOUND BUG 15
+				///////////////////////////////////////////////
+				
 			}
 
 			if (Input.GetKeyDown (KeyCode.W) || Input.GetKeyDown (KeyCode.UpArrow)) {
