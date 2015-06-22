@@ -111,6 +111,16 @@ public class ExitDoor : MonoBehaviour
                 GameManager.manager.levelUnlocked[14] = true;
             }
 			else if (Application.loadedLevel == 20) {
+				///////////////////////////////////////////////
+				/// KNOWN BUG 5
+				/// manually setting final treasure to collected
+				/// since this statement can only be reached if 
+				/// it was collected
+				///////////////////////////////////////////////
+				GameManager.manager.treasureCollected[15] = true;
+				///////////////////////////////////////////////
+				/// END KNOWN BUG 5
+				///////////////////////////////////////////////
 				GameManager.manager.achieveList[0] = true;
 				if (GameManager.manager.hardModeOn)
 					GameManager.manager.achieveList[2] = true;
