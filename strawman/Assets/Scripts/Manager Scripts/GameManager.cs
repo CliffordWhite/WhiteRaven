@@ -115,28 +115,33 @@ public class GameManager : MonoBehaviour
         else
             PlayerPrefs.SetInt(SaveFile + " TimeAttackOn", 0);
 
-        for (int i = 0; i < 15; i++)
+        for (int i = 0; i < treasureCollected.Length; i++)
         {
             if(treasureCollected[i] == true)
                 PlayerPrefs.SetInt(SaveFile + " TreasureCollected" + i, 1);
             else
                 PlayerPrefs.SetInt(SaveFile + " TreasureCollected" + i, 0);
-
-            if (secrettreasureCollected[i] == true)
+		}
+		for (int i = 0; i < secrettreasureCollected.Length; i++)
+		{
+			if (secrettreasureCollected[i] == true)
                 PlayerPrefs.SetInt(SaveFile + " SecretTreasureCollected" + i, 1);
             else
                 PlayerPrefs.SetInt(SaveFile + " SecretTreasureCollected" + i, 0);
-
-            if (levelCompleted[i] == true)
-                PlayerPrefs.SetInt(SaveFile + " LevelCompleted" + i, 1);
-            else
-                PlayerPrefs.SetInt(SaveFile + " LevelCompleted" + i, 0);
-
-            if (levelUnlocked[i] == true)
-                PlayerPrefs.SetInt(SaveFile + " LevelUnlocked" + i, 1);
-            else
-                PlayerPrefs.SetInt(SaveFile + " LevelUnlocked" + i, 0);
-
+		}
+		for (int i = 0; i < levelCompleted.Length; i++)
+		{
+			if (levelCompleted[i] == true)
+               PlayerPrefs.SetInt(SaveFile + " LevelCompleted" + i, 1);
+           else
+               PlayerPrefs.SetInt(SaveFile + " LevelCompleted" + i, 0);
+		}
+		for (int i = 0; i < levelUnlocked.Length; i++)
+		{
+			if (levelUnlocked[i] == true)
+               PlayerPrefs.SetInt(SaveFile + " LevelUnlocked" + i, 1);
+           else
+               PlayerPrefs.SetInt(SaveFile + " LevelUnlocked" + i, 0);
         }
         if (flyMode)
             PlayerPrefs.SetInt(SaveFile + " FlyMode", 1);
@@ -173,31 +178,45 @@ public class GameManager : MonoBehaviour
 		// store all the game information into our container class
 		GameInfo info = new GameInfo();
 		info.Keys = 0;
-		info.Lives = 0;
+		info.Lives = 30;
 		info.GameTime = 0;
 		info.HardModeOn = false;
 		info.TimeAttackOn = false;
 		info.Save = save;
-        bool[] ClearSaves1 = new bool[15];
-        bool[] ClearSaves2 = new bool[15];
-        bool[] ClearSaves3 = new bool[15];
-        bool[] ClearSaves4 = new bool[15];
+		//////////////////////////////////////////////////////////////
+		// KNOWN BUG 3
+		// index out of range when erase happens since treasure pause 
+		// menu is trying to access index position 15, which requires 
+		// size 16. Making this code more dynamic to allow for arrays 
+		// to be any size and more readable
+		//////////////////////////////////////////////////////////////
+		
+		bool[] treasure = new bool[treasureCollected.Length];
+        bool[] secrets = new bool[secrettreasureCollected.Length];
+		bool[] completed = new bool[levelCompleted.Length];
+        bool[] unlocked = new bool[levelUnlocked.Length];
 
-         for (int i = 0; i < 15; i++)
-        {
-            ClearSaves1[i] = false;
-            ClearSaves2[i] = false;
-            ClearSaves3[i] = false;
-            ClearSaves4[i] = false;
-        }
-         info.TreasureCollected = ClearSaves1;
-         info.SecrettreasureCollected = ClearSaves2;
-         info.LevelCompleted = ClearSaves3;
-         info.LevelUnlocked = ClearSaves4;
-         info.LevelUnlocked[0] = true;
-         info.FlyMode = false;
-         info.GodMode = false;
-         info.MarcoPoloMode = false;
+		for (int i = 0; i < treasure.Length; i++)
+			treasure[i] = false;
+		for (int i = 0; i < secrets.Length; i++)
+			secrets[i] = false;
+		for (int i = 0; i < completed.Length; i++)
+			completed[i] = false;
+		for (int i = 0; i < unlocked.Length; i++)
+			unlocked[i] = false;
+
+		info.TreasureCollected = treasure;
+        info.SecrettreasureCollected = secrets;
+        info.LevelCompleted = completed;
+        info.LevelUnlocked = unlocked;
+		//////////////////////////////////////////////////////////////
+		// END OF KNOWN BUG 3
+		//////////////////////////////////////////////////////////////
+
+        info.LevelUnlocked[0] = true;
+        info.FlyMode = false;
+        info.GodMode = false;
+        info.MarcoPoloMode = false;
         
 		bf.Serialize (file, info);
 		file.Close ();
@@ -212,13 +231,22 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.DeleteKey(SaveFile + " GameTime");
         PlayerPrefs.DeleteKey(SaveFile + " HardModeOn");
         PlayerPrefs.DeleteKey(SaveFile + " TimeAttackOn");
-        for (int i = 0; i < 15; i++)
-        {
+		//////////////////////////////////////////////////////////////
+		// KNOWN BUG 3
+		//////////////////////////////////////////////////////////////
+		
+        for (int i = 0; i < treasureCollected.Length; i++)
             PlayerPrefs.DeleteKey(SaveFile + " TreasureCollected" + i);
-            PlayerPrefs.DeleteKey(SaveFile + " SecretTreasureCollected" + i);
+        for (int i = 0; i < secrettreasureCollected.Length; i++)
+			PlayerPrefs.DeleteKey(SaveFile + " SecretTreasureCollected" + i);
+        for (int i = 0; i < levelCompleted.Length; i++)
             PlayerPrefs.DeleteKey(SaveFile + " LevelCompleted" + i);
+        for (int i = 0; i < levelUnlocked.Length; i++)
             PlayerPrefs.DeleteKey(SaveFile + " LevelUnlocked" + i);
-        }
+		//////////////////////////////////////////////////////////////
+		// END KNOWN BUG 3
+		//////////////////////////////////////////////////////////////
+		
         PlayerPrefs.DeleteKey(SaveFile + " FlyMode");
         PlayerPrefs.DeleteKey(SaveFile + " GodMode");
         PlayerPrefs.DeleteKey(SaveFile + " MarcoPoloMode");
@@ -281,24 +309,33 @@ public class GameManager : MonoBehaviour
             timeAttackOn = true;
         else
             timeAttackOn = false;
-
-        for (int i = 0; i < 15; i++)
+		//////////////////////////////////////////////////////////////
+		// KNOWN BUG 3
+		//////////////////////////////////////////////////////////////
+		
+		for (int i = 0; i < treasureCollected.Length; i++)
         {
             if (PlayerPrefs.GetInt(SaveFile + " TreasureCollected" + i) == 1)
                 treasureCollected[i] = true;
             else
                 treasureCollected[i] = false;
-
+		}
+		for (int i = 0; i < secrettreasureCollected.Length; i++)
+		{
             if (PlayerPrefs.GetInt(SaveFile + " SecretTreasureCollected" + i) == 1)
                 secrettreasureCollected[i] = true;
             else
                 secrettreasureCollected[i] = false;
-
+		}
+		for (int i = 0; i < levelCompleted.Length; i++)
+		{
             if (PlayerPrefs.GetInt(SaveFile + " LevelCompleted" + i) == 1)
                 levelCompleted[i] = true;
             else
                 levelCompleted[i] = false;
-
+		}
+		for (int i = 0; i < levelUnlocked.Length; i++)
+		{
             if (PlayerPrefs.GetInt(SaveFile + " LevelUnlocked" + i) == 1)
                 levelUnlocked[i] = true;
             else
@@ -309,6 +346,11 @@ public class GameManager : MonoBehaviour
 
 
         }
+
+		//////////////////////////////////////////////////////////////
+		// END KNOWN BUG 3
+		//////////////////////////////////////////////////////////////
+		
         if (PlayerPrefs.GetInt(SaveFile + " FlyMode") == 1)
             flyMode = true;
         else
