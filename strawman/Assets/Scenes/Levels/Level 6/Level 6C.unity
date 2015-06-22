@@ -1736,26 +1736,13 @@ GameObject:
   m_Component:
   - 4: {fileID: 1714528360}
   - 65: {fileID: 1714528359}
-  - 114: {fileID: 1714528358}
   m_Layer: 0
   m_Name: KillZone
-  m_TagString: Untagged
+  m_TagString: Fatal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1714528358
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1714528357}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7066386048027c94f9d6d7550a4111c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 789014351}
 --- !u!65 &1714528359
 BoxCollider:
   m_ObjectHideFlags: 0
