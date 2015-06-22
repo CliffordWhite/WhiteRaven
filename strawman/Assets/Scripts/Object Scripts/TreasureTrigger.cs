@@ -63,7 +63,7 @@ public class TreasureTrigger : MonoBehaviour
 			collected = true;
 			GetComponent<SpriteRenderer>().enabled = false;
 			GetComponent<ParticleSystem>().Stop();
-			if (gameObject.tag == "MainTreasure"){
+			if (gameObject.tag == "MainTreasure" && !second9){
 				sfxManager.PlayOneShot(pickupSfx, 1.0f);
 				deathWall.SetActive(true);
 				musicSource.GetComponent<MusicChange>().PlayHasteMusic();

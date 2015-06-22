@@ -2567,6 +2567,10 @@ Prefab:
       value: 
       objectReference: {fileID: 21300056, guid: ef1246e490516d74caaf2b0c48fe0fe3,
         type: 3}
+    - target: {fileID: 11465316, guid: d6aee1f2f98250d42bf622f9ff1ff2fb, type: 2}
+      propertyPath: second9
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d6aee1f2f98250d42bf622f9ff1ff2fb, type: 2}
   m_IsPrefabParent: 0
@@ -6278,6 +6282,10 @@ Prefab:
       propertyPath: m_Name
       value: PressurePlate 2
       objectReference: {fileID: 0}
+    - target: {fileID: 11404286, guid: ba1e192a09ac7d24da25c7051e6c09a1, type: 2}
+      propertyPath: SFXSource
+      value: 
+      objectReference: {fileID: 2127844121}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ba1e192a09ac7d24da25c7051e6c09a1, type: 2}
   m_IsPrefabParent: 0
@@ -7496,6 +7504,10 @@ Prefab:
       propertyPath: FXSource
       value: 
       objectReference: {fileID: 2127844121}
+    - target: {fileID: 11482098, guid: 7ee9316a0972db545953d0eda858c446, type: 2}
+      propertyPath: flyModeOn
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7ee9316a0972db545953d0eda858c446, type: 2}
   m_IsPrefabParent: 0
