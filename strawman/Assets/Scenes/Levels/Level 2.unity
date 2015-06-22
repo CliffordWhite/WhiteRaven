@@ -1748,10 +1748,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 02433cba86fde4740a0181cf77cf3958, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1858339837 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 129822, guid: 7ee9316a0972db545953d0eda858c446, type: 2}
-  m_PrefabInternal: {fileID: 1384456198}
 --- !u!4 &1866651150 stripped
 Transform:
   m_PrefabParentObject: {fileID: 429762, guid: b91e16e957ef88e4eac4eecb2238f6c2, type: 2}
