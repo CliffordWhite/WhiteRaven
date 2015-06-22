@@ -274,12 +274,24 @@ public class PlayerController : MonoBehaviour
 
 
         // Jump
-        if (InSand > 0 && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W)) && !FlyModeOn)
+
+		//////////////////////////////////////////////////////////////
+		// FOUND BUG 32
+		// player is able to move left and right with arrow keys since 
+		// default keys for horizontal is A/D and Left/Right Arrows. 
+		// Added Up Arrow for the jump to compliment the default values
+		//////////////////////////////////////////////////////////////
+		
+		if (InSand > 0 && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && !FlyModeOn)
         {
             MyRigidbody.AddForce(0.0f, 250.0f * JumpForceMod, 0.0f, ForceMode.Acceleration);
         }
-        else if (!InMineCart && (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W)) && MyRigidbody.velocity.y < 0.1f)
-        {
+		else if (!InMineCart && (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && MyRigidbody.velocity.y < 0.1f)
+		//////////////////////////////////////////////////////////////
+        // END FOUND BUG 32
+		//////////////////////////////////////////////////////////////
+			
+		{
             if (InSand > 0 || Physics.Raycast(RayLeftOrigin.transform.position, new Vector3(0, -1.0f, 0), RayMaxDist, RayMask)
                 || Physics.Raycast(RayRightOrigin.transform.position, new Vector3(0, -1.0f, 0), RayMaxDist, RayMask))
             {

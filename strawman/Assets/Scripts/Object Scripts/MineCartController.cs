@@ -27,7 +27,16 @@ public class MineCartController : MonoBehaviour {
 	
 	void Update()
 	{
-		if (Enabled && OnRail && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space)) )
+		//////////////////////////////////////////////////////////////
+		// FOUND BUG 32
+		// added functionality with minecart too
+		//////////////////////////////////////////////////////////////
+		
+		if (Enabled && OnRail && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow)) )
+		//////////////////////////////////////////////////////////////
+		// END FOUND BUG 32
+		//////////////////////////////////////////////////////////////
+		
 		{
 			MovingUp = true;
 			OnRail = false;
