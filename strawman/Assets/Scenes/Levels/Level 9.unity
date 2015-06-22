@@ -7037,6 +7037,7 @@ Transform:
   - {fileID: 1464541365}
   - {fileID: 125601829}
   - {fileID: 358976105}
+  - {fileID: 1846783493}
   m_Father: {fileID: 0}
   m_RootOrder: 7
 --- !u!4 &1756763380 stripped
@@ -7627,6 +7628,59 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b91e16e957ef88e4eac4eecb2238f6c2, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1846783492
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1846783493}
+  - 65: {fileID: 1846783495}
+  - 114: {fileID: 1846783494}
+  m_Layer: 0
+  m_Name: Kill Zone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1846783493
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1846783492}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 19.75, y: -6.67999983, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1755653897}
+  m_RootOrder: 13
+--- !u!114 &1846783494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1846783492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a1b96c77410eb848b86bf2d6de64a37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1818305621}
+--- !u!65 &1846783495
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1846783492}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 9, y: 9, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1859475860
 Prefab:
   m_ObjectHideFlags: 0
