@@ -8,6 +8,9 @@ public class TreasureTrigger : MonoBehaviour
 	public GameObject deathWall;	// deathwall to activate
 	public GameObject musicSource;	// access music change script on pickup
 	public int hiddenIndex;			// used for populating the secret treasure array
+
+	public bool second9 = false;	// used for KNOWN BUG 4 
+
     //Camera
      GameObject _Camera; // set this via inspector
      float shake = 0.0f;
@@ -66,7 +69,26 @@ public class TreasureTrigger : MonoBehaviour
 				musicSource.GetComponent<MusicChange>().PlayHasteMusic();
 				GameManager.manager.DoorUnlocked = true;
 				shake = 0.5f;
+			//////////////////////////////////////////////////////////////
+			// KNOWN BUG 4
+			// made a special case bool that will not trigger the musicSource 
+			// to play music again, instead only plays sfx and summons firewall
+			// also check if loaded level is 9, so only the second treasure can unlock the door
+			//////////////////////////////////////////////////////////////
+				if (Application.loadedLevel == 20)
+					GameManager.manager.DoorUnlocked = false;
 			}
+			else if (second9)
+			{
+				sfxManager.PlayOneShot(pickupSfx, 1.0f);
+				deathWall.SetActive(true);
+				shake = 0.5f;
+				GameManager.manager.DoorUnlocked = true;
+			}
+			//////////////////////////////////////////////////////////////
+			// END KNOWN BUG 4
+			//////////////////////////////////////////////////////////////
+			
 			else {
 				GameManager.manager.secretGot = true;
 				GameManager.manager.secrettreasureCollected[hiddenIndex] = true;
