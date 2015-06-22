@@ -87,7 +87,8 @@ public class PlayerController : MonoBehaviour
 
         invincibleFrames = 0.0f;
         MyRigidbody = transform.GetComponent<Rigidbody>();
-        FacingRight = true;
+        
+		FacingRight = true;
 
         RayLeftOrigin = transform.FindChild("RayOrigin1").gameObject;
         RayRightOrigin = transform.FindChild("RayOrigin2").gameObject;
