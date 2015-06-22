@@ -23,7 +23,16 @@ public class Credits : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		creditText.transform.localPosition = Vector3.MoveTowards (creditText.transform.localPosition, new Vector3 (-245, 480, 0), 1.0f);
+		///////////////////////////////////////////////
+		// FOUND BUG 14
+		// changed the maxDistanceDelta parameter of MoveTowards
+		///////////////////////////////////////////////
+		
+		creditText.transform.localPosition = Vector3.MoveTowards (creditText.transform.localPosition, new Vector3 (-245, 480, 0), 0.5f);
+		///////////////////////////////////////////////
+		// END FOUND BUG 14
+		///////////////////////////////////////////////
+		
 		if (Input.anyKeyDown) {
 			//if back is pressed return to main
 			if ((Input.GetKeyDown(KeyCode.Return) || Input.GetMouseButtonDown(0)) && selected != 0) {
