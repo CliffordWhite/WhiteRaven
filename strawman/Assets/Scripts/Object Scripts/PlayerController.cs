@@ -366,6 +366,15 @@ public class PlayerController : MonoBehaviour
                 Armor.SetActive(false);
                 FXSource.PlayOneShot(ArmorPickUpSound, 1.0f);
                 //SpriteSwitch.GetComponent<SpriteRenderer> ().sprite = ArmorSprite;
+				/////////////////////////////////////////////////
+				/// KNOWN BUG 12
+				/// set sprite renderer color to cyan, so whole sprite is blue
+				/////////////////////////////////////////////////
+				GetComponentInChildren<SpriteRenderer>().color = Color.cyan;
+				/////////////////////////////////////////////////
+				/// END KNOWN BUG 12
+				/////////////////////////////////////////////////
+				
                 HasArmor = true;
             }
         }
@@ -565,6 +574,15 @@ public class PlayerController : MonoBehaviour
         if (!GameManager.manager.godMode)
         {
             //  SpriteSwitch.GetComponent<SpriteRenderer>().sprite = NormalSprite;
+			/////////////////////////////////////////////////
+			/// KNOWN BUG 12
+			/// reset sprite color to white (default) when hit
+			/////////////////////////////////////////////////
+			GetComponentInChildren<SpriteRenderer>().color = Color.white;
+			/////////////////////////////////////////////////
+			/// END KNOWN BUG 12
+			/////////////////////////////////////////////////
+			
             HasArmor = false;
             invincibleFrames = 1.0f;
         }
