@@ -453,7 +453,14 @@ public class PlayerController : MonoBehaviour
 
     void DrawLine()
     {
-        _dir = (mousePos - transform.position).normalized;
+		//Bug Fix #8////////////////////
+		//commented out normalization///
+		//was normalizing then setting//
+		//distance to check then////////
+		//normalizing again/////////////
+		////////////////////////////////
+		_dir = (mousePos - transform.position);  //.normalized;
+		//End BugFix#8//////////////////
         distance = _dir.magnitude;
         _dir.Normalize();
         //sets the line positions start and end points
@@ -484,7 +491,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (!missedAndRender)
         {
-            endPos = _dir * distancecheck + transform.position;
+			endPos = _dir * distancecheck + transform.position;
             endPos.z = ZFix.z;
             line.SetPosition(1, endPos);
 			missedAndRender = true;

@@ -43,7 +43,15 @@ public class Ladder : MonoBehaviour {
 			else if(!Input.GetKey (KeyCode.A)&&!Input.GetKey (KeyCode.D)/*&&!Input.GetKey (KeyCode.W)*/)
 				playerObject.GetComponent<Rigidbody>().velocity = new Vector3 (0, 0, 0);
 
-            playerObject.GetComponent<PlayerController>().anim.Play("Climb");
+			//Bug Fix #7//////////////////////
+			//Check if attached to hookable/// 
+			//object before setting climb/////
+			//animation///////////////////////
+			//////////////////////////////////
+			if (!playerObject.GetComponent<PlayerController>().isGrappled) {
+            	playerObject.GetComponent<PlayerController>().anim.Play("Climb");
+			}
+			//End Bug Fix #7//////////////////
             playerObject.GetComponent<PlayerController>().OnLadder = true;
 		}
 	}
