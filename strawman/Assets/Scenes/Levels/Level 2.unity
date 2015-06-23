@@ -1242,14 +1242,6 @@ Prefab:
       propertyPath: FXSource
       value: 
       objectReference: {fileID: 1080183069}
-    - target: {fileID: 5459546, guid: 7ee9316a0972db545953d0eda858c446, type: 2}
-      propertyPath: m_Constraints
-      value: 120
-      objectReference: {fileID: 0}
-    - target: {fileID: 11465618, guid: 7ee9316a0972db545953d0eda858c446, type: 2}
-      propertyPath: FXSource
-      value: 
-      objectReference: {fileID: 1080183069}
     - target: {fileID: 11482098, guid: 7ee9316a0972db545953d0eda858c446, type: 2}
       propertyPath: BreathBar
       value: 
@@ -1258,22 +1250,10 @@ Prefab:
       propertyPath: BubblesImage
       value: 
       objectReference: {fileID: 1751506342}
-    - target: {fileID: 129822, guid: 7ee9316a0972db545953d0eda858c446, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 430290, guid: 7ee9316a0972db545953d0eda858c446, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 430290, guid: 7ee9316a0972db545953d0eda858c446, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 430290, guid: 7ee9316a0972db545953d0eda858c446, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 11465618, guid: 7ee9316a0972db545953d0eda858c446, type: 2}
+      propertyPath: FXSource
+      value: 
+      objectReference: {fileID: 1080183069}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7ee9316a0972db545953d0eda858c446, type: 2}
   m_IsPrefabParent: 0

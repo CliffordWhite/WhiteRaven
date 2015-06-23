@@ -132,11 +132,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11477824, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
       propertyPath: MusicVolume
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 11477824, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
       propertyPath: SFXVolume
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ef91de23b3162fb42b7c4dd89dc143be, type: 2}
@@ -441,41 +441,6 @@ MonoBehaviour:
   m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 100272849}
-          m_MethodName: MouseOver
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 237848048}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
-        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  - eventID: 1
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 100272849}
-          m_MethodName: MouseLeave
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 237848048}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
-        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates:
   - eventID: 0
     callback:
@@ -781,41 +746,6 @@ MonoBehaviour:
   m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 100272849}
-          m_MethodName: MouseOver
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 834073874}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
-        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  - eventID: 1
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 100272849}
-          m_MethodName: MouseLeave
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 834073874}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
-        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates:
   - eventID: 0
     callback:
@@ -924,7 +854,6 @@ MonoBehaviour:
   m_SubmitButton: Submit
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
-  m_RepeatDelay: .5
   m_AllowActivationOnMobileDevice: 0
 --- !u!114 &1241310897
 MonoBehaviour:
@@ -999,41 +928,6 @@ MonoBehaviour:
   m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 100272849}
-          m_MethodName: MouseOver
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 1281394995}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
-        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  - eventID: 1
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 100272849}
-          m_MethodName: MouseLeave
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 1281394995}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
-        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates:
   - eventID: 0
     callback:
@@ -1185,41 +1079,6 @@ MonoBehaviour:
   m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 100272849}
-          m_MethodName: MouseOver
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 1462403165}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
-        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  - eventID: 1
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 100272849}
-          m_MethodName: MouseLeave
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 1462403165}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
-        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates:
   - eventID: 0
     callback:
@@ -1354,7 +1213,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: .0219999999
-  m_StereoMirrorMode: 0
 --- !u!4 &1517421181
 Transform:
   m_ObjectHideFlags: 0
@@ -1504,41 +1362,6 @@ MonoBehaviour:
   m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 100272849}
-          m_MethodName: MouseOver
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 1800315188}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
-        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  - eventID: 1
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 100272849}
-          m_MethodName: MouseLeave
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 1800315188}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
-        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates:
   - eventID: 0
     callback:
@@ -1758,41 +1581,6 @@ MonoBehaviour:
   m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 100272849}
-          m_MethodName: MouseOver
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 2119234225}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
-        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  - eventID: 1
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 100272849}
-          m_MethodName: MouseLeave
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 2119234225}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
-        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates:
   - eventID: 0
     callback:

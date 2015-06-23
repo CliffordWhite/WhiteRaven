@@ -223,7 +223,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 166618}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 135.410004, y: -1.64999998, z: .200000003}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 485846}
@@ -320,7 +320,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 129822}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14, y: -4, z: 0}
+  m_LocalPosition: {x: -14, y: -.800000012, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 462448}
@@ -583,7 +583,7 @@ MonoBehaviour:
   WhipConnectSound: {fileID: 8300000, guid: 15ae33176f2762e4db126bb46ba81327, type: 3}
   ShieldDeflectSound: {fileID: 8300000, guid: 15ae33176f2762e4db126bb46ba81327, type: 3}
   ArmorPickUpSound: {fileID: 8300000, guid: 0f7d112b83c39c44aa147ef27fef9ce0, type: 3}
-  armorLostSound: {fileID: 0}
+  armorLostSound: {fileID: 8300000, guid: 24a2c993a0de306499b064fd4a9bd794, type: 3}
   startWidth: 1
   endWidth: 1
   RayMask:

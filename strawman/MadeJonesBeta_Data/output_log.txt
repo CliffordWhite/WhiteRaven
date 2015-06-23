@@ -1,25 +1,64 @@
 Initialize engine version: 5.0.1f1 (5a2e8fe35a68)
 GfxDevice: creating device client; threaded=1
-d3d11: failed to create D3D11 device (0x8007000e)
-GfxDevice: creating device client; threaded=1
 Direct3D:
-    Version:  Direct3D 9.0c [igdumdim32.dll 9.18.10.3324]
-    Renderer: Intel(R) HD Graphics 4600
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: Intel(R) HD Graphics 4600 (ID=0x416)
     Vendor:   Intel
-    VRAM:     512 MB (via DXGI)
-    Caps:     Shader=30 DepthRT=1 NativeDepth=1 NativeShadow=1 DF16=1 INTZ=1 NULL=1 RESZ=1 SlowINTZ=0
-d3d: creation params: flags=44 swap=1 vsync=80000000 w=314 h=212 fmt=21 bbcount=1 dsformat=75 pflags=0
-d3d: failed to create device [queried technique not available]
-D3D9 initialization failed
-GfxDevice: creating device client; threaded=1
-d3d11: failed to create D3D11 device (0x8007000e)
-D3D11 initialization failed
-D3D9/D3D11 initialization failed, trying OpenGL
-GfxDevice: creating device client; threaded=1
-GLContext: failed to create offsceen context: Unknown error [-1073283041]
-Failed to initialize Direct3D 9.
-Make sure you have DirectX 9.0c installed, have drivers for your
-graphics card and have not disabled 3D acceleration
-in display settings.
-InitializeEngineGraphics failed
-PlayerInitEngineGraphics: InitializeEngineGraphics failed
+    VRAM:     512 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: F:\code\SGP\Working Repo\WhiteRaven\strawman\MadeJonesBeta_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading F:\code\SGP\Working Repo\WhiteRaven\strawman\MadeJonesBeta_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: F:\code\SGP\Working Repo\WhiteRaven\strawman\MadeJonesBeta_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading F:\code\SGP\Working Repo\WhiteRaven\strawman\MadeJonesBeta_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: F:\code\SGP\Working Repo\WhiteRaven\strawman\MadeJonesBeta_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading F:\code\SGP\Working Repo\WhiteRaven\strawman\MadeJonesBeta_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+- Completed reload, in  0.161 seconds
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+Platform assembly: F:\code\SGP\Working Repo\WhiteRaven\strawman\MadeJonesBeta_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: F:\code\SGP\Working Repo\WhiteRaven\strawman\MadeJonesBeta_Data\Managed\System.dll (this message is harmless)
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: 2dec -> priority: 1 
+  Thread -> id: 2d78 -> priority: 1 
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 3.319835 ms
+
+Unloading 19 unused Assets to reduce memory usage. Loaded Objects now: 282.
+Total: 0.235634 ms (FindLiveObjects: 0.021382 ms CreateObjectMapping: 0.014967 ms MarkObjects: 0.179612 ms  DeleteObjects: 0.019244 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.274977 ms
+
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 437.
+Total: 0.415674 ms (FindLiveObjects: 0.029507 ms CreateObjectMapping: 0.025658 ms MarkObjects: 0.312183 ms  DeleteObjects: 0.047896 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.473406 ms
+
+Unloading 19 unused Assets to reduce memory usage. Loaded Objects now: 435.
+Total: 0.458866 ms (FindLiveObjects: 0.048751 ms CreateObjectMapping: 0.016250 ms MarkObjects: 0.359224 ms  DeleteObjects: 0.033784 ms)
+
+Unloading 11 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.734272 ms
+
+Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 3147.
+Total: 0.937833 ms (FindLiveObjects: 0.132143 ms CreateObjectMapping: 0.083819 ms MarkObjects: 0.689369 ms  DeleteObjects: 0.032073 ms)
+
+IndexOutOfRangeException: Array index is out of range.
+  at TreasurePause.Start () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Unloading 11 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.554074 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 3148.
+Total: 1.144815 ms (FindLiveObjects: 0.191586 ms CreateObjectMapping: 0.054739 ms MarkObjects: 0.885232 ms  DeleteObjects: 0.012401 ms)
+
+IndexOutOfRangeException: Array index is out of range.
+  at TreasurePause.Start () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
