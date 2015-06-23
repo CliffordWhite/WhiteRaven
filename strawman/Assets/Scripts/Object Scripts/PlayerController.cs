@@ -46,6 +46,7 @@ public class PlayerController : MonoBehaviour
     public AudioClip WhipConnectSound;
     public AudioClip ShieldDeflectSound;
     public AudioClip ArmorPickUpSound;
+	public AudioClip armorLostSound;		// FOUND BUG 22
 
     //DrawLine (Placeholder for animation)
     // Line start width
@@ -366,6 +367,15 @@ public class PlayerController : MonoBehaviour
                 Armor.SetActive(false);
                 FXSource.PlayOneShot(ArmorPickUpSound, 1.0f);
                 //SpriteSwitch.GetComponent<SpriteRenderer> ().sprite = ArmorSprite;
+				/////////////////////////////////////////////////
+				/// KNOWN BUG 12
+				/// set sprite renderer color to cyan, so whole sprite is blue
+				/////////////////////////////////////////////////
+				GetComponentInChildren<SpriteRenderer>().color = Color.cyan;
+				/////////////////////////////////////////////////
+				/// END KNOWN BUG 12
+				/////////////////////////////////////////////////
+				
                 HasArmor = true;
             }
         }
@@ -572,6 +582,24 @@ public class PlayerController : MonoBehaviour
         if (!GameManager.manager.godMode)
         {
             //  SpriteSwitch.GetComponent<SpriteRenderer>().sprite = NormalSprite;
+			/////////////////////////////////////////////////
+			/// KNOWN BUG 12
+			/// reset sprite color to white (default) when hit
+			/////////////////////////////////////////////////
+			GetComponentInChildren<SpriteRenderer>().color = Color.white;
+			/////////////////////////////////////////////////
+			/// END KNOWN BUG 12
+			/////////////////////////////////////////////////
+
+			/////////////////////////////////////////////////
+			/// FOUND BUG 22
+			/// play sound when hit to further amplify lost armor
+			/////////////////////////////////////////////////
+			FXSource.PlayOneShot(armorLostSound, 1.0f);
+			/////////////////////////////////////////////////
+			/// END FOUND BUG 22
+			/////////////////////////////////////////////////
+			
             HasArmor = false;
             invincibleFrames = 1.0f;
         }
