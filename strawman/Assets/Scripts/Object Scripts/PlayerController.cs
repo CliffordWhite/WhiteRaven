@@ -46,6 +46,7 @@ public class PlayerController : MonoBehaviour
     public AudioClip WhipConnectSound;
     public AudioClip ShieldDeflectSound;
     public AudioClip ArmorPickUpSound;
+	public AudioClip armorLostSound;		// FOUND BUG 22
 
     //DrawLine (Placeholder for animation)
     // Line start width
@@ -581,6 +582,15 @@ public class PlayerController : MonoBehaviour
 			GetComponentInChildren<SpriteRenderer>().color = Color.white;
 			/////////////////////////////////////////////////
 			/// END KNOWN BUG 12
+			/////////////////////////////////////////////////
+
+			/////////////////////////////////////////////////
+			/// FOUND BUG 22
+			/// play sound when hit to further amplify lost armor
+			/////////////////////////////////////////////////
+			FXSource.PlayOneShot(armorLostSound, 1.0f);
+			/////////////////////////////////////////////////
+			/// END FOUND BUG 22
 			/////////////////////////////////////////////////
 			
             HasArmor = false;
