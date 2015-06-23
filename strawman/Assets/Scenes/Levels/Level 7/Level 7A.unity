@@ -348,6 +348,10 @@ Prefab:
       propertyPath: burnTime
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 140612, guid: f3c64d6d10f108341bdfdb8ab02c71ef, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f3c64d6d10f108341bdfdb8ab02c71ef, type: 2}
   m_IsPrefabParent: 0
@@ -946,7 +950,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 158352, guid: b442945ed5744ed44bae80c2da35bdd5, type: 2}
       propertyPath: m_Name
-      value: Stationary Flame Trap 2
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 447824, guid: b442945ed5744ed44bae80c2da35bdd5, type: 2}
       propertyPath: m_LocalScale.x
@@ -955,6 +959,10 @@ Prefab:
     - target: {fileID: 447824, guid: b442945ed5744ed44bae80c2da35bdd5, type: 2}
       propertyPath: m_LocalScale.y
       value: .333333343
+      objectReference: {fileID: 0}
+    - target: {fileID: 158352, guid: b442945ed5744ed44bae80c2da35bdd5, type: 2}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b442945ed5744ed44bae80c2da35bdd5, type: 2}
@@ -1184,6 +1192,10 @@ Prefab:
       propertyPath: burnTime
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 140612, guid: f3c64d6d10f108341bdfdb8ab02c71ef, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f3c64d6d10f108341bdfdb8ab02c71ef, type: 2}
   m_IsPrefabParent: 0
@@ -1228,7 +1240,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 158352, guid: b442945ed5744ed44bae80c2da35bdd5, type: 2}
       propertyPath: m_Name
-      value: Stationary Flame Trap 1
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 447824, guid: b442945ed5744ed44bae80c2da35bdd5, type: 2}
       propertyPath: m_LocalScale.x
@@ -1237,6 +1249,10 @@ Prefab:
     - target: {fileID: 447824, guid: b442945ed5744ed44bae80c2da35bdd5, type: 2}
       propertyPath: m_LocalScale.y
       value: .333333343
+      objectReference: {fileID: 0}
+    - target: {fileID: 158352, guid: b442945ed5744ed44bae80c2da35bdd5, type: 2}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b442945ed5744ed44bae80c2da35bdd5, type: 2}
@@ -2117,6 +2133,10 @@ Prefab:
       propertyPath: burnTime
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 140612, guid: f3c64d6d10f108341bdfdb8ab02c71ef, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f3c64d6d10f108341bdfdb8ab02c71ef, type: 2}
   m_IsPrefabParent: 0
@@ -2449,6 +2469,10 @@ Prefab:
       propertyPath: burnTime
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 140612, guid: f3c64d6d10f108341bdfdb8ab02c71ef, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f3c64d6d10f108341bdfdb8ab02c71ef, type: 2}
   m_IsPrefabParent: 0
@@ -2609,7 +2633,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 158352, guid: b442945ed5744ed44bae80c2da35bdd5, type: 2}
       propertyPath: m_Name
-      value: Stationary Flame Trap 3
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 447824, guid: b442945ed5744ed44bae80c2da35bdd5, type: 2}
       propertyPath: m_LocalScale.x
@@ -2618,6 +2642,10 @@ Prefab:
     - target: {fileID: 447824, guid: b442945ed5744ed44bae80c2da35bdd5, type: 2}
       propertyPath: m_LocalScale.y
       value: .333333343
+      objectReference: {fileID: 0}
+    - target: {fileID: 158352, guid: b442945ed5744ed44bae80c2da35bdd5, type: 2}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b442945ed5744ed44bae80c2da35bdd5, type: 2}
@@ -2922,7 +2950,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 158352, guid: b442945ed5744ed44bae80c2da35bdd5, type: 2}
       propertyPath: m_Name
-      value: Stationary Flame Trap 5
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 447824, guid: b442945ed5744ed44bae80c2da35bdd5, type: 2}
       propertyPath: m_LocalScale.x
@@ -2931,6 +2959,10 @@ Prefab:
     - target: {fileID: 447824, guid: b442945ed5744ed44bae80c2da35bdd5, type: 2}
       propertyPath: m_LocalScale.y
       value: .333333343
+      objectReference: {fileID: 0}
+    - target: {fileID: 158352, guid: b442945ed5744ed44bae80c2da35bdd5, type: 2}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b442945ed5744ed44bae80c2da35bdd5, type: 2}
@@ -3034,7 +3066,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 158352, guid: b442945ed5744ed44bae80c2da35bdd5, type: 2}
       propertyPath: m_Name
-      value: Stationary Flame Trap 4
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 447824, guid: b442945ed5744ed44bae80c2da35bdd5, type: 2}
       propertyPath: m_LocalScale.x
@@ -3043,6 +3075,10 @@ Prefab:
     - target: {fileID: 447824, guid: b442945ed5744ed44bae80c2da35bdd5, type: 2}
       propertyPath: m_LocalScale.y
       value: .333333343
+      objectReference: {fileID: 0}
+    - target: {fileID: 158352, guid: b442945ed5744ed44bae80c2da35bdd5, type: 2}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b442945ed5744ed44bae80c2da35bdd5, type: 2}
@@ -3101,6 +3137,14 @@ Prefab:
     - target: {fileID: 447824, guid: b442945ed5744ed44bae80c2da35bdd5, type: 2}
       propertyPath: m_LocalScale.y
       value: .333333343
+      objectReference: {fileID: 0}
+    - target: {fileID: 158352, guid: b442945ed5744ed44bae80c2da35bdd5, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 158352, guid: b442945ed5744ed44bae80c2da35bdd5, type: 2}
+      propertyPath: m_Name
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b442945ed5744ed44bae80c2da35bdd5, type: 2}
@@ -3909,7 +3953,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 461376, guid: f3c64d6d10f108341bdfdb8ab02c71ef, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: .00999999978
       objectReference: {fileID: 0}
     - target: {fileID: 461376, guid: f3c64d6d10f108341bdfdb8ab02c71ef, type: 2}
       propertyPath: m_LocalRotation.x
@@ -3954,6 +3998,10 @@ Prefab:
     - target: {fileID: 11459576, guid: f3c64d6d10f108341bdfdb8ab02c71ef, type: 2}
       propertyPath: burnTime
       value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 140612, guid: f3c64d6d10f108341bdfdb8ab02c71ef, type: 2}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f3c64d6d10f108341bdfdb8ab02c71ef, type: 2}
@@ -4385,7 +4433,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 158352, guid: b442945ed5744ed44bae80c2da35bdd5, type: 2}
       propertyPath: m_Name
-      value: Stationary Flame Trap 6
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 447824, guid: b442945ed5744ed44bae80c2da35bdd5, type: 2}
       propertyPath: m_LocalScale.x
@@ -4394,6 +4442,10 @@ Prefab:
     - target: {fileID: 447824, guid: b442945ed5744ed44bae80c2da35bdd5, type: 2}
       propertyPath: m_LocalScale.y
       value: .333333343
+      objectReference: {fileID: 0}
+    - target: {fileID: 158352, guid: b442945ed5744ed44bae80c2da35bdd5, type: 2}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b442945ed5744ed44bae80c2da35bdd5, type: 2}
@@ -4415,7 +4467,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 461376, guid: f3c64d6d10f108341bdfdb8ab02c71ef, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: .00999999978
       objectReference: {fileID: 0}
     - target: {fileID: 461376, guid: f3c64d6d10f108341bdfdb8ab02c71ef, type: 2}
       propertyPath: m_LocalRotation.x
@@ -4460,6 +4512,10 @@ Prefab:
     - target: {fileID: 11459576, guid: f3c64d6d10f108341bdfdb8ab02c71ef, type: 2}
       propertyPath: burnTime
       value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 140612, guid: f3c64d6d10f108341bdfdb8ab02c71ef, type: 2}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f3c64d6d10f108341bdfdb8ab02c71ef, type: 2}
@@ -4701,6 +4757,10 @@ Prefab:
     - target: {fileID: 11459576, guid: f3c64d6d10f108341bdfdb8ab02c71ef, type: 2}
       propertyPath: burnTime
       value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 140612, guid: f3c64d6d10f108341bdfdb8ab02c71ef, type: 2}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f3c64d6d10f108341bdfdb8ab02c71ef, type: 2}
