@@ -3419,7 +3419,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11424158, guid: 4c60a38550a34f14b91c44bbeeb00189, type: 2}
       propertyPath: EndPosOne.y
-      value: -11.8000002
+      value: -11.8999996
       objectReference: {fileID: 0}
     - target: {fileID: 11424158, guid: 4c60a38550a34f14b91c44bbeeb00189, type: 2}
       propertyPath: EndPosTwo.y
