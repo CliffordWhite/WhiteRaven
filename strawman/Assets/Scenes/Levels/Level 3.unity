@@ -1569,6 +1569,10 @@ Prefab:
       propertyPath: MaxDistance
       value: 6.64950562
       objectReference: {fileID: 0}
+    - target: {fileID: 140612, guid: f3c64d6d10f108341bdfdb8ab02c71ef, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f3c64d6d10f108341bdfdb8ab02c71ef, type: 2}
   m_IsPrefabParent: 0
@@ -1607,7 +1611,7 @@ Transform:
   - {fileID: 807787672}
   - {fileID: 2076310257}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 8
 --- !u!1001 &2076310256
 Prefab:
   m_ObjectHideFlags: 0
