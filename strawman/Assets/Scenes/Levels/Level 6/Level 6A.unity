@@ -1174,7 +1174,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 16
 --- !u!4 &31789134 stripped
 Transform:
   m_PrefabParentObject: {fileID: 407750, guid: 7cf9e305c98aad846bc5837c31cf46c4, type: 2}
@@ -3613,6 +3613,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 11465618, guid: 7ee9316a0972db545953d0eda858c446, type: 2}
+      propertyPath: FXSource
+      value: 
+      objectReference: {fileID: 92522808}
     - target: {fileID: 11482098, guid: 7ee9316a0972db545953d0eda858c446, type: 2}
       propertyPath: FXSource
       value: 
@@ -3625,14 +3629,6 @@ Prefab:
       propertyPath: BubblesImage
       value: 
       objectReference: {fileID: 1912967411}
-    - target: {fileID: 11465618, guid: 7ee9316a0972db545953d0eda858c446, type: 2}
-      propertyPath: FXSource
-      value: 
-      objectReference: {fileID: 92522808}
-    - target: {fileID: 117632, guid: 7ee9316a0972db545953d0eda858c446, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7ee9316a0972db545953d0eda858c446, type: 2}
   m_IsPrefabParent: 0
@@ -3979,7 +3975,7 @@ Transform:
   m_LocalScale: {x: 4, y: 0, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
 --- !u!4 &2007236024 stripped
 Transform:
   m_PrefabParentObject: {fileID: 429762, guid: b91e16e957ef88e4eac4eecb2238f6c2, type: 2}
@@ -5085,7 +5081,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 17
 --- !u!4 &2072971687 stripped
 Transform:
   m_PrefabParentObject: {fileID: 407834, guid: ebe8e03c2d5705446b7b7898a1fe9058, type: 2}
@@ -5202,6 +5198,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b91e16e957ef88e4eac4eecb2238f6c2, type: 2}
   m_IsPrefabParent: 0
+<<<<<<< HEAD
 --- !u!1 &2091853226
 GameObject:
   m_ObjectHideFlags: 0
@@ -5276,6 +5273,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 13
+=======
+>>>>>>> origin/master
 --- !u!1001 &2125016070
 Prefab:
   m_ObjectHideFlags: 0

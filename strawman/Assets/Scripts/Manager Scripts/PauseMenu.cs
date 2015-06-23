@@ -67,13 +67,12 @@ public class PauseMenu : MonoBehaviour
                 case Page.Options: ShowOptions(); break;
                 case Page.Music: ShowMusic(); break;
                 case Page.SFX: ShowSFX(); break;
-                case Page.LvlSel: Application.LoadLevel(1); UnPauseGame(); break;
+                //case Page.LvlSel: Application.LoadLevel(1); UnPauseGame; break;
                 case Page.CheatCode: ShowCheatCode(); break;
 				case Page.Treasure: ShowTreasure(); break;
             }
         }
     }
-
     // helper function
     void BeginPage(int width, int height)
     {
@@ -104,8 +103,18 @@ public class PauseMenu : MonoBehaviour
             currentPage = Page.Options;
 
         if (GUILayout.Button("Return to Level Select"))
-            currentPage = Page.LvlSel;
-
+		{
+			////////////////////////////////////////
+			/// FOUND BUG 2
+			/// added fade script functionality
+			////////////////////////////////////////
+			UnPauseGame();	// game must be unpaused for fade to begin
+			float fadetime = GameManager.manager.GetComponent<Fade>().BeginFade(1);
+			Invoke("LevelSelect", fadetime);
+			////////////////////////////////////////
+			/// END FOUND BUG 2
+			////////////////////////////////////////
+		}
         if (GUILayout.Button("Cheat Code"))
             currentPage = Page.CheatCode;
 
@@ -113,6 +122,11 @@ public class PauseMenu : MonoBehaviour
 			currentPage = Page.Treasure;
         EndPage();
     }
+
+	void LevelSelect()
+	{
+		Application.LoadLevel(1);
+	}
 
     void ShowOptions()
     {

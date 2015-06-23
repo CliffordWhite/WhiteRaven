@@ -15,9 +15,12 @@ public class PlayerController : MonoBehaviour
     public float distanceFromHook;
     public float distance;
     public float distancecheck = 7.0f;
-    public float MinDistance = 1.0f;
-    public float HookDistanceMin = 3.0f;
-    public float HookDistanceMax = 7.0f;
+    public float MinDistance = 1.0f;			////////////////////////////////////
+    public float HookDistanceMin = 3.0f;    	/// KNOWN BUG 10
+	public float HookDistanceMax = 7.0f;		////////////////////////////////////											 
+	public float missDuration = 0.1f;			// Variable for how long to render line when missed
+	float missTimer = 0.0f;						// Used to count against the duration
+	bool missedAndRender = false;				// Used to know when to use these timers
     public bool isGrappled;
     Vector3 _dir;
     RaycastHit Connected;
@@ -137,9 +140,23 @@ public class PlayerController : MonoBehaviour
         MoveDir = Input.GetAxisRaw("Horizontal");
         if (FlyModeOn)
             FlyDir = Input.GetAxisRaw("Vertical");
-
-
-
+		////////////////////////////////
+		/// KNOWN BUG 10
+		/// govern timer for how long 
+		/// to render missed whip
+		////////////////////////////////
+		if (missedAndRender)
+		{
+			missTimer += Time.deltaTime;
+			if (missTimer >= missDuration)
+			{
+				missTimer = 0.0f;
+				missedAndRender = false;
+			}
+		}
+		////////////////////////////////
+		/// END KNOWN BUG 10
+		////////////////////////////////
         anim.SetFloat("XSpeed", Mathf.Abs(MyRigidbody.velocity.x)); //swinging
 
         // anim.SetFloat("Speed", Mathf.Abs(MoveDir)); //Animator to switch from idle to run;
@@ -157,7 +174,8 @@ public class PlayerController : MonoBehaviour
             whipDirection.Normalize();
             Ray WhipThrown = new Ray(transform.position, whipDirection);
             //Debug.DrawRay(transform.position, mousePos * distancecheck);
-
+			if (missedAndRender)			// KNOWN BUG 10
+				missedAndRender = false;	// Reset the missed render point or check for new connection
             if (Physics.Raycast(WhipThrown, out Connected, distancecheck, RayMask))
             {
                 if (Connected.collider.tag == "Hookable")
@@ -220,7 +238,7 @@ public class PlayerController : MonoBehaviour
             anim.Play("JumpAndFall");
         if (line.enabled)
         {
-            if (!isGrappled)
+            if (!isGrappled && !missedAndRender)
                 line.enabled = false;
             else
                 DrawLine();
@@ -451,19 +469,29 @@ public class PlayerController : MonoBehaviour
             endPos.z = ZFix.z;
             line.SetPosition(1, endPos);
         }
-        else if (distance < distancecheck)
+		//////////////////////////////////
+		/// KNOWN BUG 10
+		/// setting up bool to allow whip 
+		/// to flash for a manually set 
+		/// variable amount of time
+		//////////////////////////////////
+        else if (distance < distancecheck && !missedAndRender)
         {
             endPos = mousePos;
             endPos.z = ZFix.z;
             line.SetPosition(1, endPos);
+			missedAndRender = true;
         }
-        else
+        else if (!missedAndRender)
         {
             endPos = _dir * distancecheck + transform.position;
             endPos.z = ZFix.z;
             line.SetPosition(1, endPos);
+			missedAndRender = true;
         }
-
+		///////////////////////////////
+		/// END KNOWN BUG 10
+		///////////////////////////////
     }
 
     void HookedOn()

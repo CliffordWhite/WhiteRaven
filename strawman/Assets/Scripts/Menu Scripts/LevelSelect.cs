@@ -106,18 +106,29 @@ public class LevelSelect : MonoBehaviour
 
             if (LevelUnlock)
             {
-                LoadScene(SceneNumber);
+				//////////////////////////////////////////////
+				/// FOUND BUG 2
+				/// using the fade script of gameManager to 
+				/// create an automatic fade when level is selected
+				/// also rewrote LoadScene to accomodate an Invoke
+				//////////////////////////////////////////////
+				float fadetime = GameManager.manager.GetComponent<Fade>().BeginFade(1);
+				Invoke("LoadScene", fadetime);
+                //LoadScene(SceneNumber);
             }
             //else
             //play error noise
         }
     }
 
-    public void LoadScene(int level)
+    public void LoadScene(/*int level*/)
     {
-        Application.LoadLevel(level);
+        Application.LoadLevel(SceneNumber);
     }
-
+	//////////////////////////////////////////////
+	/// END FOUND BUG 2
+	//////////////////////////////////////////////
+	
 
     void OnGUI()
     {
@@ -156,7 +167,15 @@ public class LevelSelect : MonoBehaviour
 
         if (GUI.Button(new Rect(Screen.width - 105, 155, 110, 25), "Main Menu"))
         {
-            Application.LoadLevel(0);
+			//////////////////////////////////////
+			/// FOUND BUG 2
+			/// added fade script functionality
+			//////////////////////////////////////
+			float fadetime = GameManager.manager.GetComponent<Fade>().BeginFade(1);
+			Invoke("LoadMain", fadetime);
+			//////////////////////////////////////
+			/// END FOUND BUG 2
+			//////////////////////////////////////
         }
         if (GUI.Button(new Rect(Screen.width - 105, 185, 110, 25), "Cheat Menu"))
         {
@@ -166,6 +185,10 @@ public class LevelSelect : MonoBehaviour
             ShowCheatPage();
 
     }
+	void LoadMain()
+	{
+		Application.LoadLevel(0);
+	}
     public void ShowCheatPage()
     {
         GUILayout.BeginArea(new Rect((Screen.width - 200) / 2, (Screen.height - 200) / 2, 200, 200));

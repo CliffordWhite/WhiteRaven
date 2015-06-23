@@ -79,8 +79,8 @@ public class ExitDoor : MonoBehaviour
             }
             else if (Application.loadedLevel == 12)//Level 6A
             {
+				GameManager.manager.levelUnlocked[9] = true;
                 GameManager.manager.levelUnlocked[10] = true;
-                GameManager.manager.levelUnlocked[11] = true;
             }
             else if (Application.loadedLevel == 13)//Level 6B
             {
@@ -90,12 +90,12 @@ public class ExitDoor : MonoBehaviour
             }
             else if (Application.loadedLevel == 14)//Level 6C
             {
-                GameManager.manager.levelUnlocked[9] = true;
                 GameManager.manager.levelUnlocked[10] = true;
+				GameManager.manager.levelUnlocked[11] = true;
             }
             else if (Application.loadedLevel == 15)//Level 7A
             {
-                GameManager.manager.levelUnlocked[13] = true;
+                GameManager.manager.levelUnlocked[12] = true;
             }
             else if (Application.loadedLevel == 16)//Level 7B
             {
@@ -104,13 +104,23 @@ public class ExitDoor : MonoBehaviour
             }
             else if (Application.loadedLevel == 17)//Level 7C
             {
-                GameManager.manager.levelUnlocked[12] = true;
+                GameManager.manager.levelUnlocked[13] = true;
             }
             else if (Application.loadedLevel == 19 || Application.loadedLevel == 18)//Level 8A & 8B
             {
                 GameManager.manager.levelUnlocked[14] = true;
             }
 			else if (Application.loadedLevel == 20) {
+				///////////////////////////////////////////////
+				/// KNOWN BUG 5
+				/// manually setting final treasure to collected
+				/// since this statement can only be reached if 
+				/// it was collected
+				///////////////////////////////////////////////
+				GameManager.manager.treasureCollected[15] = true;
+				///////////////////////////////////////////////
+				/// END KNOWN BUG 5
+				///////////////////////////////////////////////
 				GameManager.manager.achieveList[0] = true;
 				if (GameManager.manager.hardModeOn)
 					GameManager.manager.achieveList[2] = true;
