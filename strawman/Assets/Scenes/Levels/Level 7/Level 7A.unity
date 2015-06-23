@@ -712,6 +712,7 @@ Transform:
   - {fileID: 623138494}
   - {fileID: 862162331}
   - {fileID: 868403782}
+  - {fileID: 680434384}
   m_Father: {fileID: 0}
   m_RootOrder: 15
 --- !u!1001 &423037802
@@ -1304,6 +1305,10 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: .333333343
       objectReference: {fileID: 0}
+    - target: {fileID: 170036, guid: 2eae27017149fd64391491a7d60bc6d7, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2eae27017149fd64391491a7d60bc6d7, type: 2}
   m_IsPrefabParent: 0
@@ -1669,6 +1674,46 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2eae27017149fd64391491a7d60bc6d7, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &680434383
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 680434384}
+  - 65: {fileID: 680434385}
+  m_Layer: 8
+  m_Name: Platform
+  m_TagString: Floor
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &680434384
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 680434383}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 21.5900002, y: 6.55100012, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 412854158}
+  m_RootOrder: 31
+--- !u!65 &680434385
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 680434383}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: .0199999996, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &721905163
 Prefab:
   m_ObjectHideFlags: 0
@@ -2798,7 +2843,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 485846, guid: 7ee9316a0972db545953d0eda858c446, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 11482098, guid: 7ee9316a0972db545953d0eda858c446, type: 2}
       propertyPath: FXSource
