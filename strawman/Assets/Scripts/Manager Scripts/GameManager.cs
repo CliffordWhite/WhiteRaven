@@ -56,6 +56,8 @@ public class GameManager : MonoBehaviour
 			Destroy(gameObject);
 		}
         webMode = false;
+		if (Application.runInBackground)
+			Application.runInBackground = false;
 	}
 
 
