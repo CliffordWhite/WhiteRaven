@@ -48,7 +48,7 @@ public class ShamanController : MonoBehaviour
         Awake = false;
         Moving = false;
         OnLadder = false;
-        Falling = true;
+        //Falling = true;
         //  startPos = transform.position = waypoints[wpIndexStart].position;
     }
 
@@ -75,10 +75,10 @@ public class ShamanController : MonoBehaviour
                 }
             }
         }
-        else if (!OnLadder && !(Player.transform.position.y - transform.position.y < 0.25))
-        {
-            FindLadder();
-        }
+       // else if (!OnLadder && !(Player.transform.position.y - transform.position.y < 0.25))
+       // {
+       //    FindLadder();
+       // }
         else
         {
             if (PlayerDirection.x > 0 /*&& !FacingRight*/)
@@ -105,7 +105,7 @@ public class ShamanController : MonoBehaviour
        if(Moving)
         {
 
-            velocity = new Vector2(0.0f, (transform.position.y - Player.transform.position.y+1) * speed);
+            velocity = new Vector2(0.0f, (transform.position.y - Player.transform.position.y + 1) * speed);
             GetComponent<Rigidbody>().velocity = -velocity;
            if(Player.transform.position.y - transform.position.y > 0.5)
            {
@@ -143,7 +143,7 @@ public class ShamanController : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.tag == "Ladder" && Player.transform.position.y - transform.position.y < 0.25)
+        if (other.gameObject.tag == "Ladder" && Player.transform.position.y - transform.position.y >= 0.25)
         {
          
             GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
