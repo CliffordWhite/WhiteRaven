@@ -9,8 +9,8 @@ public class TreasureTrigger : MonoBehaviour
 	public GameObject musicSource;	// access music change script on pickup
 	public int hiddenIndex;			// used for populating the secret treasure array
 
-	public bool second9 = false;	// used for KNOWN BUG 4 
-
+	public bool level9 = false;	// used for KNOWN BUG 4 AND 34
+	public int treasureOrder;	// used for KNOWN BUG 34
     //Camera
      GameObject _Camera; // set this via inspector
      float shake = 0.0f;
@@ -34,7 +34,8 @@ public class TreasureTrigger : MonoBehaviour
 	{
 		if (gameObject.tag != "MainTreasure" && GameManager.manager.secrettreasureCollected[hiddenIndex]) 
 			gameObject.SetActive(false);
-		
+		if (!level9)
+			treasureOrder = 0;
 		collected = false;			// initialize bool to false
         _Camera = GameObject.FindWithTag("MainCamera");
         Player = GameObject.FindWithTag("Player");
@@ -63,37 +64,60 @@ public class TreasureTrigger : MonoBehaviour
 			collected = true;
 			GetComponent<SpriteRenderer>().enabled = false;
 			GetComponent<ParticleSystem>().Stop();
-			if (gameObject.tag == "MainTreasure" && !second9){
+			if (gameObject.tag == "MainTreasure" && !level9){
 				sfxManager.PlayOneShot(pickupSfx, 1.0f);
 				deathWall.SetActive(true);
 				musicSource.GetComponent<MusicChange>().PlayHasteMusic();
 				GameManager.manager.DoorUnlocked = true;
 				shake = 0.5f;
+			}
 			//////////////////////////////////////////////////////////////
 			// KNOWN BUG 4
 			// made a special case bool that will not trigger the musicSource 
 			// to play music again, instead only plays sfx and summons firewall
 			// also check if loaded level is 9, so only the second treasure can unlock the door
 			//////////////////////////////////////////////////////////////
-				if (Application.loadedLevel == 20)
-					GameManager.manager.DoorUnlocked = false;
-			}
-			else if (second9)
+				 
+
+			//////////////////////////////////////////////////////////////
+			/// KNOWN BUG 34
+			/// making checks for both treasures on level 9
+			//////////////////////////////////////////////////////////////
+				 
+			else if (level9 && treasureOrder == 1)	// for treasure from water wall
 			{
+				// Change music if no treasure was collected yet
+				if (!GameManager.manager.levelNineFirst && !GameManager.manager.levelNineSecond)
+					musicSource.GetComponent<MusicChange>().PlayHasteMusic();
+				
+				GameManager.manager.levelNineFirst = true;
 				sfxManager.PlayOneShot(pickupSfx, 1.0f);
 				deathWall.SetActive(true);
 				shake = 0.5f;
-				GameManager.manager.DoorUnlocked = true;
 			}
-			//////////////////////////////////////////////////////////////
-			// END KNOWN BUG 4
-			//////////////////////////////////////////////////////////////
-			
+			else if (level9 && treasureOrder == 2)	// for treasure from fire wall
+			{
+				// Change music if no treasure was collected yet
+				if (!GameManager.manager.levelNineFirst && !GameManager.manager.levelNineSecond)
+					musicSource.GetComponent<MusicChange>().PlayHasteMusic();
+				
+				GameManager.manager.levelNineSecond = true;
+				sfxManager.PlayOneShot(pickupSfx, 1.0f);
+				deathWall.SetActive(true);
+				shake = 0.5f;
+			}
 			else {
 				GameManager.manager.secretGot = true;
 				GameManager.manager.secrettreasureCollected[hiddenIndex] = true;
 				sfxManager.PlayOneShot(pickupSfx, 1.0f);
 			}
+			// check if both treasures on level 9 were collected
+			if (GameManager.manager.levelNineFirst && GameManager.manager.levelNineSecond)
+				GameManager.manager.DoorUnlocked = true;
+			//////////////////////////////////////////////////////////////
+			// END KNOWN BUG 4 and 34
+			//////////////////////////////////////////////////////////////
+			
 			Invoke ("DestroyAfterWait", 0.5f);
 		}
 	}
