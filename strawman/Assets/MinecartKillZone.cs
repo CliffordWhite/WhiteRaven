@@ -8,6 +8,7 @@ public class MinecartKillZone : MonoBehaviour
 	void OnTriggerEnter(Collider other)
 	{
 		if (other.tag == "MineCart")
-			player.SendMessage("KillPlayer");
+			player.SendMessage("KillAlways");
 	}
 }
+ 

@@ -400,7 +400,31 @@ public class PlayerController : MonoBehaviour
                 Invoke("RestartLevel", fadetime);
         }
     }
-
+	////////////////////////////////////////////
+	/// FOUND BUG 35
+	/// creating a kill player that ignores if player
+	/// has godmode enabled, since even gods can die
+	////////////////////////////////////////////
+	void KillAlways()
+	{
+		Physics.gravity = gravityBase;
+		FXSource.PlayOneShot(DeathSound, 1.0f);
+		float fadetime = GameManager.manager.GetComponent<Fade>().BeginFade(1);
+		if (GameManager.manager.hardModeOn)
+		{
+			Physics.gravity = gravityBase;
+			FXSource.PlayOneShot(DeathSound, 1.0f);
+			if (GameManager.manager.hardModeOn)
+			{
+				GameManager.manager.lives--;		// lose life if hard mode
+			}
+		}
+		Invoke("RestartLevel", fadetime);
+	}
+	////////////////////////////////////////////
+	/// END FOUND BUG 35
+	////////////////////////////////////////////
+	
     void OnCollisionEnter(Collision other)
     {
         if (!isGrappled)
