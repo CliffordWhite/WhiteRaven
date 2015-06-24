@@ -367,10 +367,7 @@ public class PlayerController : MonoBehaviour
                 Armor.SetActive(false);
                 FXSource.PlayOneShot(ArmorPickUpSound, 1.0f);
                 //SpriteSwitch.GetComponent<SpriteRenderer> ().sprite = ArmorSprite;
-				/////////////////////////////////////////////////
-				/// KNOWN BUG 12
-				/// set sprite renderer color to cyan, so whole sprite is blue
-				/////////////////////////////////////////////////
+
 				GetComponentInChildren<SpriteRenderer>().color = Color.cyan;
 				/////////////////////////////////////////////////
 				/// END KNOWN BUG 12

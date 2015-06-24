@@ -10,6 +10,17 @@ public class SaveLoadScript : MonoBehaviour
     string AttackTimeString = "Off";
 	public GUISkin skin;		// for using custom font
 
+    void Start()
+    {
+        LoadSelected = 1;
+        GameManager.manager.save = 1;
+        if (!GameManager.manager.webMode)
+        GameManager.manager.Load(1);
+        else
+            GameManager.manager.PlayerPrefsLoad();
+
+    }
+
     void FixedUpdate()
     {
         if (Play)
