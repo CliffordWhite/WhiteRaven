@@ -7627,6 +7627,10 @@ Prefab:
       propertyPath: flyModeOn
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11489552, guid: 7ee9316a0972db545953d0eda858c446, type: 2}
+      propertyPath: sfxManager
+      value: 
+      objectReference: {fileID: 2127844121}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7ee9316a0972db545953d0eda858c446, type: 2}
   m_IsPrefabParent: 0

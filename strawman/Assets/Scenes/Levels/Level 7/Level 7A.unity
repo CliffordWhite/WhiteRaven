@@ -3247,11 +3247,15 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 11482098, guid: 7ee9316a0972db545953d0eda858c446, type: 2}
-      propertyPath: FXSource
+    - target: {fileID: 11489552, guid: 7ee9316a0972db545953d0eda858c446, type: 2}
+      propertyPath: sfxManager
       value: 
       objectReference: {fileID: 1105655250}
     - target: {fileID: 11465618, guid: 7ee9316a0972db545953d0eda858c446, type: 2}
+      propertyPath: FXSource
+      value: 
+      objectReference: {fileID: 1105655250}
+    - target: {fileID: 11482098, guid: 7ee9316a0972db545953d0eda858c446, type: 2}
       propertyPath: FXSource
       value: 
       objectReference: {fileID: 1105655250}

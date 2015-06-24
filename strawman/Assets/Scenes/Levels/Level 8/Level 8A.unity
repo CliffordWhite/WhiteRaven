@@ -834,7 +834,7 @@ Transform:
   - {fileID: 1350895560}
   - {fileID: 186087089}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
 --- !u!1001 &409613692
 Prefab:
   m_ObjectHideFlags: 0
@@ -4217,6 +4217,10 @@ Prefab:
       objectReference: {fileID: 2084114593}
     - target: {fileID: 11465618, guid: 7ee9316a0972db545953d0eda858c446, type: 2}
       propertyPath: FXSource
+      value: 
+      objectReference: {fileID: 1434758375}
+    - target: {fileID: 11489552, guid: 7ee9316a0972db545953d0eda858c446, type: 2}
+      propertyPath: sfxManager
       value: 
       objectReference: {fileID: 1434758375}
     m_RemovedComponents: []
