@@ -110,7 +110,8 @@ public class ExitDoor : MonoBehaviour
             {
                 GameManager.manager.levelUnlocked[14] = true;
             }
-			else if (Application.loadedLevel == 20) {
+			else if (Application.loadedLevel == 20) // Level 9
+			{
 				///////////////////////////////////////////////
 				/// KNOWN BUG 5
 				/// manually setting final treasure to collected

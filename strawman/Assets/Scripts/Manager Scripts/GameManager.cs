@@ -32,6 +32,17 @@ public class GameManager : MonoBehaviour
 	public bool isExiting;
 
 
+	//////////////////////////////////////////////
+	/// FOUND BUG 34
+	/// using these to keep track of treasures
+	/// in level 9 for special cases
+	//////////////////////////////////////////////
+	public bool levelNineFirst = false;
+	public bool levelNineSecond = false;
+	//////////////////////////////////////////////
+	/// END BUG 34
+	//////////////////////////////////////////////
+
 	//acheive info
 	public bool[] achieveList;
 
@@ -59,7 +70,14 @@ public class GameManager : MonoBehaviour
 		if (Application.runInBackground)
 			Application.runInBackground = false;
 	}
-
+	// reset bools if level 9 was not complete
+	void OnLevelWasLoaded(int level)
+	{
+		if (levelNineFirst && !levelCompleted[14])
+			levelNineFirst = false;
+		if (levelNineSecond && !levelCompleted[14])
+			levelNineSecond = false;
+	}
 
 	// public function to save the current content from anywhere with this object
 	public void Save()
