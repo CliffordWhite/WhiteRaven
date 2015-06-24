@@ -2814,7 +2814,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .639999986, y: .639999986, z: .200000003}
+  m_Size: {x: .639999986, y: .639999986, z: 500}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &1397696920
 SpriteRenderer:
@@ -4201,7 +4201,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 485846, guid: 7ee9316a0972db545953d0eda858c446, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 11482098, guid: 7ee9316a0972db545953d0eda858c446, type: 2}
       propertyPath: FXSource

@@ -198,7 +198,7 @@ public class GameManager : MonoBehaviour
 		// store all the game information into our container class
 		GameInfo info = new GameInfo();
 		info.Keys = 0;
-		info.Lives = 30;
+		info.Lives = 0;
 		info.GameTime = 0;
 		info.HardModeOn = false;
 		info.TimeAttackOn = false;

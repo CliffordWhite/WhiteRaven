@@ -74,4 +74,24 @@ public class SandDeathWall : MonoBehaviour
 			}
 		}
 	}
+    void OnTriggerEnter(Collider _obj)
+    {
+        if (_obj.tag == "Player")
+        {
+            _obj.GetComponent<PlayerController>().IsInSand = 1;
+        }
+
+        if (_obj.tag == "SandDepth")
+        {
+            _obj.transform.parent.SendMessage("KillPlayer");
+        }
+    }
+
+    void OnTriggerExit(Collider _obj)
+    {
+        if (_obj.tag == "Player")
+        {
+            _obj.GetComponent<PlayerController>().IsInSand = -1;
+        }
+    }
 }
