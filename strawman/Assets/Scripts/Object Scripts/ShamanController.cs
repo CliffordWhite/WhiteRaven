@@ -17,9 +17,9 @@ public class ShamanController : MonoBehaviour
     RaycastHit Connected;
     Vector3 PlayerDirection;
     //Ladder Detection
-    RaycastHit LadderFound;
-    Vector3 LadderDirection;
-    public bool OnLadder;
+    //RaycastHit LadderFound;
+    //Vector3 LadderDirection;
+    //public bool OnLadder;
     //Player
     GameObject Player;
     //Distance check
@@ -47,7 +47,7 @@ public class ShamanController : MonoBehaviour
         Player = GameObject.FindWithTag("Player");
         Awake = false;
         Moving = false;
-        OnLadder = false;
+        //OnLadder = false;
         //Falling = true;
         //  startPos = transform.position = waypoints[wpIndexStart].position;
     }
@@ -81,15 +81,24 @@ public class ShamanController : MonoBehaviour
        // }
         else
         {
-            if (PlayerDirection.x > 0 /*&& !FacingRight*/)
-				animate.Play("MoveRight");
-            else if (PlayerDirection.x < 0 /*&& FacingRight*/)
-				animate.Play("MoveLeft");
-            Chase();//chase the player down.
-        }
+
+			if (Mathf.Abs(Player.transform.position.y - transform.position.y) >= distancecheck) {
+				Awake = false;
+				animate.Play("Idle");
+				GetComponent<Rigidbody>().velocity = Vector2.zero;
+			}
+			else
+			{
+            	if (PlayerDirection.x > 0 /*&& !FacingRight*/)
+					animate.Play("MoveRight");
+            	else if (PlayerDirection.x < 0 /*&& FacingRight*/)
+					animate.Play("MoveLeft");
+				GetComponent<Rigidbody>().velocity = new Vector2(PlayerDirection.x*speed,0);
+			}
+		}
     }
 
-    void Chase()
+    /*void Chase()
     {
         Ray LookingForGround = new Ray(transform.position, Vector3.down);
         if (Falling && Physics.Raycast(LookingForGround, out Grounded, 100.0f))//raycast down to see if on floor or not.
@@ -99,9 +108,9 @@ public class ShamanController : MonoBehaviour
                 GetComponent<Rigidbody>().MovePosition(new Vector3(transform.position.x, transform.position.y - 0.5f, transform.position.z));
             }
         }
-
-            Vector2 velocity = new Vector2((transform.position.x - Player.transform.position.x) * speed, (0.0f) * speed);
-            GetComponent<Rigidbody>().velocity = -velocity;
+        Vector2 velocity = new Vector2((transform.position.x - Player.transform.position.x) * speed, (0.0f) * speed);
+        
+	   GetComponent<Rigidbody>().velocity = -velocity;
        if(Moving)
         {
 
@@ -113,8 +122,6 @@ public class ShamanController : MonoBehaviour
               
            }
         }
-      
-
     }
 
     void OnTriggerExit(Collider other)
@@ -173,7 +180,7 @@ public class ShamanController : MonoBehaviour
                     Falling = false;
                 }
             }
-    }
+    }*/
 
 //    void Flip()
 //    {
