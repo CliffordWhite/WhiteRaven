@@ -816,7 +816,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!1 &1457062704
 GameObject:
   m_ObjectHideFlags: 0
@@ -1048,7 +1048,7 @@ RectTransform:
   m_RootOrder: 4
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -245, y: -350}
+  m_AnchoredPosition: {x: -245, y: 600}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &2052450719
@@ -1080,9 +1080,9 @@ MonoBehaviour:
     Design\n\t-Nicholas Lee\n\t-Joshua Stnkiewicz\n\t-Clifford White\n\nGame Development
     \n\t-Nicholas Lee\n\t-Joshua Stankiewicz\n\t-Clifford White\n\t-Austin Ware\n\nGame
     Logo  - Gregory Bey\nPlayer Sprites - Gregory Bey\nEnemy Sprites - Gregory Bey\nMain
-    Menu Image - Gregory Bey\n\nMad Jones was developed as a Full Sail\nUniversity
-    Class Project. All Copyrighted \nAssets are used for non-profit to adhere\n to
-    fair use policies."
+    Menu Image - Gregory Bey\n\nQA Team\n\t-Austin Ware\n\t-Steven Quast\n\t-Shawn
+    Richmond\n\nMad Jones was developed as a Full Sail\nUniversity Class Project.
+    All Copyrighted \nAssets are used for non-profit to adhere\n to fair use policies."
 --- !u!222 &2052450720
 CanvasRenderer:
   m_ObjectHideFlags: 0
