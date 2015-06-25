@@ -28,7 +28,7 @@ public class Credits : MonoBehaviour {
 		// changed the maxDistanceDelta parameter of MoveTowards
 		///////////////////////////////////////////////
 		
-		creditText.transform.localPosition = Vector3.MoveTowards (creditText.transform.localPosition, new Vector3 (-245, 480, 0), 0.5f);
+		creditText.transform.localPosition = Vector3.MoveTowards (creditText.transform.localPosition, new Vector3 (-245, 600, 0), 0.5f);
 		///////////////////////////////////////////////
 		// END FOUND BUG 14
 		///////////////////////////////////////////////
